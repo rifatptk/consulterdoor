@@ -1,0 +1,85 @@
+.primary-background-color {
+  background: $bg-primary-color !important;
+}
+.primary-text-color {
+  color: $text-primary-color !important;
+}
+.primary-border-color {
+  border-color: $bg-primary-color !important;
+}
+.secondary-text-color {
+  color: $text-secondary-color !important;
+}
+.purple-text-color {
+  color: $btn-secondary-text-color;
+}
+.bg-color-white {
+  background: $white;
+}
+.font-size-extra-small {
+  font-size: 0.7rem;
+}
+.font-size-small {
+  font-size: 1rem;
+}
+.bold {
+  font-weight: 600;
+}
+.underline-text {
+  text-decoration: underline;
+}
+.font-size-medium {
+  font-size: 0.8rem;
+}
+.font-size-lg {
+  font-size: 1.2rem;
+}
+.header-avatar-bg {
+  background: $softRed !important;
+}
+
+.text-disabled-color {
+  color: $text-disabled-color !important;
+}
+.primary-title-color {
+  color: $title-primary-color !important;
+}
+.secondary-title-color {
+  color: $title-secondary-color !important;
+}
+.bg-highlight-color {
+  background-color: $lightGrey !important;
+}
+.color-grey {
+  color: grey;
+}
+.color-yellow {
+  color: $brightYellow;
+}
+.color-black {
+  color: $black-text-color;
+}
+.pointer {
+  cursor: pointer !important;
+}
+.not-allowed {
+  cursor: not-allowed !important;
+}
+.icon-disabled {
+  opacity: 0.3;
+}
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-inline{
+  flex-wrap: nowrap;
+}

@@ -1,0 +1,60 @@
+.button-cursor {
+  cursor: default;
+}
+
+.primary-button {
+  color: $btn-primary-text-color !important;
+  background: $btn-primary-bg-color !important;
+  border-color: $btn-primary-border-color !important;
+}
+.primary-button:hover {
+  color: $btn-secondary-text-color !important;
+  background: $btn-secondary-bg-color !important;
+  border-color: $btn-secondary-border-color !important;
+}
+.primary-button-loader {
+  color: $btn-primary-text-color !important;
+  background: $btn-primary-bg-color !important;
+  border-color: $btn-primary-border-color !important;
+}
+.secondary-button {
+  color: $btn-secondary-text-color !important;
+  background: $btn-secondary-bg-color !important;
+  border-color: $btn-secondary-border-color !important;
+}
+.secondary-button:hover {
+  color: $btn-primary-text-color !important;
+  background: $btn-primary-bg-color !important;
+  border-color: $btn-primary-border-color !important;
+}
+.button-link {
+  color: $btn-link-text-color;
+  font-weight: bold;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.button-link:hover {
+  color: $black-text-color;
+  background-color: transparent;
+  border: none;
+}
+
+.button-link:active {
+  color: $black-text-color !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.button-link:focus {
+  color: $black-text-color;
+  background-color: transparent;
+  border: none;
+}
+
+.button-disable {
+  pointer-events: none;
+}
+.background-disabled-color {
+  background: $bg-disabled-color !important;
+}
