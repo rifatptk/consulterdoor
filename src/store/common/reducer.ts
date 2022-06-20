@@ -1,20 +1,23 @@
-import { SET_IS_OVERLAY_LOADING } from '../constant';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+export interface CommonState {
+  isOverlayLoading: boolean;
+}
 
-const defaultStateApp = {
+const initialState: CommonState = {
   isOverlayLoading: false
 };
 
-export default function CommonReducer(
-  state: any = defaultStateApp,
-  action: any
-) {
-  switch (action.type) {
-    case SET_IS_OVERLAY_LOADING:
-      return {
-        ...state,
-        isOverlayLoading: action.isOverlayLoading
-      };
-    default:
-      return state;
+export const commonSlice = createSlice({
+  name: 'common',
+  initialState,
+  reducers: {
+    setIsOverlayLoading: (state, action: PayloadAction<boolean>) => {
+      state.isOverlayLoading = action.payload;
+    }
   }
-}
+});
+
+const { setIsOverlayLoading } = commonSlice.actions;
+const commonReducer = commonSlice.reducer;
+
+export { setIsOverlayLoading, commonReducer };
