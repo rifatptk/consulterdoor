@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
-import { About, AddPeople, ViewPeople } from '../pages';
+import { About, AddPeople, ViewPeople, Home } from '../pages';
 
 const App = () => {
   let routes = useRoutes([
     { path: '/about', element: <About /> },
-    { path: '/', element: <ViewPeople /> },
+    { path: '/', element: <Home /> },
     { path: '/home', element: <AddPeople /> }
   ]);
   return routes;
