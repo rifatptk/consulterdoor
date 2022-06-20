@@ -1,0 +1,296 @@
+/*
+ * Author: Tharindu (tseneviratne@mitrai.com)
+ * Created on: 17-10-19
+ * Description: 
+ * Module: Hedgehog Staff-Portal
+ * Copyright (c) 2019 Leap In! All rights reserved.
+ */
+.light-blue {
+  color: #478fca !important; }
+
+/*
+ * Author: Tharindu (tseneviratne@mitrai.com)
+ * Created on: 17-10-19
+ * Description: 
+ * Module: Hedgehog Staff-Portal
+ * Copyright (c) 2019 Leap In! All rights reserved.
+ */
+.primary-background-color {
+  background: #e32625 !important; }
+
+.primary-text-color {
+  color: #e32625 !important; }
+
+.primary-border-color {
+  border-color: #e32625 !important; }
+
+.secondary-text-color {
+  color: #ffffff !important; }
+
+.purple-text-color {
+  color: #533fab; }
+
+.bg-color-white {
+  background: #ffffff; }
+
+.font-size-extra-small {
+  font-size: 0.7rem; }
+
+.font-size-small {
+  font-size: 1rem; }
+
+.bold {
+  font-weight: 600; }
+
+.underline-text {
+  text-decoration: underline; }
+
+.font-size-medium {
+  font-size: 0.8rem; }
+
+.font-size-lg {
+  font-size: 1.2rem; }
+
+.header-avatar-bg {
+  background: #faae9e !important; }
+
+.text-disabled-color {
+  color: #d1caca !important; }
+
+.primary-title-color {
+  color: #e32625 !important; }
+
+.secondary-title-color {
+  color: #533fab !important; }
+
+.bg-highlight-color {
+  background-color: #e2e2e2 !important; }
+
+.color-grey {
+  color: grey; }
+
+.color-yellow {
+  color: #e4a41b; }
+
+.color-black {
+  color: #000000; }
+
+.pointer {
+  cursor: pointer !important; }
+
+.not-allowed {
+  cursor: not-allowed !important; }
+
+.icon-disabled {
+  opacity: 0.3; }
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.text-inline {
+  flex-wrap: nowrap; }
+
+.button-cursor {
+  cursor: default; }
+
+.primary-button {
+  color: #ffffff !important;
+  background: #533fab !important;
+  border-color: #ffffff !important; }
+
+.primary-button:hover {
+  color: #533fab !important;
+  background: #ffffff !important;
+  border-color: #533fab !important; }
+
+.primary-button-loader {
+  color: #ffffff !important;
+  background: #533fab !important;
+  border-color: #ffffff !important; }
+
+.secondary-button {
+  color: #533fab !important;
+  background: #ffffff !important;
+  border-color: #533fab !important; }
+
+.secondary-button:hover {
+  color: #ffffff !important;
+  background: #533fab !important;
+  border-color: #ffffff !important; }
+
+.button-link {
+  color: #a7a5a5;
+  font-weight: bold;
+  background-color: transparent;
+  border-color: transparent; }
+
+.button-link:hover {
+  color: #000000;
+  background-color: transparent;
+  border: none; }
+
+.button-link:active {
+  color: #000000 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important; }
+
+.button-link:focus {
+  color: #000000;
+  background-color: transparent;
+  border: none; }
+
+.button-disable {
+  pointer-events: none; }
+
+.background-disabled-color {
+  background: #e2e2e2 !important; }
+
+.default-text-input {
+  height: 40px;
+  outline: none;
+  border: 2px solid #aaaaaa; }
+
+.default-text-input:focus {
+  outline: none;
+  border: 2px solid #aaaaaa; }
+
+.form-control:focus {
+  box-shadow: 0 0 1px 1px #aaaaaa; }
+
+.text-input-error {
+  border-color: #cc5841; }
+
+.text-input-error:focus {
+  border-color: #cc5841; }
+
+.text-input-error-label {
+  color: #cc5841;
+  margin-left: 2px; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield; }
+
+.text-label {
+  min-width: 100px;
+  max-width: 260px;
+  color: #000000; }
+
+.attachment-error {
+  color: #cc5841;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0;
+  padding-top: 5px;
+  padding-left: 9px; }
+
+.dropZoneContainer {
+  border: dashed;
+  border-width: thin; }
+
+.default-date-input {
+  height: 40px;
+  outline: none;
+  border: 2px solid #aaaaaa;
+  border-radius: 4px;
+  text-align: right;
+  padding-right: 10px;
+  padding-left: 10px; }
+
+.react-datepicker__header__dropdown--select select {
+  border: 1px solid #000000;
+  border-radius: 1px;
+  height: 20px; }
+
+.react-datepicker__year-dropdown-container--select {
+  margin-left: 4%; }
+
+.date-input-error {
+  border-color: #cc5841; }
+
+.date-input-error:focus {
+  border-color: #cc5841; }
+
+.add-people-input {
+  width: 300px;
+  margin-left: 5px; }
+
+.add-people-label {
+  width: 140px;
+  margin-top: 6px; }
+
+.add-people-drop-label {
+  min-width: 140px;
+  margin-top: 6px;
+  max-width: 170px; }
+
+.address-input {
+  height: 130px; }
+
+.full-name-input {
+  height: 80px; }
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: transparent; }
+
+.table > thead {
+  background-color: #e2e2e2; }
+
+.main-container {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }
+
+.profile-image {
+  width: '6rem';
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid white; }
+
+.service-image {
+  height: 8rem;
+  object-fit: cover; }
+
+.profile-image-container {
+  width: '6rem';
+  height: '6rem';
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
+
+.title-text {
+  margin-top: -2.5rem;
+  margin-left: 7rem;
+  margin-bottom: 1rem;
+  font-size: 16px; }
+
+.body-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #676767; }
+
+.column-divider {
+  height: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.8); }
+
+.availability-container {
+  position: absolute;
+  border: 3px solid white;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px; }

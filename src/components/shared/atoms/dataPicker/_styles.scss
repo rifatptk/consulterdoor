@@ -1,0 +1,28 @@
+.default-date-input {
+  height: 40px;
+  outline: none;
+  border: 2px solid $primary-border-color;
+  border-radius: 4px;
+  text-align: right;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.react-datepicker__header__dropdown--select {
+  select {
+    border: 1px solid #000000;
+    border-radius: 1px;
+    height: 20px;
+  }
+}
+
+.react-datepicker__year-dropdown-container--select {
+  margin-left: 4%;
+}
+
+.date-input-error {
+  border-color: $error-color;
+}
+.date-input-error:focus {
+  border-color: $error-color;
+}
