@@ -1,11 +1,11 @@
-import { ViewPeopleList } from '../../components';
+import { ServiceCard } from '../../components/molecules/cards';
 import { PageContainer } from '../../components/shared';
 
 function ViewPeople() {
   return (
     <PageContainer>
       <div>
-        <ViewPeopleList />
+        <ServiceCard />
       </div>
     </PageContainer>
   );

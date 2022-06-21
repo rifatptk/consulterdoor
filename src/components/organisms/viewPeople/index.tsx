@@ -1,14 +1,13 @@
-import { DEFAULT_DATE_FORMAT } from '../../../shared/constant';
 import { messages } from '../../../shared/localize';
-import {
-  TextInput,
-  DropZone,
-  DatePicker,
-  TextLabel,
-  Table
-} from '../../shared';
+import { Table, Button } from '../../shared';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsOverlayLoading } from '../../../store/actions';
+import { RootState } from '../../../store';
 
 function ViewPeopleList() {
+  const commonReducer = useSelector((state: RootState) => state.commonReducer);
+  const dispatch = useDispatch();
   return (
     <div className="mt-5">
       <Table
@@ -21,6 +20,14 @@ function ViewPeopleList() {
           [{ value: 'test1' }, { value: 554 }]
         ]}
       />
+      <Button
+        onClick={() => {
+          dispatch(setIsOverlayLoading(!commonReducer.isOverlayLoading));
+        }}
+        title={`Test button - ${commonReducer.isOverlayLoading}`}
+      >
+        Test button
+      </Button>
     </div>
   );
 }
