@@ -8,6 +8,18 @@
 .light-blue {
   color: #478fca !important; }
 
+.main-color {
+  color: #1A83E4 !important; }
+
+.main-color-bg {
+  background-color: #1A83E4; }
+
+.navbar-items {
+  margin-left: 25pt; }
+
+.background-color {
+  color: #ffffff !important; }
+
 /*
  * Author: Tharindu (tseneviratne@mitrai.com)
  * Created on: 17-10-19
