@@ -4,7 +4,7 @@ import { messages } from '../../../shared/localize';
 import Badge from 'react-bootstrap/Badge'
 import { ServiceCard } from "../../molecules/cards";
 import { Card } from "react-bootstrap";
-
+// import StarRatings from './react-star-ratings';
 
 
 
@@ -13,17 +13,56 @@ function ViewConsultantProfile() {
         <Container>
             <Row>
                 <Col md="3" className="profile-pic-side">
-                    <Row style={{ position: 'relative' }}>
+                    <Row className="profile-pic">
 
-                        {/* <img src={require('../../../assets/samples/profile.jpg')} style={{ position: 'absolute',left }} className="profile-pic" />
-
-                        <div className='availability-container' style={{ background: 'green', position: 'absolute', left: '0px', bottom: '0px' }} /> */}
-                        <Card as={'div'} className='profile-image-container'>
-                            <div className='availability-container' style={{ background: 'green' }} />
-                            <img className="profile-image" src={require('../../../assets/samples/profile.jpg')} />
-                        </Card>
+                        <div>
+                            <div className='verify-badge' />
+                            <img className="profile-main-image" style={{ width: '15rem' }} src={require('../../../assets/samples/profile.jpg')} />
+                        </div>
 
                     </Row>
+                    <Row className="justify-content-center" style={{ width: '80%', marginBottom: '10%' }}>
+                        <Row >
+                            <TextLabel className="topic" style={{ fontSize: '22px', lineHeight: '30px' }} text={'Dilshan Athukorala'} />
+                        </Row>
+                        <Row  >
+                            <TextLabel className="text-center font" style={{ color: '#828282', fontSize: '20px', lineHeight: '20px' }} text={'I am UI/UX Designer'} />
+                        </Row>
+                        <Row className="justify-content-center">
+                            {/* <StarRatings
+                            rating={4}
+                            starRatedColor="blue"
+                            numberOfStars={6}
+                            name='rating'
+                        /> */}
+                            Star Rating
+                        </Row>
+                        <Row className="text-center">
+                            <div>4.9   <span style={{ color: 'gray' }}>(30 reviews)</span></div>
+                        </Row>
+                    </Row>
+
+                    <Row className="earning-widget">
+                        <Row><TextLabel className="topic" text={messages.consultantProfile.totalEarning} /> </Row>
+                        <Row className="justify-content-center earning-amount">$999</Row>
+                        <Row><TextLabel className="edu justify-content-center" text={messages.consultantProfile.manageEarning} /></Row>
+                    </Row>
+                    <Row className="footer-detail">
+                        <Row>
+                            <Col md="4" sm="12"><img src={require('../../../assets/samples/sl-flag.png')} /></Col>
+                            <Col md="8" sm="12"><TextLabel className="font" style={{ fontWeight: '400', fontSize: '15px', lineHeight: '27px', color: '#4F4F4F' }} text={'Horana , Sri Lanka'} /></Col>
+                        </Row>
+                        <Row>
+                            <Col md="4" sm="12"><img src={require('../../../assets/samples/hand.png')} /></Col>
+                            <Col md="8" sm="12"><TextLabel className="font" style={{ fontWeight: '400', fontSize: '15px', lineHeight: '27px', color: '#4F4F4F' }} text={'Joined May 10,2022'} /></Col>
+                        </Row>
+                        <Row>
+                            <Col md="4" sm="12"><img src={require('../../../assets/samples/like.png')} /></Col>
+                            <Col md="8" sm="12"><TextLabel className="font" style={{ fontWeight: '400', fontSize: '15px', lineHeight: '27px', color: '#4F4F4F' }} text={'5 Recommendations'} /></Col>
+                        </Row>
+
+                    </Row>
+
 
 
                 </Col>
@@ -76,7 +115,7 @@ function ViewConsultantProfile() {
 
             </Row>
             <Row className="main-section">
-                <Row className="topic">My Services</Row>
+                <Row><TextLabel className="font" style={{ fontWeight: '600', fontSize: '36px', lineHeight: '54px' }} text={messages.consultantProfile.myServices} /> </Row>
                 <Row>
                     <ServiceCard />
                     <ServiceCard />
@@ -89,8 +128,16 @@ function ViewConsultantProfile() {
             <Row>
                 Reviews
             </Row>
-            <Row>
-                Similar Consultants
+            <Row className="main-section">
+                <Row ><TextLabel className="font" style={{ fontWeight: '600', fontSize: '36px', lineHeight: '54px' }} text={messages.consultantProfile.similarConsultants} /> </Row>
+                <Row>
+                    <ServiceCard />
+                    <ServiceCard />
+                    <ServiceCard />
+                    <ServiceCard />
+                    <ServiceCard />
+                </Row>
+
             </Row>
         </Container>
     </div>)

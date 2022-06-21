@@ -26,6 +26,10 @@ export const en: IMessageProperties = {
     description: 'Description',
     qualification: 'Qualification',
     skills: 'Skills',
-    education: 'Education'
+    education: 'Education',
+    totalEarning: 'Total Earning',
+    manageEarning: 'Manage Earning',
+    myServices: 'My Services',
+    similarConsultants: 'Similar Consultants'
   }
 };

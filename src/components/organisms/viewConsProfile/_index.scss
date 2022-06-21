@@ -14,28 +14,44 @@
   margin-top: 30px;
   border: 1px solid #84c3fd;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .profile-pic {
-  width: 300px;
-  height: 300px;
-  border-radius: 33% 33% 33% 0%;
+  position: relative;
+  width: 80%;
   margin-top: 10%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-  background: #0057e3;
+  margin-bottom: 10%;
 }
 
 .topic {
-  font-family: 'Inter';
+  font-family: 'Poppins';
   font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 39px;
+  font-weight: 600;
+  // font-size: 32px;
+  // line-height: 39px;
   text-align: center;
   color: #000000;
+}
+
+.font {
+  font-family: 'Poppins';
+  font-style: normal;
+}
+.earning-amount {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 54px;
+  /* identical to box height */
+
+  /* Blue 1 */
+
+  color: #2f80ed;
 }
 
 .main-section {
@@ -69,6 +85,7 @@
   margin: 4px;
   height: 60px;
   display: flex;
+  min-width: 200px;
   align-items: center;
   justify-content: center;
   background-color: #f3f3f3 !important;
@@ -102,19 +119,19 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: justify;
+  text-align: center;
   color: #676767;
 }
 
-.availability-container {
-  // position: absolute;
-  // border: 3px solid white;
-  // top: -5px;
-  // right: -5px;
-  // width: 20px;
-  // height: 20px;
-  border-radius: 10px;
-  background: green;
+.verify-badge {
+  position: absolute;
+  border: 6px solid white;
+  bottom: 0px;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #00d870;
 }
 
 .profile-image-container {
@@ -124,10 +141,22 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.profile-image {
+.profile-main-image {
   width: '6rem';
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
   border: 5px solid white;
+}
+
+.earning-widget {
+  border: 1px solid #1a83e4;
+  border-radius: 10px;
+  width: 80%;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.footer-detail {
+  justify-content: center;
+  width: 85%;
 }

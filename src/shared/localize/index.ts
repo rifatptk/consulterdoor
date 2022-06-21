@@ -28,6 +28,10 @@ export interface IMessageProperties {
     qualification: string;
     skills: string;
     education: string;
+    totalEarning: string;
+    manageEarning: string;
+    myServices: string;
+    similarConsultants: string;
   };
 }
 
