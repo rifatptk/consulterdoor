@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-interface IProps {}
+interface IProps { }
 
 const Header: React.FunctionComponent<IProps> = React.memo(
-  ({}: IProps): JSX.Element => (
+  ({ }: IProps): JSX.Element => (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
@@ -21,6 +21,11 @@ const Header: React.FunctionComponent<IProps> = React.memo(
               <Nav.Link>
                 <NavLink to="/about" className="nav-link">
                   Pricing
+                </NavLink>
+              </Nav.Link>
+              <Nav.Link aria-disabled={true}>
+                <NavLink to="/profile" className="nav-link">
+                  Profile
                 </NavLink>
               </Nav.Link>
             </Nav>

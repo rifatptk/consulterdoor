@@ -243,6 +243,118 @@ input[type='number'] {
 .full-name-input {
   height: 80px; }
 
+.user-details {
+  margin: 30px; }
+
+.sub-topics {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px; }
+
+.profile-pic-side {
+  margin-top: 30px;
+  border: 1px solid #84c3fd;
+  border-radius: 6px; }
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 33% 33% 33% 0%;
+  margin-top: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background: #0057e3; }
+
+.topic {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  color: #000000; }
+
+.main-section {
+  margin-top: 10%; }
+
+.section-sub-topic {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #2d9cdb; }
+
+.description {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify; }
+
+.detail-section {
+  margin-bottom: 30px; }
+
+.badge {
+  width: 20%;
+  margin: 4px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3 !important;
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4f4f4f; }
+
+.indent {
+  margin-left: 3%; }
+
+.bold {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify;
+  color: #333333; }
+
+.edu {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  color: #676767; }
+
+.availability-container {
+  border-radius: 10px;
+  background: green; }
+
+.profile-image-container {
+  width: '6rem';
+  height: '6rem';
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
+
+.profile-image {
+  width: '6rem';
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid white; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 

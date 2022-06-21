@@ -21,5 +21,11 @@ export const en: IMessageProperties = {
     drivingLicenseImage: 'Driving License Photo',
     elderlyCardImage: 'Elderly Card photo',
     personImage: 'Person Image'
+  },
+  consultantProfile: {
+    description: 'Description',
+    qualification: 'Qualification',
+    skills: 'Skills',
+    education: 'Education'
   }
 };

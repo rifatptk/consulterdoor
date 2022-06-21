@@ -23,6 +23,12 @@ export interface IMessageProperties {
     elderlyCardImage: string;
     personImage: string;
   };
+  consultantProfile: {
+    description: string;
+    qualification: string;
+    skills: string;
+    education: string;
+  };
 }
 
 export interface IMessages
