@@ -6,7 +6,7 @@
  * Copyright (c) 2019 Leap In! All rights reserved.
  */
 
-$blue: #0855a2;
+$blue: #1A83E4;
 $red: #e32625;
 $yellow: #00748c;
 $white: #ffffff;
@@ -22,8 +22,25 @@ $linkWater: #d5e4f1;
 $lynchapprox: #667e99;
 $black: #000000;
 $brightYellow: #e4a41b;
+
 .light-blue {
   color: $lightBlue !important;
+}
+
+.main-color {
+  color: $blue !important;
+}
+
+.main-color-bg {
+  background-color: $blue;
+}
+
+.navbar-items {
+  margin-left: 25pt;
+}
+
+.background-color {
+  color: $white !important;
 }
 
 $lightRed: #cc5841;
