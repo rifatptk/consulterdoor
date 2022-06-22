@@ -6,8 +6,9 @@ const App = () => {
   let routes = useRoutes([
     { path: '/about', element: <About /> },
     { path: '/', element: <Home /> },
-    { path: '/home', element: <AddPeople /> },
-    { path: '/profile', element: <ConsultantProfile /> }
+    { path: '/profile', element: <ConsultantProfile /> },
+    { path: '/view', element: <ViewPeople /> },
+    { path: '/home', element: <AddPeople /> }
   ]);
   return routes;
 };

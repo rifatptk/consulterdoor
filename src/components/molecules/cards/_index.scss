@@ -2,7 +2,7 @@
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
-.profile-image {
+.service-card-profile-image {
     width: '6rem';
     height: 100%;
     object-fit: cover;
@@ -10,26 +10,60 @@
     border: 5px solid white;
 }
 
-.service-image {
+.service-card-profile-image {
+    width: '6rem';
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid white;
+}
+
+.service-card-service-image {
     height: 8rem;
     object-fit: cover;
 }
 
-.profile-image-container {
+.consultant-card-service-image {
+    height: 6rem;
+    object-fit: cover;
+}
+
+
+.service-card-profile-image-container {
     width: '6rem';
     height: '6rem';
     border-radius: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.title-text {
+.consultant-card-profile-image-container {
+    width: '5rem';
+    height: '5rem';
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.consultant-card-profile-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.consultant-card-profile-image {
+    width: '6rem';
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid white;
+}
+
+.service-card-title-text {
     margin-top: -2.5rem;
     margin-left: 7rem;
     margin-bottom: 1rem;
     font-size: 16px;
 }
 
-.body-text {
+.service-card-body-text {
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -38,12 +72,27 @@
     color: #676767;
 }
 
-.column-divider {
+.consultant-card-title-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+.consultant-card-body-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+
+    color: #676767;
+}
+
+.service-card-column-divider {
     height: 100%;
     border-left: 1px solid rgba(0, 0, 0, 0.8);
 }
 
-.availability-container {
+.service-card-availability-container {
     position: absolute;
     border: 3px solid white;
     top: -5px;
@@ -51,4 +100,21 @@
     width: 20px;
     height: 20px;
     border-radius: 10px;
+}
+
+.consultant-card-availability-container {
+    position: absolute;
+    border: 3px solid white;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+small {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
 }
