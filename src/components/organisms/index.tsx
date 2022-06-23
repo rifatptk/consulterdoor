@@ -1,6 +1,5 @@
-import { AddPeopleForm } from './addPeople';
-import { ViewPeopleList } from './viewPeople';
-import { ViewConsultantProfile } from './viewConsProfile'
-import { CardList } from './cardList';
+import { ViewConsultantProfile } from './viewConsProfile';
+import { ServiceCardList } from './serviceCardList';
+import { HomeScreen } from './homeScreen';
 
-export { AddPeopleForm, ViewPeopleList, ViewConsultantProfile, CardList };
+export { ViewConsultantProfile, ServiceCardList, HomeScreen };

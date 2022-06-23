@@ -1,3 +1,4 @@
 import { Table } from './Table';
+import { CommonCarousel } from './Carousel';
 
-export { Table };
+export { Table, CommonCarousel };

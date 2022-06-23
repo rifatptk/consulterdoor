@@ -236,25 +236,6 @@ input[type='number'] {
 .date-input-error:focus {
   border-color: #cc5841; }
 
-.add-people-input {
-  width: 300px;
-  margin-left: 5px; }
-
-.add-people-label {
-  width: 140px;
-  margin-top: 6px; }
-
-.add-people-drop-label {
-  min-width: 140px;
-  margin-top: 6px;
-  max-width: 170px; }
-
-.address-input {
-  height: 130px; }
-
-.full-name-input {
-  height: 80px; }
-
 .user-details {
   margin: 30px; }
 
