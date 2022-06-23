@@ -1,5 +1,5 @@
 import { AddPeopleForm } from './addPeople';
 import { ViewPeopleList } from './viewPeople';
-import { CardList } from './cardList';
+import { ServiceCardList } from './serviceCardList';
 
-export { AddPeopleForm, ViewPeopleList, CardList };
+export { AddPeopleForm, ViewPeopleList, ServiceCardList };
