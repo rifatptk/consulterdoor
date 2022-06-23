@@ -76,6 +76,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-datepicker": "^4.3.3"
+    "@types/react-datepicker": "^4.3.3",
+    "@types/react-image-gallery": "^1.0.5"
   }
 }

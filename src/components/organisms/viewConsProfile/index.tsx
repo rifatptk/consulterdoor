@@ -8,7 +8,7 @@ function ViewConsultantProfile() {
   return (
     <div>
       <Container>
-        <Row>
+        <Row className="mt-3">
           <Col md="3" className="profile-pic-side">
             <Row className="profile-pic">
               <div>
@@ -26,7 +26,7 @@ function ViewConsultantProfile() {
             >
               <Row>
                 <TextLabel
-                  className="topic"
+                  className="topic primary-text-color"
                   style={{ fontSize: '22px', lineHeight: '30px' }}
                   text={'Dilshan Athukorala'}
                 />
@@ -45,7 +45,7 @@ function ViewConsultantProfile() {
               <Row className="justify-content-center">Star Rating</Row>
               <Row className="text-center">
                 <div>
-                  4.9 <span style={{ color: 'gray' }}>(30 reviews)</span>
+                  4.9 <span className="review">(30 reviews)</span>
                 </div>
               </Row>
             </Row>
@@ -53,11 +53,11 @@ function ViewConsultantProfile() {
             <Row className="earning-widget">
               <Row>
                 <TextLabel
-                  className="topic"
+                  className="topic primary-text-color"
                   text={messages.consultantProfile.totalEarning}
                 />{' '}
               </Row>
-              <Row className="justify-content-center earning-amount">$999</Row>
+              <Row className="justify-content-center earning-amount secondary-text-color">$999</Row>
               <Row>
                 <TextLabel
                   className="edu justify-content-center"
@@ -154,28 +154,28 @@ function ViewConsultantProfile() {
                   <Row>
                     <Row>
                       <TextLabel
-                        className="section-sub-topic"
+                        className="section-sub-topic secondary-text-color"
                         text={messages.consultantProfile.skills}
                       />
                     </Row>
                     <Row className="indent">
-                      <Badge className="badge">Web Design</Badge>
-                      <Badge className="badge">Frontend dev.</Badge>
-                      <Badge className="badge">Web Design</Badge>
-                      <Badge className="badge">Web Design</Badge>
-                      <Badge className="badge">Frontend dev.</Badge>
+                      <Badge className="badge primary-text-color">Web Design</Badge>
+                      <Badge className="badge primary-text-color">Frontend dev.</Badge>
+                      <Badge className="badge primary-text-color">Web Design</Badge>
+                      <Badge className="badge primary-text-color">Web Design</Badge>
+                      <Badge className="badge primary-text-color">Frontend dev.</Badge>
                     </Row>
                   </Row>
                   <Row>
                     <Row>
                       <TextLabel
-                        className="section-sub-topic"
+                        className="section-sub-topic secondary-text-color"
                         text={messages.consultantProfile.education}
                       />
                     </Row>
                     <Row className="indent">
                       <Row>
-                        <Row className="bold">
+                        <Row className="bold primary-text-color">
                           1.Infromation & Comminication Technology
                         </Row>
                         <Row className="edu">
@@ -184,7 +184,7 @@ function ViewConsultantProfile() {
                         <Row className="edu">2017-2021 (4Years)</Row>
                       </Row>
                       <Row>
-                        <Row className="bold">
+                        <Row className="bold primary-text-color">
                           1.Infromation & Comminication Technology
                         </Row>
                         <Row className="edu">

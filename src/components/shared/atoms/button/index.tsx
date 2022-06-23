@@ -63,7 +63,7 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
     tabIndex = 0
   }: IProps) {
     return (
-      <div className="d-flex flex-row align-items-center">
+      <div className="d-flex flex-row align-items-center pl-0 pr-0">
         <Button
           size={size}
           outline={outline}
