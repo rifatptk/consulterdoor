@@ -23,20 +23,22 @@ const CommonCarousel: React.FunctionComponent<IProps> = React.memo(
     focusOnSelect,
     infinite,
     template
-  }: IProps): JSX.Element => (
-    <Carousel
-      responsive={TEMPLATES[template]}
-      partialVisbile={partialVisbile}
-      removeArrowOnDeviceType={
-        removeArrowOnDeviceType || ['mobile', 'tablet', 'desktop']
-      }
-      showDots={showDots}
-      focusOnSelect={focusOnSelect}
-      infinite={infinite}
-    >
-      {children}
-    </Carousel>
-  )
+  }: IProps): JSX.Element => {
+    return (
+      <Carousel
+        responsive={TEMPLATES[template]}
+        partialVisbile={partialVisbile}
+        removeArrowOnDeviceType={
+          removeArrowOnDeviceType || ['mobile', 'tablet', 'desktop']
+        }
+        showDots={showDots}
+        focusOnSelect={focusOnSelect}
+        infinite={infinite}
+      >
+        {children}
+      </Carousel>
+    );
+  }
 );
 
 export { CommonCarousel };

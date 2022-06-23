@@ -1,11 +1,11 @@
-import { ServiceCardList } from '../../components';
+import { HomeScreen } from '../../components';
 import { PageContainer } from '../../components/shared';
 
 function Home() {
   return (
     <PageContainer>
       <div>
-        <ServiceCardList />
+        <HomeScreen />
       </div>
     </PageContainer>
   );

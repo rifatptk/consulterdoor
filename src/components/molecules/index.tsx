@@ -1,3 +1,4 @@
 import { Header } from './header';
+import { ServiceCard } from './cards';
 
-export { Header };
+export { Header, ServiceCard };

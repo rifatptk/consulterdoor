@@ -1,55 +1,37 @@
 import { CommonCarousel } from '../../shared';
+import { ServiceCard } from '../../';
+import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 
-function ServiceCardList() {
+interface IProps {
+  data: object[];
+}
+
+function ServiceCardList({ data }: IProps) {
   const { innerWidth: width } = window;
 
-  const card = (color: any) => (
-    <div
-      style={{
-        height: 150,
-        background: color,
-        width: 300,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      test
-    </div>
-  );
+  const card = (color: any) => <ServiceCard />;
+
+  const cardList = () => {
+    return data.map((item) => (
+      <div className="col-md" style={{ padding: 0, margin: 5 }}>
+        {card('red')}
+      </div>
+    ));
+  };
   return (
     <div className="container">
       <div className="row align-items-center">
-        {width < 465 ? (
+        {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
           <CommonCarousel
             template="ONE_SLIDE_PER_PAGE"
             partialVisbile={true}
-            removeArrowOnDeviceType={['mobile', 'tablet', 'desktop']}
-            showDots={true}
+            showDots={false}
+            removeArrowOnDeviceType={[]}
           >
-            <div>{card('red')}</div>
-            <div>{card('green')}</div>
-            <div>{card('yellow')}</div>
-            <div>{card('blue')}</div>
-            <div>{card('red')}</div>
-            <div>{card('green')}</div>
-            <div>{card('yellow')}</div>
+            {cardList()}
           </CommonCarousel>
         ) : (
-          <>
-            <div
-              className="col-md col-xl-4"
-              style={{ width: 300, margin: 'auto', padding: 0 }}
-            >
-              {card('red')}
-            </div>
-            <div
-              className="col-md col-xl-4"
-              style={{ width: 300, margin: 'auto', padding: 0 }}
-            >
-              {card('red')}
-            </div>
-          </>
+          <div className="row m-0 p-0">{cardList()}</div>
         )}
       </div>
     </div>
