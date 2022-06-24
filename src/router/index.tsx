@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
-import { About, AddPeople, ViewPeople, ConsultantProfile, Home, SearchPage } from '../pages';
+import { About, ConsultantProfile, Home, SearchPage } from '../pages';
 
 const App = () => {
   let routes = useRoutes([
@@ -8,8 +8,6 @@ const App = () => {
     { path: '/', element: <Home /> },
     { path: '/profile', element: <ConsultantProfile /> },
     { path: '/search', element: <SearchPage /> },
-    { path: '/view', element: <ViewPeople /> },
-    { path: '/home', element: <AddPeople /> }
   ]);
   return routes;
 };
