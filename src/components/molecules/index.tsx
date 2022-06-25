@@ -1,4 +1,10 @@
 import { Header } from './header';
-import { ServiceCard } from './cards';
+import { ConsultantCard, ServiceCard } from './cards';
+import { SearchInput } from './textInputs'
 
-export { Header, ServiceCard };
+export {
+    Header,
+    ConsultantCard,
+    ServiceCard,
+    SearchInput
+};
