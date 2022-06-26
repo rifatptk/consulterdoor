@@ -78,14 +78,3 @@ pipelines:
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
                 AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                 DISTRIBUTION_ID: $PRODUCTION_DISTRIBUTION_ID
-  branches:
-    dev:
-      - step:
-          name: Installing & Running Tests
-          caches:
-            - node
-          script:
-            - rm -rf package-lock.json
-            - rm -rf node_modules
-            - npm install
-            - npm run test
