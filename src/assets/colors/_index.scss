@@ -6,7 +6,7 @@
  * Copyright (c) 2019 Leap In! All rights reserved.
  */
 
-$blue: #0855a2;
+$blue: #1A83E4;
 $red: #e32625;
 $yellow: #00748c;
 $white: #ffffff;
@@ -15,15 +15,20 @@ $softGrey: #a7a5a5;
 $grey: #aaaaaa;
 $lightGrey: #e2e2e2;
 $purple: #533fab;
-$lightGray: rgb(226, 226, 226);
+$lightGray: #F3F3F3;
 $softGray: rgb(209, 202, 202);
 $lightBlue: #478fca;
 $linkWater: #d5e4f1;
 $lynchapprox: #667e99;
 $black: #000000;
 $brightYellow: #e4a41b;
+
 .light-blue {
   color: $lightBlue !important;
+}
+
+.navbar-items {
+  margin-left: 25pt;
 }
 
 $lightRed: #cc5841;

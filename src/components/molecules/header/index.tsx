@@ -1,34 +1,23 @@
 import * as React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
-interface IProps {}
+
+interface IProps { }
 
 const Header: React.FunctionComponent<IProps> = React.memo(
-  ({}: IProps): JSX.Element => (
+  ({ }: IProps): JSX.Element => (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" className="main-color-bg" variant="dark">
         <Container>
-          <Navbar.Brand href="home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="home">Consulter Door</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link aria-disabled={true}>
-                <NavLink to="/home" className="nav-link">
-                  Features
-                </NavLink>
+          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+            <Nav >
+              <Button className='navbar-items background-color' variant="outline-light">Become a Consultant</Button>
+              <Nav.Link >
+                <span className="navbar-items background-color">Login</span>
               </Nav.Link>
-              <Nav.Link>
-                <NavLink to="/about" className="nav-link">
-                  Pricing
-                </NavLink>
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
+              <Button className='navbar-items main-color' variant="light">Sign Up</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
