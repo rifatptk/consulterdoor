@@ -1,4 +1,4 @@
-image: node:16.3.12
+image: node:14.18-alpine
 
 pipelines:
   custom: # Pipelines that can only be triggered manually
