@@ -17,6 +17,7 @@ function ViewConsultantProfile() {
                   className="profile-main-image"
                   style={{ width: '15rem' }}
                   src={require('../../../assets/samples/profile.jpg')}
+                  alt="consult profile"
                 />
               </div>
             </Row>
@@ -68,7 +69,10 @@ function ViewConsultantProfile() {
             <Row className="footer-detail">
               <Row>
                 <Col md="4" sm="12">
-                  <img src={require('../../../assets/samples/sl-flag.png')} />
+                  <img
+                    src={require('../../../assets/samples/sl-flag.png')}
+                    alt=""
+                  />
                 </Col>
                 <Col md="8" sm="12">
                   <TextLabel
@@ -85,7 +89,10 @@ function ViewConsultantProfile() {
               </Row>
               <Row>
                 <Col md="4" sm="12">
-                  <img src={require('../../../assets/samples/hand.png')} />
+                  <img
+                    src={require('../../../assets/samples/hand.png')}
+                    alt=""
+                  />
                 </Col>
                 <Col md="8" sm="12">
                   <TextLabel
@@ -102,7 +109,10 @@ function ViewConsultantProfile() {
               </Row>
               <Row>
                 <Col md="4" sm="12">
-                  <img src={require('../../../assets/samples/like.png')} />
+                  <img
+                    src={require('../../../assets/samples/like.png')}
+                    alt=""
+                  />
                 </Col>
                 <Col md="8" sm="12">
                   <TextLabel

@@ -19,26 +19,28 @@ const DropZone: React.FunctionComponent<IProps> = ({
   allowMultiple = false
 }): JSX.Element => {
   const [errors, setErrors] = useState('');
-  const onDrop = useCallback((acceptedFiles, fileRejections) => {
-    console.log('---------------', acceptedFiles);
-    setUploadedFile(acceptedFiles);
-    if (!fileRejections.length) {
-      setErrors('');
-    }
-    if (fileRejections) {
-      fileRejections.forEach((file: any) => {
-        file.errors.forEach((err: any) => {
-          if (err.code === 'file-too-large') {
-            setErrors(`File is larger than 50MB.`);
-          }
+  const onDrop = useCallback(
+    (acceptedFiles, fileRejections) => {
+      setUploadedFile(acceptedFiles);
+      if (!fileRejections.length) {
+        setErrors('');
+      }
+      if (fileRejections) {
+        fileRejections.forEach((file: any) => {
+          file.errors.forEach((err: any) => {
+            if (err.code === 'file-too-large') {
+              setErrors(`File is larger than 50MB.`);
+            }
 
-          if (err.code === 'file-invalid-type') {
-            setErrors(`Error: ${err.message}`);
-          }
+            if (err.code === 'file-invalid-type') {
+              setErrors(`Error: ${err.message}`);
+            }
+          });
         });
-      });
-    }
-  }, []);
+      }
+    },
+    [setUploadedFile]
+  );
   const maxSize = FILE_UPLOAD_MAX_SIZE;
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -51,7 +53,7 @@ const DropZone: React.FunctionComponent<IProps> = ({
     if (uploadedFile === null) {
       setUploadedFile(null);
     }
-  }, [uploadedFile]);
+  }, [setUploadedFile, uploadedFile]);
 
   const renderFile = () => {
     if (isDragActive) {
