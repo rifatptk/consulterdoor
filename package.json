@@ -50,11 +50,11 @@
     "build-css": "node-sass-chokidar --include-path ./node_modules ./src/assets/styles -o ./src/assets/styles/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./node_modules ./src/assets/styles -o src/assets/styles/ --watch --recursive",
     "start-js": "react-scripts start",
-    "build-js": "react-scripts build",
+    "build-js": "CI=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && npm run build-js",
+    "build": "CI=true npm run build-css && npm run build-js",
     "lint:ts": "tslint 'src/**/*.{ts,tsx,js}'",
     "fix": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
   },
