@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Dropdown, Form, InputGroup, Row } from 'react-bootstrap';
 import { BsSearch, BsSliders } from 'react-icons/bs';
 
@@ -21,61 +21,68 @@ interface IToggle {
 }
 
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
-  ({
-    value,
-    onChange,
-    placeholder,
-    disabled,
-    validation,
-    onFocus,
-  }: IProps) => {
-
-    const CustomToggle = React.forwardRef(({ children, onClick }: IToggle, ref) => (
-      <button className='category-dropdown' id="dropdown-basic"
-        onClick={(e) => {
-          e.preventDefault();
-          onClick(e);
-        }}>
-        <BsSliders className='main-color' />
-      </button>
-    ));
-
+  ({ value, onChange, placeholder, disabled, validation, onFocus }: IProps) => {
+    const CustomToggle = React.forwardRef(
+      ({ children, onClick }: IToggle, ref) => (
+        <button
+          className="category-dropdown"
+          id="dropdown-basic"
+          onClick={(e) => {
+            e.preventDefault();
+            onClick(e);
+          }}
+        >
+          <BsSliders className="main-color" />
+        </button>
+      )
+    );
 
     return (
       <div className="">
         <InputGroup className="mb-3">
-          <InputGroup.Text className='background-color-bg'>
+          <InputGroup.Text className="background-color-bg">
             <Dropdown>
-              <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" />
+              <Dropdown.Toggle
+                as={CustomToggle}
+                id="dropdown-custom-components"
+              />
               <Dropdown.Menu className="justify-content-start">
                 <Row xl={4} className="justify-content-start">
-                  {
-                    Array.from({ length: 8 }).map((_, idx) => (
-                      <Col >
-                        <Dropdown.Header>
-                          <div className='main-color'>
-                            <b>Graphic Design</b>
-                          </div>
-                        </Dropdown.Header>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                      </Col>
-                    ))
-
-                  }
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <Col>
+                      <Dropdown.Header>
+                        <div className="main-color">
+                          <b>Graphic Design</b>
+                        </div>
+                      </Dropdown.Header>
+                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">
+                        Another action
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">
+                        Something else
+                      </Dropdown.Item>
+                    </Col>
+                  ))}
                 </Row>
               </Dropdown.Menu>
             </Dropdown>
           </InputGroup.Text>
           <Form.Control aria-label="Amount (to the nearest dollar)" />
-          <InputGroup.Text className='main-color-bg'>
+          <InputGroup.Text className="main-color-bg">
             <button>
               <Row>
-                <Col md="auto" style={{ display: "flex", alignItems: 'center' }}>
-                  <BsSearch className='background-color' />
+                <Col
+                  md="auto"
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <BsSearch className="background-color" />
                 </Col>
-                <Col md="auto" style={{ display: "flex", alignContent: 'center' }} className='background-color'>
+                <Col
+                  md="auto"
+                  style={{ display: 'flex', alignContent: 'center' }}
+                  className="background-color"
+                >
                   Search
                 </Col>
               </Row>

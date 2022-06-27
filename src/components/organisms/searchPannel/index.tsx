@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap";
-import { Container, Row, Col, Label } from "reactstrap";
+import { Container, Row, Col } from 'reactstrap';
 import { SearchTag } from "../../atoms";
 import { SearchInput, ServiceCard } from "../../molecules";
 
