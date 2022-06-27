@@ -53,7 +53,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && build-js",
+    "build": "npm run build-css && npm run build-js",
     "lint:ts": "tslint 'src/**/*.{ts,tsx,js}'",
     "fix": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
   },
