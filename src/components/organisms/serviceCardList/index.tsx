@@ -1,6 +1,7 @@
 import { ServiceCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
+import { Container, Row } from 'reactstrap';
 
 interface IProps {
   data: object[];
@@ -9,18 +10,12 @@ interface IProps {
 function ServiceCardList({ data }: IProps) {
   const { innerWidth: width } = window;
 
-  const card = (color: any) => <ServiceCard />;
-
   const cardList = () => {
-    return data.map((item, index) => (
-      <div key={index} className="col-md" style={{ padding: 0, margin: 5 }}>
-        {card('red')}
-      </div>
-    ));
+    return data.map((item, index) => <ServiceCard key={index} />);
   };
   return (
-    <div className="container">
-      <div className="row align-items-center">
+    <Container>
+      <Row>
         {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
           <CommonCarousel
             template="ONE_SLIDE_PER_PAGE"
@@ -31,10 +26,10 @@ function ServiceCardList({ data }: IProps) {
             {cardList()}
           </CommonCarousel>
         ) : (
-          <div className="row m-0 p-0">{cardList()}</div>
+          <Row className="m-0 p-0">{cardList()}</Row>
         )}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
