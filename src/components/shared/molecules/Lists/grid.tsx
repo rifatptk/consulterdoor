@@ -16,20 +16,16 @@ const Grid: React.FunctionComponent<IProps> = React.memo(
     }: IProps): JSX.Element => {
 
         return (
-            <div className="App">
-                <Container>
-                    <Row xs={noOfcolomns}>
-                        {items.map(() => {
-                            return (
-                                <Col>
-                                </Col>
-                            )
-                        })}
-                    </Row>
-                </Container>
-            </div>
-
-        )
+          <div className="App">
+            <Container>
+              <Row xs={noOfcolomns}>
+                {items.map((_: any, idx: number) => {
+                  return <Col key={idx} />;
+                })}
+              </Row>
+            </Container>
+          </div>
+        );
     }
 );
 

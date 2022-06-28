@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 
 const Header: React.FunctionComponent = React.memo(
   (): JSX.Element => (
     <div>
       <Navbar
-        collapseOnSelect
+        collapseOnSelect={true}
         expand="lg"
         className="main-color-bg"
         variant="dark"

@@ -1,18 +1,10 @@
 image: node:14.18-alpine
 
 pipelines:
-  custom: # Pipelines that can only be triggered manually
+  custom:
     develop:
       - step:
-          name: Installing & Running Tests
-          caches:
-            - node
-          script:
-            - rm -rf package-lock.json
-            - rm -rf node_modules
-            - npm install
-      - step:
-          name: Build
+          name: Installing & Build
           script:
             - npm install --production
             - REACT_APP_ENVIRONMENT=production npm run build
@@ -20,7 +12,7 @@ pipelines:
             - build/**
       - step:
           name: Deploy to S3
-          deployment: staging
+          deployment: develop
           script:
             - pipe: atlassian/aws-s3-deploy:1.1.0
               variables:
@@ -40,14 +32,6 @@ pipelines:
                 AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                 DISTRIBUTION_ID: $STAGING_DISTRIBUTION_ID
     production:
-      - step:
-          name: Installing & Running Tests
-          caches:
-            - node
-          script:
-            - rm -rf package-lock.json
-            - rm -rf node_modules
-            - npm install
       - step:
           name: Build
           script:

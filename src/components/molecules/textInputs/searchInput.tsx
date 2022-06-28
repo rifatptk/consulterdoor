@@ -21,7 +21,8 @@ interface IToggle {
 }
 
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
-  ({ value, onChange, placeholder, disabled, validation, onFocus }: IProps) => {
+  // eslint-disable-next-line no-empty-pattern
+  ({}: IProps) => {
     const CustomToggle = React.forwardRef(
       ({ children, onClick }: IToggle, ref) => (
         <button
@@ -49,7 +50,7 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
               <Dropdown.Menu className="justify-content-start">
                 <Row xl={4} className="justify-content-start">
                   {Array.from({ length: 8 }).map((_, idx) => (
-                    <Col>
+                    <Col key={idx}>
                       <Dropdown.Header>
                         <div className="main-color">
                           <b>Graphic Design</b>

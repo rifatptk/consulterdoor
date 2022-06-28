@@ -1,8 +1,8 @@
-import { Container, Row, Col, Label } from "reactstrap";
-import { TextLabel } from "../../shared";
-import { messages } from '../../../shared/localize';
-import Badge from 'react-bootstrap/Badge'
+import Badge from 'react-bootstrap/Badge';
+import { Col, Container, Label, Row } from 'reactstrap';
 import { ServiceCard } from '../../';
+import { messages } from '../../../shared/localize';
+import { TextLabel } from '../../shared';
 
 function ViewConsultantProfile() {
   return (
@@ -254,6 +254,5 @@ function ViewConsultantProfile() {
     </div>
   );
 }
-
 
 export { ViewConsultantProfile };

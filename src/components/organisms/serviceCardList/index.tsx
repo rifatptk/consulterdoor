@@ -1,6 +1,6 @@
-import { CommonCarousel } from '../../shared';
 import { ServiceCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
+import { CommonCarousel } from '../../shared';
 
 interface IProps {
   data: object[];
@@ -12,8 +12,8 @@ function ServiceCardList({ data }: IProps) {
   const card = (color: any) => <ServiceCard />;
 
   const cardList = () => {
-    return data.map((item) => (
-      <div className="col-md" style={{ padding: 0, margin: 5 }}>
+    return data.map((item, index) => (
+      <div key={index} className="col-md" style={{ padding: 0, margin: 5 }}>
         {card('red')}
       </div>
     ));

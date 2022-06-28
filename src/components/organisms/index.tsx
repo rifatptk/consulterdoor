@@ -1,5 +1,5 @@
-import { ViewConsultantProfile } from './viewConsProfile';
-import { ServiceCardList } from './serviceCardList';
 import { HomeScreen } from './homeScreen';
+import { ServiceCardList } from './serviceCardList';
+import { ViewConsultantProfile } from './viewConsProfile';
 
 export { ViewConsultantProfile, ServiceCardList, HomeScreen };
