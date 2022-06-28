@@ -15,7 +15,7 @@ $softGrey: #a7a5a5;
 $grey: #aaaaaa;
 $lightGrey: #e2e2e2;
 $purple: #533fab;
-$lightGray: rgb(226, 226, 226);
+$lightGray: #F3F3F3;
 $softGray: rgb(209, 202, 202);
 $lightBlue: #478fca;
 $linkWater: #d5e4f1;
@@ -26,14 +26,6 @@ $lightGreen: #11db2a;
 
 .light-blue {
   color: $lightBlue !important;
-}
-
-.main-color {
-  color: $blue !important;
-}
-
-.main-color-bg {
-  background-color: $blue;
 }
 
 .navbar-items {

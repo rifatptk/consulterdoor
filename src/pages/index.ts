@@ -1,6 +1,7 @@
 import { About } from './about';
-import { Home } from './home';
 import { ConsultantProfile } from './ConsultantProfile';
+import { Home } from './home';
+import { SearchPage } from './search';
 import { Service } from './Service';
 
-export { About, Home, ConsultantProfile, Service };
+export { About, Home, ConsultantProfile, SearchPage,Service };

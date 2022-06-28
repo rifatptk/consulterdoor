@@ -13,6 +13,7 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
+    "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^17.0.0",
     "@types/react-star-ratings": "^2.3.0",
     "@types/styled-components": "^5.1.25",
@@ -21,6 +22,7 @@
     "bootstrap": "^5.1.3",
     "node-sass-chokidar": "^1.5.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-datepicker": "^4.5.0",
@@ -42,6 +44,9 @@
     "sass-loader": "^12.3.0",
     "styled-components": "^5.3.5",
     "styled-system": "^5.1.5",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^5.0.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -49,13 +54,13 @@
     "build-css": "node-sass-chokidar --include-path ./node_modules ./src/assets/styles -o ./src/assets/styles/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./node_modules ./src/assets/styles -o src/assets/styles/ --watch --recursive",
     "start-js": "react-scripts start",
-    "build-js": "react-scripts build",
+    "build-js": "CI=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && build-js",
-    "lint:ts": "tslint 'src/**/*.{ts,tsx,js}'",
-    "fix": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
+    "build": "CI=true npm run build-css && npm run build-js",
+    "lint:ts": "tslint -c tslint.json -p tsconfig.json 'src/**/*.{ts,tsx,js}'",
+    "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +68,14 @@
       "react-app/jest"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
+  "precommit.silent": false,
+  "pre-commit": [
+    "fix",
+    "build-js"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -77,6 +90,7 @@
   },
   "devDependencies": {
     "@types/react-datepicker": "^4.3.3",
-    "@types/react-image-gallery": "^1.0.5"
+    "@types/react-image-gallery": "^1.0.5",
+    "pre-commit": "^1.2.2"
   }
 }

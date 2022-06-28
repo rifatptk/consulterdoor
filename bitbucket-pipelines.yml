@@ -1,0 +1,62 @@
+image: node:14.18-alpine
+
+pipelines:
+  custom:
+    develop:
+      - step:
+          name: Installing & Build
+          script:
+            - npm install --production
+            - REACT_APP_ENVIRONMENT=production npm run build
+          artifacts:
+            - build/**
+      - step:
+          name: Deploy to S3
+          deployment: develop
+          script:
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $STAGING_BUCKET_NAME
+                ACL: "public-read"
+                LOCAL_PATH: "build"
+      - step:
+          name: Invalidate Cloudfront Cache
+          script:
+            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: $STAGING_DISTRIBUTION_ID
+    production:
+      - step:
+          name: Build
+          script:
+            - npm install --production
+            - REACT_APP_ENVIRONMENT=production npm run build
+          artifacts:
+            - build/**
+      - step:
+          name: Deploy to S3
+          deployment: production
+          script:
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $PRODUCTION_BUCKET_NAME
+                ACL: "public-read"
+                LOCAL_PATH: "build"
+      - step:
+          name: Invalidate Cloudfront Cache
+          script:
+            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: $PRODUCTION_DISTRIBUTION_ID

@@ -46,9 +46,9 @@ const DatePicker: React.FunctionComponent<IProps> = ({
               className={`default-date-input ${
                 validation && validation.isInValid ? 'date-input-error' : ''
               } ${className}`}
-              peekNextMonth
-              showMonthDropdown
-              showYearDropdown
+              peekNextMonth={true}
+              showMonthDropdown={true}
+              showYearDropdown={true}
               dropdownMode="select"
             />
           </div>

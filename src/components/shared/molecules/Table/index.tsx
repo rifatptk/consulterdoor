@@ -21,9 +21,9 @@ const Table: React.FunctionComponent<IProps> = React.memo(
     tableHeadingKeys,
     tableData,
     className,
-    isLoading
+    isLoading,
   }: IProps): JSX.Element => (
-    <ReactTable striped hover bordered>
+    <ReactTable striped={true} hover={true} bordered={true}>
       <thead>{generateHeaders(tableHeadingKeys)} </thead>
       <tbody> {generateBody(tableData)} </tbody>
     </ReactTable>
@@ -31,11 +31,15 @@ const Table: React.FunctionComponent<IProps> = React.memo(
 );
 
 const generateHeaders = (tableHeadingKeys: string[]) => {
-  return tableHeadingKeys.map((header: string) => (
-    <th className="text-center">{header}</th>
+  return tableHeadingKeys.map((header: string, index: number) => (
+    <th className="text-center" key={index}>
+      {header}
+    </th>
   ));
 };
 const generateBody = (tableData: ITableData[][]) => {
-  return tableData.map((data: ITableData[]) => <TableRow tableData={data} />);
+  return tableData.map((data: ITableData[], index: number) => (
+    <TableRow key={index} tableData={data} />
+  ));
 };
 export { Table };

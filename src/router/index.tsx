@@ -1,13 +1,12 @@
-import React from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
-import { About, ConsultantProfile, Home } from '../pages';
-import { Service } from '../pages/Service';
+import { About, ConsultantProfile, Home, SearchPage, Service } from '../pages';
 
 const App = () => {
-  let routes = useRoutes([
+  const routes = useRoutes([
     { path: '/about', element: <About /> },
     { path: '/', element: <Home /> },
     { path: '/profile', element: <ConsultantProfile /> },
+    { path: '/search', element: <SearchPage /> },
     { path: '/service', element: <Service /> }
   ]);
   return routes;
