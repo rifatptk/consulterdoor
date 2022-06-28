@@ -1,13 +1,13 @@
-import { ThemeProvider } from 'styled-components';
 import {
-    MeetingProvider,
     lightTheme,
+    MeetingProvider,
 } from 'amazon-chime-sdk-component-library-react';
+import { ThemeProvider } from 'styled-components';
 function Meeting() {
     return (
         <ThemeProvider theme={lightTheme}>
             <MeetingProvider>
-                <div></div>
+                <div/>
             </MeetingProvider>
         </ThemeProvider>
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 
 const ConsultantCard: React.FunctionComponent = React.memo((): JSX.Element => {

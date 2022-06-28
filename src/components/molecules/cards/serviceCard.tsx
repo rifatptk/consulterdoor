@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
-import { FaRegHeart, FaStar } from "react-icons/fa";
-
+import { Card, Col, Row } from 'react-bootstrap';
+import { FaRegHeart, FaStar } from 'react-icons/fa';
 
 const ServiceCard: React.FunctionComponent = React.memo((): JSX.Element => {
   const color = ['#A00FE4', '#E48F0F', '#E40FA8'];

@@ -11,8 +11,8 @@ const SearchTag: React.FunctionComponent<IProps> = React.memo(
     }: IProps): JSX.Element => {
 
         return (
-            <div className='tag-container light-gray-color-bg' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <div className='ml-2'>
+            <div className="tag-container light-gray-color-bg" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <div className="ml-2">
                     {tagName}
                 </div>
                 <div>
@@ -21,7 +21,7 @@ const SearchTag: React.FunctionComponent<IProps> = React.memo(
                     </button>
                 </div>
             </div>
-        )
+        );
     }
 );
 
