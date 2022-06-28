@@ -1,7 +1,7 @@
+import { Container, Row } from 'reactstrap';
 import { ServiceCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
-import { Container, Row } from 'reactstrap';
 
 interface IProps {
   data: object[];
