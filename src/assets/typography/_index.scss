@@ -1,0 +1,26 @@
+$primary-font: 'Poppins';
+$secondry-font: 'Inter',
+sans-serif;
+
+.poppins {
+    font-family: $primary-font;
+    font-style: normal;
+}
+
+.inter {
+    font-family: $secondry-font;
+    font-style: normal;
+}
+
+
+.bold {
+    font-weight: 700;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: 400;
+}

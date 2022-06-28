@@ -5,6 +5,7 @@
  * Module: Hedgehog Staff-Portal
  * Copyright (c) 2019 Leap In! All rights reserved.
  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .light-blue {
   color: #478fca !important; }
 
@@ -449,8 +450,6 @@ input[type='number'] {
   font-size: 16px; }
 
 .service-card-body-text {
-  font-style: normal;
-  font-weight: 400;
   font-size: 13px;
   line-height: 20px;
   color: #676767; }
@@ -469,7 +468,10 @@ input[type='number'] {
 
 .service-card-column-divider {
   height: 100%;
-  border-left: 1px solid rgba(0, 0, 0, 0.8); }
+  width: 25%;
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center; }
 
 .service-card-availability-container {
   position: absolute;
@@ -495,6 +497,32 @@ small {
   font-size: 11px;
   line-height: 20px; }
 
+.service-card-footer-container {
+  display: flex;
+  flex-direction: row; }
+
+.service-card-start-button {
+  display: flex;
+  width: 75%;
+  justify-content: center; }
+
 .tag-container {
   height: 2rem;
   width: fit-content; }
+
+.poppins {
+  font-family: "Poppins";
+  font-style: normal; }
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-style: normal; }
+
+.bold {
+  font-weight: 700; }
+
+.medium {
+  font-weight: 500; }
+
+.regular {
+  font-weight: 400; }
