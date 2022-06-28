@@ -64,8 +64,6 @@
 }
 
 .service-card-body-text {
-    font-style: normal;
-    font-weight: 400;
     font-size: 13px;
     line-height: 20px;
 
@@ -89,7 +87,10 @@
 
 .service-card-column-divider {
     height: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.8);
+    width: 25%;
+    border-right: 1px solid rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
 }
 
 .service-card-availability-container {
@@ -117,4 +118,17 @@ small {
     font-weight: 400;
     font-size: 11px;
     line-height: 20px;
+}
+
+.service-card-footer-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.service-card-start-button {
+    display: flex;
+    width: 75%;
+    justify-content: center;
+
 }
