@@ -518,11 +518,11 @@ small {
   font-family: "Inter", sans-serif;
   font-style: normal; }
 
-.bold {
+.font-bold {
   font-weight: 700; }
 
-.medium {
+.font-medium {
   font-weight: 500; }
 
-.regular {
+.font-regular {
   font-weight: 400; }

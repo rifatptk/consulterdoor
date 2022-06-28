@@ -32,10 +32,10 @@ const ServiceCard: React.FunctionComponent = React.memo((): JSX.Element => {
                         src={require('../../../assets/samples/profile.jpg')}
                     />
                 </Card>
-                <Card.Title className="service-card-title-text poppins medium">
+                <Card.Title className="service-card-title-text poppins font-medium">
                     Charitha Weerasooriya
                 </Card.Title>
-                <Card.Text className="service-card-body-text poppins regular">
+                <Card.Text className="service-card-body-text poppins font-regular">
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                 </Card.Text>
@@ -73,7 +73,7 @@ const ServiceCard: React.FunctionComponent = React.memo((): JSX.Element => {
                 <div className='service-card-column-divider pt-1 pb-1'>
                     <FaRegHeart className='mr-3' />
                 </div>
-                <div className='service-card-start-button poppins medium'>Start</div>
+                <div className='service-card-start-button poppins font-medium'>Start</div>
             </Card.Footer>
         </Card>
     );
