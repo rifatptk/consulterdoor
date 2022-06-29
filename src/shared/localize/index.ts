@@ -33,6 +33,14 @@ export interface IMessageProperties {
     myServices: string;
     similarConsultants: string;
   };
+  service: {
+    contact: string;
+    makeAppointment: string;
+    aboutService: string;
+    serviceDescription: string;
+    toolsTechniques: string;
+    otherServices: string;
+  };
 }
 
 export interface IMessages

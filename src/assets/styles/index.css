@@ -12,6 +12,9 @@
 .navbar-items {
   margin-left: 25pt; }
 
+.background-color {
+  color: #ffffff !important; }
+
 /*
  * Author: Tharindu (tseneviratne@mitrai.com)
  * Created on: 17-10-19
@@ -23,13 +26,13 @@
   background: #e32625 !important; }
 
 .primary-text-color {
-  color: #e32625 !important; }
+  color: #000000 !important; }
 
 .primary-border-color {
   border-color: #e32625 !important; }
 
 .secondary-text-color {
-  color: #ffffff !important; }
+  color: #1a83e4 !important; }
 
 .purple-text-color {
   color: #533fab; }
@@ -117,10 +120,10 @@ button {
   color: #ffffff !important; }
 
 .main-color {
-  color: #1A83E4 !important; }
+  color: #1a83e4 !important; }
 
 .main-color-bg {
-  background-color: #1A83E4; }
+  background-color: #1a83e4; }
 
 .button-cursor {
   cursor: default; }
@@ -128,7 +131,7 @@ button {
 .primary-button {
   color: #ffffff !important;
   background: #533fab !important;
-  border-color: #ffffff !important; }
+  border-color: #1a83e4 !important; }
 
 .primary-button:hover {
   color: #533fab !important;
@@ -138,7 +141,7 @@ button {
 .primary-button-loader {
   color: #ffffff !important;
   background: #533fab !important;
-  border-color: #ffffff !important; }
+  border-color: #1a83e4 !important; }
 
 .secondary-button {
   color: #533fab !important;
@@ -148,7 +151,7 @@ button {
 .secondary-button:hover {
   color: #ffffff !important;
   background: #533fab !important;
-  border-color: #ffffff !important; }
+  border-color: #1a83e4 !important; }
 
 .button-link {
   color: #a7a5a5;
@@ -250,18 +253,17 @@ input[type='number'] {
   border-color: #cc5841; }
 
 .user-details {
-  margin: 30px; }
+  margin-top: 15px; }
 
 .sub-topics {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 30px; }
+  font-size: 28px;
+  line-height: 42px; }
 
 .profile-pic-side {
-  margin-top: 30px;
-  border: 1px solid #84c3fd;
+  border: 1px solid #1a83e4;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -270,16 +272,15 @@ input[type='number'] {
 
 .profile-pic {
   position: relative;
-  width: 80%;
-  margin-top: 10%;
-  margin-bottom: 10%; }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content; }
 
 .topic {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  text-align: center;
-  color: #000000; }
+  text-align: center; }
 
 .font {
   font-family: 'Poppins';
@@ -290,10 +291,7 @@ input[type='number'] {
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
-  line-height: 54px;
-  /* identical to box height */
-  /* Blue 1 */
-  color: #2f80ed; }
+  line-height: 54px; }
 
 .main-section {
   margin-top: 10%; }
@@ -303,8 +301,7 @@ input[type='number'] {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 27px;
-  color: #2d9cdb; }
+  line-height: 27px; }
 
 .description {
   font-family: 'Poppins';
@@ -325,15 +322,14 @@ input[type='number'] {
   min-width: 200px;
   align-items: center;
   justify-content: center;
-  background-color: #f3f3f3 !important;
+  background-color: #aaaaaa !important;
   border-radius: 5px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  color: #4f4f4f; }
+  text-align: center; }
 
 .indent {
   margin-left: 3%; }
@@ -344,8 +340,7 @@ input[type='number'] {
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
-  text-align: justify;
-  color: #333333; }
+  text-align: justify; }
 
 .edu {
   font-family: 'Poppins';
@@ -353,30 +348,26 @@ input[type='number'] {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
-  color: #676767; }
+  text-align: start;
+  color: #aaaaaa; }
 
 .verify-badge {
   position: absolute;
-  border: 6px solid white;
-  bottom: 0px;
-  left: 8px;
+  border: 6px solid #ffffff;
+  bottom: -4px;
+  left: 14px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #00d870; }
-
-.profile-image-container {
-  width: '6rem';
-  height: '6rem';
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
+  background: #11db2a; }
 
 .profile-main-image {
   width: '6rem';
   height: 100%;
-  object-fit: cover;
-  border: 5px solid white; }
+  object-fit: cover; }
+
+.review {
+  color: #d1caca; }
 
 .earning-widget {
   border: 1px solid #1a83e4;
@@ -387,13 +378,34 @@ input[type='number'] {
 
 .footer-detail {
   justify-content: center;
-  width: 85%; }
+  width: 60%;
+  min-width: 300px; }
+
+.contact-btn {
+  width: inherit;
+  margin-bottom: 1rem;
+  height: 3rem; }
+
+.appointment-btn {
+  width: 100%;
+  margin-top: 1rem;
+  height: 4rem; }
+
+.title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
 .table > thead {
-  background-color: #F3F3F3; }
+  background-color: #aaaaaa; }
 
 .main-container {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }

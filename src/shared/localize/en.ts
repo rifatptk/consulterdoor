@@ -31,5 +31,13 @@ export const en: IMessageProperties = {
     manageEarning: 'Manage Earning',
     myServices: 'My Services',
     similarConsultants: 'Similar Consultants'
+  },
+  service: {
+    contact: 'Contact',
+    makeAppointment: 'Make Appointment',
+    aboutService: 'About Service',
+    serviceDescription: 'Description About Service',
+    toolsTechniques: 'Tools and Techniques',
+    otherServices: 'Other Services'
   }
 };

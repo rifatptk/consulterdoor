@@ -1,5 +1,5 @@
 import { BrowserRouter, useRoutes } from 'react-router-dom';
-import { About, ConsultantProfile, Home, SearchPage } from '../pages';
+import { About, ConsultantProfile, Home, SearchPage, Service } from '../pages';
 
 const App = () => {
   const routes = useRoutes([
@@ -7,6 +7,7 @@ const App = () => {
     { path: '/', element: <Home /> },
     { path: '/profile', element: <ConsultantProfile /> },
     { path: '/search', element: <SearchPage /> },
+    { path: '/service', element: <Service /> }
   ]);
   return routes;
 };
