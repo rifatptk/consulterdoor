@@ -4,4 +4,4 @@ import { Home } from './home';
 import { SearchPage } from './search';
 import { Service } from './Service';
 
-export { About, Home, ConsultantProfile, SearchPage,Service };
+export { About, Home, ConsultantProfile, SearchPage, Service };

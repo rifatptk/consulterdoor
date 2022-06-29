@@ -1,5 +1,4 @@
 
-
 import { ServicePage } from '../../components/organisms/viewService';
 import { PageContainer } from '../../components/shared';
 
@@ -11,6 +10,6 @@ const Service = () => {
             </div>
         </PageContainer>
     );
-}
+};
 
 export { Service };
