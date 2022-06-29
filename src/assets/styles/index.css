@@ -9,14 +9,11 @@
 .light-blue {
   color: #478fca !important; }
 
-.main-color {
-  color: #1a83e4 !important; }
-
-.main-color-bg {
-  background-color: #1a83e4; }
-
 .navbar-items {
   margin-left: 25pt; }
+
+.background-color {
+  color: #ffffff !important; }
 
 /*
  * Author: Tharindu (tseneviratne@mitrai.com)
@@ -123,10 +120,10 @@ button {
   color: #ffffff !important; }
 
 .main-color {
-  color: #1A83E4 !important; }
+  color: #1a83e4 !important; }
 
 .main-color-bg {
-  background-color: #1A83E4; }
+  background-color: #1a83e4; }
 
 .button-cursor {
   cursor: default; }
@@ -256,7 +253,7 @@ input[type='number'] {
   border-color: #cc5841; }
 
 .user-details {
-  margin: 30px; }
+  margin-top: 15px; }
 
 .sub-topics {
   font-family: 'Poppins';
@@ -266,7 +263,6 @@ input[type='number'] {
   line-height: 42px; }
 
 .profile-pic-side {
-  margin-top: 30px;
   border: 1px solid #1a83e4;
   border-radius: 6px;
   display: flex;
@@ -276,9 +272,9 @@ input[type='number'] {
 
 .profile-pic {
   position: relative;
-  width: 80%;
-  margin-top: 10%;
-  margin-bottom: 10%; }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content; }
 
 .topic {
   font-family: 'Poppins';
@@ -352,14 +348,14 @@ input[type='number'] {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
+  text-align: start;
   color: #aaaaaa; }
 
 .verify-badge {
   position: absolute;
   border: 6px solid #ffffff;
   bottom: -4px;
-  left: 8px;
+  left: 14px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -382,7 +378,8 @@ input[type='number'] {
 
 .footer-detail {
   justify-content: center;
-  width: 85%; }
+  width: 60%;
+  min-width: 300px; }
 
 .contact-btn {
   width: inherit;
@@ -394,11 +391,21 @@ input[type='number'] {
   margin-top: 1rem;
   height: 4rem; }
 
+.title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
 .table > thead {
-  background-color: #F3F3F3; }
+  background-color: #aaaaaa; }
 
 .main-container {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }

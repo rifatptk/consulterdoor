@@ -50,7 +50,7 @@ const ServicePage = () => {
                 <TextLabel className="title primary-text-color" text="Best UI/UX Design for  Web And Mobile" />
             </Row>
             <Row>
-                <Col md="3" className="d-flex flex-column justify-content-between" >
+                <Col lg="4" xl="3" className="d-flex flex-column justify-content-between mb-2" >
                     <Row className="profile-pic-side">
                         <Row className="profile-pic">
 
@@ -94,7 +94,7 @@ const ServicePage = () => {
                     </Row>
 
                 </Col>
-                <Col md="9" >
+                <Col lg="8" xl="9" >
                     <ImageGallery images={images} />
 
                 </Col>

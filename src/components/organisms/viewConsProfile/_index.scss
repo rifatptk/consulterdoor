@@ -1,5 +1,5 @@
 .user-details {
-  margin: 30px;
+  margin-top: 15px;
 }
 
 .sub-topics {
@@ -21,9 +21,9 @@
 
 .profile-pic {
   position: relative;
-  width: 80%;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
 }
 
 .topic {
@@ -107,7 +107,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  text-align: center;
+  text-align: start;
   color: $bg-secondary-color;
 }
 
@@ -142,5 +142,6 @@
 
 .footer-detail {
   justify-content: center;
-  width: 85%;
+  width: 60%;
+  min-width: 300px;
 }

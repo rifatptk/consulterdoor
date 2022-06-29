@@ -9,8 +9,8 @@ function ViewConsultantProfile() {
     <div>
       <div>
         <Container>
-          <Row>
-            <Col md="3" className="profile-pic-side">
+          <Row className="mt-2">
+            <Col lg="4" xl="3" className="profile-pic-side">
               <Row className="profile-pic">
                 <div>
                   <div className="verify-badge" />
@@ -64,20 +64,20 @@ function ViewConsultantProfile() {
                 </Row>
                 <Row>
                   <TextLabel
-                    className="edu justify-content-center"
+                    className="edu justify-content-center text-center"
                     text={messages.consultantProfile.manageEarning}
                   />
                 </Row>
               </Row>
               <Row className="footer-detail">
                 <Row>
-                  <Col md="4" sm="12">
+                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
                     <img
                       src={require('../../../assets/samples/sl-flag.png')}
                       alt=""
                     />
                   </Col>
-                  <Col md="8" sm="12">
+                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
                       className="font"
                       style={{
@@ -91,13 +91,13 @@ function ViewConsultantProfile() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md="4" sm="12">
+                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
                     <img
                       src={require('../../../assets/samples/hand.png')}
                       alt=""
                     />
                   </Col>
-                  <Col md="8" sm="12">
+                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
                       className="font"
                       style={{
@@ -111,13 +111,13 @@ function ViewConsultantProfile() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md="4" sm="12">
+                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
                     <img
                       src={require('../../../assets/samples/like.png')}
                       alt=""
                     />
                   </Col>
-                  <Col md="8" sm="12">
+                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
                       className="font"
                       style={{
@@ -132,7 +132,7 @@ function ViewConsultantProfile() {
                 </Row>
               </Row>
             </Col>
-            <Col md="9">
+            <Col lg="8" xl="9">
               <Row className="user-details">
                 <Row className="detail-section">
                   <Row>
