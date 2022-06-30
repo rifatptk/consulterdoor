@@ -56,7 +56,7 @@ const ServicePage = () => {
 
                             <div>
                                 <div className="verify-badge" />
-                                <img className="profile-main-image" style={{ width: '15rem' }} src={require('../../../assets/samples/profile.jpg')} />
+                                <img className="profile-main-image" style={{ width: '15rem' }} src={require('../../../assets/samples/profile.jpg')} alt="" />
                             </div>
 
                         </Row>

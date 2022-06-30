@@ -22,6 +22,29 @@
  * Module: Hedgehog Staff-Portal
  * Copyright (c) 2019 Leap In! All rights reserved.
  */
+.primary-font {
+  font-family: "Poppins";
+  font-style: normal; }
+
+.secondary-font {
+  font-family: "Inter", sans-serif;
+  font-style: normal; }
+
+.font-bold {
+  font-weight: 700; }
+
+.font-medium {
+  font-weight: 500; }
+
+.font-regular {
+  font-weight: 400; }
+
+.font-size-extra-small {
+  font-size: 0.7rem; }
+
+.font-size-small {
+  font-size: 1rem; }
+
 .primary-background-color {
   background: #e32625 !important; }
 
@@ -40,23 +63,8 @@
 .bg-color-white {
   background: #ffffff; }
 
-.font-size-extra-small {
-  font-size: 0.7rem; }
-
-.font-size-small {
-  font-size: 1rem; }
-
-.bold {
-  font-weight: 600; }
-
 .underline-text {
   text-decoration: underline; }
-
-.font-size-medium {
-  font-size: 0.8rem; }
-
-.font-size-lg {
-  font-size: 1.2rem; }
 
 .header-avatar-bg {
   background: #faae9e !important; }
@@ -99,7 +107,9 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins";
+  font-style: normal; }
 
 button {
   background: none;
@@ -521,20 +531,3 @@ small {
 .tag-container {
   height: 2rem;
   width: fit-content; }
-
-.poppins {
-  font-family: "Poppins";
-  font-style: normal; }
-
-.inter {
-  font-family: "Inter", sans-serif;
-  font-style: normal; }
-
-.font-bold {
-  font-weight: 700; }
-
-.font-medium {
-  font-weight: 500; }
-
-.font-regular {
-  font-weight: 400; }
