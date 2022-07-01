@@ -47,7 +47,7 @@ const ServicePage = () => {
     return (<div>
         <Container>
             <Row className="mt-2 mb-2">
-                <TextLabel className="title primary-text-color" text="Best UI/UX Design for  Web And Mobile" />
+                <TextLabel className="title secondary-font font-bold" text="Best UI/UX Design for  Web And Mobile" />
             </Row>
             <Row>
                 <Col lg="4" xl="3" className="d-flex flex-column justify-content-between mb-2" >
@@ -62,10 +62,10 @@ const ServicePage = () => {
                         </Row>
                         <Row className="justify-content-center" style={{ width: '80%', marginBottom: '10%' }}>
                             <Row >
-                                <TextLabel className="topic" style={{ fontSize: '22px', lineHeight: '30px' }} text={'Dilshan Athukorala'} />
+                                <TextLabel className="topic primary-font font-bold font-size-medium" style={{ lineHeight: '30px' }} text={'Dilshan Athukorala'} />
                             </Row>
                             <Row  >
-                                <TextLabel className="text-center font" style={{ color: '#828282', fontSize: '20px', lineHeight: '20px' }}
+                                <TextLabel className="text-center primary-font secondary-text-color" style={{ lineHeight: '20px', fontSize: '1.2rem' }}
                                     text={'I am UI/UX Designer'} />
                             </Row>
                             <Row className="justify-content-center">
@@ -78,7 +78,9 @@ const ServicePage = () => {
                                 Star Rating
                             </Row>
                             <Row className="text-center">
-                                <div>4.9  <span className="review">(30 reviews)</span></div>
+                                <div>
+                                    4.9 <span className="secondary-text-color">(30 reviews)</span>
+                                </div>
                             </Row>
                             <Row />
 
@@ -102,15 +104,16 @@ const ServicePage = () => {
             </Row>
             <Row className="main-section">
                 <Row>
-                    <TextLabel className="font" style={{ fontWeight: '600', fontSize: '36px', lineHeight: '54px' }}
+                    <TextLabel className="primary-font font-size-large font-bold" style={{ lineHeight: '54px' }}
                         text={messages.service.aboutService} />
                 </Row>
                 <Row className="ml-3 mb-3">
                     <Row>
-                        <TextLabel className="sub-topics" text={messages.service.serviceDescription} />
+                        <TextLabel className="primary-font font-medium font-size-medium" text={messages.service.serviceDescription} />
                     </Row>
                     <Row>
-                        <Label className="description">consectetur adipiscing elit. Viverra magna nunc risus
+                        <Label className="description primary-font font-regular quaternary-text-color">
+                            consectetur adipiscing elit. Viverra magna nunc risus
                             iaculis eleifend id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra adipiscing curabitur
                             enim maecenas facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat
                             vulputate. Iaculis elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget. Viverra
@@ -122,10 +125,11 @@ const ServicePage = () => {
                 </Row>
                 <Row className="ml-3">
                     <Row>
-                        <TextLabel className="sub-topics" text={messages.service.toolsTechniques} />
+                        <TextLabel className="primary-font font-medium font-size-medium" text={messages.service.toolsTechniques} />
                     </Row>
                     <Row>
-                        <Label className="description">consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend
+                        <Label className="description primary-font font-regular quaternary-text-color">
+                            consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend
                             id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra adipiscing curabitur enim maecenas
                             facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
                             elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
@@ -144,7 +148,7 @@ const ServicePage = () => {
             </Row>
 
             <Row className="main-section">
-                <Row><TextLabel className="font" style={{ fontWeight: '600', fontSize: '36px', lineHeight: '54px' }}
+                <Row><TextLabel className="primary-font font-size-large font-bold" style={{ lineHeight: '54px' }}
                     text={messages.service.otherServices} /> </Row>
                 <Row className="d-flex justify-content-between">
                     <ServiceCard />

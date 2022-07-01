@@ -28,18 +28,17 @@ function ViewConsultantProfile() {
               >
                 <Row>
                   <TextLabel
-                    className="topic"
-                    style={{ fontSize: '22px', lineHeight: '30px' }}
+                    className="topic primary-font font-bold font-size-medium"
+                    style={{ lineHeight: '30px' }}
                     text={'Dilshan Athukorala'}
                   />
                 </Row>
                 <Row>
                   <TextLabel
-                    className="text-center font"
+                    className="text-center primary-font secondary-text-color"
                     style={{
-                      color: '#828282',
-                      fontSize: '20px',
                       lineHeight: '20px',
+                      fontSize: '1.2rem'
                     }}
                     text={'I am UI/UX Designer'}
                   />
@@ -47,7 +46,7 @@ function ViewConsultantProfile() {
                 <Row className="justify-content-center">Star Rating</Row>
                 <Row className="text-center">
                   <div>
-                    4.9 <span style={{ color: 'gray' }}>(30 reviews)</span>
+                    4.9 <span className="secondary-text-color">(30 reviews)</span>
                   </div>
                 </Row>
               </Row>
@@ -55,16 +54,18 @@ function ViewConsultantProfile() {
               <Row className="earning-widget">
                 <Row>
                   <TextLabel
-                    className="topic"
+                    className="topic primary-font font-bold"
+                    style={{ fontSize: '1.3rem' }}
                     text={messages.consultantProfile.totalEarning}
                   />{' '}
                 </Row>
-                <Row className="justify-content-center earning-amount">
+                <Row className="justify-content-center primary-font font-medium tertiary-text-color font-size-large" style={{ lineHeight: '3.5rem' }}>
                   $999
                 </Row>
                 <Row>
                   <TextLabel
-                    className="edu justify-content-center text-center"
+                    className="edu justify-content-center primary-font font-size-small font-regular text-center secondary-text-color"
+                    style={{ lineHeight: '1.5rem' }}
                     text={messages.consultantProfile.manageEarning}
                   />
                 </Row>
@@ -79,12 +80,10 @@ function ViewConsultantProfile() {
                   </Col>
                   <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
-                      className="font"
+                      className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
-                        fontWeight: '400',
-                        fontSize: '15px',
+                        fontSize: '0.9rem',
                         lineHeight: '27px',
-                        color: '#4F4F4F',
                       }}
                       text={'Horana , Sri Lanka'}
                     />
@@ -99,12 +98,10 @@ function ViewConsultantProfile() {
                   </Col>
                   <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
-                      className="font"
+                      className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
-                        fontWeight: '400',
-                        fontSize: '15px',
+                        fontSize: '0.9rem',
                         lineHeight: '27px',
-                        color: '#4F4F4F',
                       }}
                       text={'Joined May 10,2022'}
                     />
@@ -119,12 +116,10 @@ function ViewConsultantProfile() {
                   </Col>
                   <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
                     <TextLabel
-                      className="font"
+                      className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
-                        fontWeight: '400',
-                        fontSize: '15px',
+                        fontSize: '0.9rem',
                         lineHeight: '27px',
-                        color: '#4F4F4F',
                       }}
                       text={'5 Recommendations'}
                     />
@@ -137,12 +132,12 @@ function ViewConsultantProfile() {
                 <Row className="detail-section">
                   <Row>
                     <TextLabel
-                      className="sub-topics"
+                      className="sub-topics primary-font font-medium font-size-medium"
                       text={messages.consultantProfile.description}
                     />
                   </Row>
                   <Row>
-                    <Label className="description">
+                    <Label className="description primary-font font-regular font-size-small quaternary-text-color">
                       consectetur adipiscing elit. Viverra magna nunc risus
                       iaculis eleifend id facilisi. Consectetur ut at sapien
                       lacinia libero eu. Viverra adipiscing curabitur enim
@@ -159,7 +154,7 @@ function ViewConsultantProfile() {
                 <Row className="detail-section">
                   <Row>
                     <TextLabel
-                      className="sub-topics"
+                      className="sub-topics primary-font font-medium font-size-medium"
                       text={messages.consultantProfile.qualification}
                     />
                   </Row>
@@ -167,43 +162,43 @@ function ViewConsultantProfile() {
                     <Row>
                       <Row>
                         <TextLabel
-                          className="section-sub-topic"
+                          className="section-sub-topic primary-font tertiary-text-color font-medium font-size-small"
                           text={messages.consultantProfile.skills}
                         />
                       </Row>
                       <Row className="indent">
-                        <Badge className="badge">Web Design</Badge>
-                        <Badge className="badge">Frontend dev.</Badge>
-                        <Badge className="badge">Web Design</Badge>
-                        <Badge className="badge">Web Design</Badge>
-                        <Badge className="badge">Frontend dev.</Badge>
+                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
+                        <Badge className="badge primary-font font-size-small">Frontend dev.</Badge>
+                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
+                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
+                        <Badge className="badge primary-font font-size-small">Frontend dev.</Badge>
                       </Row>
                     </Row>
                     <Row>
                       <Row>
                         <TextLabel
-                          className="section-sub-topic"
+                          className="section-sub-topic primary-font tertiary-text-color font-medium font-size-small"
                           text={messages.consultantProfile.education}
                         />
                       </Row>
                       <Row className="indent">
                         <Row>
-                          <Row className="bold">
+                          <Row className="bold primary-font font-size-small">
                             1.Infromation & Comminication Technology
                           </Row>
-                          <Row className="edu">
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">
                             Rajarata University of Sri lanka
                           </Row>
-                          <Row className="edu">2017-2021 (4Years)</Row>
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">2017-2021 (4Years)</Row>
                         </Row>
                         <Row>
-                          <Row className="bold">
+                          <Row className="bold primary-font font-size-small">
                             1.Infromation & Comminication Technology
                           </Row>
-                          <Row className="edu">
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">
                             Rajarata University of Sri lanka
                           </Row>
-                          <Row className="edu">2017-2021 (4Years)</Row>
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">2017-2021 (4Years)</Row>
                         </Row>
                       </Row>
                     </Row>
@@ -217,10 +212,8 @@ function ViewConsultantProfile() {
         <div className="align-items-center">
           <div className="main-section">
             <TextLabel
-              className="font"
+              className="primary-font font-size-large font-bold"
               style={{
-                fontWeight: '600',
-                fontSize: '36px',
                 lineHeight: '54px',
               }}
               text={messages.consultantProfile.myServices}
@@ -233,10 +226,8 @@ function ViewConsultantProfile() {
         <Row className="main-section">
           <Row>
             <TextLabel
-              className="font"
+              className="primary-font font-size-large font-bold"
               style={{
-                fontWeight: '600',
-                fontSize: '36px',
                 lineHeight: '54px',
               }}
               text={messages.consultantProfile.similarConsultants}
