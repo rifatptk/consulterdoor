@@ -1,15 +1,30 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Consulterdoor",
+  "name": "Consulterdoor | Make it easy",
+  "description": "Consulterdoor helps to find your consulters at your finger tips",
   "icons": [
     {
       "src": "icon.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Consulter Profile",
+      "short_name": "Profile",
+      "description": "Consulter Profile",
+      "url": "/profile"
+    }
+  ]
 }
