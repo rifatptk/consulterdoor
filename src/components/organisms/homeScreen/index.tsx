@@ -1,4 +1,4 @@
-import { ServiceCardList, CategoryList } from '../index';
+import { CategoryList, ServiceCardList } from '../index';
 
 function HomeScreen() {
   return (
