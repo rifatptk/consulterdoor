@@ -22,17 +22,35 @@
 .font-size-small {
   font-size: 1rem; }
 
-.primary-background-color {
-  background: #ffffff !important; }
+.font-size-medium {
+  font-size: 1.5rem; }
+
+.font-size-large {
+  font-size: 2rem; }
 
 .primary-text-color {
   color: #000000 !important; }
 
-.primary-border-color {
-  border-color: #ffffff !important; }
-
 .secondary-text-color {
+  color: #828282 !important; }
+
+.tertiary-text-color {
   color: #1a83e4 !important; }
+
+.quaternary-text-color {
+  color: #4f4f4f !important; }
+
+.underline-text {
+  text-decoration: underline; }
+
+.text-disabled-color {
+  color: #d1caca !important; }
+
+.primary-background-color {
+  background: #e32625 !important; }
+
+.primary-border-color {
+  border-color: #e32625 !important; }
 
 .purple-text-color {
   color: #1a83e4; }
@@ -40,14 +58,8 @@
 .bg-color-white {
   background: #ffffff; }
 
-.underline-text {
-  text-decoration: underline; }
-
 .header-avatar-bg {
   background: #faae9e !important; }
-
-.text-disabled-color {
-  color: #a7a5a5 !important; }
 
 .primary-title-color {
   color: #e32625 !important; }
@@ -89,7 +101,7 @@ button {
   flex-wrap: nowrap; }
 
 .light-gray-color-bg {
-  background-color: #F8F8F8; }
+  background-color: #f3f3f3; }
 
 .background-color-bg {
   background-color: #ffffff !important; }
@@ -157,19 +169,19 @@ button {
   pointer-events: none; }
 
 .background-disabled-color {
-  background: #F8F8F8 !important; }
+  background: #f3f3f3 !important; }
 
 .default-text-input {
   height: 40px;
   outline: none;
-  border: 2px solid #aaaaaa; }
+  border: 2px solid #828282; }
 
 .default-text-input:focus {
   outline: none;
-  border: 2px solid #aaaaaa; }
+  border: 2px solid #828282; }
 
 .form-control:focus {
-  box-shadow: 0 0 1px 1px #aaaaaa; }
+  box-shadow: 0 0 1px 1px #828282; }
 
 .text-input-error {
   border-color: #cc5841; }
@@ -210,7 +222,7 @@ input[type='number'] {
 .default-date-input {
   height: 40px;
   outline: none;
-  border: 2px solid #aaaaaa;
+  border: 2px solid #828282;
   border-radius: 4px;
   text-align: right;
   padding-right: 10px;
@@ -231,13 +243,10 @@ input[type='number'] {
   border-color: #cc5841; }
 
 .user-details {
-  margin-top: 15px; }
+  margin-top: 15px;
+  margin-left: auto; }
 
 .sub-topics {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
   line-height: 42px; }
 
 .profile-pic-side {
@@ -255,38 +264,19 @@ input[type='number'] {
   width: fit-content; }
 
 .topic {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
   text-align: center; }
 
-.font {
-  font-family: 'Poppins';
-  font-style: normal; }
-
 .earning-amount {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 36px;
   line-height: 54px; }
 
 .main-section {
   margin-top: 10%; }
 
 .section-sub-topic {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
   line-height: 27px; }
 
 .description {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
+  line-height: 1.7rem;
   text-align: justify; }
 
 .detail-section {
@@ -300,12 +290,10 @@ input[type='number'] {
   min-width: 200px;
   align-items: center;
   justify-content: center;
-  background-color: #aaaaaa !important;
+  background-color: #f3f3f3 !important;
+  color: #4f4f4f;
   border-radius: 5px;
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
-  font-size: 16px;
   line-height: 24px;
   text-align: center; }
 
@@ -313,21 +301,12 @@ input[type='number'] {
   margin-left: 3%; }
 
 .bold {
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 600;
-  font-size: 18px;
   line-height: 27px;
   text-align: justify; }
 
 .edu {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: start;
-  color: #aaaaaa; }
+  line-height: 24px; }
 
 .verify-badge {
   position: absolute;
@@ -370,9 +349,6 @@ input[type='number'] {
   height: 4rem; }
 
 .title {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
   font-size: 40px;
   line-height: 48px;
   display: flex;
@@ -383,7 +359,7 @@ input[type='number'] {
   background-color: transparent; }
 
 .table > thead {
-  background-color: #aaaaaa; }
+  background-color: #828282; }
 
 .main-container {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }

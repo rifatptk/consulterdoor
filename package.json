@@ -62,7 +62,7 @@
     "lint:ts": "tslint -c tslint.json -p tsconfig.json 'src/**/*.{ts,tsx,js}'",
     "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'"
   },
-  "eslintConfig": {
+  "tslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"

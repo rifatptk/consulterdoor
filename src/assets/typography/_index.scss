@@ -1,34 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 $primary-font: 'Poppins';
-$secondary-font: 'Inter',
-sans-serif;
+$secondary-font: 'Inter', sans-serif;
 
 .primary-font {
-    font-family: $primary-font;
-    font-style: normal;
+  font-family: $primary-font;
+  font-style: normal;
 }
 
 .secondary-font {
-    font-family: $secondary-font;
-    font-style: normal;
+  font-family: $secondary-font;
+  font-style: normal;
 }
 
 .font-bold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .font-medium {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .font-regular {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .font-size-extra-small {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 .font-size-small {
-    font-size: 1rem;
+  font-size: 1rem;
+}
+
+.font-size-medium {
+  font-size: 1.5rem;
+}
+
+.font-size-large {
+  font-size: 2rem;
+}
+
+.primary-text-color {
+  color: $text-primary-color !important;
+}
+
+.secondary-text-color {
+  color: $text-secondary-color !important;
+}
+
+.tertiary-text-color {
+  color: $text-tertiary-color !important;
+}
+
+.quaternary-text-color {
+  color: $text-quaternary-color !important;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.text-disabled-color {
+  color: $text-disabled-color !important;
 }

@@ -4,16 +4,8 @@
   background: $bg-primary-color !important;
 }
 
-.primary-text-color {
-  color: $text-primary-color !important;
-}
-
 .primary-border-color {
   border-color: $bg-primary-color !important;
-}
-
-.secondary-text-color {
-  color: $text-secondary-color !important;
 }
 
 .purple-text-color {
@@ -24,16 +16,8 @@
   background: $white;
 }
 
-.underline-text {
-  text-decoration: underline;
-}
-
 .header-avatar-bg {
   background: $softRed !important;
-}
-
-.text-disabled-color {
-  color: $text-disabled-color !important;
 }
 
 .primary-title-color {
@@ -72,7 +56,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: $primary-font;
   font-style: normal;
-
 }
 
 button {
