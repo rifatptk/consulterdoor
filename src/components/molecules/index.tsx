@@ -1,10 +1,5 @@
-import { ConsultantCard, ServiceCard } from './cards';
+import { ConsultantCard, ServiceCard, CategoryCard } from './cards';
 import { Header } from './header';
 import { SearchInput } from './textInputs';
 
-export {
-    Header,
-    ConsultantCard,
-    ServiceCard,
-    SearchInput
-};
+export { Header, ConsultantCard, ServiceCard, SearchInput, CategoryCard };

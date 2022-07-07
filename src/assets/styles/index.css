@@ -1,27 +1,4 @@
-/*
- * Author: Tharindu (tseneviratne@mitrai.com)
- * Created on: 17-10-19
- * Description: 
- * Module: Hedgehog Staff-Portal
- * Copyright (c) 2019 Leap In! All rights reserved.
- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.light-blue {
-  color: #478fca !important; }
-
-.navbar-items {
-  margin-left: 25pt; }
-
-.background-color {
-  color: #ffffff !important; }
-
-/*
- * Author: Tharindu (tseneviratne@mitrai.com)
- * Created on: 17-10-19
- * Description: 
- * Module: Hedgehog Staff-Portal
- * Copyright (c) 2019 Leap In! All rights reserved.
- */
 .primary-font {
   font-family: "Poppins";
   font-style: normal; }
@@ -31,7 +8,7 @@
   font-style: normal; }
 
 .font-bold {
-  font-weight: 700; }
+  font-weight: 600; }
 
 .font-medium {
   font-weight: 500; }
@@ -46,19 +23,19 @@
   font-size: 1rem; }
 
 .primary-background-color {
-  background: #e32625 !important; }
+  background: #ffffff !important; }
 
 .primary-text-color {
   color: #000000 !important; }
 
 .primary-border-color {
-  border-color: #e32625 !important; }
+  border-color: #ffffff !important; }
 
 .secondary-text-color {
   color: #1a83e4 !important; }
 
 .purple-text-color {
-  color: #533fab; }
+  color: #1a83e4; }
 
 .bg-color-white {
   background: #ffffff; }
@@ -70,25 +47,16 @@
   background: #faae9e !important; }
 
 .text-disabled-color {
-  color: #d1caca !important; }
+  color: #a7a5a5 !important; }
 
 .primary-title-color {
   color: #e32625 !important; }
 
 .secondary-title-color {
-  color: #533fab !important; }
+  color: #1a83e4 !important; }
 
 .bg-highlight-color {
-  background-color: #e2e2e2 !important; }
-
-.color-grey {
-  color: grey; }
-
-.color-yellow {
-  color: #e4a41b; }
-
-.color-black {
-  color: #000000; }
+  background-color: #F8F8F8 !important; }
 
 .pointer {
   cursor: pointer !important; }
@@ -121,7 +89,7 @@ button {
   flex-wrap: nowrap; }
 
 .light-gray-color-bg {
-  background-color: #F3F3F3; }
+  background-color: #F8F8F8; }
 
 .background-color-bg {
   background-color: #ffffff !important; }
@@ -140,27 +108,27 @@ button {
 
 .primary-button {
   color: #ffffff !important;
-  background: #533fab !important;
+  background: #1a83e4 !important;
   border-color: #1a83e4 !important; }
 
 .primary-button:hover {
-  color: #533fab !important;
+  color: #1a83e4 !important;
   background: #ffffff !important;
-  border-color: #533fab !important; }
+  border-color: #1a83e4 !important; }
 
 .primary-button-loader {
   color: #ffffff !important;
-  background: #533fab !important;
+  background: #1a83e4 !important;
   border-color: #1a83e4 !important; }
 
 .secondary-button {
-  color: #533fab !important;
+  color: #1a83e4 !important;
   background: #ffffff !important;
-  border-color: #533fab !important; }
+  border-color: #1a83e4 !important; }
 
 .secondary-button:hover {
   color: #ffffff !important;
-  background: #533fab !important;
+  background: #1a83e4 !important;
   border-color: #1a83e4 !important; }
 
 .button-link {
@@ -189,7 +157,7 @@ button {
   pointer-events: none; }
 
 .background-disabled-color {
-  background: #F3F3F3 !important; }
+  background: #F8F8F8 !important; }
 
 .default-text-input {
   height: 40px;
@@ -369,7 +337,7 @@ input[type='number'] {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #11db2a; }
+  background: #27AE60; }
 
 .profile-main-image {
   width: '6rem';
@@ -377,7 +345,7 @@ input[type='number'] {
   object-fit: cover; }
 
 .review {
-  color: #d1caca; }
+  color: #a7a5a5; }
 
 .earning-widget {
   border: 1px solid #1a83e4;
@@ -527,6 +495,16 @@ small {
   display: flex;
   width: 75%;
   justify-content: center; }
+
+.category-card-image {
+  object-fit: cover;
+  height: auto;
+  width: 5rem; }
+
+.category-card-title {
+  font-size: 20px;
+  line-height: 30px;
+  color: #4F4F4F; }
 
 .tag-container {
   height: 2rem;
