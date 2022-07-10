@@ -387,6 +387,36 @@ input[type='number'] {
   justify-content: center;
   text-align: center; }
 
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+
+.Auth-form {
+  width: 420px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.16);
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white; }
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%; }
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: #222222;
+  font-weight: 800; }
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
