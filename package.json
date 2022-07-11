@@ -56,12 +56,12 @@
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./node_modules ./src/assets/styles -o src/assets/styles/ --watch --recursive",
     "start-js": "react-scripts start",
     "build-js": "CI=true react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
     "build": "CI=true npm run build-css && npm run build-js",
     "lint:ts": "tslint -c tslint.json -p tsconfig.json 'src/**/*.{ts,tsx,js}'",
-    "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'"
+    "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'",
+    "husky-install": "husky install"
   },
   "tslintConfig": {
     "extends": [
@@ -72,11 +72,12 @@
   "prettier": {
     "singleQuote": true
   },
-  "precommit.silent": false,
-  "pre-commit": [
-    "fix",
-    "build-js"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run fix",
+      "pre-push": "npm run build-js"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -92,6 +93,7 @@
   "devDependencies": {
     "@types/react-datepicker": "^4.3.3",
     "@types/react-image-gallery": "^1.0.5",
+    "husky": "^8.0.1",
     "pre-commit": "^1.2.2"
   }
 }

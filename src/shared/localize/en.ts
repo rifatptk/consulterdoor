@@ -2,26 +2,6 @@ import { IMessageProperties } from '.';
 
 export const en: IMessageProperties = {
   appName: '',
-  addPeople: {
-    houseNo: 'House No:',
-    fullName: 'Full Name:',
-    occupation: 'Occupation:',
-    address: 'Address:',
-    workingPlaceAddress: 'Working Place Address:',
-    dataOfBirth: 'Date of Birth:',
-    age: 'Age:',
-    mobileNo: 'Phone:',
-    nicNo: 'NIC No',
-    drivingLicenseNo: 'Driving License No',
-    passportNo: 'Passport No',
-    elderlyCardNo: 'Elderly Card No',
-    nicImage: 'NIC Photo',
-    birthCertificateImage: 'Birth Certificate Photo',
-    passportImage: 'Passport Photo',
-    drivingLicenseImage: 'Driving License Photo',
-    elderlyCardImage: 'Elderly Card photo',
-    personImage: 'Person Image'
-  },
   consultantProfile: {
     description: 'Description',
     qualification: 'Qualification',
@@ -30,7 +10,7 @@ export const en: IMessageProperties = {
     totalEarning: 'Total Earning',
     manageEarning: 'Manage Earning',
     myServices: 'My Services',
-    similarConsultants: 'Similar Consultants'
+    similarConsultants: 'Similar Consultants',
   },
   service: {
     contact: 'Contact',
@@ -38,6 +18,14 @@ export const en: IMessageProperties = {
     aboutService: 'About Service',
     serviceDescription: 'Description About Service',
     toolsTechniques: 'Tools and Techniques',
-    otherServices: 'Other Services'
-  }
+    otherServices: 'Other Services',
+  },
+  home: {
+    categoryListTitle: 'Catagories',
+    allCategories: 'All Catagories',
+    serviceListTitle: 'Services',
+    allServices: 'All Services',
+    consultListTitle: 'Top Rated Consultants',
+    seeAll: 'See All',
+  },
 };

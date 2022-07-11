@@ -29,19 +29,7 @@
 }
 
 .bg-highlight-color {
-  background-color: $lightGrey !important;
-}
-
-.color-grey {
-  color: grey;
-}
-
-.color-yellow {
-  color: $brightYellow;
-}
-
-.color-black {
-  color: $black-text-color;
+  background-color: $lightGray !important;
 }
 
 .pointer {
@@ -100,3 +88,7 @@ button {
 .main-color-bg {
   background-color: $blue;
 }
+
+.navbar-items {
+   margin-left: 25pt;
+  }

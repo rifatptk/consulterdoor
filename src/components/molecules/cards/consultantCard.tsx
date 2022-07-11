@@ -6,10 +6,7 @@ const ConsultantCard: React.FunctionComponent = React.memo((): JSX.Element => {
   const color = ['#A00FE4', '#E48F0F', '#E40FA8'];
   const randomColor = color[Math.floor(Math.random() * color.length)];
   return (
-    <Card
-      style={{ width: '15rem', overflow: 'hidden' }}
-      className="main-container m-2"
-    >
+    <Card className="consult-card-container p-0">
       <div style={{ height: '4px', background: randomColor, width: '100%' }} />
       <Card.Img
         variant="top"
@@ -48,7 +45,7 @@ const ConsultantCard: React.FunctionComponent = React.memo((): JSX.Element => {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
             >
               <FaStar style={{ color: randomColor }} className="ml-1" />
