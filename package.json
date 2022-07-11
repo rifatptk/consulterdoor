@@ -19,6 +19,7 @@
     "@types/styled-components": "^5.1.25",
     "amazon-chime-sdk-component-library-react": "^3.0.0",
     "amazon-chime-sdk-js": "^3.1.0",
+    "aws-amplify": "^4.3.27",
     "bootstrap": "^5.1.3",
     "node-sass-chokidar": "^1.5.0",
     "npm-run-all": "^4.1.5",
@@ -59,7 +60,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "CI=true npm run build-css && npm run build-js",
     "lint:ts": "tslint -c tslint.json -p tsconfig.json 'src/**/*.{ts,tsx,js}'",
-    "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'"
+    "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'",
+    "husky-install": "husky install"
   },
   "tslintConfig": {
     "extends": [
