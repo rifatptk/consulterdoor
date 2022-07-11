@@ -18,13 +18,16 @@ const Header: React.FunctionComponent = React.memo(
             className="justify-content-end"
           >
             <Nav>
-              <Button className="m-5 background-color" variant="outline-light">
+              <Button
+                className="navbar-items background-color"
+                variant="outline-light"
+              >
                 Become a Consultant
               </Button>
               <Nav.Link>
-                <span className="m-5 background-color">Login</span>
+                <span className="navbar-items background-color">Login</span>
               </Nav.Link>
-              <Button className="m-5 main-color" variant="light">
+              <Button className="navbar-items main-color" variant="light">
                 Sign Up
               </Button>
             </Nav>

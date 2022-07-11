@@ -11,7 +11,7 @@ function CategoryList({ data }: IProps) {
   };
   return (
     <Container>
-      <Row>{cardList()}</Row>
+      <Row className="card-list">{cardList()}</Row>
     </Container>
   );
 }

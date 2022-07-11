@@ -13,7 +13,7 @@ interface IProps {
   outline?: boolean;
   className?: string;
   disabled?: boolean;
-  type?: string;
+  type?: BUTTON_TYPES;
   buttonLoader?: boolean;
   isLoading?: boolean;
   size?: string;

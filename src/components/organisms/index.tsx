@@ -1,4 +1,5 @@
 import { CategoryList } from './categoryList';
+import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
 import { ViewConsultantProfile } from './viewConsProfile';
@@ -10,4 +11,5 @@ export {
   HomeScreen,
   ServicePage,
   CategoryList,
+  ConsultCardList,
 };

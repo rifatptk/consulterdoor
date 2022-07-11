@@ -5,12 +5,16 @@
 .primary-button {
   color: $btn-primary-text-color !important;
   background: $btn-primary-bg-color !important;
-  border-color: $btn-primary-border-color !important;
+  border: 1px solid $btn-primary-border-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .primary-button:hover {
   color: $btn-secondary-text-color !important;
   background: $btn-secondary-bg-color !important;
-  border-color: $btn-secondary-border-color !important;
+  border-color: $btn-primary-border-color !important;
 }
 .primary-button-loader {
   color: $btn-primary-text-color !important;
@@ -20,7 +24,11 @@
 .secondary-button {
   color: $btn-secondary-text-color !important;
   background: $btn-secondary-bg-color !important;
-  border-color: $btn-secondary-border-color !important;
+  border: 1px solid $btn-secondary-border-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .secondary-button:hover {
   color: $btn-primary-text-color !important;

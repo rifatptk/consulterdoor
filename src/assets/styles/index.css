@@ -32,7 +32,7 @@
   color: #000000 !important; }
 
 .secondary-text-color {
-  color: #828282 !important; }
+  color: #aaaaaa !important; }
 
 .tertiary-text-color {
   color: #1a83e4 !important; }
@@ -44,13 +44,13 @@
   text-decoration: underline; }
 
 .text-disabled-color {
-  color: #d1caca !important; }
+  color: #a7a5a5 !important; }
 
 .primary-background-color {
-  background: #e32625 !important; }
+  background: #ffffff !important; }
 
 .primary-border-color {
-  border-color: #e32625 !important; }
+  border-color: #ffffff !important; }
 
 .purple-text-color {
   color: #1a83e4; }
@@ -62,10 +62,10 @@
   background: #faae9e !important; }
 
 .primary-title-color {
-  color: #e32625 !important; }
+  color: #333333 !important; }
 
 .secondary-title-color {
-  color: #1a83e4 !important; }
+  color: #4f4f4f !important; }
 
 .bg-highlight-color {
   background-color: #F8F8F8 !important; }
@@ -101,7 +101,7 @@ button {
   flex-wrap: nowrap; }
 
 .light-gray-color-bg {
-  background-color: #f3f3f3; }
+  background-color: #F8F8F8; }
 
 .background-color-bg {
   background-color: #ffffff !important; }
@@ -115,13 +115,20 @@ button {
 .main-color-bg {
   background-color: #1a83e4; }
 
+.navbar-items {
+  margin-left: 25pt; }
+
 .button-cursor {
   cursor: default; }
 
 .primary-button {
   color: #ffffff !important;
   background: #1a83e4 !important;
-  border-color: #1a83e4 !important; }
+  border: 1px solid #1a83e4;
+  border-radius: 5px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center; }
 
 .primary-button:hover {
   color: #1a83e4 !important;
@@ -136,7 +143,11 @@ button {
 .secondary-button {
   color: #1a83e4 !important;
   background: #ffffff !important;
-  border-color: #1a83e4 !important; }
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center; }
 
 .secondary-button:hover {
   color: #ffffff !important;
@@ -169,19 +180,19 @@ button {
   pointer-events: none; }
 
 .background-disabled-color {
-  background: #f3f3f3 !important; }
+  background: #F8F8F8 !important; }
 
 .default-text-input {
   height: 40px;
   outline: none;
-  border: 2px solid #828282; }
+  border: 2px solid #aaaaaa; }
 
 .default-text-input:focus {
   outline: none;
-  border: 2px solid #828282; }
+  border: 2px solid #aaaaaa; }
 
 .form-control:focus {
-  box-shadow: 0 0 1px 1px #828282; }
+  box-shadow: 0 0 1px 1px #aaaaaa; }
 
 .text-input-error {
   border-color: #cc5841; }
@@ -222,7 +233,7 @@ input[type='number'] {
 .default-date-input {
   height: 40px;
   outline: none;
-  border: 2px solid #828282;
+  border: 2px solid #aaaaaa;
   border-radius: 4px;
   text-align: right;
   padding-right: 10px;
@@ -290,7 +301,7 @@ input[type='number'] {
   min-width: 200px;
   align-items: center;
   justify-content: center;
-  background-color: #f3f3f3 !important;
+  background-color: #F8F8F8 !important;
   color: #4f4f4f;
   border-radius: 5px;
   font-weight: 500;
@@ -355,14 +366,39 @@ input[type='number'] {
   justify-content: center;
   text-align: center; }
 
+.card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap; }
+
+.card-list:after {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: left;
+  flex-wrap: wrap; }
+
+.category-view-btn {
+  font-size: 18px;
+  padding: 14px 40px; }
+
+.category-header {
+  color: #333333; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
 .table > thead {
-  background-color: #828282; }
+  background-color: #aaaaaa; }
 
 .main-container {
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 18rem;
+  min-width: 17rem; }
 
 .service-card-profile-image {
   width: '6rem';
@@ -418,7 +454,7 @@ input[type='number'] {
 .service-card-body-text {
   font-size: 13px;
   line-height: 20px;
-  color: #676767; }
+  color: #4f4f4f; }
 
 .consultant-card-title-text {
   margin-top: 1rem;
@@ -426,8 +462,6 @@ input[type='number'] {
   font-size: 16px; }
 
 .consultant-card-body-text {
-  font-style: normal;
-  font-weight: 400;
   font-size: 13px;
   line-height: 20px;
   color: #676767; }
@@ -447,6 +481,14 @@ input[type='number'] {
   width: 20px;
   height: 20px;
   border-radius: 10px; }
+
+.consult-card-container {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  margin: 8px;
+  width: 100%;
+  max-width: 18.75rem;
+  min-width: 17rem; }
 
 .consultant-card-availability-container {
   position: absolute;
@@ -472,15 +514,39 @@ small {
   width: 75%;
   justify-content: center; }
 
-.category-card-image {
-  object-fit: cover;
-  height: auto;
-  width: 5rem; }
+.category-card-container {
+  box-sizing: border-box;
+  width: 23rem;
+  background: #ffffff;
+  border: 1px solid #EAF5FF;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2%;
+  margin-left: 2%;
+  padding: 2px; }
 
 .category-card-title {
   font-size: 20px;
   line-height: 30px;
-  color: #4F4F4F; }
+  color: #4f4f4f; }
+
+.category-card-image {
+  object-fit: cover;
+  height: auto;
+  width: 5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+  margin-bottom: 3px; }
+
+.category-card-body-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #4f4f4f; }
 
 .tag-container {
   height: 2rem;

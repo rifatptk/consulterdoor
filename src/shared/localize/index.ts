@@ -3,26 +3,6 @@ import { en } from './en';
 
 export interface IMessageProperties {
   appName: string;
-  addPeople: {
-    houseNo: string;
-    fullName: string;
-    occupation: string;
-    address: string;
-    workingPlaceAddress: string;
-    dataOfBirth: string;
-    age: string;
-    mobileNo: string;
-    nicNo: string;
-    drivingLicenseNo: string;
-    passportNo: string;
-    elderlyCardNo: string;
-    nicImage: string;
-    birthCertificateImage: string;
-    passportImage: string;
-    drivingLicenseImage: string;
-    elderlyCardImage: string;
-    personImage: string;
-  };
   consultantProfile: {
     description: string;
     qualification: string;
@@ -40,6 +20,14 @@ export interface IMessageProperties {
     serviceDescription: string;
     toolsTechniques: string;
     otherServices: string;
+  };
+  home: {
+    categoryListTitle: string;
+    allCategories: string;
+    serviceListTitle: string;
+    allServices: string;
+    consultListTitle: string;
+    seeAll: string;
   };
 }
 

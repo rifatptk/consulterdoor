@@ -1,5 +1,5 @@
 import { Container, Row } from 'reactstrap';
-import { ServiceCard } from '../../';
+import { ConsultantCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
 
@@ -7,11 +7,11 @@ interface IProps {
   data: object[];
 }
 
-function ServiceCardList({ data }: IProps) {
+function ConsultCardList({ data }: IProps) {
   const { innerWidth: width } = window;
 
   const cardList = () => {
-    return data.map((item, index) => <ServiceCard key={index} />);
+    return data.map((item, index) => <ConsultantCard key={index} />);
   };
   return (
     <Container>
@@ -26,11 +26,11 @@ function ServiceCardList({ data }: IProps) {
             {cardList()}
           </CommonCarousel>
         ) : (
-          <Row className="m-0 p-0 card-list">{cardList()}</Row>
+          <Row className="m-0 p-0 card-list ">{cardList()}</Row>
         )}
       </Row>
     </Container>
   );
 }
 
-export { ServiceCardList };
+export { ConsultCardList };

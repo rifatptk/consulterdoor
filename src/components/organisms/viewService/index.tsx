@@ -8,7 +8,7 @@ import im5 from '../../../assets/samples/Rectangle 290.png';
 import { messages } from '../../../shared/localize';
 import { ServiceCard } from '../../molecules/cards';
 import { ImageGallery } from '../../molecules/imageGallery';
-import { Button, TextLabel } from '../../shared';
+import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 
 const ServicePage = () => {
     const images = [
@@ -44,124 +44,170 @@ const ServicePage = () => {
         },
     ];
 
-    return (<div>
+    return (
+      <div>
         <Container>
-            <Row className="mt-2 mb-2">
-                <TextLabel className="title secondary-font font-bold" text="Best UI/UX Design for  Web And Mobile" />
-            </Row>
-            <Row>
-                <Col lg="4" xl="3" className="d-flex flex-column justify-content-between mb-2" >
-                    <Row className="profile-pic-side">
-                        <Row className="profile-pic">
-
-                            <div>
-                                <div className="verify-badge" />
-                                <img className="profile-main-image" style={{ width: '15rem' }} src={require('../../../assets/samples/profile.jpg')} alt="" />
-                            </div>
-
-                        </Row>
-                        <Row className="justify-content-center" style={{ width: '80%', marginBottom: '10%' }}>
-                            <Row >
-                                <TextLabel className="topic primary-font font-bold font-size-medium" style={{ lineHeight: '30px' }} text={'Dilshan Athukorala'} />
-                            </Row>
-                            <Row  >
-                                <TextLabel className="text-center primary-font secondary-text-color" style={{ lineHeight: '20px', fontSize: '1.2rem' }}
-                                    text={'I am UI/UX Designer'} />
-                            </Row>
-                            <Row className="justify-content-center">
-                                {/* <StarRatings
+          <Row className="mt-2 mb-2">
+            <TextLabel
+              className="title secondary-font font-bold"
+              text="Best UI/UX Design for  Web And Mobile"
+            />
+          </Row>
+          <Row>
+            <Col
+              lg="4"
+              xl="3"
+              className="d-flex flex-column justify-content-between mb-2"
+            >
+              <Row className="profile-pic-side">
+                <Row className="profile-pic">
+                  <div>
+                    <div className="verify-badge" />
+                    <img
+                      className="profile-main-image"
+                      style={{ width: '15rem' }}
+                      src={require('../../../assets/samples/profile.jpg')}
+                      alt=""
+                    />
+                  </div>
+                </Row>
+                <Row
+                  className="justify-content-center"
+                  style={{ width: '80%', marginBottom: '10%' }}
+                >
+                  <Row>
+                    <TextLabel
+                      className="topic primary-font font-bold font-size-medium"
+                      style={{ lineHeight: '30px' }}
+                      text={'Dilshan Athukorala'}
+                    />
+                  </Row>
+                  <Row>
+                    <TextLabel
+                      className="text-center primary-font secondary-text-color"
+                      style={{ lineHeight: '20px', fontSize: '1.2rem' }}
+                      text={'I am UI/UX Designer'}
+                    />
+                  </Row>
+                  <Row className="justify-content-center">
+                    {/* <StarRatings
                             rating={4}
                             starRatedColor="blue"
                             numberOfStars={6}
                             name='rating'
                         /> */}
-                                Star Rating
-                            </Row>
-                            <Row className="text-center">
-                                <div>
-                                    4.9 <span className="secondary-text-color">(30 reviews)</span>
-                                </div>
-                            </Row>
-                            <Row />
-
-                        </Row>
-                        <Row style={{ width: '80%' }}>
-                            <Button type="Secondary" className="contact-btn" title={messages.service.contact} />
-
-                        </Row>
-
-                    </Row>
-                    <Row>
-                        <Button type="Primary" className="appointment-btn" title={messages.service.makeAppointment} />
-                    </Row>
-
-                </Col>
-                <Col lg="8" xl="9" >
-                    <ImageGallery images={images} />
-
-                </Col>
-
-            </Row>
-            <Row className="main-section">
-                <Row>
-                    <TextLabel className="primary-font font-size-large font-bold" style={{ lineHeight: '54px' }}
-                        text={messages.service.aboutService} />
+                    Star Rating
+                  </Row>
+                  <Row className="text-center">
+                    <div>
+                      4.9{' '}
+                      <span className="secondary-text-color">(30 reviews)</span>
+                    </div>
+                  </Row>
+                  <Row />
                 </Row>
-                <Row className="ml-3 mb-3">
-                    <Row>
-                        <TextLabel className="primary-font font-medium font-size-medium" text={messages.service.serviceDescription} />
-                    </Row>
-                    <Row>
-                        <Label className="description primary-font font-regular quaternary-text-color">
-                            consectetur adipiscing elit. Viverra magna nunc risus
-                            iaculis eleifend id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra adipiscing curabitur
-                            enim maecenas facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat
-                            vulputate. Iaculis elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget. Viverra
-                            id hac malesuada purus, nunc, ultricies ac integer. Tempus urna,  Viverra adipiscing curabitur
-                            facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate.
-                            Viverra id hac malesuada purus, nunc, ultricies ac integer. Tempus urna,  Viverra adipiscing curabitur
-                            facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate.  </Label>
-                    </Row>
+                <Row style={{ width: '80%' }}>
+                  <Button
+                    type={BUTTON_TYPES.SECONDARY}
+                    className="contact-btn"
+                    title={messages.service.contact}
+                  />
                 </Row>
-                <Row className="ml-3">
-                    <Row>
-                        <TextLabel className="primary-font font-medium font-size-medium" text={messages.service.toolsTechniques} />
-                    </Row>
-                    <Row>
-                        <Label className="description primary-font font-regular quaternary-text-color">
-                            consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend
-                            id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra adipiscing curabitur enim maecenas
-                            facilisi facilisis lacus euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
-                            elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
-                            nunc, ultricies ac integer. Tempus urna,  Viverra adipiscing curabitur   facilisi facilisis lacus
-                            euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate.   Viverra id hac malesuada purus,
-                            nunc, ultricies ac integer. Tempus urna,  Viverra adipiscing curabitur   facilisi facilisis lacus
-                            euismod enim. Lacus quis nec pellentesque dictum feugiat vulputate.  </Label>
-                    </Row>
-                </Row>
-
-            </Row>
-
-            {/* Pricing plan */}
+              </Row>
+              <Row>
+                <Button
+                  type={BUTTON_TYPES.PRIMARY}
+                  className="appointment-btn"
+                  title={messages.service.makeAppointment}
+                />
+              </Row>
+            </Col>
+            <Col lg="8" xl="9">
+              <ImageGallery images={images} />
+            </Col>
+          </Row>
+          <Row className="main-section">
             <Row>
-                Reviews
+              <TextLabel
+                className="primary-font font-size-large font-bold"
+                style={{ lineHeight: '54px' }}
+                text={messages.service.aboutService}
+              />
             </Row>
-
-            <Row className="main-section">
-                <Row><TextLabel className="primary-font font-size-large font-bold" style={{ lineHeight: '54px' }}
-                    text={messages.service.otherServices} /> </Row>
-                <Row className="d-flex justify-content-between">
-                    <ServiceCard />
-                    <ServiceCard />
-                    <ServiceCard />
-                    <ServiceCard />
-                    <ServiceCard />
-                </Row>
-
+            <Row className="ml-3 mb-3">
+              <Row>
+                <TextLabel
+                  className="primary-font font-medium font-size-medium"
+                  text={messages.service.serviceDescription}
+                />
+              </Row>
+              <Row>
+                <Label className="description primary-font font-regular quaternary-text-color">
+                  consectetur adipiscing elit. Viverra magna nunc risus iaculis
+                  eleifend id facilisi. Consectetur ut at sapien lacinia libero
+                  eu. Viverra adipiscing curabitur enim maecenas facilisi
+                  facilisis lacus euismod enim. Lacus quis nec pellentesque
+                  dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis
+                  consequat ultrices hendrerit pulvinar eget. Viverra id hac
+                  malesuada purus, nunc, ultricies ac integer. Tempus urna,
+                  Viverra adipiscing curabitur facilisi facilisis lacus euismod
+                  enim. Lacus quis nec pellentesque dictum feugiat vulputate.
+                  Viverra id hac malesuada purus, nunc, ultricies ac integer.
+                  Tempus urna, Viverra adipiscing curabitur facilisi facilisis
+                  lacus euismod enim. Lacus quis nec pellentesque dictum feugiat
+                  vulputate.{' '}
+                </Label>
+              </Row>
             </Row>
+            <Row className="ml-3">
+              <Row>
+                <TextLabel
+                  className="primary-font font-medium font-size-medium"
+                  text={messages.service.toolsTechniques}
+                />
+              </Row>
+              <Row>
+                <Label className="description primary-font font-regular quaternary-text-color">
+                  consectetur adipiscing elit. Viverra magna nunc risus iaculis
+                  eleifend id facilisi. Consectetur ut at sapien lacinia libero
+                  eu. Viverra adipiscing curabitur enim maecenas facilisi
+                  facilisis lacus euismod enim. Lacus quis nec pellentesque
+                  dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis
+                  consequat ultrices hendrerit pulvinar eget. Viverra id hac
+                  malesuada purus, nunc, ultricies ac integer. Tempus urna,
+                  Viverra adipiscing curabitur facilisi facilisis lacus euismod
+                  enim. Lacus quis nec pellentesque dictum feugiat vulputate.
+                  Viverra id hac malesuada purus, nunc, ultricies ac integer.
+                  Tempus urna, Viverra adipiscing curabitur facilisi facilisis
+                  lacus euismod enim. Lacus quis nec pellentesque dictum feugiat
+                  vulputate.{' '}
+                </Label>
+              </Row>
+            </Row>
+          </Row>
 
+          {/* Pricing plan */}
+          <Row>Reviews</Row>
+
+          <Row className="main-section">
+            <Row>
+              <TextLabel
+                className="primary-font font-size-large font-bold"
+                style={{ lineHeight: '54px' }}
+                text={messages.service.otherServices}
+              />{' '}
+            </Row>
+            <Row className="d-flex justify-content-between">
+              <ServiceCard />
+              <ServiceCard />
+              <ServiceCard />
+              <ServiceCard />
+              <ServiceCard />
+            </Row>
+          </Row>
         </Container>
-    </div>);
+      </div>
+    );
 };
 
 export { ServicePage };
