@@ -6,10 +6,12 @@ import thunk from 'redux-thunk';
 
 import { commonReducer } from './common/reducer';
 import { userReducer } from './user/reducer';
+import { consultServiceReducer } from './consultService/reducer';
 
 export const rootReducer = combineReducers({
   commonReducer,
   userReducer,
+  consultServiceReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
@@ -17,7 +19,7 @@ export type AppState = ReturnType<typeof rootReducer>;
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['commonReducer', 'userReducer'],
+  whitelist: ['commonReducer'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

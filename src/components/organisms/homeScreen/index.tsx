@@ -1,8 +1,17 @@
 import { messages } from '../../../shared/localize';
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
+import { useCallback } from 'react';
+import { loadConsultServices } from '../../../store/actions';
+import { useAppDispatch } from '../../../shared/hooks';
 
 function HomeScreen() {
+  const dispatch = useAppDispatch();
+
+  const getConsultService = useCallback(async () => {
+    dispatch(loadConsultServices({ type: 'TOP_RATED', pageSize: 8 }));
+  }, []);
+  getConsultService();
   const renderCategory = () => {
     return (
       <div className="mt-5">

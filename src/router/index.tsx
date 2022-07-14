@@ -11,13 +11,14 @@ import {
 } from '../pages';
 import { useAppDispatch } from '../shared/hooks';
 import { saveUser } from '../store/actions';
+
 const App = () => {
   const routes = useRoutes([
     { path: '/about', element: <About /> },
     { path: '/', element: <Home /> },
-    { path: '/profile', element: <ConsultantProfile /> },
+    { path: '/consult/:consultId', element: <ConsultantProfile /> },
+    { path: '/service/:serviceId', element: <Service /> },
     { path: '/search', element: <SearchPage /> },
-    { path: '/service', element: <Service /> },
     { path: '/auth/:authForm', element: <Auth /> },
   ]);
   return routes;
@@ -42,7 +43,6 @@ const Router = () => {
     switch (data.payload.event) {
       case 'signIn':
         saveCurrentUser();
-        // console.log('user signed in');
         break;
       case 'signUp':
         // console.log('user signed up');

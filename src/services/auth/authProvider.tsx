@@ -29,4 +29,16 @@ function UserValidation(username: string, code: string) {
   return Auth.confirmSignUp(username, code);
 }
 
-export { UserSignIn, UserSignOut, UserSignUp, UserValidation };
+function getCurrentAuthenticatedUser() {
+  return Auth.currentAuthenticatedUser({
+    bypassCache: false,
+  });
+}
+
+export {
+  UserSignIn,
+  UserSignOut,
+  UserSignUp,
+  UserValidation,
+  getCurrentAuthenticatedUser,
+};
