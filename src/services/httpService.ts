@@ -1,7 +1,7 @@
 // import { Auth } from 'aws-amplify';
 import axios from 'axios';
-import config from '../env.json';
 import { Logger } from '.';
+import config from '../env.json';
 
 const http = axios.create({
   baseURL: config.baseURL,

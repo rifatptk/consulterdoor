@@ -5,8 +5,8 @@ import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 import { commonReducer } from './common/reducer';
-import { userReducer } from './user/reducer';
 import { consultServiceReducer } from './consultService/reducer';
+import { userReducer } from './user/reducer';
 
 export const rootReducer = combineReducers({
   commonReducer,

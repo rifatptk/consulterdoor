@@ -1,9 +1,9 @@
+import { useCallback } from 'react';
+import { useAppDispatch } from '../../../shared/hooks';
 import { messages } from '../../../shared/localize';
+import { loadConsultServices } from '../../../store/actions';
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
-import { useCallback } from 'react';
-import { loadConsultServices } from '../../../store/actions';
-import { useAppDispatch } from '../../../shared/hooks';
 
 function HomeScreen() {
   const dispatch = useAppDispatch();

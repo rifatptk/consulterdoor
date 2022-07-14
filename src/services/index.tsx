@@ -1,9 +1,9 @@
 import { AuthService } from './auth';
-import { Logger } from './loggerService';
-import { http } from './httpService';
-import { consultServicesService } from './consultService';
 import { consultantService } from './consultant';
+import { consultServicesService } from './consultService';
+import { http } from './httpService';
 import { IPagination } from './interfaces';
+import { Logger } from './loggerService';
 
 export { Logger, http, AuthService, consultServicesService, consultantService };
 
