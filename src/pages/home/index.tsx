@@ -8,8 +8,17 @@ function Home() {
       <div>
         <HomeScreen />
         <FreeTextInputWizard
-          modalIsOpen={true}
-          modalTitle="Brief description about your problem"
+          modalIsOpen={false}
+          questions={[
+            {
+              questionTitle: 'Briefly description about the problem',
+              maxLength: 350,
+            },
+            {
+              questionTitle: 'Why do you choose me as your consultant?',
+              maxLength: 450,
+            },
+          ]}
         />
       </div>
     </PageContainer>
