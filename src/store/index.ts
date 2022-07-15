@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 import { commonReducer } from './common/reducer';
+import { consultantReducer } from './consultant/reducer';
 import { consultServiceReducer } from './consultService/reducer';
 import { userReducer } from './user/reducer';
 
@@ -12,6 +13,7 @@ export const rootReducer = combineReducers({
   commonReducer,
   userReducer,
   consultServiceReducer,
+  consultantReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

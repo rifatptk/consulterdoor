@@ -29,6 +29,9 @@ export interface IMessageProperties {
     consultListTitle: string;
     seeAll: string;
   };
+  serviceCard: {
+    start: string;
+  };
 }
 
 export interface IMessages

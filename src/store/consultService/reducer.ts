@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { consultServicesService } from '../../services';
 
 const initialState: any = {
@@ -9,29 +9,35 @@ const initialState: any = {
   consultCategories: [],
 };
 
+const loadConsultServices = createAsyncThunk(
+  'consultServiceSlice/loadConsultServices',
+  async (data: any) => {
+    return consultServicesService.getConsultServices(data);
+  }
+);
+
+const loadConsultCategories = createAsyncThunk(
+  'consultServiceSlice/loadConsultCategories',
+  async () => {
+    return consultServicesService.getServiceCategories();
+  }
+);
+
 export const consultServiceSlice = createSlice({
   name: 'consultServiceSlice',
   initialState,
-  reducers: {
-    loadConsultServices: async (
-      state,
-      action: PayloadAction<{
-        type: string;
-        pageNumber?: number;
-        pageSize?: number;
-      }>
-    ) => {
-      const result = await consultServicesService.getConsultServices({
-        type: action.payload.type,
-        pageNumber: action.payload.pageNumber,
-        pageSize: action.payload.pageSize,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadConsultServices.fulfilled, (state, { payload }) => {
+        state.consultServices = payload;
+      })
+      .addCase(loadConsultCategories.fulfilled, (state, { payload }) => {
+        state.consultCategories = payload.data;
       });
-      state.consultServices = result;
-    },
   },
 });
 
-const { loadConsultServices } = consultServiceSlice.actions;
 const consultServiceReducer = consultServiceSlice.reducer;
 
-export { loadConsultServices, consultServiceReducer };
+export { consultServiceReducer, loadConsultServices, loadConsultCategories };

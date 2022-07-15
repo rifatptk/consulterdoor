@@ -7,7 +7,7 @@ function PageContainer({ children }: IProps) {
   return (
     <div>
       <Header />
-      <div className="container">{children}</div>
+      <div className="container page-container">{children}</div>
     </div>
   );
 }

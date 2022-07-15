@@ -28,4 +28,7 @@ export const en: IMessageProperties = {
     consultListTitle: 'Top Rated Consultants',
     seeAll: 'See All',
   },
+  serviceCard: {
+    start: 'Start',
+  },
 };

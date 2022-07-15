@@ -1,17 +1,20 @@
 import { Container, Row } from 'reactstrap';
 import { ConsultantCard } from '../../';
+import { IConsultant } from '../../../services/interfaces';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
 
 interface IProps {
-  data: object[];
+  data: IConsultant[];
 }
 
 function ConsultCardList({ data }: IProps) {
   const { innerWidth: width } = window;
 
   const cardList = () => {
-    return data.map((item, index) => <ConsultantCard key={index} />);
+    return data.map((item, index) => (
+      <ConsultantCard key={index} data={item} />
+    ));
   };
   return (
     <Container>

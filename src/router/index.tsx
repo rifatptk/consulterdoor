@@ -16,7 +16,7 @@ const App = () => {
   const routes = useRoutes([
     { path: '/about', element: <About /> },
     { path: '/', element: <Home /> },
-    { path: '/consult/:consultId', element: <ConsultantProfile /> },
+    { path: '/consultant/:consultantId', element: <ConsultantProfile /> },
     { path: '/service/:serviceId', element: <Service /> },
     { path: '/search', element: <SearchPage /> },
     { path: '/auth/:authForm', element: <Auth /> },

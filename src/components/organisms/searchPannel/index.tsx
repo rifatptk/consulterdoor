@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap';
 import { Col, Container, Row } from 'reactstrap';
 import { SearchTag } from '../../atoms';
-import { SearchInput, ServiceCard } from '../../molecules';
+import { SearchInput } from '../../molecules';
 
 function SearchPannel() {
   return (
@@ -39,9 +39,7 @@ function SearchPannel() {
         </Row>
         <Row xl={4} className="justify-content-start">
           {Array.from({ length: 8 }).map((_, idx) => (
-            <Col key={idx}>
-              <ServiceCard />
-            </Col>
+            <Col key={idx}>{/* <ServiceCard /> */}</Col>
           ))}
         </Row>
       </Container>

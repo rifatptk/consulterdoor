@@ -1,5 +1,4 @@
-import { setIsOverlayLoading } from './common/reducer';
-import { loadConsultServices } from './consultService/reducer';
-import { saveUser } from './user/reducer';
-
-export { setIsOverlayLoading, saveUser, loadConsultServices };
+export * from './common/reducer';
+export * from './consultService/reducer';
+export * from './user/reducer';
+export * from './consultant/reducer';

@@ -1,6 +1,5 @@
 import Badge from 'react-bootstrap/Badge';
 import { Col, Container, Label, Row } from 'reactstrap';
-import { ServiceCardList } from '../../';
 import { messages } from '../../../shared/localize';
 import { TextLabel } from '../../shared';
 
@@ -38,7 +37,7 @@ function ViewConsultantProfile() {
                     className="text-center primary-font secondary-text-color"
                     style={{
                       lineHeight: '20px',
-                      fontSize: '1.2rem'
+                      fontSize: '1.2rem',
                     }}
                     text={'I am UI/UX Designer'}
                   />
@@ -46,7 +45,8 @@ function ViewConsultantProfile() {
                 <Row className="justify-content-center">Star Rating</Row>
                 <Row className="text-center">
                   <div>
-                    4.9 <span className="secondary-text-color">(30 reviews)</span>
+                    4.9{' '}
+                    <span className="secondary-text-color">(30 reviews)</span>
                   </div>
                 </Row>
               </Row>
@@ -59,7 +59,10 @@ function ViewConsultantProfile() {
                     text={messages.consultantProfile.totalEarning}
                   />{' '}
                 </Row>
-                <Row className="justify-content-center primary-font font-medium tertiary-text-color font-size-large" style={{ lineHeight: '3.5rem' }}>
+                <Row
+                  className="justify-content-center primary-font font-medium tertiary-text-color font-size-large"
+                  style={{ lineHeight: '3.5rem' }}
+                >
                   $999
                 </Row>
                 <Row>
@@ -72,13 +75,21 @@ function ViewConsultantProfile() {
               </Row>
               <Row className="footer-detail">
                 <Row>
-                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="4"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <img
                       src={require('../../../assets/samples/sl-flag.png')}
                       alt=""
                     />
                   </Col>
-                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="8"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <TextLabel
                       className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
@@ -90,13 +101,21 @@ function ViewConsultantProfile() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="4"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <img
                       src={require('../../../assets/samples/hand.png')}
                       alt=""
                     />
                   </Col>
-                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="8"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <TextLabel
                       className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
@@ -108,13 +127,21 @@ function ViewConsultantProfile() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs="6" lg="4" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="4"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <img
                       src={require('../../../assets/samples/like.png')}
                       alt=""
                     />
                   </Col>
-                  <Col xs="6" lg="8" className="d-flex justify-content-center mb-2">
+                  <Col
+                    xs="6"
+                    lg="8"
+                    className="d-flex justify-content-center mb-2"
+                  >
                     <TextLabel
                       className="primary-font font-regular font-size-small quaternary-text-color"
                       style={{
@@ -167,11 +194,21 @@ function ViewConsultantProfile() {
                         />
                       </Row>
                       <Row className="indent">
-                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
-                        <Badge className="badge primary-font font-size-small">Frontend dev.</Badge>
-                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
-                        <Badge className="badge primary-font font-size-small">Web Design</Badge>
-                        <Badge className="badge primary-font font-size-small">Frontend dev.</Badge>
+                        <Badge className="badge primary-font font-size-small">
+                          Web Design
+                        </Badge>
+                        <Badge className="badge primary-font font-size-small">
+                          Frontend dev.
+                        </Badge>
+                        <Badge className="badge primary-font font-size-small">
+                          Web Design
+                        </Badge>
+                        <Badge className="badge primary-font font-size-small">
+                          Web Design
+                        </Badge>
+                        <Badge className="badge primary-font font-size-small">
+                          Frontend dev.
+                        </Badge>
                       </Row>
                     </Row>
                     <Row>
@@ -189,7 +226,9 @@ function ViewConsultantProfile() {
                           <Row className="edu primary-font font-size-small font-regular secondary-text-color">
                             Rajarata University of Sri lanka
                           </Row>
-                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">2017-2021 (4Years)</Row>
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">
+                            2017-2021 (4Years)
+                          </Row>
                         </Row>
                         <Row>
                           <Row className="bold primary-font font-size-small">
@@ -198,7 +237,9 @@ function ViewConsultantProfile() {
                           <Row className="edu primary-font font-size-small font-regular secondary-text-color">
                             Rajarata University of Sri lanka
                           </Row>
-                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">2017-2021 (4Years)</Row>
+                          <Row className="edu primary-font font-size-small font-regular secondary-text-color">
+                            2017-2021 (4Years)
+                          </Row>
                         </Row>
                       </Row>
                     </Row>
@@ -219,7 +260,7 @@ function ViewConsultantProfile() {
               text={messages.consultantProfile.myServices}
             />
 
-            <ServiceCardList data={[{}, {}, {}, {}, {}, {}, {}]} />
+            {/* <ServiceCardList data={[{}, {}, {}, {}, {}, {}, {}]} /> */}
           </div>
         </div>
 
@@ -234,7 +275,7 @@ function ViewConsultantProfile() {
             />
           </Row>
           <Row className="p-0">
-            <ServiceCardList data={[{}, {}, {}, {}, {}, {}, {}]} />
+            {/* <ServiceCardList data={[{}, {}, {}, {}, {}, {}, {}]} /> */}
           </Row>
         </Row>
       </div>
