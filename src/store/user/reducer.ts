@@ -4,7 +4,7 @@ const initialState: any = {
   user: null,
 };
 
-export const commonSlice = createSlice({
+export const userSlice = createSlice({
   name: 'userSlice',
   initialState,
   reducers: {
@@ -14,7 +14,7 @@ export const commonSlice = createSlice({
   },
 });
 
-const { saveUser } = commonSlice.actions;
-const userReducer = commonSlice.reducer;
+const { saveUser } = userSlice.actions;
+const userReducer = userSlice.reducer;
 
 export { saveUser, userReducer };

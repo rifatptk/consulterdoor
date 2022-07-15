@@ -32,6 +32,7 @@
     "react-icons": "^4.4.0",
     "react-image-gallery": "^1.2.8",
     "react-localization": "^1.0.17",
+    "react-logger-lib": "^1.0.5",
     "react-multi-carousel": "^2.8.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
