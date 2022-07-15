@@ -147,6 +147,9 @@ button {
 .main-color-bg {
   background-color: #1a83e4; }
 
+.soft-main-color-bg {
+  background-color: rgba(26, 131, 228, 0.22); }
+
 .button-cursor {
   cursor: default; }
 
@@ -422,6 +425,32 @@ label {
 
 .table > thead {
   background-color: #828282; }
+
+.modal-custom-header {
+  border: none;
+  justify-items: center;
+  height: 3rem; }
+
+.wizard-progress {
+  border-radius: 0;
+  height: 8px; }
+
+.wizard-modal {
+  border-radius: 10px;
+  overflow: hidden; }
+
+.modal-page-number {
+  display: flex;
+  border-width: 1px;
+  border-style: solid;
+  height: 1.5rem;
+  width: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7; }
+
+.modal-custom-footer {
+  border: none; }
 
 .main-container {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2); }
