@@ -1,19 +1,19 @@
 import { Container, Row } from 'reactstrap';
-import { ServiceCard } from '../../';
-import { IConsultService } from '../../../services/interfaces';
+import { ConsultantCard } from '../../';
+import { IConsultant } from '../../../services/interfaces';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
 
 interface IProps {
-  data: IConsultService[];
+  data: IConsultant[];
 }
 
-function ServiceCardList({ data }: IProps) {
+function ConsultCardList({ data }: IProps) {
   const { innerWidth: width } = window;
 
   const cardList = () => {
-    return data.map((item: IConsultService, index) => (
-      <ServiceCard key={index} data={item} />
+    return data.map((item, index) => (
+      <ConsultantCard key={index} data={item} />
     ));
   };
   return (
@@ -29,11 +29,11 @@ function ServiceCardList({ data }: IProps) {
             {cardList()}
           </CommonCarousel>
         ) : (
-          <Row className="m-0 p-0 card-list">{cardList()}</Row>
+          <Row className="m-0 p-0 card-list ">{cardList()}</Row>
         )}
       </Row>
     </Container>
   );
 }
 
-export { ServiceCardList };
+export { ConsultCardList };

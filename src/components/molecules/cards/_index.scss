@@ -1,5 +1,8 @@
 .main-container {
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 18rem;
+    min-width: 17rem;
 }
 
 .service-card-profile-image {
@@ -27,8 +30,6 @@
     height: 6rem;
     object-fit: cover;
 }
-
-
 .service-card-profile-image-container {
     width: '6rem';
     height: '6rem';
@@ -67,7 +68,7 @@
     font-size: 13px;
     line-height: 20px;
 
-    color: #676767;
+    color: $text-quaternary-color;
 }
 
 .consultant-card-title-text {
@@ -77,11 +78,8 @@
 }
 
 .consultant-card-body-text {
-    font-style: normal;
-    font-weight: 400;
     font-size: 13px;
     line-height: 20px;
-
     color: #676767;
 }
 
@@ -101,6 +99,14 @@
     width: 20px;
     height: 20px;
     border-radius: 10px;
+}
+
+.consult-card-container {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    margin: 10px;
+    max-width: 18.75rem;
+    overflow: hidden;
 }
 
 .consultant-card-availability-container {
@@ -123,12 +129,81 @@ small {
 .service-card-footer-container {
     display: flex;
     flex-direction: row;
+}
 
+.service-card-footer-container:hover {
+    background-color: rgba($btn-tertiary-bg-color, 0.3);
+    transition: background-color 0.5s;
+}
+
+.consult-card-footer-container:hover {
+    background-color: rgba($btn-tertiary-bg-color, 0.3);
+    transition: background-color 0.5s;
+}
+
+.consult-view-btn {
+    cursor: pointer;
 }
 
 .service-card-start-button {
     display: flex;
     width: 75%;
     justify-content: center;
+}
 
+.service-card-start-button:hover {
+    cursor: pointer;
+    background-color: rgba($btn-tertiary-bg-color, 0.1);
+    transition: background-color 0.5s;
+}
+
+.category-card-container {
+    box-sizing: border-box;
+    width: 23rem;
+    background: $bg-primary-color;
+    border: 1px solid $primary-card-border-color;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: min(2%, 5%);
+    margin-left: min(2%, 5%);
+    padding: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+    .category-card-container {
+        box-sizing: border-box;
+        width: 17rem;
+        background-color: $bg-primary-color;
+        border: 1px solid $primary-card-border-color;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+        margin-top: 1px;
+        margin-bottom: 1px;
+        margin-right: min(2%, 5%);
+        margin-left: min(2%, 5%);
+        padding: 0px;
+    }
+}
+
+.category-card-title {
+    font-size: 20px;
+    line-height: 30px;
+    color: $title-secondary-color;
+}
+.category-card-image {
+    object-fit: cover;
+    height: auto;
+    width: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.category-card-body-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: $text-quaternary-color;
 }

@@ -1,20 +1,16 @@
 import { Container, Row } from 'reactstrap';
-import { ServiceCard } from '../../';
-import { IConsultService } from '../../../services/interfaces';
+import { CategoryCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
-
 interface IProps {
-  data: IConsultService[];
+  data: object[];
 }
 
-function ServiceCardList({ data }: IProps) {
+function CategoryList({ data }: IProps) {
   const { innerWidth: width } = window;
 
   const cardList = () => {
-    return data.map((item: IConsultService, index) => (
-      <ServiceCard key={index} data={item} />
-    ));
+    return data.map((item, index) => <CategoryCard key={index} />);
   };
   return (
     <Container>
@@ -24,7 +20,7 @@ function ServiceCardList({ data }: IProps) {
             template="ONE_SLIDE_PER_PAGE"
             partialVisbile={true}
             showDots={false}
-            removeArrowOnDeviceType={[]}
+            removeArrowOnDeviceType={['mobile']}
           >
             {cardList()}
           </CommonCarousel>
@@ -36,4 +32,4 @@ function ServiceCardList({ data }: IProps) {
   );
 }
 
-export { ServiceCardList };
+export { CategoryList };

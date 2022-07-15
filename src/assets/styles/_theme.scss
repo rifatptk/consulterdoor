@@ -29,19 +29,7 @@
 }
 
 .bg-highlight-color {
-  background-color: $lightGrey !important;
-}
-
-.color-grey {
-  color: grey;
-}
-
-.color-yellow {
-  color: $brightYellow;
-}
-
-.color-black {
-  color: $black-text-color;
+  background-color: $lightGray !important;
 }
 
 .pointer {
@@ -68,6 +56,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: $primary-font;
   font-style: normal;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $primary-font;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-container {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 button {
@@ -102,5 +106,8 @@ button {
 }
 
 .soft-main-color-bg {
-  background-color: $softBlue;
+  background-color: $lightBlue;
+}
+.navbar-items {
+   margin-left: 25pt;
 }

@@ -1,0 +1,15 @@
+.card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.card-list:after {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-content: left;
+    flex-wrap: wrap;
+}

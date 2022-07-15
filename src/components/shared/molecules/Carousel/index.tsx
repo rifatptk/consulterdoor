@@ -12,6 +12,7 @@ interface IProps {
   focusOnSelect?: boolean;
   infinite?: boolean;
   template: 'ONE_SLIDE_PER_PAGE';
+  deviceType?: string;
 }
 
 const CommonCarousel: React.FunctionComponent<IProps> = React.memo(
@@ -22,7 +23,8 @@ const CommonCarousel: React.FunctionComponent<IProps> = React.memo(
     removeArrowOnDeviceType,
     focusOnSelect,
     infinite,
-    template
+    template,
+    deviceType,
   }: IProps): JSX.Element => {
     return (
       <Carousel
@@ -34,6 +36,7 @@ const CommonCarousel: React.FunctionComponent<IProps> = React.memo(
         showDots={showDots}
         focusOnSelect={focusOnSelect}
         infinite={infinite}
+        deviceType={deviceType || 'mobile'}
       >
         {children}
       </Carousel>
