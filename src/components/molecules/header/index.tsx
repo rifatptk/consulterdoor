@@ -13,7 +13,9 @@ const Header: React.FunctionComponent = React.memo((): JSX.Element => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand href="home">Consulter Door</Navbar.Brand>
+          <Navbar.Brand onClick={() => navigate('/')}>
+            Consulterdoor
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"

@@ -21,4 +21,13 @@ async function getConsultants({
   }
 }
 
-export { getConsultants };
+async function getConsultant(consultantKey: string) {
+  try {
+    const res = await http.get(`consultant/${consultantKey}`);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export { getConsultants, getConsultant };

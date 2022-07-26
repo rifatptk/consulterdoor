@@ -33,4 +33,13 @@ async function getServiceCategories() {
   }
 }
 
-export { getConsultServices, getServiceCategories };
+async function getService(serviceKey: string) {
+  try {
+    const res = await http.get(`services/${serviceKey}`);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export { getConsultServices, getServiceCategories, getService };

@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react';
 import Badge from 'react-bootstrap/Badge';
+import { useParams } from 'react-router-dom';
 import { Col, Container, Label, Row } from 'reactstrap';
+import { getConsultant } from '../../../services/consultant/consultantService';
 import { messages } from '../../../shared/localize';
 import { TextLabel } from '../../shared';
+import { ServiceCardList } from '../serviceCardList';
 
 function ViewConsultantProfile() {
+  const params = useParams();
+  const [consultant, setConsultant] = useState<any>(undefined);
+
+  useEffect(() => {
+    if (params && params.consultantId) {
+      getConsultant(params.consultantId).then((result) => {
+        setConsultant(result.data);
+      });
+    }
+  }, [params]);
+  if (!consultant) {
+    return <></>;
+  }
   return (
     <div>
       <div>
@@ -16,7 +33,7 @@ function ViewConsultantProfile() {
                   <img
                     className="profile-main-image"
                     style={{ width: '15rem' }}
-                    src={require('../../../assets/samples/profile.jpg')}
+                    src={consultant.consultantImage}
                     alt="consult profile"
                   />
                 </div>
@@ -29,7 +46,7 @@ function ViewConsultantProfile() {
                   <TextLabel
                     className="topic primary-font font-bold font-size-medium"
                     style={{ lineHeight: '30px' }}
-                    text={'Dilshan Athukorala'}
+                    text={`${consultant.firstName} ${consultant.lastName}`}
                   />
                 </Row>
                 <Row>
@@ -39,14 +56,16 @@ function ViewConsultantProfile() {
                       lineHeight: '20px',
                       fontSize: '1.2rem',
                     }}
-                    text={'I am UI/UX Designer'}
+                    text={`I am ${consultant.jobTitle}`}
                   />
                 </Row>
                 <Row className="justify-content-center">Star Rating</Row>
                 <Row className="text-center">
                   <div>
-                    4.9{' '}
-                    <span className="secondary-text-color">(30 reviews)</span>
+                    {consultant.overallRating}
+                    <span className="secondary-text-color">
+                      ({consultant.numberOfReviews} reviews)
+                    </span>
                   </div>
                 </Row>
               </Row>
@@ -96,7 +115,7 @@ function ViewConsultantProfile() {
                         fontSize: '0.9rem',
                         lineHeight: '27px',
                       }}
-                      text={'Horana , Sri Lanka'}
+                      text={`${consultant.city} , ${consultant.country}`}
                     />
                   </Col>
                 </Row>
@@ -122,7 +141,7 @@ function ViewConsultantProfile() {
                         fontSize: '0.9rem',
                         lineHeight: '27px',
                       }}
-                      text={'Joined May 10,2022'}
+                      text={`Joined ${consultant.formattedJoinedDate}`}
                     />
                   </Col>
                 </Row>
@@ -165,16 +184,7 @@ function ViewConsultantProfile() {
                   </Row>
                   <Row>
                     <Label className="description primary-font font-regular font-size-small quaternary-text-color">
-                      consectetur adipiscing elit. Viverra magna nunc risus
-                      iaculis eleifend id facilisi. Consectetur ut at sapien
-                      lacinia libero eu. Viverra adipiscing curabitur enim
-                      maecenas facilisi facilisis lacus euismod enim. Lacus quis
-                      nec pellentesque dictum feugiat vulputate. Iaculis elit,
-                      nullam in ve nenatis consequat ultrices hendrerit pulvinar
-                      eget. Viverra id hac malesuada purus, nunc, ultricies ac
-                      integer. Tempus urna, Viverra adipiscing curabitur
-                      facilisi facilisis lacus euismod enim. Lacus quis nec
-                      pellentesque dictum feugiat vulputate.
+                      {consultant.description}
                     </Label>
                   </Row>
                 </Row>
@@ -194,21 +204,17 @@ function ViewConsultantProfile() {
                         />
                       </Row>
                       <Row className="indent">
-                        <Badge className="badge primary-font font-size-small">
-                          Web Design
-                        </Badge>
-                        <Badge className="badge primary-font font-size-small">
-                          Frontend dev.
-                        </Badge>
-                        <Badge className="badge primary-font font-size-small">
-                          Web Design
-                        </Badge>
-                        <Badge className="badge primary-font font-size-small">
-                          Web Design
-                        </Badge>
-                        <Badge className="badge primary-font font-size-small">
-                          Frontend dev.
-                        </Badge>
+                        {consultant.specialisations &&
+                          consultant.specialisations.map(
+                            (specification: any, index: number) => (
+                              <Badge
+                                className="badge primary-font font-size-small"
+                                key={index}
+                              >
+                                {specification.name}
+                              </Badge>
+                            )
+                          )}
                       </Row>
                     </Row>
                     <Row>
@@ -259,8 +265,25 @@ function ViewConsultantProfile() {
               }}
               text={messages.consultantProfile.myServices}
             />
-
-            {/* <ServiceCardList data={[{}, {}, {}, {}, {}, {}, {}]} /> */}
+            <ServiceCardList
+              data={
+                consultant.services &&
+                consultant.services.map((data: any) => {
+                  return {
+                    consultantName: data.consultantName,
+                    consultantImage: data.consultantImage,
+                    serviceName: data.serviceName,
+                    costPerHour: data.costPerHour,
+                    consultServiceKey: data.consultServiceKey,
+                    serviceImage: data.serviceImage,
+                    isOnline: data.isOnline,
+                    overallRating: data.overallRating,
+                    numberOfReviews: data.numberOfReviews,
+                    numberOfAppointments: data.numberOfAppointments,
+                  };
+                })
+              }
+            />
           </div>
         </div>
 
