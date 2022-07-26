@@ -86,7 +86,7 @@ const ServiceCard: React.FunctionComponent<IProps> = ({
         <div
           className="service-card-start-button primary-font font-medium"
           onClick={() => {
-            window.open('service/' + data.consultServiceKey, '_blank');
+            window.open('/service/' + data.consultServiceKey, '_blank');
           }}
         >
           {messages.serviceCard.start}

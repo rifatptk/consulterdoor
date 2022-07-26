@@ -74,7 +74,7 @@ const ConsultantCard: React.FunctionComponent<IProps> = ({
             sm={6}
             className="text-end p-1 primary-font font-medium consult-view-btn"
             onClick={() => {
-              window.open('consultant/' + data.consultantKey, '_blank');
+              window.open('/consultant/' + data.consultantKey, '_blank');
             }}
           >
             View

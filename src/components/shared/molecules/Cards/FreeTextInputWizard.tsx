@@ -44,7 +44,6 @@ const FreeTextInputWizard = ({
   }, [questionIndex]);
 
   const handleSubmit = () => {
-    console.log('HANDLEE SUBMITTTT');
     setIsModalOpen(false);
   };
   const calculateProgress = () => {
