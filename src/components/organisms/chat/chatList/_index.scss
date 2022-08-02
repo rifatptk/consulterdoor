@@ -1,0 +1,30 @@
+.chat-list {
+  height: auto;
+  display: flex;
+}
+
+.chat-card {
+  border-bottom: 2px solid gainsboro;
+}
+
+.avatar-pic > img {
+  border-radius: 13% !important;
+  object-fit: cover;
+}
+
+.chat-card-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.available > .cs-status {
+  width: 18px !important;
+  bottom: 0% !important;
+}
+
+.available_bullet .cs-status__bullet {
+  background: #08de77 !important;
+  border: 3px solid #ffffff !important;
+}

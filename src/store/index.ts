@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
+import { chatReducer } from './chat/reducer';
 
 import { commonReducer } from './common/reducer';
 import { consultantReducer } from './consultant/reducer';
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
   userReducer,
   consultServiceReducer,
   consultantReducer,
+  chatReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
