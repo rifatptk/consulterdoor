@@ -30,4 +30,37 @@ async function getConsultant(consultantKey: string) {
   }
 }
 
-export { getConsultants, getConsultant };
+async function getConsultantProfile() {
+  try {
+    const res = await http.get(`consultant/profile`);
+    return res.data.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function updateConsultant(payload: object) {
+  try {
+    const res = await http.put(`consultant/profile`, { ...payload });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getQualifications() {
+  try {
+    const res = await http.get(`consultant/qualifications`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export {
+  getConsultants,
+  getConsultant,
+  getConsultantProfile,
+  updateConsultant,
+  getQualifications,
+};

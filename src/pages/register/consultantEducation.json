@@ -1,0 +1,59 @@
+{
+  "form":[
+    {
+        "id":0,
+        "name":"Add Education Details",
+        "questions":[
+            {
+                "id":"school",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"School/University"
+            },
+            {
+                "id":"degree",
+                "rows":1,
+                "inputType":"textarea",
+                "maxLength":100,
+                "label":"Degree"
+            },
+            {
+                "id":"start-date",
+                "rows":1,
+                "inputType":"month",
+                "maxLength":100,
+                "label":"Start date"
+            },
+            {
+                "id":"end-date",
+                "rows":1,
+                "inputType":"month",
+                "maxLength":100,
+                "label":"End date"
+            },
+            {
+                "id":"description",
+                "rows":5,
+                "inputType":"textarea",
+                "maxLength":450,
+                "label":"Description"
+            }
+        ]
+    },
+    {
+        "id":1,
+        "name":"Add Skills",
+        "isSelectableTags":true,
+        "questions":[
+            {
+                "id":"Skill",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"Skills"
+            }
+        ]
+    }
+]
+}

@@ -89,6 +89,30 @@ button {
   background-color: $lightGray;
 }
 
+.border-gray-color {
+  border-color: $mediumGray;
+}
+
+.text-input-color {
+  background-color:$secondryGray;
+}
+
+.text-input-button-bg {
+  background-color: $buttonGray;
+}
+
+.tag-bg-color {
+  background-color: $secondryGray;
+}
+
+.text-dark-color {
+  color: $darkGray;
+}
+
+.text-soft-color {
+  color: $softGray;
+}
+
 .background-color-bg {
   background-color: $white !important;
 }
@@ -110,4 +134,16 @@ button {
 }
 .navbar-items {
    margin-left: 25pt;
+}
+
+.text-danger {
+  color:$red;
+}
+
+.bg-danger {
+  background-color: $red;
+}
+
+.text-light {
+  color: $white;
 }

@@ -21,12 +21,13 @@ interface IProps {
   iconStyle?: string;
   iconSize?: SizeProp;
   tabIndex?: number | undefined;
+  actionType?: 'submit' | 'reset' | 'button' | undefined;
 }
 
 enum BUTTON_TYPES {
   PRIMARY = 'Primary',
   SECONDARY = 'Secondary',
-  LINK = 'Link'
+  LINK = 'Link',
 }
 
 const getStyles = (type?: string, disabled?: boolean, isLoader?: boolean) => {
@@ -60,7 +61,8 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
     icon,
     iconStyle,
     iconSize,
-    tabIndex = 0
+    tabIndex = 0,
+    actionType,
   }: IProps) {
     return (
       <div className="d-flex flex-row align-items-center pl-0 pr-0">
@@ -74,6 +76,7 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
           onClick={onClick}
           disabled={disabled}
           tabIndex={tabIndex}
+          type={actionType}
         >
           {title}
           {icon ? (

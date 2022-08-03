@@ -1,4 +1,5 @@
 // import { Auth } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import axios from 'axios';
 import { Logger } from '.';
 import config from '../env.json';
@@ -36,11 +37,18 @@ const http = axios.create({
 
 http.interceptors.request.use(
   (request) => {
-    if (request && request.headers) {
-      request.headers.Authorization = '';
-    }
-    Logger.info(`http request`, request);
-    return request;
+    return Auth.currentSession()
+      .then((session) => {
+        if (request && request.headers) {
+          request.headers.Authorization = session.getIdToken().getJwtToken();
+        }
+        Logger.info(`http request`, request);
+        return request;
+      })
+      .catch((error) => {
+        Logger.error('http request', error);
+        return Promise.resolve(request);
+      });
   },
   (error) => {
     Logger.error(`http request`, error);
@@ -48,15 +56,9 @@ http.interceptors.request.use(
   }
 );
 
-http.interceptors.response.use(
-  (response) => {
-    Logger.info(`http response`, response);
-    return response;
-  },
-  (error) => {
-    Logger.error(`http response`, error);
-    return Promise.reject(error.response);
-  }
-);
+http.interceptors.response.use(undefined, (error) => {
+  console.log('ERROR', error);
+  return Promise.reject(error.response);
+});
 
 export { http };
