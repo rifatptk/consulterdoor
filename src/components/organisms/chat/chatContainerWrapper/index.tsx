@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { IConversation } from "../chatList";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../shared/hooks";
-import { loadChat } from "../../../../store/actions";
+import { loadChat, sendMessage } from "../../../../store/actions";
+import { IMessage, ISendMessageProps } from "../../../../services/chat/chatInterface";
 
 
 interface IChatWrapperProps {
@@ -14,6 +15,7 @@ interface IChatWrapperProps {
 function ChatWrapper(props: IChatWrapperProps) {
 
     const [messages, setMessages] = useState<MessageModel[] | []>([]);
+    const [chatDetail, setChatDetail] = useState<IConversation>();
     const dispatch = useDispatch();
     const chatState = useSelector(
         (state: RootState) => state.chatReducer
@@ -22,7 +24,15 @@ function ChatWrapper(props: IChatWrapperProps) {
 
 
     const handleSend = (message: string) => {
-        console.log(message, 'xxxxxxxxxxxxxx');
+        // TODO:Need to set userKey as sender key 
+        const params: ISendMessageProps = {
+            chatKey: chatState.activeChat,
+            message: message,
+            messageType: 'Text',
+            senderKey: '1578a256-d447-11ec-9d64-0242ac120002',
+
+        }
+        dispatch(sendMessage(params));
         setMessages([...messages, {
             message,
             position: "single",
@@ -38,122 +48,69 @@ function ChatWrapper(props: IChatWrapperProps) {
 
     }, [chatState.activeChat])
 
+    useEffect(() => {
+        const activeChat = chatState.chats.find((chat: IConversation) => chatState.activeChat === chat.chatKey)
+        setChatDetail(activeChat);
+        if (activeChat) {
+            const messages: MessageModel[] | undefined = activeChat.messages?.map((message: IMessage) => {
+                return {
+                    message: message.message,
+                    position: "single",
+                    direction: message.direction,
+                    sentTime: message.messageTime,
+                    sender: message.senderName
+                }
+            })
+            setMessages(messages ? messages : []);
+        }
+
+    }, [chatState.chats])
+
     return (
         <ChatContainer>
 
             <ConversationHeader>
-                <Avatar src={"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"} name="Emily" />
-                <ConversationHeader.Content userName="Emily" info="Active 10 mins ago" />
+                <Avatar src={chatDetail?.participantImage} name={chatDetail?.participantName} />
+                <ConversationHeader.Content userName={chatDetail?.participantName} info="Active 10 mins ago" />
                 <ConversationHeader.Actions>
                     <VoiceCallButton />
                     <VideoCallButton />
                     <InfoButton />
                 </ConversationHeader.Actions>
             </ConversationHeader>
-            <MessageList typingIndicator={<TypingIndicator content="Emily is typing" />}>
+            <MessageList typingIndicator={<TypingIndicator content={`${chatDetail?.participantName} is Typing `} />}>
 
                 <MessageSeparator>Saturday, 30 November 2019</MessageSeparator>
+                {messages.map((message: MessageModel, index: number) => {
+                    return (
+                        <Message
+                            model={message}
+                        >
+                            {message.direction === 'incoming' ?
+                                <Avatar
+                                    className="chat-avatar-pic"
+                                    src={chatDetail?.participantImage}
+                                    name={chatDetail?.participantName} /> : ""}
 
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "single"
-                }}>
-                    <Avatar src={"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"} name={"Emily"} />
-                </Message>
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "outgoing",
-                    position: "single"
-                }} />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "first"
-                }} avatarSpacer />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "normal"
-                }} avatarSpacer />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "normal"
-                }} avatarSpacer />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "last"
-                }}>
-                    <Avatar src={"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"} name={"Emily"} />
-                </Message>
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    direction: "outgoing",
-                    position: "first"
-                }} />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    direction: "outgoing",
-                    position: "normal"
-                }} />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    direction: "outgoing",
-                    position: "normal"
-                }} />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    direction: "outgoing",
-                    position: "last"
-                }} />
+                        </Message>
 
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "first"
-                }} avatarSpacer />
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "last"
-                }}>
-                    <Avatar src={"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"} name={"Emily"} />
-                </Message>
+                    )
+                })}
 
-                <MessageSeparator>Saturday, 31 November 2019</MessageSeparator>
 
-                <Message model={{
-                    message: "Hello my friend",
-                    sentTime: "15 mins ago",
-                    sender: "Emily",
-                    direction: "incoming",
-                    position: "single"
-                }}>
-                    <Avatar src={"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"} name={"Emily"} />
-                </Message>
-                {messages.map((m, i) => <Message key={i} model={m} />)}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </MessageList>
             <MessageInput placeholder="Type message here" onSend={handleSend} autoFocus={true} />

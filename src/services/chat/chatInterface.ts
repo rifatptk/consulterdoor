@@ -13,7 +13,17 @@ export interface IMessage {
   messageKey: string;
   status: string;
   isDeleted: boolean;
-  createdAt: string;
+  isEditable: boolean;
+  messageTime: string;
+  messageType: string;
+  direction: 'incoming' | 'outgoing';
+  senderKey: string;
+  senderName: string;
+}
+
+export interface ISendMessageProps {
+  chatKey: string;
+  message: string;
   messageType: string;
   senderKey: string;
 }

@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { chatService } from '../../services';
-import { IConversation } from '../../services/chat/chatInterface';
+import {
+  IConversation,
+  ISendMessageProps,
+} from '../../services/chat/chatInterface';
 
 interface IReduxChatState {
   chats: IConversation[];
@@ -26,6 +29,13 @@ const loadChat = createAsyncThunk(
   }
 );
 
+const sendMessage = createAsyncThunk(
+  'chatSlice/sendMessage',
+  async (params: ISendMessageProps) => {
+    return chatService.sendMessage(params);
+  }
+);
+
 const chatSlice = createSlice({
   name: 'chatSlice',
   initialState,
@@ -39,11 +49,22 @@ const chatSlice = createSlice({
       state.chats = payload.data;
       state.activeChat = payload.data[0].chatKey;
     });
+    builder.addCase(sendMessage.fulfilled, (state, { payload }) => {
+      const currentChats = JSON.parse(JSON.stringify(state.chats));
+      // need to get chatMessage in response and append it to chat
+      // const modifiedChat = currentChats.map((chat: any) => {
+      //   if (chat.chatKey === payload.chatKey) {
+      //     chat.messages = payload.messages;
+      //   }
+      //   return chat;
+      // });
+      state.chats = currentChats;
+    });
     builder.addCase(loadChat.fulfilled, (state, { payload }) => {
       const currentChats = JSON.parse(JSON.stringify(state.chats));
       const modifiedChat = currentChats.map((chat: any) => {
-        if (chat.chatKey === payload.data.key) {
-          chat.messages = payload.data.messages;
+        if (chat.chatKey === payload.chatKey) {
+          chat.messages = payload.messages;
         }
         return chat;
       });
@@ -55,4 +76,4 @@ const chatSlice = createSlice({
 const chatReducer = chatSlice.reducer;
 const { setActiveChat } = chatSlice.actions;
 
-export { chatReducer, loadChatList, loadChat, setActiveChat };
+export { chatReducer, loadChatList, sendMessage, loadChat, setActiveChat };

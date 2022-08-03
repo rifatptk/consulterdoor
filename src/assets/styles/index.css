@@ -457,6 +457,9 @@ label {
   background: #08de77 !important;
   border: 3px solid #ffffff !important; }
 
+.chat-avatar-pic > img {
+  object-fit: cover; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
