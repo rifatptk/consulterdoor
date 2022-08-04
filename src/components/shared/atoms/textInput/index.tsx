@@ -26,7 +26,7 @@ interface IProps {
   name?: string;
   maxLength?: number;
   containerClassName?: string;
-  children?: React.ReactElement;
+  children?: React.ReactElement | React.ReactElement[];
 }
 
 const TextInput: React.FunctionComponent<IProps> = React.memo(
@@ -59,7 +59,7 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
           </div>
           <div className={containerClassName}>
             <Input
-              defaultValue={value}
+              value={value}
               id={id}
               disabled={disabled}
               className={`default-text-input ${

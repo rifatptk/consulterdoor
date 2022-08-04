@@ -95,6 +95,17 @@
   object-fit: cover;
 }
 
+.profile-main-image-icon{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  background-color: $buttonGray;
+
+}
+
 .review {
   color: $text-disabled-color;
 }

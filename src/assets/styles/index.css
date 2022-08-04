@@ -379,6 +379,15 @@ input[type='number'] {
   height: 100%;
   object-fit: cover; }
 
+.profile-main-image-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  background-color: #E0E0E0; }
+
 .review {
   color: #a7a5a5; }
 
@@ -527,11 +536,13 @@ label {
   display: flex;
   height: 2.5rem;
   width: 2.5rem;
-  border-style: solid;
-  border-width: 1px;
   margin-left: 10px;
+  border-radius: 1.25rem;
   align-items: center;
   justify-content: center; }
+
+.icon-wrapper:hover {
+  background-color: #E0E0E0; }
 
 .consult-register-form-header-container {
   flex-direction: row;
@@ -543,6 +554,7 @@ label {
   display: flex;
   margin-top: 2rem;
   padding-bottom: 1rem;
+  justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid; }
 
@@ -602,6 +614,17 @@ label {
   align-items: center;
   justify-content: center;
   margin-right: 2rem; }
+
+.consultant-register-qualification-container {
+  display: flex; }
+
+.consultant-register-submit-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+  .consultant-register-submit-button-container button {
+    margin-top: 1rem;
+    margin-left: 1rem; }
 
 .main-container {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
@@ -814,7 +837,17 @@ small {
   margin-left: 2rem;
   margin-right: 2rem;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  overflow: hidden; }
+
+.consultant-register-category-selected {
+  position: absolute;
+  left: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  height: 5rem;
+  width: 1rem;
+  background-color: #1a83e4; }
 
 .consultant-register-edit-button-container {
   display: flex;

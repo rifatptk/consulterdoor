@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { formatString } from '../../../shared/utils';
 import { TextLabel } from '../../shared';
+import { FaUserAlt } from 'react-icons/fa';
 interface IProps {
   data: any;
 }
@@ -8,6 +9,7 @@ interface IProps {
 const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
   data,
 }: IProps): JSX.Element => {
+  console.log('DATAAA', data);
   return (
     <div
       style={{
@@ -17,12 +19,19 @@ const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
         flexDirection: 'column',
       }}
     >
-      <img
-        className="profile-main-image"
-        style={{ width: '8rem', height: '8rem', borderRadius: '4rem' }}
-        src={data.profileImage}
-        alt="consult profile"
-      />
+      {!data.profileImage ? (
+        <div className="profile-main-image-icon">
+          <FaUserAlt size={40} />
+        </div>
+      ) : (
+        <img
+          className="profile-main-image"
+          style={{ width: '8rem', height: '8rem', borderRadius: '4rem' }}
+          src={data.profileImage}
+          alt="consult profile"
+        />
+      )}
+
       <TextLabel
         className="topic primary-font font-bold font-size-regular"
         style={{ lineHeight: '30px', marginTop: '10px' }}

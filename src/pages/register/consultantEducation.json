@@ -5,32 +5,31 @@
         "name":"Add Education Details",
         "questions":[
             {
-                "id":"school",
+                "id":"title",
                 "rows":1,
                 "inputType":"text",
                 "maxLength":100,
                 "label":"School/University"
             },
             {
-                "id":"degree",
+                "id":"sub-title",
                 "rows":1,
                 "inputType":"textarea",
                 "maxLength":100,
                 "label":"Degree"
             },
             {
-                "id":"start-date",
+                "id":"currently-working",
                 "rows":1,
-                "inputType":"month",
+                "inputType":"checkbox",
                 "maxLength":100,
-                "label":"Start date"
+                "label":"I'm currently studying"
             },
             {
-                "id":"end-date",
+                "id":"time-period",
                 "rows":1,
                 "inputType":"month",
-                "maxLength":100,
-                "label":"End date"
+                "maxLength":100
             },
             {
                 "id":"description",

@@ -31,5 +31,19 @@ interface IConsultant {
   numberOfReviews: number;
   numberOfAppointments: number;
 }
+interface IConsultantQualification {
+  description?: string;
+  end?: string;
+  id?: number;
+  start?: string;
+  subTitle?: string;
+  title?: string;
+  type?: 'EDUCATION' | 'EXPERIENCE';
+}
 
-export type { IPagination, IConsultService, IConsultant };
+export type {
+  IPagination,
+  IConsultService,
+  IConsultant,
+  IConsultantQualification,
+};

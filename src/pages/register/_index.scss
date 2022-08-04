@@ -5,6 +5,7 @@
 .consultant-register-screen-container {
     display: flex;
     flex-direction: row;
+
 }
 
 .consultant-register-category-container {
@@ -27,7 +28,18 @@
     margin-right: 2rem;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 
+}
+
+.consultant-register-category-selected{
+    position:absolute;
+    left: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    height: 5rem;
+    width: 1rem;
+    background-color:$blue;
 }
 
 .consultant-register-edit-button-container{

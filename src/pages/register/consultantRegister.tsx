@@ -3,7 +3,6 @@ import { InputType } from 'reactstrap/types/lib/Input';
 import { ConsultantProfileImage } from '../../components';
 import { PageContainer } from '../../components/shared';
 import ConsultantProfile from './consultantProfile.json';
-import ConsultantEducation from './consultantEducation.json';
 import { ConsultantProfileRegistration } from '../../components/shared/molecules';
 import { ConsultantEducationRegistration } from '../../components/shared/molecules';
 
@@ -74,11 +73,7 @@ const ConsultantRegister = () => {
           />
         );
       case REGISTRATION_CATEGORIES.EDUCATION:
-        return (
-          <ConsultantEducationRegistration
-            form={ConsultantEducation.form as IForm[]}
-          />
-        );
+        return <ConsultantEducationRegistration />;
       default:
         console.log('DEFAULT', selectedCategory);
         return <div>Coming soon</div>;
@@ -98,7 +93,17 @@ const ConsultantRegister = () => {
         className="consultant-register-category border-gray-color "
         type="button"
       >
-        {REGISTRATION_CATEGORIES[item as keyof typeof REGISTRATION_CATEGORIES]}
+        {selectedCategory ===
+          REGISTRATION_CATEGORIES[
+            item as keyof typeof REGISTRATION_CATEGORIES
+          ] && <div className="consultant-register-category-selected" />}
+        <div>
+          {
+            REGISTRATION_CATEGORIES[
+              item as keyof typeof REGISTRATION_CATEGORIES
+            ]
+          }
+        </div>
       </button>
     );
   };

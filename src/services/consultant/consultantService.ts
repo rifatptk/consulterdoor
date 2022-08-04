@@ -1,5 +1,6 @@
 import { http } from '..';
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '../../shared/constant';
+import { IConsultantQualification } from '../interfaces';
 
 async function getConsultants({
   pageNumber,
@@ -57,10 +58,30 @@ async function getQualifications() {
   }
 }
 
+async function updateQualification(payload: IConsultantQualification) {
+  try {
+    const res = await http.put(`consultant/qualifications`, payload);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function createQualification(payload: IConsultantQualification) {
+  try {
+    const res = await http.post(`consultant/qualifications`, payload);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export {
   getConsultants,
   getConsultant,
   getConsultantProfile,
   updateConsultant,
   getQualifications,
+  updateQualification,
+  createQualification,
 };
