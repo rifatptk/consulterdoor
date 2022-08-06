@@ -22,7 +22,7 @@ export interface IMessage {
 }
 
 export interface ISendMessageProps {
-  chatKey: string;
+  conversationKey: string;
   message: string;
   messageType: string;
   senderKey: string;

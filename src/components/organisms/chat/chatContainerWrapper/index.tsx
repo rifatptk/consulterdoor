@@ -26,7 +26,7 @@ function ChatWrapper(props: IChatWrapperProps) {
     const handleSend = (message: string) => {
         // TODO:Need to set userKey as sender key 
         const params: ISendMessageProps = {
-            chatKey: chatState.activeChat,
+            conversationKey: chatState.activeChat,
             message: message,
             messageType: 'Text',
             senderKey: '1578a256-d447-11ec-9d64-0242ac120002',
@@ -70,7 +70,7 @@ function ChatWrapper(props: IChatWrapperProps) {
         <ChatContainer>
 
             <ConversationHeader>
-                <Avatar src={chatDetail?.participantImage} name={chatDetail?.participantName} />
+                <Avatar src={chatDetail?.participantImage} name={chatDetail?.participantName} className="chat-avatar-pic" />
                 <ConversationHeader.Content userName={chatDetail?.participantName} info="Active 10 mins ago" />
                 <ConversationHeader.Actions>
                     <VoiceCallButton />

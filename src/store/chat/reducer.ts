@@ -51,14 +51,13 @@ const chatSlice = createSlice({
     });
     builder.addCase(sendMessage.fulfilled, (state, { payload }) => {
       const currentChats = JSON.parse(JSON.stringify(state.chats));
-      // need to get chatMessage in response and append it to chat
-      // const modifiedChat = currentChats.map((chat: any) => {
-      //   if (chat.chatKey === payload.chatKey) {
-      //     chat.messages = payload.messages;
-      //   }
-      //   return chat;
-      // });
-      state.chats = currentChats;
+      const modifiedChatArray = currentChats.map((chat: any) => {
+        if (chat.chatKey === payload.conversationKey) {
+          chat.messages.push(payload.message);
+        }
+        return chat;
+      });
+      state.chats = modifiedChatArray;
     });
     builder.addCase(loadChat.fulfilled, (state, { payload }) => {
       const currentChats = JSON.parse(JSON.stringify(state.chats));

@@ -31,9 +31,7 @@ async function getChat(chatKey: string) {
 
 async function sendMessage(params: ISendMessageProps) {
   try {
-    const res = await http.get('chat/getChatMessages', {
-      params,
-    });
+    const res = await http.post('chat/sendMessage', params);
     return res.data;
   } catch (err) {
     throw err;
