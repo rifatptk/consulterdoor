@@ -32,6 +32,9 @@ export interface IMessageProperties {
   serviceCard: {
     start: string;
   };
+  appointmentPage: {
+    title: string;
+  };
 }
 
 export interface IMessages
@@ -39,7 +42,7 @@ export interface IMessages
     IMessageProperties {}
 
 const messages: IMessages = new LocalizedStrings({
-  en
+  en,
 });
 
 export { messages };

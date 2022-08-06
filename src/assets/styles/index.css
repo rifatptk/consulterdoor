@@ -68,7 +68,7 @@
   color: #4f4f4f !important; }
 
 .bg-highlight-color {
-  background-color: #F8F8F8 !important; }
+  background-color: #f8f8f8 !important; }
 
 .pointer {
   cursor: pointer !important; }
@@ -113,7 +113,7 @@ button {
   flex-wrap: nowrap; }
 
 .light-gray-color-bg {
-  background-color: #F8F8F8; }
+  background-color: #f8f8f8; }
 
 .background-color-bg {
   background-color: #ffffff !important; }
@@ -128,7 +128,7 @@ button {
   background-color: #1a83e4; }
 
 .soft-main-color-bg {
-  background-color: #EAF5FF; }
+  background-color: #eaf5ff; }
 
 .navbar-items {
   margin-left: 25pt; }
@@ -195,7 +195,7 @@ button {
   pointer-events: none; }
 
 .background-disabled-color {
-  background: #F8F8F8 !important; }
+  background: #f8f8f8 !important; }
 
 .default-text-input {
   height: 40px;
@@ -316,7 +316,7 @@ input[type='number'] {
   min-width: 200px;
   align-items: center;
   justify-content: center;
-  background-color: #F8F8F8 !important;
+  background-color: #f8f8f8 !important;
   color: #4f4f4f;
   border-radius: 5px;
   font-weight: 500;
@@ -342,7 +342,7 @@ input[type='number'] {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #27AE60; }
+  background: #27ae60; }
 
 .profile-main-image {
   width: '6rem';
@@ -432,12 +432,18 @@ label {
   font-weight: 600;
   color: #222222; }
 
+.chat-border {
+  border-bottom: 1px solid #f8f8f8; }
+
 .chat-list {
   height: auto;
   display: flex; }
 
 .chat-card {
-  border-bottom: 2px solid gainsboro; }
+  border-bottom: 1px solid #1a83e4; }
+
+.chat-list > li :hover {
+  background-color: #c0e1ff !important; }
 
 .avatar-pic > img {
   border-radius: 13% !important;
@@ -459,6 +465,14 @@ label {
 
 .chat-avatar-pic > img {
   object-fit: cover; }
+
+.chat-msg.cs-message--outgoing .cs-message__content {
+  background-color: #1a83e4 !important;
+  border: 2px solid #ffffff !important; }
+
+.chat-msg.cs-message--incoming .cs-message__content {
+  background-color: #ffffff !important;
+  border: 2px solid #1a83e4 !important; }
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
@@ -631,7 +645,7 @@ small {
   box-sizing: border-box;
   width: 23rem;
   background: #ffffff;
-  border: 1px solid #EAF5FF;
+  border: 1px solid #eaf5ff;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
   margin-bottom: 5px;
@@ -644,7 +658,7 @@ small {
     box-sizing: border-box;
     width: 17rem;
     background-color: #ffffff;
-    border: 1px solid #EAF5FF;
+    border: 1px solid #eaf5ff;
     box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
     margin-top: 1px;
     margin-bottom: 1px;

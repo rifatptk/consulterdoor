@@ -31,7 +31,7 @@ function ChatList(props: IChatListProps) {
             <ConversationList>
                 {chatState.chats.map((conversation: IConversation, index: Key | null | undefined) => {
                     return (
-                        <Conversation key={index} className="chat-card" onClick={() => dispatch(setActiveChat(conversation.chatKey))}>
+                        <Conversation key={index} className="chat-card background-color-bg" onClick={() => dispatch(setActiveChat(conversation.chatKey))}>
                             <Avatar src={conversation.participantImage}
                                 name={conversation.participantName}
                                 className='avatar-pic available available_bullet'

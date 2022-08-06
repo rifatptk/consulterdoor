@@ -4,7 +4,11 @@
 }
 
 .chat-card {
-  border-bottom: 2px solid gainsboro;
+  border-bottom: 1px solid $blue;
+}
+
+.chat-list > li :hover {
+  background-color: $hovBlue !important;
 }
 
 .avatar-pic > img {

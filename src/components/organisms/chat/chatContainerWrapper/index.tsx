@@ -84,7 +84,7 @@ function ChatWrapper(props: IChatWrapperProps) {
                 {messages.map((message: MessageModel, index: number) => {
                     return (
                         <Message
-                            model={message}
+                            model={message} className="chat-msg"
                         >
                             {message.direction === 'incoming' ?
                                 <Avatar

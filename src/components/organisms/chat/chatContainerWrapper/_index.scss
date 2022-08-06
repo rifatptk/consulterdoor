@@ -1,3 +1,13 @@
 .chat-avatar-pic > img {
   object-fit: cover;
 }
+
+.chat-msg.cs-message--outgoing .cs-message__content {
+  background-color: $blue !important;
+  border: 2px solid $white !important;
+}
+
+.chat-msg.cs-message--incoming .cs-message__content {
+  background-color: $white !important;
+  border: 2px solid $blue !important;
+}
