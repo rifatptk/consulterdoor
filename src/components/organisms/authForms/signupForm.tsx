@@ -1,87 +1,117 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthService } from '../../../services';
+import { FcGoogle } from 'react-icons/fc';
+import { IoMdKey, IoMdPerson } from 'react-icons/io';
+import { Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
+import { AuthSignUpSvg } from '../../../assets/images';
+import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
 function SignUpForm() {
-  const navigate = useNavigate();
-  const [firstName, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const handleSubmit = async (event: any) => {
-    try {
-      event.preventDefault();
-      await AuthService.UserSignUp(email, password, firstName, lastname);
-      navigate('/auth/validate', {
-        state: { email, password },
-      });
-    } catch (error) {
-      // console.log('errrror', error);
-    }
-  };
-
   return (
-    <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={handleSubmit}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign Up</h3>
-          <div className="text-center">
-            Already registered?{' '}
-            <span className="link-primary">
-              <Link to="/auth/login">Sign In</Link>
-            </span>
+    <Container className="auth-container">
+      <Row className="auth-content-container">
+        <Col sm={12} lg={8} className="auth-form-container">
+          <div className="auth-form-content-container">
+            <div className="font-bold font-size-large mb-4">Log in</div>
+            <div className="font-regular font-size-small mb-3">
+              Please input your information in the fields below to enter your
+              Journey platform.
+            </div>
+            <div>
+              <TextInput
+                name="email"
+                type="email"
+                rows={1}
+                placeholder="Email"
+                maxLength={100}
+                className="auth-text-container"
+                containerClassName="auth-text-input-container"
+                icon={<IoMdPerson className="text-dark-color" size={20} />}
+              />
+              <TextInput
+                name="password"
+                type="password"
+                rows={1}
+                placeholder="Password"
+                icon={<IoMdKey className="text-dark-color" size={20} />}
+                maxLength={100}
+                containerClassName="auth-text-input-container"
+                className="auth-text-container"
+              />
+            </div>
+            <div
+              className="mt-4"
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <FormGroup check>
+                <Label check className="font-regular font-size-small">
+                  <Input type="checkbox" /> Remember me{' '}
+                </Label>
+              </FormGroup>
+              <button className="font-regular font-size-extra-small text-blue-color">
+                Forgot your password?
+              </button>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: '1rem',
+              }}
+            >
+              <Button
+                type={BUTTON_TYPES.PRIMARY}
+                title="Login"
+                className="auth-button"
+              />
+            </div>
+            <div className="mt-3">
+              <Row>
+                <Col className="dashed-border" />
+                <Col
+                  sm={'auto'}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '2rem',
+                  }}
+                  className="font-regular font-size-extra-small secondary-text-color"
+                >
+                  Or Login with
+                </Col>
+                <Col className="dashed-border" />
+              </Row>
+            </div>
+            <div
+              className="mt-3"
+              style={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <Button
+                type={BUTTON_TYPES.ELEVATED}
+                title="Google"
+                className="pt-2 pb-2"
+                customIcon={<FcGoogle size={20} className="mr-3" />}
+              />
+            </div>
+            <div className="mt-4 font-regular font-size-small secondary-text-color text-center">
+              Don't have an account yet?
+            </div>
+            <div className="mt-1 font-regular font-size-small text-blue-color text-center">
+              Register
+            </div>
           </div>
-          <div className="form-group mt-3">
-            <label>Full Name</label>
-            <input
-              id="fname"
-              name="fname"
-              type="text"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Last Name</label>
-            <input
-              id="lname"
-              name="lame"
-              type="text"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
-          </p>
-        </div>
-      </form>
-    </div>
+        </Col>
+        <Col sm={12} lg={4} className="d-none d-lg-block auth-svg-container">
+          <img
+            src={AuthSignUpSvg}
+            className="auth-signup-svg-background-image"
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

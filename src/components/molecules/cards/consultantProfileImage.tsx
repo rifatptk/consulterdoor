@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { formatString } from '../../../shared/utils';
 import { TextLabel } from '../../shared';
-import { FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt, FaPlus } from 'react-icons/fa';
 interface IProps {
   data: any;
 }
@@ -19,18 +19,21 @@ const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
         flexDirection: 'column',
       }}
     >
-      {!data.profileImage ? (
-        <div className="profile-main-image-icon">
+      <button className="profile-main-image-container">
+        {!data.profileImage ? (
           <FaUserAlt size={40} />
+        ) : (
+          <img
+            className="profile-main-image"
+            style={{ width: '8rem', height: '8rem', borderRadius: '4rem' }}
+            src={data.profileImage}
+            alt="consult profile"
+          />
+        )}
+        <div className="profile-image-add-icon-container">
+          <FaPlus size={20} className="text-light" />
         </div>
-      ) : (
-        <img
-          className="profile-main-image"
-          style={{ width: '8rem', height: '8rem', borderRadius: '4rem' }}
-          src={data.profileImage}
-          alt="consult profile"
-        />
-      )}
+      </button>
 
       <TextLabel
         className="topic primary-font font-bold font-size-regular"

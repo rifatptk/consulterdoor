@@ -29,6 +29,11 @@ interface IModalProps {
   type?: 'CREATE' | 'EDIT';
 }
 
+interface ITagsProp {
+  defaultTags: string[];
+  removeTag: (index: number) => void;
+}
+
 interface IQualificationProps {
   qualification: IConsultantQualification;
 }
@@ -125,29 +130,17 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
   );
 };
 
-const SelectedTags = () => {
-  const [tags, setTags] = useState([
-    'AWS',
-    'Frontend dev',
-    'serverless',
-    'backend dev',
-    'teamwork',
-    'communication',
-  ]);
-  const removeTag = (index: number) => {
-    const tempTags: string[] = [...tags];
-    tempTags.splice(index, 1);
-    setTags(tempTags);
-  };
+const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
   return (
     <Row className="consultant-register-selected-tags-container tag-bg-color">
-      {tags.map((tag, index) => (
+      {defaultTags.map((tag, index) => (
         <Col className="consultant-register-tag-outline font-size-extra-small">
           <button
             onClick={(event) => {
               event.preventDefault();
               removeTag(index);
             }}
+            type="button"
             className="consultant-register-remove-button bg-danger"
           >
             <MdRemove size={15} className="text-light" />
@@ -158,9 +151,27 @@ const SelectedTags = () => {
     </Row>
   );
 };
-const SkillFormModal = ({ isModalOpen, qualification }: IModalProps) => {
-  const handleToggle = () => {};
-  const handleSubmit = () => {};
+const SkillFormModal = ({
+  isModalOpen,
+  qualification,
+  handleToggle,
+}: IModalProps) => {
+  const [skill, setSkill] = useState<string>('');
+  const [tags, setTags] = useState<string[]>([]);
+  const removeTag = (index: number) => {
+    const tempTags: string[] = [...tags];
+    tempTags.splice(index, 1);
+    setTags(tempTags);
+  };
+  const handleKeyAdd = (event: any) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const tempTags: string[] = [...tags];
+      tempTags.push(skill);
+      setTags(tempTags);
+      setSkill('');
+    }
+  };
   return (
     <Modal
       isOpen={isModalOpen}
@@ -171,24 +182,28 @@ const SkillFormModal = ({ isModalOpen, qualification }: IModalProps) => {
     >
       <ModalHeader toggle={handleToggle} />
       <ModalBody>
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <div>
             <div className="consult-register-form-container">
               <div className="consult-register-form-header-container">
                 <div className="font-regular main-color">Add skills</div>
               </div>
-              <div className="ml-4">
-                <SelectedTags />
-                <Row className="consultant-register-skills-container">
-                  <Col xs="auto">
-                    <button
-                      type="button"
-                      className="consultant-register-tag tag-bg-color font-medium font-size-small text-dark-color"
-                    >
-                      AWS LAMBDA
-                    </button>
-                  </Col>
-                </Row>
+              <TextInput
+                labelClassName="font-regular mt-4"
+                labelText="Skill"
+                name="skills"
+                type="text"
+                rows={1}
+                placeholder="Eg: Finance"
+                onChange={(event) => setSkill(event.target.value)}
+                maxLength={100}
+                value={skill}
+                onKeyDown={handleKeyAdd}
+                className="consult-register-text-input text-input-color"
+                containerClassName="text-input-color consultant-register-text-input-container"
+              />
+              <div>
+                <SelectedTags defaultTags={tags} removeTag={removeTag} />
               </div>
             </div>
             <div className="consultant-register-submit-button-container">
@@ -438,8 +453,12 @@ const ConsultantEducationRegistration = () => {
   const handleToggle = () => {
     setIsModalOpen((prev) => !prev);
   };
-  const handleSkillToggle = () => {
+  const handleSkillToggle = (event: any) => {
+    event.preventDefault();
     setIsSkillModalOpen((prev) => !prev);
+  };
+  const handleSkillModalOpen = () => {
+    setIsSkillModalOpen(true);
   };
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -490,12 +509,9 @@ const ConsultantEducationRegistration = () => {
           >
             <button
               className="icon-wrapper"
-              onClick={handleModalOpen}
               type="button"
+              onClick={handleSkillModalOpen}
             >
-              <MdAdd size={30} />
-            </button>
-            <button className="icon-wrapper" type="button">
               <MdModeEdit size={25} />
             </button>
           </div>

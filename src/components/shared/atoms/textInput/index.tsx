@@ -27,6 +27,8 @@ interface IProps {
   maxLength?: number;
   containerClassName?: string;
   children?: React.ReactElement | React.ReactElement[];
+  icon?: React.ReactElement | React.ReactElement[];
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const TextInput: React.FunctionComponent<IProps> = React.memo(
@@ -50,6 +52,8 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
     maxLength,
     containerClassName,
     children,
+    icon,
+    onKeyDown,
   }: IProps) => {
     return (
       <div className="">
@@ -58,6 +62,7 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
             <Label className={labelClassName}>{labelText}</Label>
           </div>
           <div className={containerClassName}>
+            {icon}
             <Input
               value={value}
               id={id}
@@ -76,6 +81,7 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
               name={name}
               style={rows > 1 ? { height: rows * 20 } : {}}
               maxLength={maxLength}
+              onKeyDown={onKeyDown}
             />
             {children}
           </div>

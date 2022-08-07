@@ -66,3 +66,17 @@
 .background-disabled-color {
   background: $bg-disabled-color !important;
 }
+
+.button-elevated{
+  color: $text-primary-color !important;
+  background-color: transparent !important;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-elevated:hover {
+  color: $btn-primary-text-color !important;
+  background: $black-text-color  !important;
+}
