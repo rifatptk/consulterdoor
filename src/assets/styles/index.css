@@ -437,17 +437,26 @@ label {
 
 .chat-list {
   height: auto;
-  display: flex; }
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0px; }
 
 .chat-card {
-  border-bottom: 1px solid #1a83e4; }
+  border-bottom: 1px solid #f8f8f8; }
 
-.chat-list > li :hover {
+.chat-list li :hover {
   background-color: #c0e1ff !important; }
 
 .avatar-pic > img {
   border-radius: 13% !important;
-  object-fit: cover; }
+  object-fit: cover;
+  width: 90px; }
+
+.color-bar {
+  background-color: #1a83e4 !important;
+  width: 3px;
+  height: 100%;
+  border-radius: 2px; }
 
 .chat-card-detail {
   display: flex;
@@ -468,11 +477,21 @@ label {
 
 .chat-msg.cs-message--outgoing .cs-message__content {
   background-color: #1a83e4 !important;
-  border: 2px solid #ffffff !important; }
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important; }
 
 .chat-msg.cs-message--incoming .cs-message__content {
   background-color: #ffffff !important;
   border: 2px solid #1a83e4 !important; }
+
+.chat-container {
+  background-color: #f8f8f8 !important; }
+
+.chat-header * {
+  background-color: #ffffff !important; }
+
+.chat-header {
+  background-color: #ffffff !important; }
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }

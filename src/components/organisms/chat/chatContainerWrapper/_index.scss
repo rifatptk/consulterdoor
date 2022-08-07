@@ -5,9 +5,22 @@
 .chat-msg.cs-message--outgoing .cs-message__content {
   background-color: $blue !important;
   border: 2px solid $white !important;
+  color: $white !important;
 }
 
 .chat-msg.cs-message--incoming .cs-message__content {
   background-color: $white !important;
   border: 2px solid $blue !important;
+}
+
+.chat-container {
+  background-color: $lightGray !important;
+}
+
+.chat-header * {
+  background-color: $white !important;
+}
+
+.chat-header {
+  background-color: $white !important;
 }

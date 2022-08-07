@@ -21,10 +21,17 @@ function ChatList(props: IChatListProps) {
         (state: RootState) => state.chatReducer
     );
 
-    useEffect(() => {
-        dispatch(loadChatList({ userKey: '1' }));
+    const userState = useSelector(
+        (state: RootState) => state.userReducer
+    );
 
-    }, [])
+    useEffect(() => {
+        if (userState?.user?.username) {
+            dispatch(loadChatList({ user_key: userState?.user?.username }));
+        }
+
+
+    }, [userState?.user?.username])
 
     return (
         <div className='chat-list'>

@@ -1,4 +1,4 @@
-import { Avatar, ChatContainer, ConversationHeader, InfoButton, Message, MessageInput, MessageList, MessageModel, MessageSeparator, TypingIndicator, VideoCallButton, VoiceCallButton } from "@chatscope/chat-ui-kit-react";
+import { Avatar, ChatContainer, ConversationHeader, Message, MessageInput, MessageList, MessageModel, MessageSeparator, TypingIndicator } from "@chatscope/chat-ui-kit-react";
 import { useEffect, useState } from "react";
 import { IConversation } from "../chatList";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +20,9 @@ function ChatWrapper(props: IChatWrapperProps) {
     const chatState = useSelector(
         (state: RootState) => state.chatReducer
     );
+    const userState = useSelector(
+        (state: RootState) => state.userReducer
+    );
 
 
 
@@ -29,7 +32,7 @@ function ChatWrapper(props: IChatWrapperProps) {
             conversationKey: chatState.activeChat,
             message: message,
             messageType: 'Text',
-            senderKey: '1578a256-d447-11ec-9d64-0242ac120002',
+            senderKey: userState.user.username,
 
         }
         dispatch(sendMessage(params));
@@ -67,18 +70,18 @@ function ChatWrapper(props: IChatWrapperProps) {
     }, [chatState.chats])
 
     return (
-        <ChatContainer>
 
-            <ConversationHeader>
+        < ChatContainer className="chat-container" >
+            <ConversationHeader className="chat-header">
                 <Avatar src={chatDetail?.participantImage} name={chatDetail?.participantName} className="chat-avatar-pic" />
                 <ConversationHeader.Content userName={chatDetail?.participantName} info="Active 10 mins ago" />
-                <ConversationHeader.Actions>
+                {/* <ConversationHeader.Actions>
                     <VoiceCallButton />
                     <VideoCallButton />
                     <InfoButton />
-                </ConversationHeader.Actions>
+                </ConversationHeader.Actions> */}
             </ConversationHeader>
-            <MessageList typingIndicator={<TypingIndicator content={`${chatDetail?.participantName} is Typing `} />}>
+            <MessageList className="chat-container" typingIndicator={<TypingIndicator content={`${chatDetail?.participantName} is Typing `} />}>
 
                 <MessageSeparator>Saturday, 30 November 2019</MessageSeparator>
                 {messages.map((message: MessageModel, index: number) => {
@@ -86,39 +89,24 @@ function ChatWrapper(props: IChatWrapperProps) {
                         <Message
                             model={message} className="chat-msg"
                         >
-                            {message.direction === 'incoming' ?
+                            {/* {message.direction === 'incoming' ?
                                 <Avatar
                                     className="chat-avatar-pic"
                                     src={chatDetail?.participantImage}
-                                    name={chatDetail?.participantName} /> : ""}
+                                    name={chatDetail?.participantName} /> : ""} */}
 
                         </Message>
 
                     )
                 })}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} autoFocus={true} />
+            <MessageInput className="chat-input" placeholder="Type message here" onSend={handleSend} autoFocus={true} />
             {/* <InputToolbox>
                                     <AttachmentButton />
                                     <SendButton />
                                 </InputToolbox> */}
-        </ChatContainer>
+        </ChatContainer >
 
     )
 

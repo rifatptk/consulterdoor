@@ -2,13 +2,11 @@ import { http } from '..';
 import { ISendMessageProps } from './chatInterface';
 // import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '../../shared/constant';
 
-async function getChatsList({ userKey }: { userKey: string }) {
+async function getChatsList(user_key: { user_key: string }) {
   try {
     const res = await http.get('chat', {
       //TODO:Need to set userKey
-      params: {
-        user_key: '1578a256-d447-11ec-9d64-0242ac120002',
-      },
+      params: user_key,
     });
     return res.data;
   } catch (err) {
