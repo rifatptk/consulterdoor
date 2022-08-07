@@ -33,3 +33,118 @@ font-size: 14px;
 font-weight: 600;
 color: rgb(34, 34, 34);
 }
+
+.auth-form-container{
+  background-color: $white;
+  height: 100vh;
+
+}
+
+.auth-svg-container{
+background-color: $lightBlue;
+min-height: 100vh;
+overflow: hidden;
+}
+
+.auth-container{
+height: 100vh;
+position: absolute;
+top: 0;
+z-index: -1;
+}
+
+.auth-form-content-container{
+  margin-top: 6rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.auth-text-container{
+  border: none;
+}
+.auth-text-input-container{
+  display: flex;
+  flex-direction: row;
+  border-width: 1px;
+  border-radius: 0;
+  border-style: solid;
+  border-color: $mediumGray;
+  align-items: center;
+}
+.auth-button{
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.dashed-border{
+  border-top-width:1px;
+  border-color: $text-secondary-color;
+  border-top-style: dashed;
+  height: 1rem;
+  margin-top: 1rem;
+}
+.dashed-border-container{
+  display: 'flex';
+  flex-direction: 'row';
+  justify-content: stretch;
+  margin-top: 1rem;
+}
+
+.auth-login-svg-background-image{
+  position: absolute;
+  height: 100vh;
+  width: fit-content;
+}
+.auth-signup-svg-background-image{
+  position: absolute;
+  height: 75vh;
+  right: 0;
+  bottom: 0;
+  animation-name: svg-signup-person;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+
+@keyframes svg-signup-person {
+  0%   {right:-500px}
+  100% {right:0px}
+}
+@keyframes svg-person {
+  0%   {right:500px}
+  100% {right:0px}
+}
+.auth-login-svg-person-image{
+  position: absolute;
+  bottom: 0px;
+  height: 50vh;
+  right: 0;
+  width: fit-content;
+  animation-name: svg-person;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+
+.otp-inputs-container{
+  input {
+		width: 40px;
+		height: 50px;
+    border-radius: 3px;
+    background-color: $mediumGray;
+    border-style:solid;
+    border-width: 1px;
+		text-align: center;
+		color: $text-primary-color;
+		margin: 0 3px;
+    font-weight: 400;
+	}
+
+
+}
+
+.otp-error {
+  border-style:solid;
+    border-color: $lightRed;
+    border-width: 1px;
+
+}

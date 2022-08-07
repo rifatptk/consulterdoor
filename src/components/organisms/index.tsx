@@ -1,4 +1,4 @@
-import { LoginForm, SignUpForm, ValidationForm } from './authForms';
+import { LoginForm, SignUpForm } from './authForms';
 import { CategoryList } from './categoryList';
 import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
@@ -15,5 +15,4 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
-  ValidationForm,
 };

@@ -1,0 +1,24 @@
+{
+  "categories":[
+      {
+          "id":0,
+          "name":"Profile"
+      },
+      {
+          "id":2,
+          "name":"Experience"
+      },
+      {
+          "id":3,
+          "name":"Service"
+      },
+      {
+          "id":4,
+          "name":"Certifications"
+      },
+      {
+          "id":5,
+          "name":"Accounts"
+      }
+  ]
+}

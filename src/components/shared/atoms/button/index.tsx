@@ -21,12 +21,15 @@ interface IProps {
   iconStyle?: string;
   iconSize?: SizeProp;
   tabIndex?: number | undefined;
+  actionType?: 'submit' | 'reset' | 'button' | undefined;
+  customIcon?: React.ReactElement;
 }
 
 enum BUTTON_TYPES {
   PRIMARY = 'Primary',
   SECONDARY = 'Secondary',
-  LINK = 'Link'
+  LINK = 'Link',
+  ELEVATED = 'Elevated',
 }
 
 const getStyles = (type?: string, disabled?: boolean, isLoader?: boolean) => {
@@ -38,6 +41,8 @@ const getStyles = (type?: string, disabled?: boolean, isLoader?: boolean) => {
     styles += isLoader ? ' primary-button-loader ' : ' primary-button ';
   } else if (type === 'Link') {
     styles += ' button-link';
+  } else if (type === 'Elevated') {
+    styles += ' button-elevated';
   } else {
     styles += ' secondary-button';
   }
@@ -60,7 +65,9 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
     icon,
     iconStyle,
     iconSize,
-    tabIndex = 0
+    tabIndex = 0,
+    actionType,
+    customIcon,
   }: IProps) {
     return (
       <div className="d-flex flex-row align-items-center pl-0 pr-0">
@@ -74,7 +81,9 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
           onClick={onClick}
           disabled={disabled}
           tabIndex={tabIndex}
+          type={actionType}
         >
+          {customIcon}
           {title}
           {icon ? (
             <FontAwesomeIcon

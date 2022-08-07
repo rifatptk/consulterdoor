@@ -1,0 +1,232 @@
+{
+    "profile":{
+        "name":"Charitha Weerasooriya",
+        "jobTitle":"I am UI/UX Designer",
+        "profileCompletion":70
+    },
+    "categories":[
+        {
+            "id":0,
+            "name":"Profile",
+            "form":[
+                {
+                    "id":0,
+                    "name":"User Profile Details",
+                    "questions":[
+                        {
+                            "id":"professional-headline",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"Professional Headline"
+                        },
+                        {
+                            "id":"profile-description",
+                            "rows":5,
+                            "inputType":"textarea",
+                            "maxLength":450,
+                            "label":"Profile Description"
+                        }
+
+                    ]
+                },
+                {
+                    "id":1,
+                    "name":"Basic Details",
+                    "questions":[
+                        {
+                            "id":"firstname",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"First Name"
+                        },
+                        {
+                            "id":"lastname",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"Last Name"
+                        },
+                        {
+                            "id":"address",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"Address"
+                        }
+                    ]
+                },
+                {
+                    "id":2,
+                    "name":"Contact Details",
+                    "questions":[
+                        {
+                            "id":"phone-number",
+                            "rows":1,
+                            "inputType":"tel",
+                            "maxLength":100,
+                            "label":"Phone Number",
+                            "actionType":"VERIFY"
+                        }
+                    ]
+                },
+                {
+                    "id":3,
+                    "name":"Add Accounts",
+                    "questions":[
+                        {
+                            "id":"linkedin-url",
+                            "rows":1,
+                            "inputType":"url",
+                            "maxLength":100,
+                            "label":"LinkedIn",
+                            "actionType":"COPY"
+                        },
+                        {
+                            "id":"git",
+                            "rows":1,
+                            "inputType":"url",
+                            "maxLength":100,
+                            "label":"GIT",
+                            "actionType":"COPY"
+                        } 
+                    ]
+                }
+            ]
+        },
+        {
+            "id":1,
+            "name":"Education",
+            "form":[
+                {
+                    "id":0,
+                    "name":"Education profile details",
+                    "isEditable":true,
+                    "qualifications":[
+                        {
+                            "id":0,
+                            "title":"Bachelor of technology",
+                            "subtitle":"University of Rajarata",
+                            "image":"https://cmb.ac.lk/wp-content/uploads/collagehouse-wide.jpg",
+                            "start":"2020",
+                            "end":"2021"
+                        },
+                        {
+                            "id":1,
+                            "title":"Bachelor of technology",
+                            "subtitle":"University of Sri Jayewardenapura",
+                            "image":"http://island.lk/wp-content/uploads/2021/11/peradeniya.jpg",
+                            "start":"2017",
+                            "end":"2020"
+
+                        }
+                    ]
+                },
+                {
+                    "id":1,
+                    "name":"Skills",
+                    "isEditable":true,
+                    "tags":[
+                        {
+                            "id":0,
+                            "title":"Web Design"
+                        },
+                        {
+                            "id":1,
+                            "title":"Serverless"
+                        },
+                        {
+                            "id":2,
+                            "title":"Backend dev"
+
+                        },
+                        {
+                            "id":3,
+                            "title":"AWS"
+
+                        },
+                        {
+                            "id":4,
+                            "title":"Database Design"
+
+                        }
+                    ]
+                }
+            ],
+            "modal":[
+                {
+                    "id":0,
+                    "name":"Add Education Details",
+                    "questions":[
+                        {
+                            "id":"school",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"School/University"
+                        },
+                        {
+                            "id":"degree",
+                            "rows":1,
+                            "inputType":"textarea",
+                            "maxLength":100,
+                            "label":"Degree"
+                        },
+                        {
+                            "id":"start-date",
+                            "rows":1,
+                            "inputType":"month",
+                            "maxLength":100,
+                            "label":"Start date"
+                        },
+                        {
+                            "id":"end-date",
+                            "rows":1,
+                            "inputType":"month",
+                            "maxLength":100,
+                            "label":"End date"
+                        },
+                        {
+                            "id":"description",
+                            "rows":5,
+                            "inputType":"textarea",
+                            "maxLength":450,
+                            "label":"Description"
+                        }
+                    ]
+                },
+                {
+                    "id":1,
+                    "name":"Add Skills",
+                    "isSelectableTags":true,
+                    "questions":[
+                        {
+                            "id":"Skill",
+                            "rows":1,
+                            "inputType":"text",
+                            "maxLength":100,
+                            "label":"School/University"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id":2,
+            "name":"Experience"
+        },
+        {
+            "id":3,
+            "name":"Service"
+        },
+        {
+            "id":4,
+            "name":"Certifications"
+        },
+        {
+            "id":5,
+            "name":"Accounts"
+        }
+    ]
+}

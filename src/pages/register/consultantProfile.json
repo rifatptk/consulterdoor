@@ -1,0 +1,88 @@
+{
+  "form":[
+    {
+        "id":0,
+        "name":"User Profile Details",
+        "questions":[
+            {
+                "id":"professional-headline",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"Professional Headline"
+            },
+            {
+                "id":"profile-description",
+                "rows":5,
+                "inputType":"textarea",
+                "maxLength":450,
+                "label":"Profile Description"
+            }
+
+        ]
+    },
+    {
+        "id":1,
+        "name":"Basic Details",
+        "questions":[
+            {
+                "id":"firstname",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"First Name"
+            },
+            {
+                "id":"lastname",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"Last Name"
+            },
+            {
+                "id":"address",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"Address"
+            }
+        ]
+    },
+    {
+        "id":2,
+        "name":"Contact Details",
+        "questions":[
+            {
+                "id":"phone-number",
+                "rows":1,
+                "inputType":"tel",
+                "maxLength":100,
+                "label":"Phone Number",
+                "actionType":"VERIFY"
+            }
+        ]
+    },
+    {
+        "id":3,
+        "name":"Add Accounts",
+        "questions":[
+            {
+                "id":"linkedin-url",
+                "rows":1,
+                "inputType":"url",
+                "maxLength":100,
+                "label":"LinkedIn",
+                "actionType":"COPY"
+            },
+            {
+                "id":"git",
+                "rows":1,
+                "inputType":"url",
+                "maxLength":100,
+                "label":"GIT",
+                "actionType":"COPY"
+            } 
+        ]
+    }
+  ]
+}
