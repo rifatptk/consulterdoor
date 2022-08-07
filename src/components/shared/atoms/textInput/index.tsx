@@ -29,6 +29,8 @@ interface IProps {
   children?: React.ReactElement | React.ReactElement[];
   icon?: React.ReactElement | React.ReactElement[];
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  invalid?: boolean;
+  errorLabelClassName?: string;
 }
 
 const TextInput: React.FunctionComponent<IProps> = React.memo(
@@ -53,7 +55,9 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
     containerClassName,
     children,
     icon,
+    invalid,
     onKeyDown,
+    errorLabelClassName,
   }: IProps) => {
     return (
       <div className="">
@@ -82,12 +86,15 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
               style={rows > 1 ? { height: rows * 20 } : {}}
               maxLength={maxLength}
               onKeyDown={onKeyDown}
+              invalid={invalid}
             />
             {children}
           </div>
           <div>
             {validation && validation.isInValid ? (
-              <Label className={'text-input-error-label'}>
+              <Label
+                className={`text-input-error-label ${errorLabelClassName}`}
+              >
                 {validation.validationMsg
                   ? validation.validationMsg
                   : 'Invalid Field'}

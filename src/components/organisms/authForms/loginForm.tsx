@@ -6,9 +6,24 @@ import {
   AuthLoginBackgroundSvg,
   AuthLoginPersonSvg,
 } from '../../../assets/images';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthService } from '../../../services';
+import { useState } from 'react';
 
 function LoginForm() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: any) => {
+    try {
+      event.preventDefault();
+      await AuthService.UserSignIn(userName, password);
+      navigate('/');
+    } catch (error) {
+      // console.log('errrror', error);
+    }
+  };
   return (
     <Container className="auth-container">
       <Row className="auth-content-container">
@@ -26,6 +41,7 @@ function LoginForm() {
                 rows={1}
                 placeholder="Email"
                 maxLength={100}
+                onChange={(event) => setUserName(event.target.value)}
                 className="auth-text-container"
                 containerClassName="auth-text-input-container"
                 icon={<IoMdPerson className="text-dark-color" size={20} />}
@@ -37,6 +53,7 @@ function LoginForm() {
                 placeholder="Password"
                 icon={<IoMdKey className="text-dark-color" size={20} />}
                 maxLength={100}
+                onChange={(event) => setPassword(event.target.value)}
                 containerClassName="auth-text-input-container"
                 className="auth-text-container"
               />
@@ -70,6 +87,7 @@ function LoginForm() {
                 type={BUTTON_TYPES.PRIMARY}
                 title="Login"
                 className="auth-button"
+                onClick={handleSubmit}
               />
             </div>
             <div className="mt-3">
