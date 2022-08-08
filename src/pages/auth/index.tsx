@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { LoginForm, SignUpForm, ValidationForm } from '../../components';
+import { LoginForm, SignUpForm } from '../../components';
 import { PageContainer } from '../../components/shared';
 
 interface IProps {
@@ -9,7 +9,6 @@ interface IProps {
 const AUTH_PATHS = {
   LOGIN: 'login',
   SIGN_UP: 'signup',
-  VALIDATE: 'validate',
 };
 
 const AuthForm = ({ path }: IProps) => {
@@ -18,8 +17,6 @@ const AuthForm = ({ path }: IProps) => {
       return <LoginForm />;
     case AUTH_PATHS.SIGN_UP:
       return <SignUpForm />;
-    case AUTH_PATHS.VALIDATE:
-      return <ValidationForm />;
     default:
       return <div />;
   }

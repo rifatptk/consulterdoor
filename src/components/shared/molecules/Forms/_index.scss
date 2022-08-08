@@ -1,0 +1,141 @@
+.consult-register-form-container{
+    margin-left: 2rem;
+    margin-right:2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.consult-register-text-input{
+    border: none;
+}
+
+.consult-register-text-input-button{
+	color: inherit;
+	border: none;
+	outline: inherit;
+    height: 2rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.consultant-register-text-input-container {
+    display: flex;
+    padding: 0;
+    align-items: center;
+}
+
+.consult-register-text-input-button:hover {
+    background-color: transparent;
+}
+
+.icon-wrapper{
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-left: 10px;
+    border-radius: 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrapper:hover{
+    background-color: $buttonGray;
+}
+
+.consult-register-form-header-container {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.consultant-register-education-container{
+    flex-direction: row;
+    display: flex;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.consultant-register-qualification-text-container{
+    display: flex;
+    flex-direction: column;
+}
+.consultant-register-education-image{
+    margin-right: 2rem;
+}
+.consultant-register-skills-container{
+    flex-direction: row;
+    display: flex;
+
+}
+
+.consultant-register-tag{
+    display: flex;
+    height: 3rem;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.consultant-register-tag-outline{
+    display: flex;
+    height: 3rem;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-style: solid;
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.consultant-register-selected-tags-container{
+    margin-top: 2rem;
+}
+
+.consultant-register-remove-button {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top: -7px;
+    right: -7px;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+}
+
+.consultant-register-education-icon-container {
+    background-color: $mediumGray;
+    height:5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+}
+.consultant-register-qualification-container{
+    display: flex;
+}
+
+.consultant-register-submit-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    button{
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+}

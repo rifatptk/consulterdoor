@@ -4,6 +4,16 @@ import { ConsultantProfile } from './ConsultantProfile';
 import { Home } from './home';
 import { SearchPage } from './search';
 import { Service } from './Service';
+import { ConsultantRegister } from './register';
 import { Chat } from './chat';
 
-export { About, Home, ConsultantProfile, SearchPage, Service, Auth, Chat };
+export {
+  About,
+  Home,
+  ConsultantProfile,
+  SearchPage,
+  Service,
+  Auth,
+  Chat,
+  ConsultantRegister,
+};

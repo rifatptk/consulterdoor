@@ -1,59 +1,31 @@
-import { Col, Container, Label, Row } from 'reactstrap';
-import im1 from '../../../assets/samples/Rectangle 286.png';
-import im2 from '../../../assets/samples/Rectangle 287.png';
-import im3 from '../../../assets/samples/Rectangle 288.png';
-import im4 from '../../../assets/samples/Rectangle 289.png';
-import im5 from '../../../assets/samples/Rectangle 290.png';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Col, Container, Row } from 'reactstrap';
+import { getService } from '../../../services/consultService/consultService';
 import { messages } from '../../../shared/localize';
 import { ImageGallery } from '../../molecules/imageGallery';
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 
 const ServicePage = () => {
-  const images = [
-    {
-      original: im1,
-      thumbnail: im1,
-      embedUrl:
-        'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
-      description: 'Image1',
-    },
-    {
-      original: im2,
-      thumbnail: im2,
-      embedUrl:
-        'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
-      description: 'Image2',
-    },
-    {
-      original: im3,
-      thumbnail: im3,
-      embedUrl:
-        'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
-      description: 'Image3',
-    },
-    {
-      original: im4,
-      thumbnail: im4,
-      embedUrl:
-        'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
-      description: 'Image4',
-    },
-    {
-      original: im5,
-      thumbnail: im5,
-      embedUrl:
-        'https://www.youtube.com/embed/4pSzhZ76GdM?autoplay=1&showinfo=0',
-      description: 'Image5',
-    },
-  ];
-
+  const params = useParams();
+  const [consultService, setConsultService] = useState<any>(undefined);
+  useEffect(() => {
+    if (params && params.serviceId) {
+      getService(params.serviceId).then((result) => {
+        setConsultService(result.data);
+      });
+    }
+  }, [params]);
+  if (!consultService) {
+    return <></>;
+  }
   return (
     <div>
       <Container>
         <Row className="mt-2 mb-2">
           <TextLabel
             className="title secondary-font font-bold"
-            text="Best UI/UX Design for  Web And Mobile"
+            text={consultService.serviceName}
           />
         </Row>
         <Row>
@@ -69,7 +41,7 @@ const ServicePage = () => {
                   <img
                     className="profile-main-image"
                     style={{ width: '15rem' }}
-                    src={require('../../../assets/samples/profile.jpg')}
+                    src={consultService.consultantImage}
                     alt=""
                   />
                 </div>
@@ -82,14 +54,14 @@ const ServicePage = () => {
                   <TextLabel
                     className="topic primary-font font-bold font-size-medium"
                     style={{ lineHeight: '30px' }}
-                    text={'Dilshan Athukorala'}
+                    text={consultService.consultantName}
                   />
                 </Row>
                 <Row>
                   <TextLabel
                     className="text-center primary-font secondary-text-color"
                     style={{ lineHeight: '20px', fontSize: '1.2rem' }}
-                    text={'I am UI/UX Designer'}
+                    text={`I am ${consultService.jobTitle}`}
                   />
                 </Row>
                 <Row className="justify-content-center">
@@ -103,8 +75,10 @@ const ServicePage = () => {
                 </Row>
                 <Row className="text-center">
                   <div>
-                    4.9{' '}
-                    <span className="secondary-text-color">(30 reviews)</span>
+                    {consultService.overallRating}
+                    <span className="secondary-text-color">
+                      ({consultService.numberOfReviews} reviews)
+                    </span>
                   </div>
                 </Row>
                 <Row />
@@ -126,69 +100,34 @@ const ServicePage = () => {
             </Row>
           </Col>
           <Col lg="8" xl="9">
-            <ImageGallery images={images} />
+            <ImageGallery
+              images={consultService.attachments.map((data: any) => {
+                return {
+                  original: data.url,
+                  thumbnail: data.url,
+                  description: data.caption,
+                  embedUrlL: '',
+                };
+              })}
+            />
           </Col>
         </Row>
         <Row className="main-section">
-          <Row>
+          {/* <Row>
             <TextLabel
               className="primary-font font-size-large font-bold"
               style={{ lineHeight: '54px' }}
               text={messages.service.aboutService}
             />
-          </Row>
-          <Row className="ml-3 mb-3">
-            <Row>
-              <TextLabel
-                className="primary-font font-medium font-size-medium"
-                text={messages.service.serviceDescription}
+          </Row> */}
+          <Row>
+            <Container>
+              <div
+                dangerouslySetInnerHTML={{ __html: consultService.description }}
               />
-            </Row>
-            <Row>
-              <Label className="description primary-font font-regular quaternary-text-color">
-                consectetur adipiscing elit. Viverra magna nunc risus iaculis
-                eleifend id facilisi. Consectetur ut at sapien lacinia libero
-                eu. Viverra adipiscing curabitur enim maecenas facilisi
-                facilisis lacus euismod enim. Lacus quis nec pellentesque dictum
-                feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-                ultrices hendrerit pulvinar eget. Viverra id hac malesuada
-                purus, nunc, ultricies ac integer. Tempus urna, Viverra
-                adipiscing curabitur facilisi facilisis lacus euismod enim.
-                Lacus quis nec pellentesque dictum feugiat vulputate. Viverra id
-                hac malesuada purus, nunc, ultricies ac integer. Tempus urna,
-                Viverra adipiscing curabitur facilisi facilisis lacus euismod
-                enim. Lacus quis nec pellentesque dictum feugiat vulputate.{' '}
-              </Label>
-            </Row>
-          </Row>
-          <Row className="ml-3">
-            <Row>
-              <TextLabel
-                className="primary-font font-medium font-size-medium"
-                text={messages.service.toolsTechniques}
-              />
-            </Row>
-            <Row>
-              <Label className="description primary-font font-regular quaternary-text-color">
-                consectetur adipiscing elit. Viverra magna nunc risus iaculis
-                eleifend id facilisi. Consectetur ut at sapien lacinia libero
-                eu. Viverra adipiscing curabitur enim maecenas facilisi
-                facilisis lacus euismod enim. Lacus quis nec pellentesque dictum
-                feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-                ultrices hendrerit pulvinar eget. Viverra id hac malesuada
-                purus, nunc, ultricies ac integer. Tempus urna, Viverra
-                adipiscing curabitur facilisi facilisis lacus euismod enim.
-                Lacus quis nec pellentesque dictum feugiat vulputate. Viverra id
-                hac malesuada purus, nunc, ultricies ac integer. Tempus urna,
-                Viverra adipiscing curabitur facilisi facilisis lacus euismod
-                enim. Lacus quis nec pellentesque dictum feugiat vulputate.{' '}
-              </Label>
-            </Row>
+            </Container>
           </Row>
         </Row>
-
-        {/* Pricing plan */}
-        <Row>Reviews</Row>
 
         <Row className="main-section">
           <Row>
