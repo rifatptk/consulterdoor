@@ -15,4 +15,5 @@ export {
   SearchInput,
   CategoryCard,
   ConsultantProfileImage,
+  ChatCardInfo
 };
