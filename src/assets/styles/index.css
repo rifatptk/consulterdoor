@@ -74,7 +74,7 @@
   color: #4f4f4f !important; }
 
 .bg-highlight-color {
-  background-color: #FAFAFA !important; }
+  background-color: #fafafa !important; }
 
 .pointer {
   cursor: pointer !important; }
@@ -119,16 +119,16 @@ button {
   flex-wrap: nowrap; }
 
 .light-gray-color-bg {
-  background-color: #FAFAFA; }
+  background-color: #fafafa; }
 
 .border-gray-color {
-  border-color: #D6D6D6; }
+  border-color: #d6d6d6; }
 
 .text-input-color {
   background-color: #f0f0f0; }
 
 .text-input-button-bg {
-  background-color: #E0E0E0; }
+  background-color: #e0e0e0; }
 
 .tag-bg-color {
   background-color: #f0f0f0; }
@@ -152,7 +152,7 @@ button {
   background-color: #1a83e4; }
 
 .soft-main-color-bg {
-  background-color: #EAF5FF; }
+  background-color: #eaf5ff; }
 
 .navbar-items {
   margin-left: 25pt; }
@@ -228,7 +228,7 @@ button {
   pointer-events: none; }
 
 .background-disabled-color {
-  background: #FAFAFA !important; }
+  background: #fafafa !important; }
 
 .button-elevated {
   color: #000000 !important;
@@ -361,7 +361,7 @@ input[type='number'] {
   min-width: 200px;
   align-items: center;
   justify-content: center;
-  background-color: #FAFAFA !important;
+  background-color: #fafafa !important;
   color: #4f4f4f;
   border-radius: 5px;
   font-weight: 500;
@@ -387,7 +387,7 @@ input[type='number'] {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #27AE60; }
+  background: #27ae60; }
 
 .profile-main-image {
   width: '6rem';
@@ -401,7 +401,7 @@ input[type='number'] {
   width: 8rem;
   height: 8rem;
   border-radius: 4rem;
-  background-color: #E0E0E0; }
+  background-color: #e0e0e0; }
 
 .profile-main-image-container:hover {
   opacity: 0.7; }
@@ -494,7 +494,7 @@ label {
   height: 100vh; }
 
 .auth-svg-container {
-  background-color: #EAF5FF;
+  background-color: #eaf5ff;
   min-height: 100vh;
   overflow: hidden; }
 
@@ -518,7 +518,7 @@ label {
   border-width: 1px;
   border-radius: 0;
   border-style: solid;
-  border-color: #D6D6D6;
+  border-color: #d6d6d6;
   align-items: center; }
 
 .auth-button {
@@ -580,7 +580,7 @@ label {
   width: 40px;
   height: 50px;
   border-radius: 3px;
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
   border-style: solid;
   border-width: 1px;
   text-align: center;
@@ -592,6 +592,67 @@ label {
   border-style: solid;
   border-color: #cc5841;
   border-width: 1px; }
+
+.chat-border {
+  border-bottom: 1px solid #fafafa; }
+
+.chat-list {
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0px; }
+
+.chat-card {
+  border-bottom: 1px solid #fafafa; }
+
+.chat-list li :hover {
+  background-color: #c0e1ff !important; }
+
+.avatar-pic > img {
+  border-radius: 13% !important;
+  object-fit: cover;
+  width: 90px; }
+
+.color-bar {
+  background-color: #1a83e4 !important;
+  width: 3px;
+  height: 100%;
+  border-radius: 2px; }
+
+.chat-card-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.available > .cs-status {
+  width: 18px !important;
+  bottom: 0% !important; }
+
+.available_bullet .cs-status__bullet {
+  background: #08de77 !important;
+  border: 3px solid #ffffff !important; }
+
+.chat-avatar-pic > img {
+  object-fit: cover; }
+
+.chat-msg.cs-message--outgoing .cs-message__content {
+  background-color: #1a83e4 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important; }
+
+.chat-msg.cs-message--incoming .cs-message__content {
+  background-color: #ffffff !important;
+  border: 2px solid #1a83e4 !important; }
+
+.chat-container {
+  background-color: #fafafa !important; }
+
+.chat-header * {
+  background-color: #ffffff !important; }
+
+.chat-header {
+  background-color: #ffffff !important; }
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
@@ -664,7 +725,7 @@ label {
   justify-content: center; }
 
 .icon-wrapper:hover {
-  background-color: #E0E0E0; }
+  background-color: #e0e0e0; }
 
 .consult-register-form-header-container {
   flex-direction: row;
@@ -729,7 +790,7 @@ label {
   border-radius: 8px; }
 
 .consultant-register-education-icon-container {
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
   height: 5rem;
   width: 5rem;
   display: flex;
@@ -887,7 +948,7 @@ small {
   box-sizing: border-box;
   width: 23rem;
   background: #ffffff;
-  border: 1px solid #EAF5FF;
+  border: 1px solid #eaf5ff;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
   margin-bottom: 5px;
@@ -900,7 +961,7 @@ small {
     box-sizing: border-box;
     width: 17rem;
     background-color: #ffffff;
-    border: 1px solid #EAF5FF;
+    border: 1px solid #eaf5ff;
     box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
     margin-top: 1px;
     margin-bottom: 1px;
@@ -934,7 +995,7 @@ small {
   position: absolute;
   margin-left: 3rem;
   margin-top: -3rem;
-  color: #27AE60; }
+  color: #27ae60; }
 
 .profile-image-add-icon-container {
   display: flex;
@@ -943,7 +1004,7 @@ small {
   margin-top: -5.5rem;
   justify-content: center;
   align-items: center;
-  background-color: #27AE60;
+  background-color: #27ae60;
   width: 2rem;
   height: 2rem;
   border-radius: 1rem; }

@@ -5,6 +5,7 @@ import { Home } from './home';
 import { SearchPage } from './search';
 import { Service } from './Service';
 import { ConsultantRegister } from './register';
+import { Chat } from './chat';
 
 export {
   About,
@@ -13,5 +14,6 @@ export {
   SearchPage,
   Service,
   Auth,
+  Chat,
   ConsultantRegister,
 };

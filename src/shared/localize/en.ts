@@ -31,4 +31,7 @@ export const en: IMessageProperties = {
   serviceCard: {
     start: 'Start',
   },
+  appointmentPage: {
+    title: 'Your Appointments',
+  },
 };

@@ -5,6 +5,7 @@ import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
 import { ViewConsultantProfile } from './viewConsProfile';
 import { ServicePage } from './viewService';
+import { ChatScreen } from './chat/chatScreen';
 
 export {
   ViewConsultantProfile,
@@ -15,4 +16,5 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
+  ChatScreen
 };
