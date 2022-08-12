@@ -3,6 +3,7 @@ import { CategoryList } from './categoryList';
 import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
+import { VideoRoom } from './videoRoom';
 import { ViewConsultantProfile } from './viewConsProfile';
 import { ServicePage } from './viewService';
 
@@ -16,4 +17,5 @@ export {
   LoginForm,
   SignUpForm,
   ValidationForm,
+  VideoRoom,
 };
