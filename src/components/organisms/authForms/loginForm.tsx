@@ -1,14 +1,14 @@
-import { Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
-import { Button, BUTTON_TYPES, TextInput } from '../../shared';
-import { IoMdPerson, IoMdKey } from 'react-icons/io';
+import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { IoMdKey, IoMdPerson } from 'react-icons/io';
+import { Link, useNavigate } from 'react-router-dom';
+import { Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
 import {
   AuthLoginBackgroundSvg,
   AuthLoginPersonSvg,
 } from '../../../assets/images';
-import { Link, useNavigate } from 'react-router-dom';
 import { AuthService } from '../../../services';
-import { useState } from 'react';
+import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
 function LoginForm() {
   const [userName, setUserName] = useState('');
@@ -67,8 +67,8 @@ function LoginForm() {
                 alignItems: 'center',
               }}
             >
-              <FormGroup check>
-                <Label check className="font-regular font-size-small">
+              <FormGroup check={true}>
+                <Label check={true} className="font-regular font-size-small">
                   <Input type="checkbox" /> Remember me{' '}
                 </Label>
               </FormGroup>
