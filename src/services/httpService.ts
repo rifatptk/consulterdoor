@@ -54,7 +54,7 @@ http.interceptors.response.use(
     return response;
   },
   (error) => {
-    Logger.error(`http response`, error);
+    Logger.error(`http response->`, error);
     return Promise.reject(error.response);
   }
 );
