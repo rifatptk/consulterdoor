@@ -1,0 +1,58 @@
+.remove-margin-padding{
+    margin: 0;
+    padding: 0;
+}
+.consultant-register-screen-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.consultant-register-category-container {
+    flex: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.consultant-register-form-container {
+    flex: 75%;
+}
+
+.consultant-register-category {
+    display: flex;
+    height: 5rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.consultant-register-category-selected{
+    position:absolute;
+    left: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    height: 5rem;
+    width: 1rem;
+    background-color:$blue;
+}
+
+.consultant-register-edit-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: -5rem;
+    button{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+
+    }
+}
+
+

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.9.7",
+    "@chatscope/chat-ui-kit-styles": "^1.2.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
@@ -37,6 +39,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^5.0.0",
+    "react-select": "^5.4.0",
     "react-star-ratings": "^2.3.0",
     "react-transition-group": "^4.4.2",
     "reactstrap": "^9.0.1",

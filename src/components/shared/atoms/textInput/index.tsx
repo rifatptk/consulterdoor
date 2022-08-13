@@ -4,6 +4,7 @@ import { Label } from 'reactstrap';
 import { InputType } from 'reactstrap/types/lib/Input';
 
 interface IProps {
+  id?: string;
   disabled?: boolean;
   value?: string;
   placeholder?: string;
@@ -13,7 +14,7 @@ interface IProps {
   pattern?: string;
   size?: number;
   type?: InputType;
-  rows?: string;
+  rows?: number;
   validation?: {
     isInValid: boolean;
     validationMsg?: string;
@@ -22,10 +23,19 @@ interface IProps {
   innerRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   labelText?: string;
   labelClassName?: string;
+  name?: string;
+  maxLength?: number;
+  containerClassName?: string;
+  children?: React.ReactElement | React.ReactElement[];
+  icon?: React.ReactElement | React.ReactElement[];
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  invalid?: boolean;
+  errorLabelClassName?: string;
 }
 
 const TextInput: React.FunctionComponent<IProps> = React.memo(
   ({
+    id,
     value,
     onChange,
     placeholder,
@@ -33,50 +43,63 @@ const TextInput: React.FunctionComponent<IProps> = React.memo(
     pattern,
     size,
     type,
-    rows,
+    rows = 1,
     disabled,
     validation,
     onFocus,
     tabIndex = 0,
     labelText,
-    labelClassName
+    labelClassName,
+    name,
+    maxLength,
+    containerClassName,
+    children,
+    icon,
+    invalid,
+    onKeyDown,
+    errorLabelClassName,
   }: IProps) => {
     return (
       <div className="">
         <div className="row">
-          <div className="col">
+          <div>
             <Label className={labelClassName}>{labelText}</Label>
           </div>
-          <div
-            className="col"
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-            <div>
-              <Input
-                disabled={disabled}
-                className={`default-text-input ${
-                  validation && validation.isInValid ? 'text-input-error' : ''
-                } ${className}`}
-                placeholder={placeholder}
-                onChange={onChange}
-                value={value}
-                pattern={pattern}
-                size={size}
-                type={type}
-                rows={rows}
-                onFocus={onFocus}
-                tabIndex={tabIndex}
-              />
-            </div>
-            <div>
-              {validation && validation.isInValid ? (
-                <Label className={'text-input-error-label'}>
-                  {validation.validationMsg
-                    ? validation.validationMsg
-                    : 'Invalid Field'}
-                </Label>
-              ) : null}
-            </div>
+          <div className={containerClassName}>
+            {icon}
+            <Input
+              value={value}
+              id={id}
+              disabled={disabled}
+              className={`default-text-input ${
+                validation && validation.isInValid ? 'text-input-error' : ''
+              } ${className}`}
+              placeholder={placeholder}
+              onChange={onChange}
+              pattern={pattern}
+              size={size}
+              type={type}
+              rows={rows}
+              onFocus={onFocus}
+              tabIndex={tabIndex}
+              name={name}
+              style={rows > 1 ? { height: rows * 20 } : {}}
+              maxLength={maxLength}
+              onKeyDown={onKeyDown}
+              invalid={invalid}
+            />
+            {children}
+          </div>
+          <div>
+            {validation && validation.isInValid ? (
+              <Label
+                className={`text-input-error-label ${errorLabelClassName}`}
+              >
+                {validation.validationMsg
+                  ? validation.validationMsg
+                  : 'Invalid Field'}
+              </Label>
+            ) : null}
           </div>
         </div>
       </div>

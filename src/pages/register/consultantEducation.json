@@ -1,0 +1,58 @@
+{
+  "form":[
+    {
+        "id":0,
+        "name":"Add Education Details",
+        "questions":[
+            {
+                "id":"title",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"School/University"
+            },
+            {
+                "id":"sub-title",
+                "rows":1,
+                "inputType":"textarea",
+                "maxLength":100,
+                "label":"Degree"
+            },
+            {
+                "id":"currently-working",
+                "rows":1,
+                "inputType":"checkbox",
+                "maxLength":100,
+                "label":"I'm currently studying"
+            },
+            {
+                "id":"time-period",
+                "rows":1,
+                "inputType":"month",
+                "maxLength":100
+            },
+            {
+                "id":"description",
+                "rows":5,
+                "inputType":"textarea",
+                "maxLength":450,
+                "label":"Description"
+            }
+        ]
+    },
+    {
+        "id":1,
+        "name":"Add Skills",
+        "isSelectableTags":true,
+        "questions":[
+            {
+                "id":"Skill",
+                "rows":1,
+                "inputType":"text",
+                "maxLength":100,
+                "label":"Skills"
+            }
+        ]
+    }
+]
+}

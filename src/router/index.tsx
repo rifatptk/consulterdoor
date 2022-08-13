@@ -4,7 +4,9 @@ import { BrowserRouter, useRoutes } from 'react-router-dom';
 import {
   About,
   Auth,
+  Chat,
   ConsultantProfile,
+  ConsultantRegister,
   Home,
   SearchPage,
   Service,
@@ -18,10 +20,12 @@ const App = () => {
     { path: '/about', element: <About /> },
     { path: '/', element: <Home /> },
     { path: '/consultant/:consultantId', element: <ConsultantProfile /> },
+    { path: '/consultant/register', element: <ConsultantRegister /> },
     { path: '/service/:serviceId', element: <Service /> },
     { path: '/search', element: <SearchPage /> },
     { path: '/auth/:authForm', element: <Auth /> },
     { path: 'video', element: <VideoChat /> },
+    { path: '/chat', element: <Chat /> },
   ]);
   return routes;
 };

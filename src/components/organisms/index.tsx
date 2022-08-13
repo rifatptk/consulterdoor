@@ -1,5 +1,6 @@
-import { LoginForm, SignUpForm, ValidationForm } from './authForms';
+import { LoginForm, SignUpForm } from './authForms';
 import { CategoryList } from './categoryList';
+import { ChatScreen } from './chat/chatScreen';
 import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
@@ -16,6 +17,6 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
-  ValidationForm,
   VideoRoom,
+  ChatScreen
 };

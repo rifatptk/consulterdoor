@@ -23,7 +23,7 @@
 }
 .secondary-button {
   color: $btn-secondary-text-color !important;
-  background: $btn-secondary-bg-color !important;
+  background: transparent !important;
   border: 1px solid $btn-secondary-border-color;
   border-radius: 5px;
   box-sizing: border-box;
@@ -65,4 +65,18 @@
 }
 .background-disabled-color {
   background: $bg-disabled-color !important;
+}
+
+.button-elevated{
+  color: $text-primary-color !important;
+  background-color: transparent !important;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-elevated:hover {
+  color: $btn-primary-text-color !important;
+  background: $black-text-color  !important;
 }
