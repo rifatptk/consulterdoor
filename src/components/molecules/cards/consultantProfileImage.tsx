@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { FaPlus, FaUserAlt } from 'react-icons/fa';
 import { formatString } from '../../../shared/utils';
 import { TextLabel } from '../../shared';
-import { FaUserAlt, FaPlus } from 'react-icons/fa';
 interface IProps {
   data: any;
 }

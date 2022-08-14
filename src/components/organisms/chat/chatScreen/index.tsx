@@ -7,7 +7,6 @@ import { TextLabel } from '../../../shared';
 import { ChatWrapper } from '../chatContainerWrapper';
 import { ChatList, IConversation } from '../chatList';
 
-
 function ChatScreen() {
 
     const [activeChat, setActiveChat] = useState<IConversation>();
@@ -16,13 +15,11 @@ function ChatScreen() {
         (state: RootState) => state.chatReducer
     );
 
-
-
     return (
         <div>
             {chatState?.chats?.length > 0 ? <Container>
 
-                <Row className='chat-border'>
+                <Row className="chat-border">
                     <TextLabel
                         className="primary-font font-size-large font-bold"
                         text={messages.appointmentPage.title}
@@ -50,9 +47,7 @@ function ChatScreen() {
 
         </div>
 
-    )
+    );
 }
 
 export { ChatScreen };
-
-

@@ -5,7 +5,7 @@ import { ISendMessageProps } from './chatInterface';
 async function getChatsList(user_key: { user_key: string }) {
   try {
     const res = await http.get('chat', {
-      //TODO:Need to set userKey
+      // TODO:Need to set userKey
       params: user_key,
     });
     return res.data;

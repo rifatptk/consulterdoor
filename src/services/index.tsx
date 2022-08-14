@@ -1,7 +1,7 @@
 import { AuthService } from './auth';
+import { chatService } from './chat';
 import { consultantService } from './consultant';
 import { consultServicesService } from './consultService';
-import { chatService } from './chat';
 import { http } from './httpService';
 import { IPagination } from './interfaces';
 import { Logger } from './loggerService';

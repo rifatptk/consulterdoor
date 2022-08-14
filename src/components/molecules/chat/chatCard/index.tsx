@@ -1,12 +1,10 @@
-import { Container, Row } from "reactstrap";
+import { Container, Row } from 'reactstrap';
 
 interface IChatCardInfoProps {
     name: string;
     service: string;
     jobTitle: string;
 }
-
-
 
 export function ChatCardInfo(props: IChatCardInfoProps) {
     return (
@@ -15,6 +13,6 @@ export function ChatCardInfo(props: IChatCardInfoProps) {
             <Row className="font-regular font-size-extra-small secondary-text-color">{props.jobTitle}</Row>
             <Row className="font-regular font-size-extra-small quaternary-text-color">{props.service} </Row>
         </Container>
-    )
+    );
 
 }

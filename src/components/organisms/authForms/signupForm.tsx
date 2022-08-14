@@ -58,7 +58,7 @@ const OTPModal = ({
     return refs;
   }, undefined);
   useEffect(() => {
-    if (isModalOpen) focusInputByIndex(0);
+    if (isModalOpen) { focusInputByIndex(0); }
   }, [isModalOpen]);
   const focusInputByIndex = useCallback(
     (index) => {
@@ -293,7 +293,7 @@ function SignUpForm() {
                     isInValid: isPasswordMismatch,
                     validationMsg: 'password mismatch',
                   }}
-                ></TextInput>
+                />
               </Col>
             </Row>
             <Row>
@@ -303,8 +303,8 @@ function SignUpForm() {
                   marginTop: '1rem',
                 }}
               >
-                <FormGroup check>
-                  <Label check className="font-regular font-size-small">
+                <FormGroup check={true}>
+                  <Label check={true} className="font-regular font-size-small">
                     <Input type="checkbox" /> I agree with{' '}
                     <Link to="/agreement">terms and conditions</Link>
                   </Label>

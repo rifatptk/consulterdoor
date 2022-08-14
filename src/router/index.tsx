@@ -10,6 +10,7 @@ import {
   Home,
   SearchPage,
   Service,
+  VideoChat,
 } from '../pages';
 import { useAppDispatch } from '../shared/hooks';
 import { saveUser } from '../store/actions';
@@ -23,6 +24,7 @@ const App = () => {
     { path: '/service/:serviceId', element: <Service /> },
     { path: '/search', element: <SearchPage /> },
     { path: '/auth/:authForm', element: <Auth /> },
+    { path: 'video', element: <VideoChat /> },
     { path: '/chat', element: <Chat /> },
   ]);
   return routes;
