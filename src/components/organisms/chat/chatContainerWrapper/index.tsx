@@ -1,16 +1,14 @@
-import { Avatar, ChatContainer, ConversationHeader, Message, MessageInput, MessageList, MessageModel, MessageSeparator, TypingIndicator } from "@chatscope/chat-ui-kit-react";
-import { useEffect, useState } from "react";
-import { IConversation } from "../chatList";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../../shared/hooks";
-import { loadChat, sendMessage } from "../../../../store/actions";
-import { IMessage, ISendMessageProps } from "../../../../services/chat/chatInterface";
-
+import { Avatar, ChatContainer, ConversationHeader, Message, MessageInput, MessageList, MessageModel, MessageSeparator, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IMessage, ISendMessageProps } from '../../../../services/chat/chatInterface';
+import { RootState } from '../../../../shared/hooks';
+import { loadChat, sendMessage } from '../../../../store/actions';
+import { IConversation } from '../chatList';
 
 interface IChatWrapperProps {
     activeChat: IConversation | undefined;
 }
-
 
 function ChatWrapper(props: IChatWrapperProps) {
 
@@ -24,50 +22,48 @@ function ChatWrapper(props: IChatWrapperProps) {
         (state: RootState) => state.userReducer
     );
 
-
-
     const handleSend = (message: string) => {
-        // TODO:Need to set userKey as sender key 
+        // TODO:Need to set userKey as sender key
         const params: ISendMessageProps = {
             conversationKey: chatState.activeChat,
-            message: message,
+            message,
             messageType: 'Text',
             senderKey: userState.user.username,
 
-        }
+        };
         dispatch(sendMessage(params));
         setMessages([...messages, {
             message,
-            position: "single",
+            position: 'single',
             direction: 'outgoing'
         }]);
 
     };
 
     useEffect(() => {
-        if (chatState.activeChat != "") {
+        if (chatState.activeChat != '') {
             dispatch(loadChat(chatState.activeChat));
         }
 
-    }, [chatState.activeChat])
+    }, [chatState.activeChat]);
 
     useEffect(() => {
-        const activeChat = chatState.chats.find((chat: IConversation) => chatState.activeChat === chat.chatKey)
+        const activeChat = chatState.chats.find((chat: IConversation) => chatState.activeChat === chat.chatKey);
         setChatDetail(activeChat);
         if (activeChat) {
             const messages: MessageModel[] | undefined = activeChat.messages?.map((message: IMessage) => {
                 return {
                     message: message.message,
-                    position: "single",
+                    position: 'single',
                     direction: message.direction,
                     sentTime: message.messageTime,
                     sender: message.senderName
-                }
-            })
+                };
+            });
             setMessages(messages ? messages : []);
         }
 
-    }, [chatState.chats])
+    }, [chatState.chats]);
 
     return (
 
@@ -97,7 +93,7 @@ function ChatWrapper(props: IChatWrapperProps) {
 
                         </Message>
 
-                    )
+                    );
                 })}
 
             </MessageList>
@@ -108,8 +104,8 @@ function ChatWrapper(props: IChatWrapperProps) {
                                 </InputToolbox> */}
         </ChatContainer >
 
-    )
+    );
 
 }
 
-export { ChatWrapper }
+export { ChatWrapper };

@@ -65,7 +65,8 @@
     "build": "CI=true npm run build-css && npm run build-js",
     "lint:ts": "tslint -c tslint.json -p tsconfig.json 'src/**/*.{ts,tsx,js}'",
     "fix": "tslint --fix -c ./tslint.json -p tsconfig.json 'src/**/*{.ts,.tsx}'",
-    "husky-install": "husky install"
+    "husky-install": "husky install",
+    "prepare": "husky install"
   },
   "tslintConfig": {
     "extends": [
@@ -97,7 +98,7 @@
   "devDependencies": {
     "@types/react-datepicker": "^4.3.3",
     "@types/react-image-gallery": "^1.0.5",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "pre-commit": "^1.2.2"
   }
 }

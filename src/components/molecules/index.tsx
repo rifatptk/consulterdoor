@@ -4,9 +4,9 @@ import {
   ConsultantProfileImage,
   ServiceCard,
 } from './cards';
+import { ChatCardInfo } from './chat/chatCard';
 import { Header } from './header';
 import { SearchInput } from './textInputs';
-import { ChatCardInfo } from "./chat/chatCard";
 
 export {
   Header,

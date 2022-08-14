@@ -1,11 +1,12 @@
 import { LoginForm, SignUpForm } from './authForms';
 import { CategoryList } from './categoryList';
+import { ChatScreen } from './chat/chatScreen';
 import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
+import { VideoRoom } from './videoRoom';
 import { ViewConsultantProfile } from './viewConsProfile';
 import { ServicePage } from './viewService';
-import { ChatScreen } from './chat/chatScreen';
 
 export {
   ViewConsultantProfile,
@@ -16,5 +17,6 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
+  VideoRoom,
   ChatScreen
 };

@@ -1,8 +1,8 @@
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './assets/styles/index.scss';
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 
