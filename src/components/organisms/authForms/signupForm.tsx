@@ -58,7 +58,9 @@ const OTPModal = ({
     return refs;
   }, undefined);
   useEffect(() => {
-    if (isModalOpen) { focusInputByIndex(0); }
+    if (isModalOpen) {
+      focusInputByIndex(0);
+    }
   }, [isModalOpen]);
   const focusInputByIndex = useCallback(
     (index) => {

@@ -1,27 +1,27 @@
-.modal-custom-header{
-    border:none;
-    justify-items: center;
-    height: 3rem;
+.modal-custom-header {
+  border: none;
+  justify-items: center;
+  height: 3rem;
 }
-.wizard-progress{
-    border-radius: 0;
-    height: 8px;
+.wizard-progress {
+  border-radius: 0;
+  height: 8px;
 }
-.wizard-modal{
-    border-radius: 10px;
-    overflow:hidden
+.wizard-modal {
+  border-radius: 10px;
+  overflow: hidden;
 }
-.modal-page-number{
-    display: flex;
-    border-width: 1px;
-    border-style: solid;
-    height: 1.5rem;
-    width: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.7;
+.modal-page-number {
+  display: flex;
+  border-width: 1px;
+  border-style: solid;
+  height: 1.5rem;
+  width: 5.5rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
 }
 
-.modal-custom-footer{
-    border: none;
+.modal-custom-footer {
+  border: none;
 }
