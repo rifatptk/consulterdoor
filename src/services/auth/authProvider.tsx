@@ -1,5 +1,6 @@
 import { Auth } from 'aws-amplify';
 
+// TODO - Charitha - function names should start with simple letter
 function UserSignIn(username: string, password: string) {
   return Auth.signIn(username, password);
 }

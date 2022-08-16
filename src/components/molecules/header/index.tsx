@@ -9,7 +9,7 @@ const Header: React.FunctionComponent = React.memo((): JSX.Element => {
       <Navbar
         collapseOnSelect={true}
         expand="lg"
-        className="main-color-bg"
+        className="header-bg"
         variant="dark"
       >
         <Container>
@@ -23,17 +23,17 @@ const Header: React.FunctionComponent = React.memo((): JSX.Element => {
           >
             <Nav>
               <Button
-                className="navbar-items background-color"
+                className="navbar-items"
                 variant="outline-light"
                 onClick={() => navigate('/auth/signup')}
               >
                 Become a Consultant
               </Button>
               <Nav.Link href="/auth/login">
-                <span className="navbar-items background-color">Login</span>
+                <span className="navbar-items">Login</span>
               </Nav.Link>
               <Button
-                className="navbar-items main-color"
+                className="navbar-items header-sign-up-btn"
                 variant="light"
                 onClick={() => navigate('/auth/signup')}
               >

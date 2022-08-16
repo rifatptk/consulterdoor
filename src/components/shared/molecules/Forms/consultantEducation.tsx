@@ -50,6 +50,7 @@ const getYearList = () => {
 };
 
 const getMonths = () => {
+  // TODO - Charitha - move to shared folder
   const months = [
     'January',
     'February',
