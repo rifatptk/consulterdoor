@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { InputType } from 'reactstrap/types/lib/Input';
 import { ConsultantProfileImage } from '../../components';
 import { PageContainer } from '../../components/shared';
-import ConsultantProfile from './consultantProfile.json';
 import { ConsultantProfileRegistration } from '../../components/shared/molecules';
 import { ConsultantEducationRegistration } from '../../components/shared/molecules';
+import ConsultantProfile from './consultantProfile.json';
 
 interface ICategory {
   item: string;

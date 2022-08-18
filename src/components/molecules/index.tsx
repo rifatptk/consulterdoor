@@ -4,6 +4,7 @@ import {
   ConsultantProfileImage,
   ServiceCard,
 } from './cards';
+import { ChatCardInfo } from './chat/chatCard';
 import { Header } from './header';
 import { SearchInput } from './textInputs';
 
@@ -14,4 +15,5 @@ export {
   SearchInput,
   CategoryCard,
   ConsultantProfileImage,
+  ChatCardInfo
 };

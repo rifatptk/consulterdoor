@@ -1,4 +1,5 @@
-import { ConsultantProfileRegistration } from './consultantProfile';
+// TODO - Charitha - move there files to correct place
 import { ConsultantEducationRegistration } from './consultantEducation';
+import { ConsultantProfileRegistration } from './consultantProfile';
 
 export { ConsultantProfileRegistration, ConsultantEducationRegistration };

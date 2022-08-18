@@ -16,7 +16,6 @@ function HomeScreen() {
     (state: RootState) => state.consultServiceReducer
   );
   const consultant = useSelector((state: RootState) => state.consultantReducer);
-
   useEffect(() => {
     dispatch(loadConsultServices({ type: 'TOP_RATED', pageSize: 8 }));
     dispatch(loadConsultCategories());

@@ -56,9 +56,15 @@ http.interceptors.request.use(
   }
 );
 
-http.interceptors.response.use(undefined, (error) => {
-  console.log('ERROR', error);
-  return Promise.reject(error.response);
-});
+http.interceptors.response.use(
+  (response) => {
+    Logger.info(`http response`, response);
+    return response;
+  },
+  (error) => {
+    Logger.error(`http response->`, error);
+    return Promise.reject(error.response);
+  }
+);
 
 export { http };

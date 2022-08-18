@@ -1,6 +1,7 @@
 import { Auth } from 'aws-amplify';
 import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 
+// TODO - Charitha - function names should start with simple letter
 function UserSignIn(username: string, password: string) {
   return Auth.signIn(username, password);
 }

@@ -1,10 +1,12 @@
 import { About } from './about';
 import { Auth } from './auth';
+import { Chat } from './chat';
 import { ConsultantProfile } from './ConsultantProfile';
 import { Home } from './home';
+import { ConsultantRegister } from './register';
 import { SearchPage } from './search';
 import { Service } from './Service';
-import { ConsultantRegister } from './register';
+import { VideoChat } from './VideoChat';
 
 export {
   About,
@@ -13,5 +15,7 @@ export {
   SearchPage,
   Service,
   Auth,
+  Chat,
   ConsultantRegister,
+  VideoChat
 };

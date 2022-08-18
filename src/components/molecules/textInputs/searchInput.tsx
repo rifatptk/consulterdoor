@@ -21,6 +21,7 @@ interface IProps {
 //   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 // }
 
+// TODO - Charitha - SearchInput can be common component
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
   // eslint-disable-next-line no-empty-pattern
   ({}: IProps) => {
@@ -45,7 +46,6 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
 
     const handleSearchInput = useCallback(
       async (event: any) => {
-        console.log('test123');
         const tempSearchText = event.target.value;
         setSearchText(event.target.value);
         if (tempSearchText && tempSearchText.length > 1) {
@@ -68,9 +68,6 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
       },
       [searchSuggestionsDropdown]
     );
-    useEffect(() => {
-      console.log('SEARCHHH', searchSuggestionsDropdown);
-    }, [searchSuggestionsDropdown]);
 
     const handleSuggestionClick = (word: string) => {
       setSearchSuggestionsDropdown(false);

@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
-import { MdAdd, MdModeEdit, MdRemove } from 'react-icons/md';
 import { FaGraduationCap } from 'react-icons/fa';
+import { MdAdd, MdModeEdit, MdRemove } from 'react-icons/md';
+import Select from 'react-select';
 import {
   Col,
   Form,
+  Input,
   Label,
   Modal,
   ModalBody,
   ModalHeader,
   Row,
-  Input,
 } from 'reactstrap';
 import { consultantService } from '../../../../services';
-import { Button, BUTTON_TYPES, TextInput } from '../../atoms';
-import Select from 'react-select';
-import { getMonthName } from '../../../../shared/utils';
-import { IConsultantQualification } from '../../../../services/interfaces';
 import {
   createQualification,
   updateQualification,
 } from '../../../../services/consultant/consultantService';
+import { IConsultantQualification } from '../../../../services/interfaces';
+import { getMonthName } from '../../../../shared/utils';
+import { Button, BUTTON_TYPES, TextInput } from '../../atoms';
 
 interface IModalProps {
   isModalOpen: boolean;
@@ -39,7 +39,7 @@ interface IQualificationProps {
 }
 
 const getYearList = () => {
-  let currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
   const options = [];
   let startYear = 1900;
   while (startYear <= currentYear) {
@@ -50,6 +50,7 @@ const getYearList = () => {
 };
 
 const getMonths = () => {
+  // TODO - Charitha - move to shared folder
   const months = [
     'January',
     'February',
@@ -80,7 +81,7 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
   };
 
   const handleToggle = (event: any) => {
-    if (event) event.preventDefault();
+    if (event) { event.preventDefault(); }
     setIsEditQualification((prev) => !prev);
   };
   return (
@@ -246,7 +247,7 @@ const EducationFormModal = ({
       const endDate = endYear && `${endYear}-${endMonth}`;
       console.log('startDate', event.target['select-start-year']);
       if (!startYear || !startMonth || !title || !subTitle) {
-        //Show Errors
+        // Show Errors
         return;
       }
       const payload: IConsultantQualification = {
