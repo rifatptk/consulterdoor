@@ -9,19 +9,38 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthService } from '../../../services';
 import { useState } from 'react';
+import { OTPModal } from './verificationModal';
+import { googleSignIn, resendOtp } from '../../../services/auth/authProvider';
 
 function LoginForm() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const handleToggle = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSubmit = async (event: any) => {
     try {
       event.preventDefault();
       await AuthService.UserSignIn(userName, password);
       navigate('/');
+    } catch (error: any) {
+      if (error.code === 'UserNotConfirmedException') {
+        await resendOtp(userName);
+        setIsModalOpen(true);
+      }
+    }
+  };
+
+  const federatedSignin = async () => {
+    try {
+      console.log('FEDDEEE');
+      await googleSignIn();
     } catch (error) {
-      // console.log('errrror', error);
+      console.log('eorror', error);
     }
   };
   return (
@@ -115,6 +134,7 @@ function LoginForm() {
                 type={BUTTON_TYPES.ELEVATED}
                 title="Google"
                 className="pt-2 pb-2"
+                onClick={federatedSignin}
                 customIcon={<FcGoogle size={20} className="mr-3" />}
               />
             </div>
@@ -148,6 +168,12 @@ function LoginForm() {
           />
         </Col>
       </Row>
+      <OTPModal
+        isModalOpen={isModalOpen}
+        email={userName}
+        password={password}
+        handleToggle={handleToggle}
+      />
     </Container>
   );
 }

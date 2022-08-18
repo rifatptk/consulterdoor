@@ -1,4 +1,5 @@
 import { Auth } from 'aws-amplify';
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 
 function UserSignIn(username: string, password: string) {
   return Auth.signIn(username, password);
@@ -35,10 +36,22 @@ function getCurrentAuthenticatedUser() {
   });
 }
 
+function resendOtp(userName: string) {
+  return Auth.resendSignUp(userName);
+}
+
+function googleSignIn() {
+  return Auth.federatedSignIn({
+    provider: CognitoHostedUIIdentityProvider.Google,
+  });
+}
+
 export {
   UserSignIn,
   UserSignOut,
   UserSignUp,
   UserValidation,
   getCurrentAuthenticatedUser,
+  resendOtp,
+  googleSignIn,
 };

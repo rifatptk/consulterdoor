@@ -948,6 +948,12 @@ small {
   height: 2rem;
   border-radius: 1rem; }
 
+.search-text-button {
+  border-radius: 2px; }
+
+.search-text-button:hover {
+  background-color: #E0E0E0; }
+
 .tag-container {
   height: 2rem;
   width: fit-content; }
