@@ -19,7 +19,7 @@ interface IToggle {
   children: React.ReactNode;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-
+ // TODO - Charitha - SearchInput can be common component
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
   // eslint-disable-next-line no-empty-pattern
   ({}: IProps) => {
@@ -37,7 +37,7 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
         </button>
       )
     );
-
+    // TODO - Charitha - Dropdown is common component. better to make common component
     return (
       <div className="">
         <InputGroup className="mb-3">

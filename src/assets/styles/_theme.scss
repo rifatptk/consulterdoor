@@ -16,8 +16,8 @@
   background: $white;
 }
 
-.header-avatar-bg {
-  background: $softRed !important;
+.header-bg {
+  background: $header-primary-color !important;
 }
 
 .primary-title-color {
@@ -85,6 +85,7 @@ button {
   flex-wrap: nowrap;
 }
 
+// TODO - Charitha - user proper name
 .light-gray-color-bg {
   background-color: $lightGray;
 }
@@ -120,22 +121,6 @@ button {
 .background-color {
   color: $white !important;
 }
-
-.main-color {
-  color: $blue !important;
-}
-
-.main-color-bg {
-  background-color: $blue;
-}
-
-.soft-main-color-bg {
-  background-color: $lightBlue;
-}
-.navbar-items {
-   margin-left: 25pt;
-}
-
 .text-danger {
   color:$red;
 }
