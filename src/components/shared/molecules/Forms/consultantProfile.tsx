@@ -46,7 +46,7 @@ const ConsultTextInputButton = ({ buttonType, isVerified }: ITextInput) => {
           type="button"
         >
           <MdOutlineContentCopy />
-          <div className="font-size-extra-small text-dark-color ml-2">
+          <div className="font-size-extra-small consult-register-text-title ml-2">
             Copy Link
           </div>
         </button>
@@ -54,7 +54,9 @@ const ConsultTextInputButton = ({ buttonType, isVerified }: ITextInput) => {
     case COMPONENT_TYPE.VERIFY:
       return (
         <button className="consult-register-text-input-button" type="button">
-          <div className="font-size-extra-small text-dark-color">Verify</div>
+          <div className="font-size-extra-small consult-register-text-title">
+            Verify
+          </div>
         </button>
       );
     default:
@@ -180,8 +182,8 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
                   type={question.inputType}
                   rows={question.rows}
                   value={question.value}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 >
                   <ConsultTextInputButton buttonType={question.actionType} />
                 </TextInput>

@@ -64,14 +64,14 @@ function LoginForm() {
                 onChange={(event) => setUserName(event.target.value)}
                 className="auth-text-container"
                 containerClassName="auth-text-input-container"
-                icon={<IoMdPerson className="text-dark-color" size={20} />}
+                icon={<IoMdPerson className="icon-dark-color" size={20} />}
               />
               <TextInput
                 name="password"
                 type="password"
                 rows={1}
                 placeholder="Password"
-                icon={<IoMdKey className="text-dark-color" size={20} />}
+                icon={<IoMdKey className="icon-dark-color" size={20} />}
                 maxLength={100}
                 onChange={(event) => setPassword(event.target.value)}
                 containerClassName="auth-text-input-container"
