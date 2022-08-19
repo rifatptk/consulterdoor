@@ -2,5 +2,14 @@
   border-radius: 2px;
   }
 .search-text-button:hover{
-background-color: $buttonGray;
+background-color: $btn-tertiary-bg-color;
+}
+
+.search-button{
+  color: $btn-primary-text-color;
+}
+
+.search-button-container{
+  background-color: $btn-tertiary-bg-color;
+
 }

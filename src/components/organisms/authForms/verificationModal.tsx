@@ -26,13 +26,11 @@ const OTPModal = ({
 
   const submitHandler = async (value: string) => {
     try {
-      console.log('AUTHHH');
       await AuthService.UserValidation(email, value);
       await AuthService.UserSignIn(email, password);
       navigate('/');
     } catch (error) {
       setHasError(true);
-      console.log('errr', error);
     }
   };
 
@@ -45,13 +43,16 @@ const OTPModal = ({
     return refs;
   }, undefined);
   useEffect(() => {
-    if (isModalOpen) focusInputByIndex(0);
+    if (isModalOpen) {
+      focusInputByIndex(0);
+    }
   }, [isModalOpen]);
   const focusInputByIndex = useCallback(
     (index) => {
-      if (inputRefs[index].current) {
-        inputRefs[index].current!.focus();
-        inputRefs[index].current!.selectionStart = 1;
+      if (inputRefs[index] && inputRefs[index]) {
+        inputRefs[index]?.current?.focus();
+        // @ts-ignore: Object is possibly 'null'
+        inputRefs[index].current.selectionStart = 1;
       }
     },
     [inputRefs]
@@ -59,15 +60,18 @@ const OTPModal = ({
   const handleChange = useCallback(
     (e, index) => {
       setHasError(false);
-      const inputValue = inputRefs[index].current!.value.replace(/\D/g, '');
+      // @ts-ignore: Object is possibly 'null'
+      const inputValue = inputRefs[index].current.value.replace(/\D/g, '');
       let charIndex = 0;
       let currentIndex = index;
       for (; currentIndex < OTP_LENGTH; currentIndex++) {
         if (inputValue[charIndex]) {
-          inputRefs[currentIndex].current!.value = inputValue[charIndex];
+          // @ts-ignore: Object is possibly 'null'
+          inputRefs[currentIndex].current.value = inputValue[charIndex];
           charIndex++;
         } else {
-          inputRefs[currentIndex].current!.value = '';
+          // @ts-ignore: Object is possibly 'null'
+          inputRefs[currentIndex].current.value = '';
           break;
         }
       }
@@ -79,7 +83,8 @@ const OTPModal = ({
 
       let finalValue = '';
       inputRefs.forEach((ref) => {
-        finalValue += ref.current!.value;
+        // @ts-ignore: Object is possibly 'null'
+        finalValue += ref.current.value;
       });
 
       if (finalValue.length === OTP_LENGTH) {
@@ -91,7 +96,8 @@ const OTPModal = ({
   const handleKeyUp = useCallback(
     (e, index) => {
       if (e.keyCode === KEY_BACKSPACE || e.keyCode === KEY_DELETE) {
-        inputRefs[index].current!.value = '';
+        // @ts-ignore: Object is possibly 'null'
+        inputRefs[index].current.value = '';
         const previousIndex = index > 1 ? index - 1 : 0;
         focusInputByIndex(previousIndex);
       } else if (e.keyCode === KEY_LEFT_ARROW) {
@@ -141,7 +147,7 @@ const OTPModal = ({
               />
             ))}
           </div>
-          <button className="font-regular font-size-small text-blue-color mt-3 mb-4">
+          <button className="font-regular font-size-small auth-primary-text mt-3 mb-4">
             Resend OTP
           </button>
         </div>

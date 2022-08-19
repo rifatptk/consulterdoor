@@ -9,7 +9,6 @@ interface IProps {
 const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
   data,
 }: IProps): JSX.Element => {
-  console.log('DATAAA', data);
   return (
     <div
       style={{
@@ -31,7 +30,7 @@ const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
           />
         )}
         <div className="profile-image-add-icon-container">
-          <FaPlus size={20} className="text-light" />
+          <FaPlus size={20} className="consultant-image-icons" />
         </div>
       </button>
 

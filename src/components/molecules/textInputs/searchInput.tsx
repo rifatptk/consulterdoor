@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Dropdown, Form, InputGroup, Row } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
 import { consultServicesService } from '../../../services';
@@ -109,8 +109,9 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             onToggle={suggestionToggle}
           >
             <Dropdown.Menu style={{ width: '100%' }}>
-              {suggestions.map((word: string) => (
+              {suggestions.map((word: string, index: number) => (
                 <Dropdown.Item
+                  key={index}
                   className="font-regular font-size-small p-1"
                   onClick={() => handleSuggestionClick(word)}
                 >
@@ -124,19 +125,19 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             onChange={handleSearchInput}
             value={searchText}
           />
-          <InputGroup.Text className="main-color-bg">
+          <InputGroup.Text className="search-button-container">
             <button>
               <Row>
                 <Col
                   md="auto"
                   style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <BsSearch className="background-color" />
+                  <BsSearch className="search-button" />
                 </Col>
                 <Col
                   md="auto"
                   style={{ display: 'flex', alignContent: 'center' }}
-                  className="background-color"
+                  className="search-button"
                 >
                   Search
                 </Col>

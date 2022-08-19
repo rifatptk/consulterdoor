@@ -42,7 +42,7 @@ function SignUpForm() {
                 Input your information
               </Col>
               <Col md={6}>
-                <div className="font-bold font-size-regular mb-2 text-blue-color">
+                <div className="font-bold font-size-regular mb-2 auth-primary-text">
                   Allready a member?
                 </div>
                 <div className="font-regular font-size-small mb-3">

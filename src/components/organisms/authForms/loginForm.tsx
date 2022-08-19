@@ -8,8 +8,8 @@ import {
   AuthLoginPersonSvg,
 } from '../../../assets/images';
 import { AuthService } from '../../../services';
-import { OTPModal } from './verificationModal';
 import { googleSignIn, resendOtp } from '../../../services/auth/authProvider';
+import { OTPModal } from './verificationModal';
 
 import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
@@ -38,10 +38,9 @@ function LoginForm() {
 
   const federatedSignin = async () => {
     try {
-      console.log('FEDDEEE');
       await googleSignIn();
     } catch (error) {
-      console.log('eorror', error);
+      return;
     }
   };
   return (
@@ -92,7 +91,7 @@ function LoginForm() {
                   <Input type="checkbox" /> Remember me{' '}
                 </Label>
               </FormGroup>
-              <button className="font-regular font-size-extra-small text-blue-color">
+              <button className="font-regular font-size-extra-small auth-primary-text">
                 Forgot your password?
               </button>
             </div>
@@ -151,7 +150,7 @@ function LoginForm() {
               <Link
                 to="/auth/signup"
                 style={{ textDecoration: 'none' }}
-                className="mt-1 font-regular font-size-small text-blue-color"
+                className="mt-1 font-regular font-size-small auth-primary-text"
               >
                 Register
               </Link>
