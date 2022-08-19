@@ -76,7 +76,7 @@ const DropZone: React.FunctionComponent<IProps> = ({
   const renderDropZone = () => {
     return (
       <div
-        className={`bg-highlight-color d-flex flex-column justify-content-center
+        className={` d-flex flex-column justify-content-center
       align-items-center text-center rounded dropZoneContainer font-weight-light p-1`}
         {...getRootProps()}
         style={{ height: 80, minWidth: 350 }}
@@ -91,7 +91,7 @@ const DropZone: React.FunctionComponent<IProps> = ({
     if (uploadedFile) {
       return (
         <div
-          className={` bg-highlight-color d-flex flex-row justify-content-center
+          className={` d-flex flex-row justify-content-center
         align-items-center text-center p-2 rounded dropZoneContainer `}
           style={{ height: 80, minWidth: 350 }}
         >

@@ -90,7 +90,7 @@ const ConsultantRegister = () => {
             ]
           )
         }
-        className="consultant-register-category border-gray-color "
+        className="consultant-register-category"
         type="button"
       >
         {selectedCategory ===
@@ -119,7 +119,7 @@ const ConsultantRegister = () => {
             return <ConsultRegisterCategory key={index} item={item} />;
           })}
         </div>
-        <div className="consultant-register-form-container light-gray-color-bg font-medium">
+        <div className="consultant-register-form-container font-medium">
           {consultantRegistrationForm(handleGetProfile)}
         </div>
       </div>
