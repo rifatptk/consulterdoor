@@ -96,10 +96,10 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
           <div className="font-size-regular font-bold mb-1">
             {qualification.title}
           </div>
-          <div className="font-size-small font-regular text-dark-color mb-4">
+          <div className="font-size-small font-regular consult-register-text-title mb-4">
             {qualification.subTitle}
           </div>
-          <div className="font-size-extra-small font-regular text-soft-color">
+          <div className="font-size-extra-small font-regular consult-register-text-secondry">
             {new Date(qualification.start || '').toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -137,16 +137,19 @@ const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
   return (
     <Row className="consultant-register-selected-tags-container">
       {defaultTags.map((tag, index) => (
-        <Col className="consultant-register-tag-outline font-size-extra-small">
+        <Col
+          key={index}
+          className="consultant-register-tag-outline font-size-extra-small"
+        >
           <button
             onClick={(event) => {
               event.preventDefault();
               removeTag(index);
             }}
             type="button"
-            className="consultant-register-remove-button bg-danger"
+            className="consultant-register-remove-button consultant-register-bg-danger"
           >
-            <MdRemove size={15} className="text-light" />
+            <MdRemove size={15} className="consultant-education-icons" />
           </button>
           {tag}
         </Col>
@@ -247,7 +250,6 @@ const EducationFormModal = ({
       event.preventDefault();
       const startDate = `${startYear}-${startMonth}`;
       const endDate = endYear && `${endYear}-${endMonth}`;
-      console.log('startDate', event.target['select-start-year']);
       if (!startYear || !startMonth || !title || !subTitle) {
         // Show Errors
         return;
@@ -261,16 +263,16 @@ const EducationFormModal = ({
         title,
         type: 'EDUCATION',
       };
-      console.log(payload);
       if (type === 'EDIT') {
         await updateQualification(payload);
       } else {
         await createQualification(payload);
       }
+      handleToggle();
     } catch (error) {
-      console.log('ERROR', error);
+      handleToggle();
+      return;
     }
-    handleToggle();
   };
   useEffect(() => {
     setIsEndDate(qualification.end ? true : false);
@@ -451,7 +453,7 @@ const ConsultantEducationRegistration = () => {
     },
   ];
   const handleSubmit = () => {
-    console.log('SUBMIT');
+    return;
   };
   const handleToggle = () => {
     setIsModalOpen((prev) => !prev);
@@ -471,7 +473,7 @@ const ConsultantEducationRegistration = () => {
       const qualifications = await consultantService.getQualifications();
       setEducation(qualifications.educations);
     } catch (error) {
-      console.log('error', error);
+      return;
     }
   };
   useEffect(() => {
@@ -486,7 +488,7 @@ const ConsultantEducationRegistration = () => {
           </div>
           <div
             style={{ display: 'flex', flexDirection: 'row' }}
-            className="text-dark-color"
+            className="consult-register-text-title"
           >
             <button
               className="icon-wrapper"
@@ -498,8 +500,11 @@ const ConsultantEducationRegistration = () => {
           </div>
         </div>
         <div className="ml-4">
-          {education?.map((qualification) => (
-            <ConsultantQualification qualification={qualification} />
+          {education?.map((qualification, index) => (
+            <ConsultantQualification
+              key={index}
+              qualification={qualification}
+            />
           ))}
         </div>
       </div>
@@ -508,7 +513,7 @@ const ConsultantEducationRegistration = () => {
           <div className="font-regular main-color">Skills</div>
           <div
             style={{ display: 'flex', flexDirection: 'row' }}
-            className="text-dark-color"
+            className="consult-register-text-title"
           >
             <button
               className="icon-wrapper"
@@ -521,11 +526,11 @@ const ConsultantEducationRegistration = () => {
         </div>
         <div className="ml-4">
           <Row className="consultant-register-skills-container">
-            {tags?.map((tag) => (
-              <Col xs="auto">
+            {tags?.map((tag, index) => (
+              <Col key={index} xs="auto">
                 <button
                   type="button"
-                  className="consultant-register-tag font-medium font-size-small text-dark-color"
+                  className="consultant-register-tag font-medium font-size-small consult-register-text-title"
                 >
                   {tag.title}
                 </button>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Dropdown, Form, InputGroup, Row } from 'react-bootstrap';
-import { BsSearch, BsSliders } from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
+import { consultServicesService } from '../../../services';
 
 interface IProps {
   disabled?: boolean;
@@ -15,33 +16,66 @@ interface IProps {
   innerRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
 }
 
-interface IToggle {
-  children: React.ReactNode;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
- // TODO - Charitha - SearchInput can be common component
+// interface IToggle {
+//   children: React.ReactNode;
+//   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+// }
+
+// TODO - Charitha - SearchInput can be common component
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
   // eslint-disable-next-line no-empty-pattern
   ({}: IProps) => {
-    const CustomToggle = React.forwardRef(
-      ({ children, onClick }: IToggle, ref) => (
-        <button
-          className="category-dropdown"
-          id="dropdown-basic"
-          onClick={(e) => {
-            e.preventDefault();
-            onClick(e);
-          }}
-        >
-          <BsSliders className="main-color" />
-        </button>
-      )
+    const [searchSuggestionsDropdown, setSearchSuggestionsDropdown] =
+      useState(false);
+    const [suggestions, setSuggestions] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    // const CustomToggle = React.forwardRef(
+    //   ({ children, onClick }: IToggle, ref) => (
+    //     <button
+    //       className="category-dropdown"
+    //       id="dropdown-basic"
+    //       onClick={(e) => {
+    //         e.preventDefault();
+    //         onClick(e);
+    //       }}
+    //     >
+    //       <BsSliders className="main-color" />
+    //     </button>
+    //   )
+    // );
+
+    const handleSearchInput = useCallback(
+      async (event: any) => {
+        const tempSearchText = event.target.value;
+        setSearchText(event.target.value);
+        if (tempSearchText && tempSearchText.length > 1) {
+          const response = await consultServicesService.getSearchSuggestion(
+            tempSearchText
+          );
+          const tempSuggestions =
+            response && response.map((data: any) => data.keyword);
+          setSuggestions(tempSuggestions);
+          setSearchSuggestionsDropdown(true);
+        } else {
+          setSearchSuggestionsDropdown(false);
+        }
+      },
+      [searchSuggestionsDropdown, searchText]
     );
-    // TODO - Charitha - Dropdown is common component. better to make common component
+    const suggestionToggle = useCallback(
+      (event: any) => {
+        setSearchSuggestionsDropdown((prev) => !prev);
+      },
+      [searchSuggestionsDropdown]
+    );
+
+    const handleSuggestionClick = (word: string) => {
+      setSearchSuggestionsDropdown(false);
+    };
     return (
       <div className="">
         <InputGroup className="mb-3">
-          <InputGroup.Text className="background-color-bg">
+          {/* <InputGroup.Text className="background-color-bg">
             <Dropdown>
               <Dropdown.Toggle
                 as={CustomToggle}
@@ -68,21 +102,42 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
                 </Row>
               </Dropdown.Menu>
             </Dropdown>
-          </InputGroup.Text>
-          <Form.Control aria-label="Amount (to the nearest dollar)" />
-          <InputGroup.Text className="main-color-bg">
+
+          </InputGroup.Text> */}
+          <Dropdown
+            show={searchSuggestionsDropdown}
+            onToggle={suggestionToggle}
+          >
+            <Dropdown.Menu style={{ width: '100%' }}>
+              {suggestions.map((word: string, index: number) => (
+                <Dropdown.Item
+                  key={index}
+                  className="font-regular font-size-small p-1"
+                  onClick={() => handleSuggestionClick(word)}
+                >
+                  {word}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+          <Form.Control
+            aria-label="Amount (to the nearest dollar)"
+            onChange={handleSearchInput}
+            value={searchText}
+          />
+          <InputGroup.Text className="search-button-container">
             <button>
               <Row>
                 <Col
                   md="auto"
                   style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <BsSearch className="background-color" />
+                  <BsSearch className="search-button" />
                 </Col>
                 <Col
                   md="auto"
                   style={{ display: 'flex', alignContent: 'center' }}
-                  className="background-color"
+                  className="search-button"
                 >
                   Search
                 </Col>

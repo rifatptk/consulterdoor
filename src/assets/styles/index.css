@@ -32,6 +32,9 @@ button {
 .icon-disabled {
   opacity: 0.3; }
 
+.secondary-text-color {
+  color: #828282 !important; }
+
 .primary-font {
   font-family: "Poppins";
   font-style: normal; }
@@ -552,6 +555,12 @@ label {
   border-color: #B93434;
   border-width: 1px; }
 
+.icon-dark-color {
+  color: #4f4f4f; }
+
+.auth-primary-text {
+  color: #333333; }
+
 .chat-border {
   border-bottom: 1px solid #f2f2f2; }
 
@@ -562,7 +571,8 @@ label {
   padding-right: 0px; }
 
 .chat-card {
-  border-bottom: 1px solid #f2f2f2; }
+  border-bottom: 1px solid #f2f2f2;
+  background-color: #ffffff; }
 
 .chat-list li :hover {
   background-color: #022C42 !important; }
@@ -775,6 +785,18 @@ label {
     margin-top: 1rem;
     margin-left: 1rem; }
 
+.consult-register-text-title {
+  color: #4f4f4f; }
+
+.consult-register-text-secondry {
+  color: #dadada; }
+
+.consultant-register-bg-danger {
+  background-color: #B93434; }
+
+.consultant-education-icons {
+  color: #ffffff; }
+
 .stepper-circle {
   height: 80px;
   width: 80px;
@@ -969,6 +991,21 @@ small {
   width: 2rem;
   height: 2rem;
   border-radius: 1rem; }
+
+.consultant-image-icons {
+  color: #ffffff; }
+
+.search-text-button {
+  border-radius: 2px; }
+
+.search-text-button:hover {
+  background-color: #4f4f4f; }
+
+.search-button {
+  color: #ffffff; }
+
+.search-button-container {
+  background-color: #4f4f4f; }
 
 .navbar-items {
   margin-left: 25pt; }

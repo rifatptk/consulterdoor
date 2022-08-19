@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { Container, Row } from 'react-bootstrap';
 
-interface IProps {}
-
-const Stepper: React.FunctionComponent<IProps> = React.memo(
-  ({}: IProps): JSX.Element => {
+const Stepper: React.FunctionComponent<any> = React.memo(
+  ({}: any): JSX.Element => {
     return (
       <div>
         <StepperHeader />
@@ -16,8 +14,8 @@ const Stepper: React.FunctionComponent<IProps> = React.memo(
   }
 );
 
-const StepperHeader: React.FunctionComponent<IProps> = React.memo(
-  ({}: IProps): JSX.Element => {
+const StepperHeader: React.FunctionComponent<any> = React.memo(
+  ({}: any): JSX.Element => {
     return (
       <Container>
         <Row>
@@ -69,8 +67,8 @@ const StepperHeader: React.FunctionComponent<IProps> = React.memo(
   }
 );
 
-const StepperContainer: React.FunctionComponent<IProps> = React.memo(
-  ({}: IProps): JSX.Element => {
+const StepperContainer: React.FunctionComponent<any> = React.memo(
+  ({}: any): JSX.Element => {
     return (
       <Container>
         <div>Test me</div>

@@ -12,7 +12,7 @@ function AddService() {
             { id: '3', displayText: 'item 3' },
           ]}
           onItemClick={(item) => {
-            console.log('item.displayText', item.displayText);
+            return;
           }}
           selectedItem={{ id: '3', displayText: 'item 3' }}
           validation={{ isInValid: true, validationMsg: 'this is error text' }}

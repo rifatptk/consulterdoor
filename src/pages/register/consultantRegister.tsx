@@ -62,7 +62,7 @@ const ConsultantRegister = () => {
   const [profile, setProfile] = useState<any>({});
 
   const consultantRegistrationForm = (
-    handleGetProfile: (profile: any) => void
+    handleGetProfile: (profileInfo: any) => void
   ) => {
     switch (selectedCategory) {
       case REGISTRATION_CATEGORIES.PROFILE:
@@ -75,7 +75,6 @@ const ConsultantRegister = () => {
       case REGISTRATION_CATEGORIES.EDUCATION:
         return <ConsultantEducationRegistration />;
       default:
-        console.log('DEFAULT', selectedCategory);
         return <div>Coming soon</div>;
     }
   };
@@ -107,8 +106,8 @@ const ConsultantRegister = () => {
       </button>
     );
   };
-  const handleGetProfile = (profile: any) => {
-    setProfile(profile);
+  const handleSetProfile = (profileInfo: any) => {
+    setProfile(profileInfo);
   };
   return (
     <PageContainer className="remove-margin-padding">
@@ -120,7 +119,7 @@ const ConsultantRegister = () => {
           })}
         </div>
         <div className="consultant-register-form-container font-medium">
-          {consultantRegistrationForm(handleGetProfile)}
+          {consultantRegistrationForm(handleSetProfile)}
         </div>
       </div>
     </PageContainer>
