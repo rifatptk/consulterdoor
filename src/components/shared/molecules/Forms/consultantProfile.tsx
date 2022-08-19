@@ -180,8 +180,8 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
                   type={question.inputType}
                   rows={question.rows}
                   value={question.value}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 >
                   <ConsultTextInputButton buttonType={question.actionType} />
                 </TextInput>

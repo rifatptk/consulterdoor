@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input } from 'reactstrap';
-import { Label } from 'reactstrap';
+import { Input, Label } from 'reactstrap';
 import { InputType } from 'reactstrap/types/lib/Input';
 
 interface IProps {

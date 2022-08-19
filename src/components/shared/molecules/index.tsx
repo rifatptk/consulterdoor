@@ -3,6 +3,7 @@ import {
   ConsultantEducationRegistration,
   ConsultantProfileRegistration,
 } from './Forms';
+import { Stepper } from './Stepper';
 import { Table } from './Table';
 
 export {
@@ -10,4 +11,5 @@ export {
   CommonCarousel,
   ConsultantEducationRegistration,
   ConsultantProfileRegistration,
+  Stepper,
 };

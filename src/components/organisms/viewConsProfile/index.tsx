@@ -79,7 +79,7 @@ function ViewConsultantProfile() {
                   />{' '}
                 </Row>
                 <Row
-                  className="justify-content-center primary-font font-medium tertiary-text-color font-size-large"
+                  className="justify-content-center primary-font font-medium font-size-large"
                   style={{ lineHeight: '3.5rem' }}
                 >
                   $999
@@ -100,7 +100,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <img
-                      src={require('../../../assets/samples/sl-flag.png')}
+                      // src={require('../../../assets/samples/sl-flag.png')}
                       alt=""
                     />
                   </Col>
@@ -110,7 +110,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <TextLabel
-                      className="primary-font font-regular font-size-small quaternary-text-color"
+                      className="primary-font font-regular font-size-small "
                       style={{
                         fontSize: '0.9rem',
                         lineHeight: '27px',
@@ -126,7 +126,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <img
-                      src={require('../../../assets/samples/hand.png')}
+                      // src={require('../../../assets/samples/hand.png')}
                       alt=""
                     />
                   </Col>
@@ -136,7 +136,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <TextLabel
-                      className="primary-font font-regular font-size-small quaternary-text-color"
+                      className="primary-font font-regular font-size-small"
                       style={{
                         fontSize: '0.9rem',
                         lineHeight: '27px',
@@ -152,7 +152,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <img
-                      src={require('../../../assets/samples/like.png')}
+                      // src={require('../../../assets/samples/like.png')}
                       alt=""
                     />
                   </Col>
@@ -162,7 +162,7 @@ function ViewConsultantProfile() {
                     className="d-flex justify-content-center mb-2"
                   >
                     <TextLabel
-                      className="primary-font font-regular font-size-small quaternary-text-color"
+                      className="primary-font font-regular font-size-small"
                       style={{
                         fontSize: '0.9rem',
                         lineHeight: '27px',
@@ -183,7 +183,7 @@ function ViewConsultantProfile() {
                     />
                   </Row>
                   <Row>
-                    <Label className="description primary-font font-regular font-size-small quaternary-text-color">
+                    <Label className="description primary-font font-regular font-size-small">
                       {consultant.description}
                     </Label>
                   </Row>
@@ -199,7 +199,7 @@ function ViewConsultantProfile() {
                     <Row>
                       <Row>
                         <TextLabel
-                          className="section-sub-topic primary-font tertiary-text-color font-medium font-size-small"
+                          className="section-sub-topic primary-font font-medium font-size-small"
                           text={messages.consultantProfile.skills}
                         />
                       </Row>
@@ -220,7 +220,7 @@ function ViewConsultantProfile() {
                     <Row>
                       <Row>
                         <TextLabel
-                          className="section-sub-topic primary-font tertiary-text-color font-medium font-size-small"
+                          className="section-sub-topic primary-font font-medium font-size-small"
                           text={messages.consultantProfile.education}
                         />
                       </Row>

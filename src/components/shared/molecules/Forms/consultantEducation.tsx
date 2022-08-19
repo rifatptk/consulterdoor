@@ -81,11 +81,13 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
   };
 
   const handleToggle = (event: any) => {
-    if (event) { event.preventDefault(); }
+    if (event) {
+      event.preventDefault();
+    }
     setIsEditQualification((prev) => !prev);
   };
   return (
-    <div className="consultant-register-education-container border-gray-color">
+    <div className="consultant-register-education-container">
       <div className="consultant-register-qualification-container">
         <div className="consultant-register-education-icon-container">
           <FaGraduationCap size={30} />
@@ -133,7 +135,7 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
 
 const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
   return (
-    <Row className="consultant-register-selected-tags-container tag-bg-color">
+    <Row className="consultant-register-selected-tags-container">
       {defaultTags.map((tag, index) => (
         <Col className="consultant-register-tag-outline font-size-extra-small">
           <button
@@ -200,8 +202,8 @@ const SkillFormModal = ({
                 maxLength={100}
                 value={skill}
                 onKeyDown={handleKeyAdd}
-                className="consult-register-text-input text-input-color"
-                containerClassName="text-input-color consultant-register-text-input-container"
+                className="consult-register-text-input"
+                containerClassName=" consultant-register-text-input-container"
               />
               <div>
                 <SelectedTags defaultTags={tags} removeTag={removeTag} />
@@ -313,8 +315,8 @@ const EducationFormModal = ({
                   maxLength={100}
                   onChange={(event) => setTitle(event.target.value)}
                   value={title}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
                 <TextInput
                   labelClassName="font-regular mt-4"
@@ -325,8 +327,8 @@ const EducationFormModal = ({
                   onChange={(event) => setSubTitle(event.target.value)}
                   maxLength={100}
                   value={subTitle}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
                 <div className="mt-4 ml-3">
                   <Input
@@ -398,8 +400,8 @@ const EducationFormModal = ({
                   onChange={(event) => setDescription(event.target.value)}
                   maxLength={450}
                   value={description}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
               </div>
             </div>
@@ -523,7 +525,7 @@ const ConsultantEducationRegistration = () => {
               <Col xs="auto">
                 <button
                   type="button"
-                  className="consultant-register-tag tag-bg-color font-medium font-size-small text-dark-color"
+                  className="consultant-register-tag font-medium font-size-small text-dark-color"
                 >
                   {tag.title}
                 </button>
