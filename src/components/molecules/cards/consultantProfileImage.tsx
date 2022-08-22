@@ -20,7 +20,9 @@ const ConsultantProfileImage: React.FunctionComponent<IProps> = ({
     >
       <button className="profile-main-image-container">
         {!data.profileImage ? (
-          <FaUserAlt size={40} />
+          <div className="profile-image-icon-container">
+            <FaUserAlt size={40} />
+          </div>
         ) : (
           <img
             className="profile-main-image"

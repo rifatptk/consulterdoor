@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 import { Col, Container, FormGroup, Input, Label, Row } from 'reactstrap';
 import { AuthSignUpSvg } from '../../../assets/images';
 import { AuthService } from '../../../services';
+import { googleSignIn } from '../../../services/auth/authProvider';
+import { ITextInputValidation } from '../../../shared/interfaces';
+import {
+  memberEmailValidation,
+  memberNameValidation,
+  memberPasswordValidation,
+} from '../../../shared/validations';
 import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 import { OTPModal } from './verificationModal';
 
@@ -14,23 +21,69 @@ function SignUpForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [firstNameValidation, setFirstNameValidation] =
+    useState<ITextInputValidation>({ valid: true });
+  const [lastNameValidation, setLastNameValidation] =
+    useState<ITextInputValidation>({ valid: true });
+  const [emailValidation, setEmailValidation] = useState<ITextInputValidation>({
+    valid: true,
+  });
+  const [passwordValidation, setPasswordValidation] =
+    useState<ITextInputValidation>({ valid: true });
   const [isPasswordMismatch, setIsPasswordMismatch] = useState(false);
 
   const handleSubmit = async (event: any) => {
     try {
       event.preventDefault();
+      setIsPasswordMismatch(false);
+      const firstNameValidationResponse = memberNameValidation(firstName);
+      const lastNameValidationResponse = memberNameValidation(lastname);
+      const emailValidationResponse = memberEmailValidation(email);
+      const passwordValidationResponse = memberPasswordValidation(password);
+
+      if (
+        !firstNameValidationResponse.valid ||
+        !lastNameValidationResponse.valid ||
+        !emailValidationResponse.valid ||
+        !passwordValidationResponse
+      ) {
+        setFirstNameValidation(firstNameValidationResponse);
+        setLastNameValidation(lastNameValidationResponse);
+        setPasswordValidation(passwordValidationResponse);
+        setEmailValidation(emailValidationResponse);
+        return;
+      }
+      setFirstNameValidation({ valid: true });
+      setLastNameValidation({ valid: true });
+      setPasswordValidation({ valid: true });
+      setEmailValidation({ valid: true });
       if (password !== passwordConfirm) {
         setIsPasswordMismatch(true);
         return;
       }
-      await AuthService.UserSignUp(email, password, firstName, lastname);
-      setIsModalOpen(true);
-    } catch (error) {
-      // console.log('errrror', error);
+      if (isAgreed) {
+        await AuthService.userSignUp(email, password, firstName, lastname);
+        setIsModalOpen(true);
+      }
+    } catch (error: any) {
+      if (error.code === 'UsernameExistsException') {
+        setEmailValidation({
+          valid: false,
+          code: 'An account with the given email already exists.',
+        });
+      }
     }
   };
   const handleToggle = () => {
     setIsModalOpen(false);
+  };
+  const federatedSignin = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      return;
+    }
   };
   return (
     <Container className="auth-container">
@@ -62,7 +115,11 @@ function SignUpForm() {
                   placeholder="John"
                   onChange={(event) => setFirstName(event.target.value)}
                   maxLength={100}
-                  errorLabelClassName="font-regular"
+                  errorLabelClassName="font-size-small"
+                  validation={{
+                    isInValid: !firstNameValidation?.valid || false,
+                    validationMsg: firstNameValidation?.code,
+                  }}
                   className="auth-text-input-container auth-text-container"
                 />
               </Col>
@@ -75,7 +132,11 @@ function SignUpForm() {
                   rows={1}
                   placeholder="Doe"
                   maxLength={100}
-                  errorLabelClassName="font-regular"
+                  errorLabelClassName="font-size-small"
+                  validation={{
+                    isInValid: !lastNameValidation?.valid || false,
+                    validationMsg: lastNameValidation?.code,
+                  }}
                   onChange={(event) => setLastName(event.target.value)}
                   className="auth-text-input-container auth-text-container"
                 />
@@ -90,7 +151,6 @@ function SignUpForm() {
                   rows={1}
                   placeholder="+94112233445"
                   maxLength={12}
-                  errorLabelClassName="font-regular"
                   className="auth-text-input-container auth-text-container"
                 />
               </Col>
@@ -104,7 +164,11 @@ function SignUpForm() {
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="john@email.com"
                   maxLength={100}
-                  errorLabelClassName="font-regular"
+                  errorLabelClassName="font-size-small"
+                  validation={{
+                    isInValid: !emailValidation?.valid || false,
+                    validationMsg: emailValidation?.code,
+                  }}
                   className="auth-text-input-container auth-text-container"
                 />
               </Col>
@@ -117,7 +181,11 @@ function SignUpForm() {
                   labelText="Password"
                   onChange={(event) => setPassword(event.target.value)}
                   rows={1}
-                  errorLabelClassName="font-regular"
+                  errorLabelClassName="font-size-small"
+                  validation={{
+                    isInValid: !passwordValidation?.valid || false,
+                    validationMsg: passwordValidation?.code,
+                  }}
                   maxLength={100}
                   className="auth-text-input-container auth-text-container"
                 />
@@ -132,7 +200,7 @@ function SignUpForm() {
                   onChange={(event) => setPasswordConfirm(event.target.value)}
                   maxLength={100}
                   className="auth-text-input-container auth-text-container"
-                  errorLabelClassName="font-regular"
+                  errorLabelClassName="font-size-small"
                   validation={{
                     isInValid: isPasswordMismatch,
                     validationMsg: 'password mismatch',
@@ -149,7 +217,13 @@ function SignUpForm() {
               >
                 <FormGroup check={true}>
                   <Label check={true} className="font-regular font-size-small">
-                    <Input type="checkbox" /> I agree with{' '}
+                    <Input
+                      type="checkbox"
+                      onChange={(e) => {
+                        setIsAgreed(e.target.checked);
+                      }}
+                    />{' '}
+                    I agree with{' '}
                     <Link to="/agreement">terms and conditions</Link>
                   </Label>
                 </FormGroup>
@@ -166,6 +240,7 @@ function SignUpForm() {
                   type={BUTTON_TYPES.PRIMARY}
                   title="Register"
                   className="auth-button"
+                  disabled={!isAgreed}
                   onClick={handleSubmit}
                 />
               </Col>
@@ -194,6 +269,7 @@ function SignUpForm() {
               <Button
                 type={BUTTON_TYPES.ELEVATED}
                 title="Google"
+                onClick={federatedSignin}
                 className="pt-2 pb-2 mb-3"
                 customIcon={<FcGoogle size={20} className="mr-3" />}
               />

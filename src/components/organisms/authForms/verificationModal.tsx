@@ -26,8 +26,8 @@ const OTPModal = ({
 
   const submitHandler = async (value: string) => {
     try {
-      await AuthService.UserValidation(email, value);
-      await AuthService.UserSignIn(email, password);
+      await AuthService.userValidation(email, value);
+      await AuthService.userSignIn(email, password);
       navigate('/');
     } catch (error) {
       setHasError(true);
@@ -49,7 +49,7 @@ const OTPModal = ({
   }, [isModalOpen]);
   const focusInputByIndex = useCallback(
     (index) => {
-      if (inputRefs[index] && inputRefs[index]) {
+      if (inputRefs[index] && inputRefs[index].current) {
         inputRefs[index]?.current?.focus();
         // @ts-ignore: Object is possibly 'null'
         inputRefs[index].current.selectionStart = 1;

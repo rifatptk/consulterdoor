@@ -1,9 +1,22 @@
+import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Col, Container, Row } from 'reactstrap';
+import { consultServicesService } from '../../../services';
 import { SearchTag } from '../../atoms';
-import { SearchInput } from '../../molecules';
+import { SearchInput, ServiceCard } from '../../molecules';
 
 function SearchPannel() {
+  const [services, setServices] = useState([]);
+  const handleSearch = async (searchText: string) => {
+    try {
+      const searchResults = await consultServicesService.getSearchResults(
+        searchText
+      );
+      setServices(searchResults);
+    } catch (error) {
+      return;
+    }
+  };
   return (
     <div>
       <Container>
@@ -26,7 +39,7 @@ function SearchPannel() {
               </Col>
             </Row>
             <Row>
-              <SearchInput />
+              <SearchInput onSearch={handleSearch} />
             </Row>
           </Col>
         </Row>
@@ -38,8 +51,8 @@ function SearchPannel() {
           ))}
         </Row>
         <Row xl={4} className="justify-content-start">
-          {Array.from({ length: 8 }).map((_, idx) => (
-            <Col key={idx}>{/* <ServiceCard /> */}</Col>
+          {services.map((data: any, idx) => (
+            <Col key={idx}>{<ServiceCard data={data} />}</Col>
           ))}
         </Row>
       </Container>

@@ -102,6 +102,9 @@
   width: 8rem;
   height: 8rem;
   border-radius: 4rem;
+  border-style: solid;
+  border-width: 3px;
+  color: $bg-tertiary-color;
 }
 
 .profile-main-image-container:hover{
