@@ -1,8 +1,8 @@
 import { Auth as ProviderAuth, Hub } from 'aws-amplify';
 import { useEffect } from 'react';
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom';
 import {
-  About,
+  AddService,
   Auth,
   Chat,
   ConsultantProfile,
@@ -12,12 +12,28 @@ import {
   Service,
   VideoChat,
 } from '../pages';
+import { AuthService } from '../services';
 import { useAppDispatch } from '../shared/hooks';
 import { saveUser } from '../store/actions';
 
-const App = () => {
-  const routes = useRoutes([
-    { path: '/about', element: <About /> },
+const ProtectedRoute = ({ children }: any) => {
+  const user = AuthService.getCurrentAuthenticatedUser();
+  if (!user) {
+    return <Navigate to="/landing" replace={true} />;
+  }
+  return children;
+};
+
+const Routes = () => {
+  return useRoutes([
+    {
+      path: '/add-service',
+      element: (
+        <ProtectedRoute>
+          <AddService />
+        </ProtectedRoute>
+      ),
+    },
     { path: '/', element: <Home /> },
     { path: '/consultant/:consultantId', element: <ConsultantProfile /> },
     { path: '/consultant/register', element: <ConsultantRegister /> },
@@ -27,7 +43,6 @@ const App = () => {
     { path: 'video', element: <VideoChat /> },
     { path: '/chat', element: <Chat /> },
   ]);
-  return routes;
 };
 
 const Router = () => {
@@ -77,7 +92,7 @@ const Router = () => {
 
   return (
     <BrowserRouter>
-      <App />
+      <Routes />
     </BrowserRouter>
   );
 };

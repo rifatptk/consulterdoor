@@ -50,6 +50,7 @@ const getYearList = () => {
 };
 
 const getMonths = () => {
+  // TODO - Charitha - move to shared folder
   const months = [
     'January',
     'February',
@@ -80,11 +81,13 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
   };
 
   const handleToggle = (event: any) => {
-    if (event) { event.preventDefault(); }
+    if (event) {
+      event.preventDefault();
+    }
     setIsEditQualification((prev) => !prev);
   };
   return (
-    <div className="consultant-register-education-container border-gray-color">
+    <div className="consultant-register-education-container">
       <div className="consultant-register-qualification-container">
         <div className="consultant-register-education-icon-container">
           <FaGraduationCap size={30} />
@@ -93,10 +96,10 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
           <div className="font-size-regular font-bold mb-1">
             {qualification.title}
           </div>
-          <div className="font-size-small font-regular text-dark-color mb-4">
+          <div className="font-size-small font-regular consult-register-text-title mb-4">
             {qualification.subTitle}
           </div>
-          <div className="font-size-extra-small font-regular text-soft-color">
+          <div className="font-size-extra-small font-regular consult-register-text-secondry">
             {new Date(qualification.start || '').toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -132,18 +135,21 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
 
 const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
   return (
-    <Row className="consultant-register-selected-tags-container tag-bg-color">
+    <Row className="consultant-register-selected-tags-container">
       {defaultTags.map((tag, index) => (
-        <Col className="consultant-register-tag-outline font-size-extra-small">
+        <Col
+          key={index}
+          className="consultant-register-tag-outline font-size-extra-small"
+        >
           <button
             onClick={(event) => {
               event.preventDefault();
               removeTag(index);
             }}
             type="button"
-            className="consultant-register-remove-button bg-danger"
+            className="consultant-register-remove-button consultant-register-bg-danger"
           >
-            <MdRemove size={15} className="text-light" />
+            <MdRemove size={15} className="consultant-education-icons" />
           </button>
           {tag}
         </Col>
@@ -199,8 +205,8 @@ const SkillFormModal = ({
                 maxLength={100}
                 value={skill}
                 onKeyDown={handleKeyAdd}
-                className="consult-register-text-input text-input-color"
-                containerClassName="text-input-color consultant-register-text-input-container"
+                className="consult-register-text-input"
+                containerClassName=" consultant-register-text-input-container"
               />
               <div>
                 <SelectedTags defaultTags={tags} removeTag={removeTag} />
@@ -244,7 +250,6 @@ const EducationFormModal = ({
       event.preventDefault();
       const startDate = `${startYear}-${startMonth}`;
       const endDate = endYear && `${endYear}-${endMonth}`;
-      console.log('startDate', event.target['select-start-year']);
       if (!startYear || !startMonth || !title || !subTitle) {
         // Show Errors
         return;
@@ -258,16 +263,16 @@ const EducationFormModal = ({
         title,
         type: 'EDUCATION',
       };
-      console.log(payload);
       if (type === 'EDIT') {
         await updateQualification(payload);
       } else {
         await createQualification(payload);
       }
+      handleToggle();
     } catch (error) {
-      console.log('ERROR', error);
+      handleToggle();
+      return;
     }
-    handleToggle();
   };
   useEffect(() => {
     setIsEndDate(qualification.end ? true : false);
@@ -312,8 +317,8 @@ const EducationFormModal = ({
                   maxLength={100}
                   onChange={(event) => setTitle(event.target.value)}
                   value={title}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
                 <TextInput
                   labelClassName="font-regular mt-4"
@@ -324,8 +329,8 @@ const EducationFormModal = ({
                   onChange={(event) => setSubTitle(event.target.value)}
                   maxLength={100}
                   value={subTitle}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
                 <div className="mt-4 ml-3">
                   <Input
@@ -397,8 +402,8 @@ const EducationFormModal = ({
                   onChange={(event) => setDescription(event.target.value)}
                   maxLength={450}
                   value={description}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 />
               </div>
             </div>
@@ -448,7 +453,7 @@ const ConsultantEducationRegistration = () => {
     },
   ];
   const handleSubmit = () => {
-    console.log('SUBMIT');
+    return;
   };
   const handleToggle = () => {
     setIsModalOpen((prev) => !prev);
@@ -468,7 +473,7 @@ const ConsultantEducationRegistration = () => {
       const qualifications = await consultantService.getQualifications();
       setEducation(qualifications.educations);
     } catch (error) {
-      console.log('error', error);
+      return;
     }
   };
   useEffect(() => {
@@ -483,7 +488,7 @@ const ConsultantEducationRegistration = () => {
           </div>
           <div
             style={{ display: 'flex', flexDirection: 'row' }}
-            className="text-dark-color"
+            className="consult-register-text-title"
           >
             <button
               className="icon-wrapper"
@@ -495,8 +500,11 @@ const ConsultantEducationRegistration = () => {
           </div>
         </div>
         <div className="ml-4">
-          {education?.map((qualification) => (
-            <ConsultantQualification qualification={qualification} />
+          {education?.map((qualification, index) => (
+            <ConsultantQualification
+              key={index}
+              qualification={qualification}
+            />
           ))}
         </div>
       </div>
@@ -505,7 +513,7 @@ const ConsultantEducationRegistration = () => {
           <div className="font-regular main-color">Skills</div>
           <div
             style={{ display: 'flex', flexDirection: 'row' }}
-            className="text-dark-color"
+            className="consult-register-text-title"
           >
             <button
               className="icon-wrapper"
@@ -518,11 +526,11 @@ const ConsultantEducationRegistration = () => {
         </div>
         <div className="ml-4">
           <Row className="consultant-register-skills-container">
-            {tags?.map((tag) => (
-              <Col xs="auto">
+            {tags?.map((tag, index) => (
+              <Col key={index} xs="auto">
                 <button
                   type="button"
-                  className="consultant-register-tag tag-bg-color font-medium font-size-small text-dark-color"
+                  className="consultant-register-tag font-medium font-size-small consult-register-text-title"
                 >
                   {tag.title}
                 </button>

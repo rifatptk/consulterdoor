@@ -1,0 +1,71 @@
+.drop-down-toggle {
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: $lightGray;
+    color: $title-primary-color;
+    border-color: $secondary-border-color;
+}
+
+.drop-down-toggle:hover {
+    color: $title-primary-color;
+    background-color: $softGray;
+    border-color: $secondary-border-color;
+}
+
+.drop-down-toggle:active {
+    color: $title-primary-color;
+    background-color: $softGray;
+    border-color: $secondary-border-color;
+}
+
+.drop-down {
+    margin: 1px;
+}
+
+.drop-down-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 50px;
+}
+
+.dropdown-toggle {
+    align-content: space-between;
+}
+
+.dropdown-toggle::after {
+    margin-left: 20px;
+}
+
+.show>.btn-secondary.dropdown-toggle {
+    background-color: $lightGray;
+    color: $title-primary-color;
+    border-color: $secondary-border-color;
+    outline: none;
+}
+
+.btn-secondary:focus {
+    background-color: $lightGray;
+    color: $title-primary-color;
+    border-color: $secondary-border-color;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-secondary:active {
+    background-color: $lightGray;
+    color: $title-primary-color;
+    border-color: $secondary-border-color;
+    outline: none;
+    box-shadow: none;
+}
+
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.dropdown-item.active {
+    background-color: $softGray;
+    color: $title-primary-color;
+}

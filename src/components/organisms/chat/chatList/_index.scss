@@ -7,10 +7,11 @@
 
 .chat-card {
   border-bottom: 1px solid $lightGray;
+  background-color: $bg-primary-color;
 }
 
 .chat-list li :hover {
-  background-color: $hovBlue !important;
+  background-color:$bg-tertiary-color !important;
 }
 
 .avatar-pic > img {
@@ -20,7 +21,7 @@
 }
 
 .color-bar {
-  background-color: $blue !important;
+  background-color: $bg-tertiary-color !important;
   width: 3px;
   height: 100%;
   border-radius: 2px;

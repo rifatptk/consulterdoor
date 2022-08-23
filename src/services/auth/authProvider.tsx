@@ -1,5 +1,7 @@
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 import { Auth } from 'aws-amplify';
 
+// TODO - Charitha - function names should start with simple letter
 function UserSignIn(username: string, password: string) {
   return Auth.signIn(username, password);
 }
@@ -35,10 +37,22 @@ function getCurrentAuthenticatedUser() {
   });
 }
 
+function resendOtp(userName: string) {
+  return Auth.resendSignUp(userName);
+}
+
+function googleSignIn() {
+  return Auth.federatedSignIn({
+    provider: CognitoHostedUIIdentityProvider.Google,
+  });
+}
+
 export {
   UserSignIn,
   UserSignOut,
   UserSignUp,
   UserValidation,
   getCurrentAuthenticatedUser,
+  resendOtp,
+  googleSignIn,
 };

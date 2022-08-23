@@ -16,7 +16,7 @@
   border-width: 1px;
   border-style: solid;
   height: 1.5rem;
-  width: 5.5rem;
+  width: 1.5rem;
   justify-content: center;
   align-items: center;
   opacity: 0.7;
@@ -24,4 +24,7 @@
 
 .modal-custom-footer {
   border: none;
+}
+.input-wizard-text {
+  background-color: $bg-secondary-color;
 }

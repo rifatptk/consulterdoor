@@ -17,6 +17,6 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
+  ChatScreen,
   VideoRoom,
-  ChatScreen
 };

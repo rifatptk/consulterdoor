@@ -61,8 +61,8 @@ function ChatWrapper(props: IChatWrapperProps) {
     );
     setChatDetail(activeChat);
     if (activeChat) {
-      const messages: MessageModel[] | undefined = activeChat.messages?.map(
-        (message: IMessage) => {
+      const activeMessages: MessageModel[] | undefined =
+        activeChat.messages?.map((message: IMessage) => {
           return {
             message: message.message,
             position: 'single',
@@ -70,9 +70,8 @@ function ChatWrapper(props: IChatWrapperProps) {
             sentTime: message.messageTime,
             sender: message.senderName,
           };
-        }
-      );
-      setMessages(messages ? messages : []);
+        });
+      setMessages(activeMessages ? activeMessages : []);
     }
   }, [chatState.chats]);
 
@@ -105,7 +104,7 @@ function ChatWrapper(props: IChatWrapperProps) {
         <MessageSeparator>Saturday, 30 November 2019</MessageSeparator>
         {messages.map((message: MessageModel, index: number) => {
           return (
-            <Message model={message} className="chat-msg">
+            <Message model={message} key={index} className="chat-msg">
               {/* {message.direction === 'incoming' ?
                                 <Avatar
                                     className="chat-avatar-pic"

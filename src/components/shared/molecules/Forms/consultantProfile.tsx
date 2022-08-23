@@ -46,7 +46,7 @@ const ConsultTextInputButton = ({ buttonType, isVerified }: ITextInput) => {
           type="button"
         >
           <MdOutlineContentCopy />
-          <div className="font-size-extra-small text-dark-color ml-2">
+          <div className="font-size-extra-small consult-register-text-title ml-2">
             Copy Link
           </div>
         </button>
@@ -54,7 +54,9 @@ const ConsultTextInputButton = ({ buttonType, isVerified }: ITextInput) => {
     case COMPONENT_TYPE.VERIFY:
       return (
         <button className="consult-register-text-input-button" type="button">
-          <div className="font-size-extra-small text-dark-color">Verify</div>
+          <div className="font-size-extra-small consult-register-text-title">
+            Verify
+          </div>
         </button>
       );
     default:
@@ -77,19 +79,19 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
   }, [profile]);
   const getConsultantProfile = async () => {
     try {
-      const profile =
+      const profileResponse =
         (await consultantService.getConsultantProfile()) as unknown as IConsultantDetails;
-      handleGetProfile(profile);
-      setProfile(profile);
+      handleGetProfile(profileResponse);
+      setProfile(profileResponse);
     } catch (error) {
-      console.log('error occured getting profilr', error);
+      return;
     }
   };
 
   const changeConsultantForm = () => {
     setIsLoading(true);
-    form?.forEach((form: any) => {
-      form.questions.forEach((question: any) => {
+    form?.forEach((formItem: any) => {
+      formItem.questions.forEach((question: any) => {
         switch (question.id) {
           case 'professional-headline':
             question.value = profile?.jobTitle;
@@ -121,7 +123,6 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
     try {
       event.preventDefault();
       if (!isDisabled) {
-        profile?.linkedinUrl;
         const payload = {
           firstName: event.target.firstname.value,
           lastName: event.target.lastname.value,
@@ -131,11 +132,10 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
           description: event.target['profile-description'].value,
           linkedinUrl: event.target['linkedin-url'].value,
         };
-        const res = await consultantService.updateConsultant(payload);
-        console.log('resss', res);
+        await consultantService.updateConsultant(payload);
       }
     } catch (error) {
-      console.log('ERROR', error);
+      return;
     }
     setIsDisabled((prev) => !prev);
   };
@@ -162,14 +162,14 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
           actionType="submit"
         />
       </div>
-      {form.map((item) => (
-        <div className="consult-register-form-container">
+      {form.map((item, index) => (
+        <div key={index} className="consult-register-form-container">
           <div className="consult-register-form-header-container">
             <div className="font-regular main-color">{item.name}</div>
           </div>
           <div className="ml-4">
-            {item.questions?.map((question) => (
-              <div>
+            {item.questions?.map((question, _index) => (
+              <div key={_index}>
                 <TextInput
                   disabled={isDisabled}
                   id={question.id}
@@ -180,8 +180,8 @@ const ConsultantProfileRegistration = ({ form, handleGetProfile }: IProps) => {
                   type={question.inputType}
                   rows={question.rows}
                   value={question.value}
-                  className="consult-register-text-input text-input-color"
-                  containerClassName="text-input-color consultant-register-text-input-container"
+                  className="consult-register-text-input"
+                  containerClassName="consultant-register-text-input-container"
                 >
                   <ConsultTextInputButton buttonType={question.actionType} />
                 </TextInput>

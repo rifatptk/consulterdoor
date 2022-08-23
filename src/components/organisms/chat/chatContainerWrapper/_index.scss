@@ -3,14 +3,14 @@
 }
 
 .chat-msg.cs-message--outgoing .cs-message__content {
-  background-color: $blue !important;
+  background-color:$bg-tertiary-color !important;
   border: 2px solid $white !important;
   color: $white !important;
 }
 
 .chat-msg.cs-message--incoming .cs-message__content {
   background-color: $white !important;
-  border: 2px solid $blue !important;
+  border: 2px solid $bg-tertiary-color !important;
 }
 
 .chat-container {

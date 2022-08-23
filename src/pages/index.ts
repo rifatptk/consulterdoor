@@ -1,4 +1,4 @@
-import { About } from './about';
+import { AddService } from './addService';
 import { Auth } from './auth';
 import { Chat } from './chat';
 import { ConsultantProfile } from './ConsultantProfile';
@@ -9,7 +9,7 @@ import { Service } from './Service';
 import { VideoChat } from './VideoChat';
 
 export {
-  About,
+  AddService,
   Home,
   ConsultantProfile,
   SearchPage,

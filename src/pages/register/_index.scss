@@ -17,6 +17,7 @@
 
 .consultant-register-form-container {
     flex: 75%;
+    background-color: $bg-secondary-color;
 }
 
 .consultant-register-category {
@@ -29,7 +30,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
+    background-color: $bg-secondary-color;
 }
 
 .consultant-register-category-selected{
@@ -39,7 +40,7 @@
     border-top-left-radius: 0.5rem;
     height: 5rem;
     width: 1rem;
-    background-color:$blue;
+    background-color:$bg-tertiary-color;
 }
 
 .consultant-register-edit-button-container{

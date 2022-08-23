@@ -67,8 +67,7 @@
 .service-card-body-text {
     font-size: 13px;
     line-height: 20px;
-
-    color: $text-quaternary-color;
+    color: $text-secondary-color;
 }
 
 .consultant-card-title-text {
@@ -130,17 +129,6 @@ small {
     display: flex;
     flex-direction: row;
 }
-
-.service-card-footer-container:hover {
-    background-color: rgba($btn-tertiary-bg-color, 0.3);
-    transition: background-color 0.5s;
-}
-
-.consult-card-footer-container:hover {
-    background-color: rgba($btn-tertiary-bg-color, 0.3);
-    transition: background-color 0.5s;
-}
-
 .consult-view-btn {
     cursor: pointer;
 }
@@ -153,15 +141,13 @@ small {
 
 .service-card-start-button:hover {
     cursor: pointer;
-    background-color: rgba($btn-tertiary-bg-color, 0.1);
-    transition: background-color 0.5s;
 }
 
 .category-card-container {
     box-sizing: border-box;
     width: 23rem;
     background: $bg-primary-color;
-    border: 1px solid $primary-card-border-color;
+    border: 1px solid $tertiary-border-color;
     box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
     margin-top: 5px;
     margin-bottom: 5px;
@@ -175,7 +161,7 @@ small {
         box-sizing: border-box;
         width: 17rem;
         background-color: $bg-primary-color;
-        border: 1px solid $primary-card-border-color;
+        border: 1px solid $tertiary-border-color;
         box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
         margin-top: 1px;
         margin-bottom: 1px;
@@ -205,14 +191,7 @@ small {
     font-weight: 400;
     font-size: 13px;
     line-height: 20px;
-    color: $text-quaternary-color;
-}
-.profile-image-add-icon{
-    position: absolute;
-    margin-left: 3rem;
-    margin-top: -3rem;
-    color: $lightGreen;
-
+    color: $text-secondary-color;
 }
 
 .profile-image-add-icon-container{
@@ -222,9 +201,13 @@ small {
     margin-top: -5.5rem;    
     justify-content: center;
     align-items: center;   
-    background-color: $lightGreen;
+    background-color: $success-color;
     width: 2rem;
     height: 2rem;
     border-radius: 1rem;
     
+}
+
+.consultant-image-icons{
+    color: $text-tertiary-color;
 }
