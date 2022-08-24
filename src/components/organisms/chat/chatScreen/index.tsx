@@ -1,16 +1,23 @@
-import { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
-// import { RootState } from '../../../../shared/hooks';
+import { RootState } from '../../../../shared/hooks';
 import { messages } from '../../../../shared/localize';
+import { loadChatList } from '../../../../store/actions';
 import { TextLabel } from '../../../shared';
 import { ChatWrapper } from '../chatContainerWrapper';
-import { ChatList, IConversation } from '../chatList';
+import { ChatList } from '../chatList';
 
 function ChatScreen() {
-  const [activeChat, setActiveChat] = useState<IConversation>();
+  const chatState = useSelector((state: RootState) => state.chatReducer);
+  const userState = useSelector((state: RootState) => state.userReducer);
+  const dispatch = useDispatch();
 
-  //   const chatState = useSelector((state: RootState) => state.chatReducer);
+  useEffect(() => {
+    if (userState?.user?.username) {
+      dispatch(loadChatList({ user_key: userState?.user?.username }));
+    }
+  }, [userState?.user?.username]);
 
   return (
     <div>
@@ -21,19 +28,23 @@ function ChatScreen() {
             text={messages.appointmentPage.title}
           />{' '}
         </Row>
-        <Row>
-          <Col xs="3">
-            <Row>{/* TODO:Chat search */}</Row>
-            <Row>
-              <ChatList handleChatSelect={setActiveChat} />
-            </Row>
-          </Col>
-          <Col xs="9">
-            <div style={{ height: '85vh' }}>
-              <ChatWrapper activeChat={activeChat} />
-            </div>
-          </Col>
-        </Row>
+        {chatState.chats.length > 0 ? (
+          <Row>
+            <Col xs="3">
+              <Row>{/* TODO:Chat search */}</Row>
+              <Row>
+                <ChatList chats={chatState.chats} />
+              </Row>
+            </Col>
+            <Col xs="9">
+              <div style={{ height: '85vh' }}>
+                <ChatWrapper />
+              </div>
+            </Col>
+          </Row>
+        ) : (
+          <Row>No Chats</Row>
+        )}
       </Container>
     </div>
   );

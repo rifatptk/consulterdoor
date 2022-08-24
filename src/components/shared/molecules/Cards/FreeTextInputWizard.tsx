@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Form,
   FormGroup,
@@ -14,7 +15,6 @@ import { AppointmentService } from '../../../../services';
 import { RootState } from '../../../../shared/hooks';
 import { IModalQuestion } from '../../../../shared/interfaces';
 import { Button, BUTTON_TYPES } from '../../atoms';
-
 interface IProps {
   onRequestClose?: () => void;
   modalIsOpen?: boolean;
@@ -30,21 +30,18 @@ const FreeTextInputWizard = ({
   afterOpenModal,
   setModalIsOpen,
   questions,
-  serviceKey
+  serviceKey,
 }: IProps) => {
-
   const [modalTitle, setModalTitle] = useState('');
   const [maxLength, setMaxLength] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [inputAnswer, setInputAnswer] = useState<string>('');
   const [answers, setAnswers] = useState<any>({});
+  const navigate = useNavigate();
 
-  const userState = useSelector(
-    (state: RootState) => state.userReducer
-  );
+  const userState = useSelector((state: RootState) => state.userReducer);
 
   const handleToggle = () => {
-
     setModalIsOpen(false);
   };
   const displayQuestion = (question: IModalQuestion) => {
@@ -53,43 +50,42 @@ const FreeTextInputWizard = ({
     setInputAnswer(answers[questionIndex] ? answers[questionIndex].answer : '');
   };
   useEffect(() => {
-    displayQuestion(questions[questionIndex]);
+    if (questions) {
+      if (questionIndex === questions?.length) {
+        handleSubmit(answers);
+      } else {
+        displayQuestion(questions[questionIndex]);
+      }
+    }
   }, [questionIndex]);
 
-  const handleSubmit = (answersSet: any) => {
+  const handleSubmit = async (answersSet: any) => {
     setAnswers(answersSet);
     setModalIsOpen(false);
 
     if (serviceKey) {
-      AppointmentService.createAppointment({
-        'clientUserKey': userState.user.username,
-        'consultantServiceKey': serviceKey,
-        'initialAnswers': Object.values(answersSet)
+      await AppointmentService.createAppointment({
+        clientUserKey: userState.user.username,
+        consultantServiceKey: serviceKey,
+        initialAnswers: Object.values(answersSet),
       });
+      navigate('/chat');
     }
-
   };
   const calculateProgress = () => {
-    return ((questionIndex + 1) / questions.length) * 100;
+    return ((questionIndex + 1) / questions?.length) * 100;
   };
   const handleNextQuestion = () => {
     const answersSet = {
       ...answers,
       [questionIndex]: {
-        'question': questions[questionIndex].questionTitle,
-        'answer': inputAnswer
-      }
+        question: questions[questionIndex].questionTitle,
+        answer: inputAnswer,
+      },
     };
     setInputAnswer('');
     setAnswers(answersSet);
-    setQuestionIndex((prev) => {
-      if (prev >= questions.length - 1) {
-        handleSubmit(answersSet);
-        return prev;
-      } else {
-        return prev + 1;
-      }
-    });
+    setQuestionIndex((prev) => prev + 1);
   };
   return (
     <div>
@@ -105,7 +101,7 @@ const FreeTextInputWizard = ({
         />
         <ModalHeader className="modal-custom-header" toggle={handleToggle}>
           <div className="modal-page-number font-size-small">
-            {questionIndex + 1} out of {questions.length}
+            {questionIndex + 1} out of {questions?.length}
           </div>
         </ModalHeader>
         <ModalBody>
@@ -139,7 +135,7 @@ const FreeTextInputWizard = ({
           )}
           <Button
             type={BUTTON_TYPES.PRIMARY}
-            title={questionIndex + 1 < questions.length ? 'Next' : 'Submit'}
+            title={questionIndex + 1 < questions?.length ? 'Next' : 'Submit'}
             onClick={handleNextQuestion}
           />
         </ModalFooter>

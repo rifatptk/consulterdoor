@@ -34,6 +34,8 @@ export interface IMessageProperties {
   };
   appointmentPage: {
     title: string;
+    waitForResponse: string;
+    requestAcceptance: string;
   };
 }
 

@@ -6,24 +6,27 @@ import {
   MessageInput,
   MessageList,
   MessageModel,
-  MessageSeparator,
-  TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  IAppointmentResponseProps,
   IMessage,
   ISendMessageProps,
 } from '../../../../services/chat/chatInterface';
 import { RootState } from '../../../../shared/hooks';
-import { loadChat, sendMessage } from '../../../../store/actions';
+import {
+  loadChat,
+  sendAppointmentAcceptance,
+  sendMessage,
+} from '../../../../store/actions';
+import {
+  RequestAppointmentAcceptanceCard,
+  WaitForResponseCard,
+} from '../../../molecules';
 import { IConversation } from '../chatList';
 
-interface IChatWrapperProps {
-  activeChat: IConversation | undefined;
-}
-
-function ChatWrapper(props: IChatWrapperProps) {
+function ChatWrapper() {
   const [messages, setMessages] = useState<MessageModel[] | []>([]);
   const [chatDetail, setChatDetail] = useState<IConversation>();
   const dispatch = useDispatch();
@@ -31,7 +34,6 @@ function ChatWrapper(props: IChatWrapperProps) {
   const userState = useSelector((state: RootState) => state.userReducer);
 
   const handleSend = (message: string) => {
-    // TODO:Need to set userKey as sender key
     const params: ISendMessageProps = {
       conversationKey: chatState.activeChat,
       message,
@@ -47,6 +49,14 @@ function ChatWrapper(props: IChatWrapperProps) {
         direction: 'outgoing',
       },
     ]);
+  };
+
+  const handleAcceptance = (response: 'ACCEPT' | 'REJECT') => {
+    const params: IAppointmentResponseProps = {
+      conversationKey: chatState.activeChat,
+      response,
+    };
+    dispatch(sendAppointmentAcceptance(params));
   };
 
   useEffect(() => {
@@ -87,43 +97,32 @@ function ChatWrapper(props: IChatWrapperProps) {
           userName={chatDetail?.participantName}
           info="Active 10 mins ago"
         />
-        {/* <ConversationHeader.Actions>
-                    <VoiceCallButton />
-                    <VideoCallButton />
-                    <InfoButton />
-                </ConversationHeader.Actions> */}
       </ConversationHeader>
-      <MessageList
-        className="chat-container"
-        typingIndicator={
-          <TypingIndicator
-            content={`${chatDetail?.participantName} is Typing `}
-          />
-        }
-      >
-        <MessageSeparator>Saturday, 30 November 2019</MessageSeparator>
+      <MessageList className="chat-container">
         {messages.map((message: MessageModel, index: number) => {
-          return (
-            <Message model={message} key={index} className="chat-msg">
-              {/* {message.direction === 'incoming' ?
-                                <Avatar
-                                    className="chat-avatar-pic"
-                                    src={chatDetail?.participantImage}
-                                    name={chatDetail?.participantName} /> : ""} */}
-            </Message>
-          );
+          return <Message model={message} key={index} className="chat-msg" />;
         })}
       </MessageList>
-      <MessageInput
-        className="chat-input"
-        placeholder="Type message here"
-        onSend={handleSend}
-        autoFocus={true}
-      />
-      {/* <InputToolbox>
-                                    <AttachmentButton />
-                                    <SendButton />
-                                </InputToolbox> */}
+      {chatDetail?.status === 'INITIATED' &&
+      chatDetail?.role === 'consultant' ? (
+        <div is="MessageInput">
+          <WaitForResponseCard />
+        </div>
+      ) : chatDetail?.status === 'INITIATED' &&
+        chatDetail?.role === 'client' ? (
+        <div is="MessageInput">
+          <RequestAppointmentAcceptanceCard
+            handleAcceptance={handleAcceptance}
+          />
+        </div>
+      ) : (
+        <MessageInput
+          className="chat-input"
+          placeholder="Type message here"
+          onSend={handleSend}
+          autoFocus={true}
+        />
+      )}
     </ChatContainer>
   );
 }

@@ -1,5 +1,5 @@
 import { http } from '..';
-import { ISendMessageProps } from './chatInterface';
+import { IAppointmentResponseProps, ISendMessageProps } from './chatInterface';
 // import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '../../shared/constant';
 
 async function getChatsList(user_key: { user_key: string }) {
@@ -35,4 +35,13 @@ async function sendMessage(params: ISendMessageProps) {
   }
 }
 
-export { getChatsList, getChat, sendMessage };
+async function sendAppointmentAcceptance(params: IAppointmentResponseProps) {
+  try {
+    const res = await http.post('chat/sendAppointmentAcceptance', params);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export { getChatsList, getChat, sendMessage, sendAppointmentAcceptance };
