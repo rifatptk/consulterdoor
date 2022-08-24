@@ -1,0 +1,22 @@
+.accept-btn {
+  background-color: $success-color !important;
+}
+
+.decline-btn {
+  background-color: $error-color !important;
+}
+
+.response-btn {
+  min-width: 100px;
+  width: 10vw;
+  min-height: 50px;
+  height: 4vh;
+  color: $btn-primary-text-color !important;
+}
+
+.chat-response-btns {
+  display: flex;
+  width: 130%;
+  justify-content: space-between;
+  align-items: center;
+}

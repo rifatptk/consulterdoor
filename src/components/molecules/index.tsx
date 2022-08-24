@@ -4,7 +4,11 @@ import {
   ConsultantProfileImage,
   ServiceCard,
 } from './cards';
-import { ChatCardInfo } from './chat/chatCard';
+import {
+  ChatCardInfo,
+  RequestAppointmentAcceptanceCard,
+  WaitForResponseCard,
+} from './chat';
 import { Header } from './header';
 import { SearchInput } from './searchInput';
 
@@ -16,4 +20,6 @@ export {
   CategoryCard,
   ConsultantProfileImage,
   ChatCardInfo,
+  RequestAppointmentAcceptanceCard,
+  WaitForResponseCard,
 };

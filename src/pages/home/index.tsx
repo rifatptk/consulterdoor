@@ -1,13 +1,13 @@
 import { HomeScreen } from '../../components';
 import { PageContainer } from '../../components/shared';
-import { FreeTextInputWizard } from '../../components/shared/molecules/Cards';
+// import { FreeTextInputWizard } from '../../components/shared/molecules/Cards';
 
 function Home() {
   return (
     <PageContainer>
       <div>
         <HomeScreen />
-        <FreeTextInputWizard
+        {/* <FreeTextInputWizard
           modalIsOpen={false}
           questions={[
             {
@@ -19,7 +19,7 @@ function Home() {
               maxLength: 450,
             },
           ]}
-        />
+        /> */}
       </div>
     </PageContainer>
   );

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Form,
   FormGroup,
@@ -9,60 +11,86 @@ import {
   ModalHeader,
   Progress,
 } from 'reactstrap';
+import { AppointmentService } from '../../../../services';
+import { RootState } from '../../../../shared/hooks';
 import { IModalQuestion } from '../../../../shared/interfaces';
 import { Button, BUTTON_TYPES } from '../../atoms';
-
 interface IProps {
   onRequestClose?: () => void;
   modalIsOpen?: boolean;
   afterOpenModal?: () => void;
+  setModalIsOpen: (isOpen: boolean) => any;
   questions: IModalQuestion[];
+  serviceKey?: string;
 }
 
 const FreeTextInputWizard = ({
   onRequestClose,
   modalIsOpen = false,
   afterOpenModal,
+  setModalIsOpen,
   questions,
+  serviceKey,
 }: IProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [maxLength, setMaxLength] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
-  useEffect(() => {
-    setIsModalOpen(modalIsOpen);
-  }, [modalIsOpen]);
+  const [inputAnswer, setInputAnswer] = useState<string>('');
+  const [answers, setAnswers] = useState<any>({});
+  const navigate = useNavigate();
+
+  const userState = useSelector((state: RootState) => state.userReducer);
+
   const handleToggle = () => {
-    setIsModalOpen((prev) => !prev);
+    setModalIsOpen(false);
   };
   const displayQuestion = (question: IModalQuestion) => {
     setModalTitle(question.questionTitle);
     setMaxLength(question.maxLength);
+    setInputAnswer(answers[questionIndex] ? answers[questionIndex].answer : '');
   };
   useEffect(() => {
-    displayQuestion(questions[questionIndex]);
+    if (questions) {
+      if (questionIndex === questions?.length) {
+        handleSubmit(answers);
+      } else {
+        displayQuestion(questions[questionIndex]);
+      }
+    }
   }, [questionIndex]);
 
-  const handleSubmit = () => {
-    setIsModalOpen(false);
+  const handleSubmit = async (answersSet: any) => {
+    setAnswers(answersSet);
+    setModalIsOpen(false);
+
+    if (serviceKey) {
+      await AppointmentService.createAppointment({
+        clientUserKey: userState.user.username,
+        consultantServiceKey: serviceKey,
+        initialAnswers: Object.values(answersSet),
+      });
+      navigate('/chat');
+    }
   };
   const calculateProgress = () => {
-    return ((questionIndex + 1) / questions.length) * 100;
+    return ((questionIndex + 1) / questions?.length) * 100;
   };
   const handleNextQuestion = () => {
-    setQuestionIndex((prev) => {
-      if (prev >= questions.length - 1) {
-        handleSubmit();
-        return prev;
-      } else {
-        return prev + 1;
-      }
-    });
+    const answersSet = {
+      ...answers,
+      [questionIndex]: {
+        question: questions[questionIndex].questionTitle,
+        answer: inputAnswer,
+      },
+    };
+    setInputAnswer('');
+    setAnswers(answersSet);
+    setQuestionIndex((prev) => prev + 1);
   };
   return (
     <div>
       <Modal
-        isOpen={isModalOpen}
+        isOpen={modalIsOpen}
         toggle={handleToggle}
         contentClassName="wizard-modal"
         centered={true}
@@ -73,7 +101,7 @@ const FreeTextInputWizard = ({
         />
         <ModalHeader className="modal-custom-header" toggle={handleToggle}>
           <div className="modal-page-number font-size-small">
-            {questionIndex + 1}
+            {questionIndex + 1} out of {questions?.length}
           </div>
         </ModalHeader>
         <ModalBody>
@@ -89,8 +117,10 @@ const FreeTextInputWizard = ({
                 className="input-wizard-text"
                 style={{ border: 'none' }}
                 rows={6}
+                value={inputAnswer}
                 maxLength={maxLength}
                 placeholder={`Enter your answer here (Max ${maxLength} words).`}
+                onChange={(e) => setInputAnswer(e.target.value)}
               />
             </FormGroup>
           </Form>
@@ -105,7 +135,7 @@ const FreeTextInputWizard = ({
           )}
           <Button
             type={BUTTON_TYPES.PRIMARY}
-            title={questionIndex + 1 < questions.length ? 'Next' : 'Submit'}
+            title={questionIndex + 1 < questions?.length ? 'Next' : 'Submit'}
             onClick={handleNextQuestion}
           />
         </ModalFooter>

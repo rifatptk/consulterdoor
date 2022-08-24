@@ -3,38 +3,28 @@ import {
   Conversation,
   ConversationList,
 } from '@chatscope/chat-ui-kit-react';
-import { Key, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Key } from 'react';
+import { useDispatch } from 'react-redux';
 import { IConversation } from '../../../../services/chat/chatInterface';
-import { RootState } from '../../../../shared/hooks';
-import { loadChatList, setActiveChat } from '../../../../store/actions';
+import { setActiveChat } from '../../../../store/actions';
 import { ChatCardInfo } from '../../../molecules';
 
 interface IChatListProps {
-  handleChatSelect: (conversation: IConversation) => void;
+  chats: IConversation[];
 }
 
 function ChatList(props: IChatListProps) {
   const dispatch = useDispatch();
-  const chatState = useSelector((state: RootState) => state.chatReducer);
-
-  const userState = useSelector((state: RootState) => state.userReducer);
-
-  useEffect(() => {
-    if (userState?.user?.username) {
-      dispatch(loadChatList({ user_key: userState?.user?.username }));
-    }
-  }, [userState?.user?.username]);
 
   return (
     <div className="chat-list">
       <ConversationList>
-        {chatState.chats.map(
+        {props.chats.map(
           (conversation: IConversation, index: Key | null | undefined) => {
             return (
               <Conversation
                 key={index}
-                className="chat-card"
+                className="chat-card background-color-bg"
                 onClick={() => dispatch(setActiveChat(conversation.chatKey))}
               >
                 <Avatar
