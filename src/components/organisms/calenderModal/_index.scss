@@ -1,0 +1,91 @@
+.calender-modal-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-secondary-color;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.calender-modal-header{
+  text-justify: center;
+}
+
+.calender-modal-header-container{
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.calender-styles{
+  border: none !important;
+  background: transparent !important;
+}
+
+.calender-modal-timeslot-container{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  .container{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	outline: inherit;
+  }
+  .selected{
+    background-color: $btn-fifth-bg-color;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $btn-fourth-bg-color;
+  }
+}
+.calender-modal-slider-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  height: 3rem;
+  -webkit-box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.08);
+-moz-box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.08);
+box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.08);
+}
+
+.calender-modal-slider-item:hover{
+  background-color: $btn-fifth-bg-color;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $btn-fourth-bg-color;
+}
+.slick-next::before {
+  color: $btn-primary-bg-color !important;
+}
+
+.selected-timeslot-wrapper{
+  position: relative;
+  padding: 1rem; 
+  background-color: $bg-tertiary-color;
+  margin-left: 0.5rem; margin-right: 0.5rem; 
+  color: $text-tertiary-color;
+  .close-icon-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $text-tertiary-color;
+  }
+}
+
+.calender-modal-selected-timeslots-container{
+  margin: 1rem;
+  margin-top: 1rem;
+}
+
+.calender-modal-button{
+  width: 8rem;
+}
+
+
+.slick-prev:before,
+.slick-next::before {
+  color: $btn-primary-bg-color !important;
+}

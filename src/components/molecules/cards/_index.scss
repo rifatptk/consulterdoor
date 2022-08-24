@@ -207,6 +207,14 @@ small {
     border-radius: 1rem;
     
 }
+.profile-image-icon-container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 4rem;
+}
 
 .consultant-image-icons{
     color: $text-tertiary-color;

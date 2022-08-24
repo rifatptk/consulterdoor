@@ -1,6 +1,9 @@
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import React from 'react';
+import 'react-calendar/dist/Calendar.css';
 import ReactDOM from 'react-dom';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import App from './App';
 import './assets/styles/index.scss';
 import reportWebVitals from './reportWebVitals';

@@ -14,17 +14,12 @@ interface IProps {
     validationMsg?: string;
   };
   innerRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+  onSearch: (searchText: string) => void;
 }
 
-// interface IToggle {
-//   children: React.ReactNode;
-//   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-// }
-
-// TODO - Charitha - SearchInput can be common component
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
   // eslint-disable-next-line no-empty-pattern
-  ({}: IProps) => {
+  ({ onSearch }: IProps) => {
     const [searchSuggestionsDropdown, setSearchSuggestionsDropdown] =
       useState(false);
     const [suggestions, setSuggestions] = useState([]);
@@ -55,7 +50,11 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
           const tempSuggestions =
             response && response.map((data: any) => data.keyword);
           setSuggestions(tempSuggestions);
-          setSearchSuggestionsDropdown(true);
+          if (tempSuggestions.length > 0) {
+            setSearchSuggestionsDropdown(true);
+          } else {
+            setSearchSuggestionsDropdown(false);
+          }
         } else {
           setSearchSuggestionsDropdown(false);
         }
@@ -70,10 +69,17 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
     );
 
     const handleSuggestionClick = (word: string) => {
-      setSearchSuggestionsDropdown(false);
+      setSearchText(word);
+      onSearch(word);
     };
     return (
-      <div className="">
+      <Form
+        className=""
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSearch(searchText);
+        }}
+      >
         <InputGroup className="mb-3">
           {/* <InputGroup.Text className="background-color-bg">
             <Dropdown>
@@ -126,18 +132,18 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             value={searchText}
           />
           <InputGroup.Text className="search-button-container">
-            <button>
+            <button type="submit">
               <Row>
                 <Col
-                  md="auto"
+                  sm="auto"
                   style={{ display: 'flex', alignItems: 'center' }}
                 >
                   <BsSearch className="search-button" />
                 </Col>
                 <Col
-                  md="auto"
+                  sm="auto"
                   style={{ display: 'flex', alignContent: 'center' }}
-                  className="search-button"
+                  className="search-button d-none d-md-block"
                 >
                   Search
                 </Col>
@@ -145,7 +151,7 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             </button>
           </InputGroup.Text>
         </InputGroup>
-      </div>
+      </Form>
     );
   }
 );

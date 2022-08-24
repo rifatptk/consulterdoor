@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { MdOutlineContentCopy } from 'react-icons/md';
 import { Form } from 'reactstrap';
 import { InputType } from 'reactstrap/types/lib/Input';
-import { consultantService } from '../../../../services';
-import { IConsultantDetails } from '../../../../shared/interfaces';
-import { Button, BUTTON_TYPES, TextInput } from '../../atoms';
+import { consultantService } from '../../../services';
+import { IConsultantDetails } from '../../../shared/interfaces';
+import { Button, BUTTON_TYPES, TextInput } from '../../shared/atoms';
 
 interface IQuestion {
   id: string;

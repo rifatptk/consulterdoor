@@ -11,11 +11,17 @@ import { AuthService } from '../../../services';
 import { googleSignIn, resendOtp } from '../../../services/auth/authProvider';
 import { OTPModal } from './verificationModal';
 
+import { ITextInputValidation } from '../../../shared/interfaces';
+import { memberEmailValidation } from '../../../shared/validations';
 import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
 function LoginForm() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [noUser, setNoUser] = useState<boolean>(false);
+  const [emailValidation, setEmailValidation] = useState<ITextInputValidation>({
+    valid: true,
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -26,12 +32,24 @@ function LoginForm() {
   const handleSubmit = async (event: any) => {
     try {
       event.preventDefault();
-      await AuthService.UserSignIn(userName, password);
+      setEmailValidation({ valid: true });
+      setNoUser(false);
+      const emailValidationResponse = memberEmailValidation(userName);
+      if (!emailValidationResponse.valid) {
+        setEmailValidation(emailValidationResponse);
+        return;
+      }
+      await AuthService.userSignIn(userName, password);
       navigate('/');
     } catch (error: any) {
       if (error.code === 'UserNotConfirmedException') {
         await resendOtp(userName);
         setIsModalOpen(true);
+      } else if (
+        error.code === 'UserNotFoundException' ||
+        error.code === 'NotAuthorizedException'
+      ) {
+        setNoUser(true);
       }
     }
   };
@@ -63,6 +81,11 @@ function LoginForm() {
                 onChange={(event) => setUserName(event.target.value)}
                 className="auth-text-container"
                 containerClassName="auth-text-input-container"
+                errorLabelClassName="font-size-small"
+                validation={{
+                  isInValid: !emailValidation?.valid || false,
+                  validationMsg: emailValidation?.code,
+                }}
                 icon={<IoMdPerson className="icon-dark-color" size={20} />}
               />
               <TextInput
@@ -74,6 +97,12 @@ function LoginForm() {
                 maxLength={100}
                 onChange={(event) => setPassword(event.target.value)}
                 containerClassName="auth-text-input-container"
+                errorLabelClassName="font-size-small"
+                validation={{
+                  isInValid: noUser,
+                  validationMsg:
+                    'The username or password you entered is incorrect.',
+                }}
                 className="auth-text-container"
               />
             </div>

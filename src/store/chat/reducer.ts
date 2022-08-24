@@ -80,7 +80,7 @@ const chatSlice = createSlice({
     builder.addCase(
       sendAppointmentAcceptance.fulfilled,
       (state, { payload }) => {
-        console.log('updated');
+        // console.log('updated');
       }
     );
   },

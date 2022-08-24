@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { InputType } from 'reactstrap/types/lib/Input';
 import { ConsultantProfileImage } from '../../components';
+import {
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+} from '../../components/organisms';
 import { PageContainer } from '../../components/shared';
-import { ConsultantProfileRegistration } from '../../components/shared/molecules';
-import { ConsultantEducationRegistration } from '../../components/shared/molecules';
 import ConsultantProfile from './consultantProfile.json';
 
 interface ICategory {
@@ -96,7 +98,16 @@ const ConsultantRegister = () => {
           REGISTRATION_CATEGORIES[
             item as keyof typeof REGISTRATION_CATEGORIES
           ] && <div className="consultant-register-category-selected" />}
-        <div>
+        <div
+          className={
+            selectedCategory ===
+            REGISTRATION_CATEGORIES[
+              item as keyof typeof REGISTRATION_CATEGORIES
+            ]
+              ? 'font-bold'
+              : ''
+          }
+        >
           {
             REGISTRATION_CATEGORIES[
               item as keyof typeof REGISTRATION_CATEGORIES

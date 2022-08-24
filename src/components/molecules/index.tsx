@@ -10,7 +10,7 @@ import {
   WaitForResponseCard,
 } from './chat';
 import { Header } from './header';
-import { SearchInput } from './textInputs';
+import { SearchInput } from './searchInput';
 
 export {
   Header,
