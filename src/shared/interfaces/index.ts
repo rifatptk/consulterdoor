@@ -43,4 +43,9 @@ interface IConsultantDetails {
   linkedinUrl?: string;
 }
 
-export type { IModalQuestion, IConsultantDetails };
+interface ITextInputValidation {
+  valid: boolean;
+  code?: string;
+}
+
+export type { IModalQuestion, IConsultantDetails, ITextInputValidation };

@@ -54,10 +54,23 @@ async function getSearchSuggestion(searchText: string) {
     throw err;
   }
 }
+async function getSearchResults(searchText: string) {
+  try {
+    const res = await http.get(`services/search`, {
+      params: {
+        searchText,
+      },
+    });
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
 
 export {
   getConsultServices,
   getServiceCategories,
   getService,
   getSearchSuggestion,
+  getSearchResults,
 };

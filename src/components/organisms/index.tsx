@@ -1,6 +1,11 @@
 import { LoginForm, SignUpForm } from './authForms';
+import { CalenderModal } from './calenderModal';
 import { CategoryList } from './categoryList';
 import { ChatScreen } from './chat/chatScreen';
+import {
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+} from './consultantForms';
 import { ConsultCardList } from './consultCardList';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
@@ -19,4 +24,7 @@ export {
   SignUpForm,
   ChatScreen,
   VideoRoom,
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+  CalenderModal,
 };

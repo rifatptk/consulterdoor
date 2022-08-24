@@ -60,4 +60,52 @@ const getMonthName = (month: number) => {
   return months[month];
 };
 
-export { formatString, getMonthName };
+const getTimeSlots = (selectedDate: Date, duration: number) => {
+  const timeSlots = [];
+  let startMinutes = 0;
+  if (
+    new Date(selectedDate).valueOf() < new Date().setHours(0, 0, 0, 0).valueOf()
+  ) {
+    return [];
+  }
+  if (
+    new Date(selectedDate).valueOf() ===
+    new Date().setHours(0, 0, 0, 0).valueOf()
+  ) {
+    const todayHours = new Date().getHours();
+    const todayMinutes = new Date().getMinutes();
+
+    startMinutes = todayHours * 60 + todayMinutes;
+    startMinutes = startMinutes - (startMinutes % duration) + duration;
+  }
+  let previousTime;
+  let previousDate;
+  for (let i = startMinutes; i <= 1440; i += duration) {
+    const hours = i / 60;
+    const rhours = Math.floor(hours);
+    const minutes = (hours - rhours) * 60;
+    const rminutes = Math.round(minutes);
+    const time = new Date(new Date().setHours(rhours, rminutes)).toLocaleString(
+      'en-US',
+      { hour: 'numeric', minute: 'numeric', hour12: true }
+    );
+    if (previousTime && previousDate) {
+      timeSlots.push({
+        time: `${previousTime} - ${time}`,
+        date: previousDate,
+      });
+    }
+    previousTime = time;
+    previousDate = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth(),
+      selectedDate.getDate(),
+      rhours,
+      rminutes,
+      0
+    );
+  }
+  return timeSlots;
+};
+
+export { formatString, getMonthName, getTimeSlots };

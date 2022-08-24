@@ -12,14 +12,14 @@ import {
   ModalHeader,
   Row,
 } from 'reactstrap';
-import { consultantService } from '../../../../services';
+import { consultantService } from '../../../services';
 import {
   createQualification,
   updateQualification,
-} from '../../../../services/consultant/consultantService';
-import { IConsultantQualification } from '../../../../services/interfaces';
-import { getMonthName } from '../../../../shared/utils';
-import { Button, BUTTON_TYPES, TextInput } from '../../atoms';
+} from '../../../services/consultant/consultantService';
+import { IConsultantQualification } from '../../../services/interfaces';
+import { getMonthName } from '../../../shared/utils';
+import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
 interface IModalProps {
   isModalOpen: boolean;
