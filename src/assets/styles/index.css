@@ -736,6 +736,86 @@ input[type='number'] {
 .consultant-education-icons {
   color: #ffffff; }
 
+.calender-modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  margin-left: 3rem;
+  margin-right: 3rem; }
+
+.calender-modal-header {
+  text-justify: center; }
+
+.calender-modal-header-container {
+  border: none;
+  display: flex;
+  justify-content: center; }
+
+.calender-styles {
+  border: none !important;
+  background: transparent !important; }
+
+.calender-modal-timeslot-container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem; }
+  .calender-modal-timeslot-container .container {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit; }
+  .calender-modal-timeslot-container .selected {
+    background-color: #C0E1FF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #4856DF; }
+
+.calender-modal-slider-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  height: 3rem;
+  -webkit-box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.08); }
+
+.calender-modal-slider-item:hover {
+  background-color: #C0E1FF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #4856DF; }
+
+.slick-next::before {
+  color: #1174A8 !important; }
+
+.selected-timeslot-wrapper {
+  position: relative;
+  padding: 1rem;
+  background-color: #022C42;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #ffffff; }
+  .selected-timeslot-wrapper .close-icon-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ffffff; }
+
+.calender-modal-selected-timeslots-container {
+  margin: 1rem;
+  margin-top: 1rem; }
+
+.calender-modal-button {
+  width: 8rem; }
+
+.slick-prev:before,
+.slick-next::before {
+  color: #1174A8 !important; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
