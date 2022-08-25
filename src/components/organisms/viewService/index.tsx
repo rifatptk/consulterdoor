@@ -4,13 +4,14 @@ import { Col, Container, Row } from 'reactstrap';
 import { getService } from '../../../services/consultService/consultService';
 import { messages } from '../../../shared/localize';
 import { ImageGallery } from '../../molecules/imageGallery';
+import { FreeTextInputWizard } from '../../organisms';
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
-import { FreeTextInputWizard } from '../../shared/molecules/Cards';
 
 const ServicePage = () => {
   const params = useParams();
   const [consultService, setConsultService] = useState<any>(undefined);
-  const [questionModalIsOpen, setQuestionModalIsOpen] = useState<boolean>(false);
+  const [questionModalIsOpen, setQuestionModalIsOpen] =
+    useState<boolean>(false);
   useEffect(() => {
     if (params && params.serviceId) {
       getService(params.serviceId).then((result) => {
@@ -99,7 +100,6 @@ const ServicePage = () => {
                 className="appointment-btn"
                 title={messages.service.makeAppointment}
                 onClick={() => setQuestionModalIsOpen(true)}
-
               />
             </Row>
           </Col>

@@ -11,10 +11,10 @@ import {
   ModalHeader,
   Progress,
 } from 'reactstrap';
-import { AppointmentService } from '../../../../services';
-import { RootState } from '../../../../shared/hooks';
-import { IModalQuestion } from '../../../../shared/interfaces';
-import { Button, BUTTON_TYPES } from '../../atoms';
+import { AppointmentService } from '../../../services';
+import { RootState } from '../../../shared/hooks';
+import { IModalQuestion } from '../../../shared/interfaces';
+import { Button, BUTTON_TYPES } from '../../shared/atoms';
 interface IProps {
   onRequestClose?: () => void;
   modalIsOpen?: boolean;
@@ -94,6 +94,7 @@ const FreeTextInputWizard = ({
         toggle={handleToggle}
         contentClassName="wizard-modal"
         centered={true}
+        fullscreen={'sm'}
       >
         <Progress
           value={calculateProgress()}
@@ -101,7 +102,7 @@ const FreeTextInputWizard = ({
         />
         <ModalHeader className="modal-custom-header" toggle={handleToggle}>
           <div className="modal-page-number font-size-small">
-            {questionIndex + 1} out of {questions?.length}
+            {questionIndex + 1}
           </div>
         </ModalHeader>
         <ModalBody>

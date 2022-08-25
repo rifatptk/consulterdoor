@@ -1,3 +1,9 @@
 .chat-border {
   border-bottom: 1px solid $lightGray;
+  height: 70px;
+}
+
+.chat-main-container{
+    position: relative;
+    height: calc(100vh - 127px);
 }

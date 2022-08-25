@@ -15,10 +15,14 @@
   background-color:$bg-tertiary-color !important;
 }
 
-.avatar-pic > img {
-  border-radius: 13% !important;
-  object-fit: cover;
-  width: 90px;
+.avatar-pic {
+  img{
+    border-radius: 5px !important;
+    object-fit: cover;
+  }
+  margin-right: 2rem;
+
+  
 }
 
 .color-bar {

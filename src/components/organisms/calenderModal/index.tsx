@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Calendar from 'react-calendar';
 import { IoIosCloseCircle } from 'react-icons/io';
 import Slider from 'react-slick';
@@ -57,6 +57,12 @@ interface ITimeslotProps {
   selectedTimeslots?: ITimeslot[];
 }
 
+interface ICalenderModalProps {
+  isCalenderOpen: boolean;
+  handleSubmit: (timeslots: ITimeslot[]) => void;
+  handleToggle: () => void;
+}
+
 const TimeSlot = ({
   timeslot,
   onTimeslotClick,
@@ -101,24 +107,34 @@ const SelectedTimeslot = ({ timeslot, onTimeslotClick }: ITimeslotProps) => {
   );
 };
 
-const CalenderModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+const CalenderModal = ({
+  isCalenderOpen,
+  handleSubmit,
+  handleToggle,
+}: ICalenderModalProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(
     new Date(new Date().setHours(0, 0, 0, 0))
   );
   const [selectedTimeslots, setSelectedTimeslots] = useState<ITimeslot[]>([]);
   const slickRef = useRef<Slider>(null);
-  const handleToggle = useCallback(() => {
-    setIsModalOpen((prev) => !prev);
-  }, [isModalOpen]);
-
+  useEffect(() => {
+    setIsModalOpen(isCalenderOpen);
+  }, [isCalenderOpen]);
   const timeSlots = useMemo(
     () => getTimeSlots(selectedDate, DURATION),
     [selectedDate]
   );
 
   const onTimeslotClick = (timeslot: ITimeslot) => {
-    setSelectedTimeslots([timeslot, ...selectedTimeslots]);
+    if (
+      selectedTimeslots.length < 3 &&
+      !selectedTimeslots?.find(
+        (slot) => slot.date.getTime() === timeslot.date.getTime()
+      )
+    ) {
+      setSelectedTimeslots([timeslot, ...selectedTimeslots]);
+    }
   };
 
   const onChangeDate = useCallback(
@@ -128,10 +144,6 @@ const CalenderModal = () => {
     },
     [selectedDate]
   );
-
-  const handleSubmit = () => {
-    return;
-  };
 
   const onTimeslotRemove = useCallback(
     (timeslot) => {
@@ -151,7 +163,6 @@ const CalenderModal = () => {
       toggle={handleToggle}
       centered={true}
       fullscreen={'sm'}
-      backdrop="static"
       size="lg"
     >
       <ModalHeader className="calender-modal-header-container">
@@ -169,7 +180,7 @@ const CalenderModal = () => {
           />
         </div>
         <div className="secondary-font font-bold font-size-regular ml-4 mt-4">
-          Available timeslots
+          Available timeslots (max 3 timeslots)
         </div>
         <Slider
           {...timeslotSettings}
