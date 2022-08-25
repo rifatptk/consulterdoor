@@ -12,6 +12,7 @@ import { ServiceCardList } from './serviceCardList';
 import { VideoRoom } from './videoRoom';
 import { ViewConsultantProfile } from './viewConsProfile';
 import { ServicePage } from './viewService';
+import { FreeTextInputWizard } from './wizards';
 
 export {
   ViewConsultantProfile,
@@ -27,4 +28,5 @@ export {
   ConsultantEducationRegistration,
   ConsultantProfileRegistration,
   CalenderModal,
+  FreeTextInputWizard,
 };
