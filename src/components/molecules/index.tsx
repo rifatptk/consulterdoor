@@ -7,6 +7,7 @@ import {
 import {
   ChatCardInfo,
   RequestAppointmentAcceptanceCard,
+  SelectableTimeslots,
   WaitForResponseCard,
 } from './chat';
 import { Header } from './header';
@@ -22,4 +23,5 @@ export {
   ChatCardInfo,
   RequestAppointmentAcceptanceCard,
   WaitForResponseCard,
+  SelectableTimeslots,
 };

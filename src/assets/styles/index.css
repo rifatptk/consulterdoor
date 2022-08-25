@@ -619,6 +619,11 @@ input[type='number'] {
 .wait-msg {
   margin-top: 3%; }
 
+.chat-view-answer-container {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff; }
+
 .consult-register-form-container {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -1118,6 +1123,31 @@ small {
   width: 130%;
   justify-content: space-between;
   align-items: center; }
+
+.selectable-timeslot-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #022C42;
+  background-color: #022C42;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #ffffff; }
+
+.selectable-timeslot-wrapper:hover {
+  background-color: #ffffff;
+  color: #022C42; }
+
+.selectable-timeslot-container {
+  padding-top: 1rem; }
+
+.selectable-timeslot-time-container {
+  overflow: hidden;
+  white-space: nowrap; }
 
 .tag-container {
   height: 2rem;
