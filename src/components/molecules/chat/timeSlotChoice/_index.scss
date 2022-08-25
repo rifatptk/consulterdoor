@@ -1,0 +1,30 @@
+
+.selectable-timeslot-wrapper{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0.5rem; 
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color:  $bg-tertiary-color;
+  background-color: $bg-tertiary-color;
+  margin-left: 0.5rem; margin-right: 0.5rem; 
+  color: $text-tertiary-color;
+}
+.selectable-timeslot-wrapper:hover{
+  background-color: $text-tertiary-color;
+  color:  $bg-tertiary-color;
+  
+}
+
+
+
+.selectable-timeslot-container{
+  padding-top: 1rem;
+}
+
+.selectable-timeslot-time-container{
+  overflow: hidden;
+    white-space: nowrap;
+}

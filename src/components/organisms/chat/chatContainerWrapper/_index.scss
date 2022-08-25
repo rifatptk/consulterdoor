@@ -42,3 +42,8 @@
 .wait-msg {
   margin-top: 3%;
 }
+.chat-view-answer-container{
+  display: flex;
+  justify-content: center;
+  background-color: $bg-primary-color;
+}

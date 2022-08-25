@@ -22,6 +22,7 @@ import {
 } from '../../../../store/actions';
 import {
   RequestAppointmentAcceptanceCard,
+  SelectableTimeslots,
   WaitForResponseCard,
 } from '../../../molecules';
 import { CalenderModal } from '../../calenderModal';
@@ -35,6 +36,23 @@ interface ITimeslot {
   time: string;
   date: Date;
 }
+
+const TIMESLOT = true; // TODO remove this
+
+const timeslotsTemp: ITimeslot[] = [
+  {
+    time: '1:30 AM - 2:00 AM',
+    date: new Date('2022-08-26T20:00:00.000Z'),
+  },
+  {
+    time: '1:00 AM - 1:30 AM',
+    date: new Date('2022-08-26T19:30:00.000Z'),
+  },
+  {
+    time: '12:30 AM - 1:00 AM',
+    date: new Date('2022-08-26T19:00:00.000Z'),
+  },
+]; // TODO remove this
 
 function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
   const [messages, setMessages] = useState<MessageModel[] | []>([]);
@@ -113,6 +131,40 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
     }
   }, [chatState.chats]);
 
+  const handleTimeslotSubmit = (date: Date) => {
+    return;
+  };
+
+  const RenderAnswer = () => {
+    if (chatDetail?.status === 'INITIATED') {
+      if (chatDetail?.role === 'consultant') {
+        return <WaitForResponseCard />;
+      } else {
+        return (
+          <RequestAppointmentAcceptanceCard
+            handleAcceptance={handleAcceptance}
+          />
+        );
+      }
+    }
+    if (TIMESLOT) {
+      // TODO remove this logic
+      return (
+        <SelectableTimeslots
+          timeslots={timeslotsTemp}
+          handleSubmit={handleTimeslotSubmit}
+        />
+      );
+    }
+    return (
+      <MessageInput
+        className="chat-input"
+        placeholder="Type message here"
+        onSend={handleSend}
+        autoFocus={true}
+      />
+    );
+  };
   return (
     <>
       <ChatContainer style={style} className="chat-container">
@@ -133,26 +185,11 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
             return <Message model={message} key={index} className="chat-msg" />;
           })}
         </MessageList>
-        {chatDetail?.status === 'INITIATED' &&
-        chatDetail?.role === 'consultant' ? (
-          <div is="MessageInput">
-            <WaitForResponseCard />
+        <div is="MessageInput">
+          <div className="chat-view-answer-container">
+            <RenderAnswer />
           </div>
-        ) : chatDetail?.status === 'INITIATED' &&
-          chatDetail?.role === 'client' ? (
-          <div is="MessageInput">
-            <RequestAppointmentAcceptanceCard
-              handleAcceptance={handleAcceptance}
-            />
-          </div>
-        ) : (
-          <MessageInput
-            className="chat-input"
-            placeholder="Type message here"
-            onSend={handleSend}
-            autoFocus={true}
-          />
-        )}
+        </div>
       </ChatContainer>
       <CalenderModal
         isCalenderOpen={isCalenderOpen}
