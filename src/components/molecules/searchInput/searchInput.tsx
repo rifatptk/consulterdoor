@@ -110,6 +110,14 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             </Dropdown>
 
           </InputGroup.Text> */}
+
+          <Form.Control
+            placeholder="Search services"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            onChange={handleSearchInput}
+            value={searchText}
+          />
           <Dropdown
             show={searchSuggestionsDropdown}
             onToggle={suggestionToggle}
@@ -126,11 +134,6 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
               ))}
             </Dropdown.Menu>
           </Dropdown>
-          <Form.Control
-            aria-label="Amount (to the nearest dollar)"
-            onChange={handleSearchInput}
-            value={searchText}
-          />
           <InputGroup.Text className="search-button-container">
             <button type="submit">
               <Row>

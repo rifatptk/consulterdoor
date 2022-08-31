@@ -8,7 +8,6 @@ import App from './App';
 import './assets/styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -6,7 +6,7 @@ interface IProps {
 }
 function PageContainer({ children, className }: IProps) {
   return (
-    <div>
+    <div style={{ zIndex: 10 }}>
       <Header />
       <div className={`container page-container ${className}`}>{children}</div>
     </div>
