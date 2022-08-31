@@ -7,6 +7,7 @@ import {
   ConsultantProfileRegistration,
 } from './consultantForms';
 import { ConsultCardList } from './consultCardList';
+import { HomeOnboarding } from './homeOnboarding';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
 import { VideoRoom } from './videoRoom';
@@ -29,4 +30,5 @@ export {
   ConsultantProfileRegistration,
   CalenderModal,
   FreeTextInputWizard,
+  HomeOnboarding,
 };

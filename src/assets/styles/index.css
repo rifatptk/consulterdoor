@@ -67,6 +67,9 @@ button {
 .font-size-large {
   font-size: 2rem; }
 
+.font-size-extra-large {
+  font-size: 4rem; }
+
 .button-cursor {
   cursor: default; }
 
@@ -872,6 +875,35 @@ input[type='number'] {
 .input-wizard-text {
   background-color: #f2f2f2; }
 
+.onboarding-container {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  background-color: #014364;
+  display: flex;
+  align-items: center;
+  padding: 3rem; }
+  .onboarding-container .container {
+    opacity: 0;
+    background-color: #333333; }
+  @media (max-width: 768px) {
+    .onboarding-container .container {
+      opacity: 0.5; } }
+
+.onboarding-container-background-image {
+  position: absolute;
+  right: 0;
+  top: 5rem; }
+
+.onboarding-title {
+  color: #ffffff;
+  line-height: 1; }
+
+.onboarding-description {
+  margin-top: 2rem;
+  color: #dadada; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
@@ -1094,7 +1126,10 @@ small {
   color: #ffffff; }
 
 .search-button-container {
-  background-color: #4f4f4f; }
+  background-color: #1174A8; }
+
+.search-form-container {
+  border-radius: 2rem; }
 
 .navbar-items {
   margin-left: 25pt; }
@@ -1103,7 +1138,8 @@ small {
   color: #022C42; }
 
 .header-bg {
-  background: #022C42 !important; }
+  background: #022C42 !important;
+  box-shadow: 0px 6px 18px -3px rgba(0, 0, 0, 0.2); }
 
 .accept-btn {
   background-color: #33935C !important; }
@@ -1203,3 +1239,6 @@ small {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-right: 1rem; }
+
+.home-container {
+  margin-top: 100vh; }

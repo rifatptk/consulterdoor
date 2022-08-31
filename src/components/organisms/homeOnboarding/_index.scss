@@ -1,0 +1,39 @@
+.onboarding-container{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  background-color:$homeBackgroundColor ;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  .container{
+    opacity: 0;
+    background-color:$title-primary-color;
+  }
+  @media (max-width: 768px) {
+    .container {
+        opacity: 0.5;
+    }
+  }
+}
+
+.onboarding-container-background-image{
+  position: absolute;
+  right:0;
+  top:5rem;
+ 
+}
+
+
+.onboarding-title{
+  color: $text-tertiary-color;
+  line-height: 1;
+}
+
+.onboarding-description{
+  margin-top: 2rem;
+  color: $text-fourth-color;
+
+}
+

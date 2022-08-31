@@ -1,4 +1,4 @@
-import { HomeScreen } from '../../components';
+import { HomeOnboarding, HomeScreen } from '../../components';
 import { PageContainer } from '../../components/shared';
 // import { FreeTextInputWizard } from '../../components/shared/molecules/Cards';
 
@@ -6,8 +6,10 @@ function Home() {
   return (
     <PageContainer>
       <div>
-        <HomeScreen />
-        {/* <FreeTextInputWizard
+        <HomeOnboarding />
+        <div className="home-container">
+          <HomeScreen />
+          {/* <FreeTextInputWizard
           modalIsOpen={false}
           questions={[
             {
@@ -20,6 +22,7 @@ function Home() {
             },
           ]}
         /> */}
+        </div>
       </div>
     </PageContainer>
   );
