@@ -103,6 +103,7 @@
   },
   "devDependencies": {
     "@babel/highlight": "^7.18.6",
+    "@babel/plugin-transform-property-literals": "^7.18.6",
     "@types/draftjs-to-html": "^0.8.1",
     "@types/react-calendar": "^3.5.2",
     "@types/react-datepicker": "^4.3.3",
