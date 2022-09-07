@@ -1,6 +1,3 @@
-import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import { Button } from 'reactstrap';
 
@@ -17,9 +14,6 @@ interface IProps {
   buttonLoader?: boolean;
   isLoading?: boolean;
   size?: string;
-  icon?: IconDefinition;
-  iconStyle?: string;
-  iconSize?: SizeProp;
   tabIndex?: number | undefined;
   actionType?: 'submit' | 'reset' | 'button' | undefined;
   customIcon?: React.ReactElement;
@@ -62,9 +56,6 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
     disabled,
     type,
     size,
-    icon,
-    iconStyle,
-    iconSize,
     tabIndex = 0,
     actionType,
     customIcon,
@@ -85,13 +76,6 @@ const CustomButton: React.FunctionComponent<IProps> = React.memo(
         >
           {customIcon}
           {title}
-          {icon ? (
-            <FontAwesomeIcon
-              className={`ml-2 ${iconStyle ? iconStyle : ''}`}
-              icon={icon}
-              size={iconSize ? iconSize : 'sm'}
-            />
-          ) : null}
         </Button>
       </div>
     );

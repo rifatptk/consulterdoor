@@ -1,13 +1,24 @@
-import { faTrash, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { PhotoUploadIcon } from '../../../../assets/images';
+
+interface UploadedFile {
+  name: string;
+  size?: number;
+  type: File['type'];
+  preview: string;
+  file: File;
+}
 
 interface IProps {
-  setUploadedFile: (file: File | null) => void;
-  uploadedFile?: File | null;
+  setUploadedFile: (file: UploadedFile[] | null) => void;
+  uploadedFile?: UploadedFile | null;
   disabled?: boolean;
   allowMultiple?: boolean;
+  dropzoneClassName?: string;
+  selectedFileClassName?: string;
 }
 
 const FILE_UPLOAD_MAX_SIZE = 52428800;
@@ -16,12 +27,23 @@ const DropZone: React.FunctionComponent<IProps> = ({
   setUploadedFile,
   uploadedFile,
   disabled,
-  allowMultiple = false
+  allowMultiple = false,
+  dropzoneClassName,
+  selectedFileClassName,
 }): JSX.Element => {
   const [errors, setErrors] = useState('');
   const onDrop = useCallback(
     (acceptedFiles, fileRejections) => {
-      setUploadedFile(acceptedFiles);
+      const files = acceptedFiles.map((file: File) => {
+        return {
+          type: file.type,
+          name: file.name,
+          size: file.size,
+          preview: URL.createObjectURL(file),
+          file,
+        };
+      });
+      setUploadedFile(files);
       if (!fileRejections.length) {
         setErrors('');
       }
@@ -46,29 +68,31 @@ const DropZone: React.FunctionComponent<IProps> = ({
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     maxSize,
-    multiple: allowMultiple
+    multiple: allowMultiple,
+    accept: ['image/*'],
   });
 
-  useEffect(() => {
-    if (uploadedFile === null) {
-      setUploadedFile(null);
-    }
-  }, [setUploadedFile, uploadedFile]);
+  // useEffect(() => {
+  //   if (uploadedFile === null) {
+  //     setUploadedFile(null);
+  //   }
+  // }, [setUploadedFile, uploadedFile]);
 
   const renderFile = () => {
     if (isDragActive) {
       return (
         <p className={`font-size-small pt-2 font-weight-light`}>
-          Drop the files here ...
+          Drop the files here
         </p>
       );
     }
     return (
       <>
-        <FontAwesomeIcon className="" icon={faUpload} size="lg" />
-        <p className={`font-size-small pt-1 font-weight-light`}>
-          Drop the file here or Click to upload
+        <img src={PhotoUploadIcon} className="mt-3" />
+        <p className={`font-size-small p-0 m-0 mt-2 font-weight-light`}>
+          {'Drag & Drop a Photo or'}
         </p>
+        <p className="dropzone-browse-text">Browse</p>
       </>
     );
   };
@@ -76,10 +100,9 @@ const DropZone: React.FunctionComponent<IProps> = ({
   const renderDropZone = () => {
     return (
       <div
-        className={` d-flex flex-column justify-content-center
-      align-items-center text-center rounded dropZoneContainer font-weight-light p-1`}
+        className={`d-flex flex-column justify-content-center
+      align-items-center text-center rounded dropZoneContainer font-weight-light m-0 p-0  ${dropzoneClassName}`}
         {...getRootProps()}
-        style={{ height: 80, minWidth: 350 }}
       >
         {!disabled ? <input {...getInputProps()} /> : null}
         {renderFile()}
@@ -91,34 +114,49 @@ const DropZone: React.FunctionComponent<IProps> = ({
     if (uploadedFile) {
       return (
         <div
-          className={` d-flex flex-row justify-content-center
-        align-items-center text-center p-2 rounded dropZoneContainer `}
-          style={{ height: 80, minWidth: 350 }}
+          className={`d-flex flex-column justify-content-center
+        align-items-center text-center rounded dropZoneContainer ${selectedFileClassName}`}
         >
-          <p className={`font-size-small pr-2 m-0 font-weight-light`}>
-            {uploadedFile.name}
-          </p>
-          <FontAwesomeIcon
-            className="pointer"
-            icon={faTrash}
-            size="1x"
-            onClick={() => {
-              if (!disabled) {
-                setUploadedFile(null);
-              }
-            }}
-          />
+          {renderSelectedFileContainer(uploadedFile)}
+          <div className="dropzone-overlay">
+            <div className="dropzone-text">
+              <FontAwesomeIcon
+                className="pointer"
+                icon={faTrash}
+                size="4x"
+                onClick={() => {
+                  if (!disabled) {
+                    setUploadedFile(null);
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       );
     }
-
     return null;
   };
 
+  const renderSelectedFileContainer = (uploadedFile: any) => {
+    switch (uploadedFile.type) {
+      case 'image/jpeg':
+        return (
+          <img src={uploadedFile.preview} className="dropzone-image-fit" />
+        );
+      default:
+        return (
+          <p className={`font-size-small m-0 font-weight-light`}>
+            {uploadedFile.name}
+          </p>
+        );
+    }
+  };
+
   return (
-    <div className={`row m-0 align-items-center`}>
+    <div className={`row m-0 p-0 align-items-center`}>
       <p
-        className={`m-0 font-size-small bold ${uploadedFile ? '' : 'pointer'} ${
+        className={`m-0 p-0 font-size-small ${uploadedFile ? '' : 'pointer'} ${
           disabled && 'not-allowed'
         }`}
       >
@@ -129,4 +167,5 @@ const DropZone: React.FunctionComponent<IProps> = ({
   );
 };
 
+export type { UploadedFile };
 export { DropZone };

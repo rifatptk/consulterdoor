@@ -1,0 +1,41 @@
+.rich-text-editor{
+    padding: 10px;
+    margin: 0;
+    border: none;
+    outline: none;
+    height: auto;
+    min-height: 300px;
+    max-height: 400px;
+}
+.rich-text-editor-wrapper{
+    padding: 0px;
+    margin: 0;
+    background-color: $text-primary-bg-color;
+    border: none;
+}
+
+.rich-text-editor-toolbar{
+    background-color: $bg-secondary-color;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rich-text-editor-toolbar::before{
+    content: '';
+       position: absolute;
+       bottom: 0%;
+       left: 3%;
+       right: 3%;
+       border-bottom: 2px solid $primary-border-color;
+       width: 94%;
+}
+
+.rdw-option-wrapper{
+    background-color: $bg-secondary-color;
+}
+
+.rdw-dropdown-selectedtext{
+    background-color: $bg-secondary-color;
+}

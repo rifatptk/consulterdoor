@@ -1,3 +1,5 @@
+import { UploadedFile } from '../components/shared/atoms/dropZone';
+
 interface IPagination {
   currentPage: number;
   pageSize: number;
@@ -41,9 +43,29 @@ interface IConsultantQualification {
   type?: 'EDUCATION' | 'EXPERIENCE';
 }
 
+interface IAddService {
+  title?: string;
+  mainCategory?: {
+    id: string;
+    displayText: string
+  };
+  subCategory?: {
+    id: string;
+    displayText: string
+  };
+  attachments?: (UploadedFile | null)[];
+  description?: string;
+}
+
+interface IAddServiceMetaData {
+
+}
+
 export type {
   IPagination,
   IConsultService,
   IConsultant,
   IConsultantQualification,
+  IAddService,
+  IAddServiceMetaData
 };

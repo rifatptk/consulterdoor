@@ -42,4 +42,13 @@ async function getService(serviceKey: string) {
   }
 }
 
-export { getConsultServices, getServiceCategories, getService };
+async function getAddServiceAttachmentSignedUrl(fileName: string) {
+  try {
+    const res = await http.get(`services/attachment/pre-signed-url/`, { params: { fileName } });
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export { getConsultServices, getServiceCategories, getService, getAddServiceAttachmentSignedUrl };

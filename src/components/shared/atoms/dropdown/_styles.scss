@@ -2,20 +2,28 @@
     white-space: pre-wrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    background-color: $lightGray;
-    color: $title-primary-color;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
+    border-radius: 1px;
+
 }
 
 .drop-down-toggle:hover {
-    color: $title-primary-color;
-    background-color: $softGray;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
 }
 
 .drop-down-toggle:active {
-    color: $title-primary-color;
-    background-color: $softGray;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
+    border-color: $secondary-border-color;
+}
+
+.drop-down-toggle:focus {
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
 }
 
@@ -34,27 +42,30 @@
 }
 
 .dropdown-toggle::after {
-    margin-left: 20px;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    margin-top: -2px;
 }
 
 .show>.btn-secondary.dropdown-toggle {
-    background-color: $lightGray;
-    color: $title-primary-color;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
     outline: none;
 }
 
 .btn-secondary:focus {
-    background-color: $lightGray;
-    color: $title-primary-color;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
     outline: none;
     box-shadow: none;
 }
 
 .btn-secondary:active {
-    background-color: $lightGray;
-    color: $title-primary-color;
+    background-color: $bg-secondary-color;
+    color: $text-secondary-color;
     border-color: $secondary-border-color;
     outline: none;
     box-shadow: none;
@@ -63,9 +74,14 @@
 .show>.btn-secondary.dropdown-toggle:focus {
     box-shadow: none;
     outline: none;
+    background-color: $bg-secondary-color;
+}
+
+.dropdown-item {
+    color: $text-primary-color
 }
 
 .dropdown-item.active {
-    background-color: $softGray;
-    color: $title-primary-color;
+    background-color: $bg-secondary-color;
+    color: $text-primary-color
 }

@@ -1,3 +1,4 @@
+import { AddServiceContainer } from './addService';
 import {
   CategoryCard,
   ConsultantCard,
@@ -15,5 +16,6 @@ export {
   SearchInput,
   CategoryCard,
   ConsultantProfileImage,
-  ChatCardInfo
+  ChatCardInfo,
+  AddServiceContainer,
 };

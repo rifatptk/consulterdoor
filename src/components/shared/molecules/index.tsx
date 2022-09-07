@@ -3,6 +3,7 @@ import {
   ConsultantEducationRegistration,
   ConsultantProfileRegistration,
 } from './Forms';
+import { RichTextEditor } from './RishTextEditor';
 import { Stepper } from './Stepper';
 import { Table } from './Table';
 
@@ -12,4 +13,5 @@ export {
   ConsultantEducationRegistration,
   ConsultantProfileRegistration,
   Stepper,
+  RichTextEditor,
 };

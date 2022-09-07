@@ -1,12 +1,28 @@
 .stepper-circle {
-    height: 80px;
-    width: 80px;
-    border-radius: 40px;
-    background-color: $bg-secondary-color;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background-color: $icon-primary-bg-color;
+  color: $text-tertiary-color;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.stepper-container {
-    border: 2px solid $primary-border-color;
-    border-radius: 2px;
-    background: $bg-secondary-color;
+.stepper-line {
+  height: 3px;
+  width: auto;
+  background-color: $icon-primary-bg-color;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 30px;
+}
+
+.stepper-active {
+  background-color: $icon-secondary-bg-color;
+}
+
+.stepper-title {
+  color: $text-secondary-color;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
