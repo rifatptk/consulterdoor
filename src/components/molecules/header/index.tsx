@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const Header: React.FunctionComponent = React.memo((): JSX.Element => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ zIndex: 10 }}>
       <Navbar
         collapseOnSelect={true}
         expand="lg"
         className="header-bg"
         variant="dark"
+        style={{ zIndex: 10 }}
+        fixed="top"
       >
         <Container>
           <Navbar.Brand onClick={() => navigate('/')}>

@@ -1,12 +1,19 @@
 import { LoginForm, SignUpForm } from './authForms';
+import { CalenderModal } from './calenderModal';
 import { CategoryList } from './categoryList';
 import { ChatScreen } from './chat/chatScreen';
+import {
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+} from './consultantForms';
 import { ConsultCardList } from './consultCardList';
+import { HomeOnboarding } from './homeOnboarding';
 import { HomeScreen } from './homeScreen';
 import { ServiceCardList } from './serviceCardList';
 import { VideoRoom } from './videoRoom';
 import { ViewConsultantProfile } from './viewConsProfile';
 import { ServicePage } from './viewService';
+import { FreeTextInputWizard } from './wizards';
 
 export {
   ViewConsultantProfile,
@@ -17,6 +24,11 @@ export {
   ConsultCardList,
   LoginForm,
   SignUpForm,
+  ChatScreen,
   VideoRoom,
-  ChatScreen
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+  CalenderModal,
+  FreeTextInputWizard,
+  HomeOnboarding,
 };

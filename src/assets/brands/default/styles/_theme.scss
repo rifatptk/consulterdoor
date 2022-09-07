@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 $primary-font: 'Poppins';
-$secondary-font: 'Inter',
-sans-serif;
+$secondary-font: 'Inter', sans-serif;
 
 $bg-primary-color: $white;
 $bg-secondary-color: $lightGray;
 $bg-tertiary-color: $darkBlue;
+$bg-fourth-color:$mediumGray;
 
 $text-primary-color: $softBlack;
 $text-secondary-color: $gray;
 $text-tertiary-color: $white;
+$text-fourth-color: $softGray;
 
 $text-primary-bg-color: $lowLightGray;
 
@@ -19,6 +20,9 @@ $title-secondary-color: $darkGray;
 
 $btn-primary-bg-color: $softBlue;
 $btn-secondary-bg-color: $white;
+$btn-tertiary-bg-color: $darkGray;
+$btn-fourth-bg-color:$purple;
+$btn-fifth-bg-color:$lightBlue;
 
 $btn-primary-text-color: $white;
 $btn-secondary-text-color: $softBlue;
@@ -32,6 +36,7 @@ $tertiary-border-color: $lightBlue;
 $btn-link-text-color: $softGray;
 $btn-link-text-color-hover: $black;
 
+$error-color: $red;
 $bg-disabled-color: $lightGray;
 $text-disabled-color: $softGray;
 
@@ -39,5 +44,8 @@ $error-color: $red;
 $success-color: $green;
 $header-primary-color: $darkBlue;
 $tag-bg-primary-color: $gray;
+
 $icon-primary-bg-color: $gray;
 $icon-secondary-bg-color: $softBlue;
+
+$chat-bg-color: $lightGray;

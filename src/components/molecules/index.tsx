@@ -5,9 +5,14 @@ import {
   ConsultantProfileImage,
   ServiceCard,
 } from './cards';
-import { ChatCardInfo } from './chat/chatCard';
+import {
+  ChatCardInfo,
+  RequestAppointmentAcceptanceCard,
+  SelectableTimeslots,
+  WaitForResponseCard,
+} from './chat';
 import { Header } from './header';
-import { SearchInput } from './textInputs';
+import { SearchInput } from './searchInput';
 
 export {
   Header,
@@ -18,4 +23,7 @@ export {
   ConsultantProfileImage,
   ChatCardInfo,
   AddServiceContainer,
+  RequestAppointmentAcceptanceCard,
+  WaitForResponseCard,
+  SelectableTimeslots,
 };

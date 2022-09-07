@@ -53,7 +53,6 @@ const AddServiceOverview: React.FunctionComponent<IProps> = ({
                 { id: '3', displayText: 'item 3' },
               ]}
               onItemClick={(item) => {
-                console.log('----item------>', item);
                 setAddServiceInfo({ subCategory: item });
               }}
               selectedItem={addServiceInfo?.subCategory}

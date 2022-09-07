@@ -40,7 +40,9 @@ const RichTextEditor: React.FunctionComponent<IProps> = memo(
             const editorHTML = draftToHtml(
               convertToRaw(editor.getCurrentContent())
             );
-            onChangeText && onChangeText(editorHTML);
+            if (onChangeText) {
+              onChangeText(editorHTML);
+            }
           }}
         />
       </div>

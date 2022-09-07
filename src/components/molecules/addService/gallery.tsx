@@ -32,7 +32,7 @@ const AddServiceGallery: React.FunctionComponent<IProps> = ({
 
   const setSelectedAttachments = (filles: (UploadedFile | null)[]) => {
     setError(undefined);
-    const filteredFills = filles.filter(function (el) {
+    const filteredFills = filles.filter((el) => {
       return el != null;
     });
     if (filteredFills.length < 3) {
@@ -105,7 +105,9 @@ const AddServiceGallery: React.FunctionComponent<IProps> = ({
             className="stepper-next-button"
             onClick={() => {
               const response: boolean = setSelectedAttachments(uploadedFiles);
-              response && onClickNext();
+              if (response) {
+                onClickNext();
+              }
             }}
           />
         </div>

@@ -33,5 +33,7 @@ export const en: IMessageProperties = {
   },
   appointmentPage: {
     title: 'Your Appointments',
+    waitForResponse: 'Please wait for the response',
+    requestAcceptance: 'Do you Accept this request ?',
   },
 };

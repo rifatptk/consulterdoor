@@ -1,22 +1,28 @@
 .chat-list {
-  height: auto;
+  height: 85vh;
   display: flex;
   justify-content: flex-end;
   padding-right: 0px;
+  overflow: scroll;
 }
 
 .chat-card {
   border-bottom: 1px solid $lightGray;
+  background-color: $bg-primary-color;
 }
 
 .chat-list li :hover {
   background-color:$bg-tertiary-color !important;
 }
 
-.avatar-pic > img {
-  border-radius: 13% !important;
-  object-fit: cover;
-  width: 90px;
+.avatar-pic {
+  img{
+    border-radius: 5px !important;
+    object-fit: cover;
+  }
+  margin-right: 2rem;
+
+  
 }
 
 .color-bar {

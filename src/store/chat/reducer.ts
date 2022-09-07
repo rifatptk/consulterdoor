@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { chatService } from '../../services';
 import {
+  IAppointmentResponseProps,
   IConversation,
   ISendMessageProps,
 } from '../../services/chat/chatInterface';
@@ -33,6 +34,13 @@ const sendMessage = createAsyncThunk(
   'chatSlice/sendMessage',
   async (params: ISendMessageProps) => {
     return chatService.sendMessage(params);
+  }
+);
+
+const sendAppointmentAcceptance = createAsyncThunk(
+  'chatSlice/sendAppointmentRequestAcceptance',
+  async (params: IAppointmentResponseProps) => {
+    return chatService.sendAppointmentAcceptance(params);
   }
 );
 
@@ -69,10 +77,23 @@ const chatSlice = createSlice({
       });
       state.chats = modifiedChat;
     });
+    builder.addCase(
+      sendAppointmentAcceptance.fulfilled,
+      (state, { payload }) => {
+        // console.log('updated');
+      }
+    );
   },
 });
 
 const chatReducer = chatSlice.reducer;
 const { setActiveChat } = chatSlice.actions;
 
-export { chatReducer, loadChatList, sendMessage, loadChat, setActiveChat };
+export {
+  chatReducer,
+  loadChatList,
+  sendMessage,
+  loadChat,
+  sendAppointmentAcceptance,
+  setActiveChat,
+};

@@ -1,11 +1,12 @@
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 import { Auth } from 'aws-amplify';
 
 // TODO - Charitha - function names should start with simple letter
-function UserSignIn(username: string, password: string) {
+function userSignIn(username: string, password: string) {
   return Auth.signIn(username, password);
 }
 
-function UserSignUp(
+function userSignUp(
   username: string,
   password: string,
   firstName: string,
@@ -22,11 +23,11 @@ function UserSignUp(
     validationData: [],
   });
 }
-function UserSignOut() {
+function userSignOut() {
   return Auth.signOut();
 }
 
-function UserValidation(username: string, code: string) {
+function userValidation(username: string, code: string) {
   return Auth.confirmSignUp(username, code);
 }
 
@@ -36,10 +37,22 @@ function getCurrentAuthenticatedUser() {
   });
 }
 
+function resendOtp(userName: string) {
+  return Auth.resendSignUp(userName);
+}
+
+function googleSignIn() {
+  return Auth.federatedSignIn({
+    provider: CognitoHostedUIIdentityProvider.Google,
+  });
+}
+
 export {
-  UserSignIn,
-  UserSignOut,
-  UserSignUp,
-  UserValidation,
+  userSignIn,
+  userSignOut,
+  userSignUp,
+  userValidation,
   getCurrentAuthenticatedUser,
+  resendOtp,
+  googleSignIn,
 };

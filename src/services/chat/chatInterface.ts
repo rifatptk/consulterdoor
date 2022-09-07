@@ -5,6 +5,8 @@ export interface IConversation {
   serviceName: string;
   jobTitle: string;
   isActive: boolean;
+  status: string;
+  role: string;
   messages?: IMessage[];
 }
 
@@ -26,4 +28,9 @@ export interface ISendMessageProps {
   message: string;
   messageType: string;
   senderKey: string;
+}
+
+export interface IAppointmentResponseProps {
+  conversationKey: string;
+  response: 'ACCEPT' | 'REJECT';
 }

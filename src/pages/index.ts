@@ -17,5 +17,5 @@ export {
   Auth,
   Chat,
   ConsultantRegister,
-  VideoChat
+  VideoChat,
 };

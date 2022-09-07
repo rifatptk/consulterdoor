@@ -10,7 +10,7 @@ function LoginForm() {
   const handleSubmit = async (event: any) => {
     try {
       event.preventDefault();
-      await AuthService.UserSignIn(userName, password);
+      await AuthService.userSignIn(userName, password);
       navigate('/');
     } catch (error) {
       // console.log('errrror', error);

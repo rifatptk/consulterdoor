@@ -1,57 +1,59 @@
-import { Avatar, Conversation, ConversationList } from '@chatscope/chat-ui-kit-react';
-import { Key, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  Avatar,
+  Conversation,
+  ConversationList,
+} from '@chatscope/chat-ui-kit-react';
+import { Key } from 'react';
+import { useDispatch } from 'react-redux';
 import { IConversation } from '../../../../services/chat/chatInterface';
-import { RootState } from '../../../../shared/hooks';
-import { loadChatList, setActiveChat } from '../../../../store/actions';
+import { setActiveChat } from '../../../../store/actions';
 import { ChatCardInfo } from '../../../molecules';
 
 interface IChatListProps {
-    handleChatSelect: (conversation: IConversation) => void;
+  chats: IConversation[];
+  handleConversationClick: () => void;
+  conversationAvatarStyle: React.CSSProperties;
+  conversationContentStyle: React.CSSProperties;
 }
 
 function ChatList(props: IChatListProps) {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    const chatState = useSelector(
-        (state: RootState) => state.chatReducer
-    );
-
-    const userState = useSelector(
-        (state: RootState) => state.userReducer
-    );
-
-    useEffect(() => {
-        if (userState?.user?.username) {
-            dispatch(loadChatList({ user_key: userState?.user?.username }));
+  return (
+    <ConversationList>
+      {props.chats.map(
+        (conversation: IConversation, index: Key | null | undefined) => {
+          return (
+            <Conversation
+              key={index}
+              className="chat-card background-color-bg"
+              onClick={() => {
+                dispatch(setActiveChat(conversation.chatKey));
+                props.handleConversationClick();
+              }}
+            >
+              <Avatar
+                src={conversation.participantImage}
+                name={conversation.participantName}
+                className="avatar-pic available available_bullet"
+                size="lg"
+                style={props.conversationAvatarStyle}
+                status={conversation.isActive ? 'available' : undefined}
+              />
+              <Conversation.Content style={props.conversationContentStyle}>
+                <ChatCardInfo
+                  name={conversation.participantName}
+                  service={conversation.serviceName}
+                  jobTitle={conversation.jobTitle}
+                />
+              </Conversation.Content>
+              <Conversation.Operations />
+            </Conversation>
+          );
         }
-
-    }, [userState?.user?.username]);
-
-    return (
-        <div className="chat-list">
-            <ConversationList>
-                {chatState.chats.map((conversation: IConversation, index: Key | null | undefined) => {
-                    return (
-                        <Conversation key={index} className="chat-card background-color-bg" onClick={() => dispatch(setActiveChat(conversation.chatKey))}>
-                            <Avatar src={conversation.participantImage}
-                                name={conversation.participantName}
-                                className="avatar-pic available available_bullet"
-                                size="lg" status={conversation.isActive ? 'available' : undefined}
-                            />
-                            <Conversation.Content className="chat-card-detail">
-                                <ChatCardInfo name={conversation.participantName} service={conversation.serviceName} jobTitle={conversation.jobTitle} />
-                            </Conversation.Content>
-                        </Conversation>
-                    );
-
-                })}
-
-            </ConversationList>
-        </div>
-
-    );
-
+      )}
+    </ConversationList>
+  );
 }
 
 export { ChatList };

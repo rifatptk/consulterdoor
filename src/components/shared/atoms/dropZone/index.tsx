@@ -138,16 +138,16 @@ const DropZone: React.FunctionComponent<IProps> = ({
     return null;
   };
 
-  const renderSelectedFileContainer = (uploadedFile: any) => {
-    switch (uploadedFile.type) {
+  const renderSelectedFileContainer = (selectedFile: any) => {
+    switch (selectedFile.type) {
       case 'image/jpeg':
         return (
-          <img src={uploadedFile.preview} className="dropzone-image-fit" />
+          <img src={selectedFile.preview} className="dropzone-image-fit" />
         );
       default:
         return (
           <p className={`font-size-small m-0 font-weight-light`}>
-            {uploadedFile.name}
+            {selectedFile.name}
           </p>
         );
     }

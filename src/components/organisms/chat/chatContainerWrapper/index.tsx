@@ -1,111 +1,203 @@
-import { Avatar, ChatContainer, ConversationHeader, Message, MessageInput, MessageList, MessageModel, MessageSeparator, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import {
+  Avatar,
+  ChatContainer,
+  ConversationHeader,
+  Message,
+  MessageInput,
+  MessageList,
+  MessageModel,
+} from '@chatscope/chat-ui-kit-react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IMessage, ISendMessageProps } from '../../../../services/chat/chatInterface';
+import {
+  IAppointmentResponseProps,
+  IMessage,
+  ISendMessageProps,
+} from '../../../../services/chat/chatInterface';
 import { RootState } from '../../../../shared/hooks';
-import { loadChat, sendMessage } from '../../../../store/actions';
+import {
+  loadChat,
+  sendAppointmentAcceptance,
+  sendMessage,
+} from '../../../../store/actions';
+import {
+  RequestAppointmentAcceptanceCard,
+  SelectableTimeslots,
+  WaitForResponseCard,
+} from '../../../molecules';
+import { CalenderModal } from '../../calenderModal';
 import { IConversation } from '../chatList';
 
 interface IChatWrapperProps {
-    activeChat: IConversation | undefined;
+  handleBackClick: () => void;
+  style: React.CSSProperties;
+}
+interface ITimeslot {
+  time: string;
+  date: Date;
 }
 
-function ChatWrapper(props: IChatWrapperProps) {
+const TIMESLOT = true; // TODO remove this
 
-    const [messages, setMessages] = useState<MessageModel[] | []>([]);
-    const [chatDetail, setChatDetail] = useState<IConversation>();
-    const dispatch = useDispatch();
-    const chatState = useSelector(
-        (state: RootState) => state.chatReducer
-    );
-    const userState = useSelector(
-        (state: RootState) => state.userReducer
-    );
+const timeslotsTemp: ITimeslot[] = [
+  {
+    time: '1:30 AM - 2:00 AM',
+    date: new Date('2022-08-26T20:00:00.000Z'),
+  },
+  {
+    time: '1:00 AM - 1:30 AM',
+    date: new Date('2022-08-26T19:30:00.000Z'),
+  },
+  {
+    time: '12:30 AM - 1:00 AM',
+    date: new Date('2022-08-26T19:00:00.000Z'),
+  },
+]; // TODO remove this
 
-    const handleSend = (message: string) => {
-        // TODO:Need to set userKey as sender key
-        const params: ISendMessageProps = {
-            conversationKey: chatState.activeChat,
-            message,
-            messageType: 'Text',
-            senderKey: userState.user.username,
+function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
+  const [messages, setMessages] = useState<MessageModel[] | []>([]);
+  const [chatDetail, setChatDetail] = useState<IConversation>();
+  const [isCalenderOpen, setIsCalenderOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const chatState = useSelector((state: RootState) => state.chatReducer);
+  const userState = useSelector((state: RootState) => state.userReducer);
 
-        };
-        dispatch(sendMessage(params));
-        setMessages([...messages, {
-            message,
-            position: 'single',
-            direction: 'outgoing'
-        }]);
-
+  const handleSend = (message: string) => {
+    const params: ISendMessageProps = {
+      conversationKey: chatState.activeChat,
+      message,
+      messageType: 'Text',
+      senderKey: userState.user.username,
     };
+    dispatch(sendMessage(params));
+    setMessages([
+      ...messages,
+      {
+        message,
+        position: 'single',
+        direction: 'outgoing',
+      },
+    ]);
+  };
 
-    useEffect(() => {
-        if (chatState.activeChat != '') {
-            dispatch(loadChat(chatState.activeChat));
-        }
+  const handleCalenderToggle = () => {
+    setIsCalenderOpen((prev) => !prev);
+  };
 
-    }, [chatState.activeChat]);
+  const handleAcceptance = (response: 'ACCEPT' | 'REJECT') => {
+    const params: IAppointmentResponseProps = {
+      conversationKey: chatState.activeChat,
+      response,
+    };
+    if (response === 'ACCEPT') {
+      setIsCalenderOpen(true);
+    } else {
+      dispatch(sendAppointmentAcceptance(params));
+    }
+  };
 
-    useEffect(() => {
-        const activeChat = chatState.chats.find((chat: IConversation) => chatState.activeChat === chat.chatKey);
-        setChatDetail(activeChat);
-        if (activeChat) {
-            const messages: MessageModel[] | undefined = activeChat.messages?.map((message: IMessage) => {
-                return {
-                    message: message.message,
-                    position: 'single',
-                    direction: message.direction,
-                    sentTime: message.messageTime,
-                    sender: message.senderName
-                };
-            });
-            setMessages(messages ? messages : []);
-        }
+  const handleScheduleSubmit = (timeslots: ITimeslot[]) => {
+    const params: IAppointmentResponseProps = {
+      conversationKey: chatState.activeChat,
+      response: 'ACCEPT',
+    };
+    handleCalenderToggle();
+    dispatch(sendAppointmentAcceptance(params));
+  };
 
-    }, [chatState.chats]);
+  useEffect(() => {
+    if (chatState.activeChat !== '') {
+      dispatch(loadChat(chatState.activeChat));
+    }
+  }, [chatState.activeChat]);
 
-    return (
-
-        < ChatContainer className="chat-container" >
-            <ConversationHeader className="chat-header">
-                <Avatar src={chatDetail?.participantImage} name={chatDetail?.participantName} className="chat-avatar-pic" />
-                <ConversationHeader.Content userName={chatDetail?.participantName} info="Active 10 mins ago" />
-                {/* <ConversationHeader.Actions>
-                    <VoiceCallButton />
-                    <VideoCallButton />
-                    <InfoButton />
-                </ConversationHeader.Actions> */}
-            </ConversationHeader>
-            <MessageList className="chat-container" typingIndicator={<TypingIndicator content={`${chatDetail?.participantName} is Typing `} />}>
-
-                <MessageSeparator>Saturday, 30 November 2019</MessageSeparator>
-                {messages.map((message: MessageModel, index: number) => {
-                    return (
-                        <Message
-                            model={message} className="chat-msg"
-                        >
-                            {/* {message.direction === 'incoming' ?
-                                <Avatar
-                                    className="chat-avatar-pic"
-                                    src={chatDetail?.participantImage}
-                                    name={chatDetail?.participantName} /> : ""} */}
-
-                        </Message>
-
-                    );
-                })}
-
-            </MessageList>
-            <MessageInput className="chat-input" placeholder="Type message here" onSend={handleSend} autoFocus={true} />
-            {/* <InputToolbox>
-                                    <AttachmentButton />
-                                    <SendButton />
-                                </InputToolbox> */}
-        </ChatContainer >
-
+  useEffect(() => {
+    const activeChat = chatState.chats.find(
+      (chat: IConversation) => chatState.activeChat === chat.chatKey
     );
+    setChatDetail(activeChat);
+    if (activeChat) {
+      const activeMessages: MessageModel[] | undefined =
+        activeChat.messages?.map((message: IMessage) => {
+          return {
+            message: message.message,
+            position: 'single',
+            direction: message.direction,
+            sentTime: message.messageTime,
+            sender: message.senderName,
+          };
+        });
+      setMessages(activeMessages ? activeMessages : []);
+    }
+  }, [chatState.chats]);
 
+  const handleTimeslotSubmit = (date: Date) => {
+    return;
+  };
+
+  const RenderAnswer = () => {
+    if (chatDetail?.status === 'INITIATED') {
+      if (chatDetail?.role === 'consultant') {
+        return <WaitForResponseCard />;
+      } else {
+        return (
+          <RequestAppointmentAcceptanceCard
+            handleAcceptance={handleAcceptance}
+          />
+        );
+      }
+    }
+    if (TIMESLOT) {
+      // TODO remove this logic
+      return (
+        <SelectableTimeslots
+          timeslots={timeslotsTemp}
+          handleSubmit={handleTimeslotSubmit}
+        />
+      );
+    }
+    return (
+      <MessageInput
+        className="chat-input"
+        placeholder="Type message here"
+        onSend={handleSend}
+        autoFocus={true}
+      />
+    );
+  };
+  return (
+    <>
+      <ChatContainer style={style} className="chat-container">
+        <ConversationHeader className="chat-header">
+          <ConversationHeader.Back onClick={handleBackClick} />
+          <Avatar
+            src={chatDetail?.participantImage}
+            name={chatDetail?.participantName}
+            className="chat-avatar-pic"
+          />
+          <ConversationHeader.Content
+            userName={chatDetail?.participantName}
+            info="Active 10 mins ago"
+          />
+        </ConversationHeader>
+        <MessageList className="chat-container">
+          {messages.map((message: MessageModel, index: number) => {
+            return <Message model={message} key={index} className="chat-msg" />;
+          })}
+        </MessageList>
+        <div is="MessageInput">
+          <div className="chat-view-answer-container">
+            <RenderAnswer />
+          </div>
+        </div>
+      </ChatContainer>
+      <CalenderModal
+        isCalenderOpen={isCalenderOpen}
+        handleSubmit={handleScheduleSubmit}
+        handleToggle={handleCalenderToggle}
+      />
+    </>
+  );
 }
 
 export { ChatWrapper };

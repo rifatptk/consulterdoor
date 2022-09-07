@@ -3,24 +3,47 @@
 }
 
 .chat-msg.cs-message--outgoing .cs-message__content {
-  background-color:$bg-tertiary-color !important;
-  border: 2px solid $white !important;
+  background-color: $btn-primary-bg-color !important;
+  border: 2px solid $bg-primary-color !important;
   color: $white !important;
 }
 
 .chat-msg.cs-message--incoming .cs-message__content {
-  background-color: $white !important;
-  border: 2px solid $bg-tertiary-color !important;
+  background-color: $bg-primary-color !important;
+  border: 2px solid $btn-primary-bg-color !important;
 }
 
 .chat-container {
-  background-color: $lightGray !important;
+  background-color: $chat-bg-color !important;
 }
 
 .chat-header * {
-  background-color: $white !important;
+  background-color: $bg-primary-color !important;
 }
 
 .chat-header {
-  background-color: $white !important;
+  background-color: $bg-primary-color !important;
+}
+
+.chat-footer-wait {
+  background-color: $bg-primary-color;
+  display: flex;
+  justify-content: center;
+}
+
+.wait-msg-comp {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wait-msg {
+  margin-top: 3%;
+}
+.chat-view-answer-container{
+  display: flex;
+  justify-content: center;
+  background-color: $bg-primary-color;
 }

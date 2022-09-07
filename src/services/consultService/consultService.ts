@@ -42,6 +42,31 @@ async function getService(serviceKey: string) {
   }
 }
 
+async function getSearchSuggestion(searchText: string) {
+  try {
+    const res = await http.get(`services/search/suggestions`, {
+      params: {
+        searchText,
+      },
+    });
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+async function getSearchResults(searchText: string) {
+  try {
+    const res = await http.get(`services/search`, {
+      params: {
+        searchText,
+      },
+    });
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
 async function getAddServiceAttachmentSignedUrl(fileName: string) {
   try {
     const res = await http.get(`services/attachment/pre-signed-url/`, { params: { fileName } });
@@ -51,4 +76,11 @@ async function getAddServiceAttachmentSignedUrl(fileName: string) {
   }
 }
 
-export { getConsultServices, getServiceCategories, getService, getAddServiceAttachmentSignedUrl };
+export {
+  getConsultServices,
+  getServiceCategories,
+  getService,
+  getSearchSuggestion,
+  getSearchResults,
+  getAddServiceAttachmentSignedUrl
+};

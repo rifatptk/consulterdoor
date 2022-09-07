@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { InputType } from 'reactstrap/types/lib/Input';
 import { ConsultantProfileImage } from '../../components';
+import {
+  ConsultantEducationRegistration,
+  ConsultantProfileRegistration,
+} from '../../components/organisms';
 import { PageContainer } from '../../components/shared';
-import { ConsultantProfileRegistration } from '../../components/shared/molecules';
-import { ConsultantEducationRegistration } from '../../components/shared/molecules';
 import ConsultantProfile from './consultantProfile.json';
 
 interface ICategory {
@@ -62,7 +64,7 @@ const ConsultantRegister = () => {
   const [profile, setProfile] = useState<any>({});
 
   const consultantRegistrationForm = (
-    handleGetProfile: (profile: any) => void
+    handleGetProfile: (profileInfo: any) => void
   ) => {
     switch (selectedCategory) {
       case REGISTRATION_CATEGORIES.PROFILE:
@@ -75,7 +77,6 @@ const ConsultantRegister = () => {
       case REGISTRATION_CATEGORIES.EDUCATION:
         return <ConsultantEducationRegistration />;
       default:
-        console.log('DEFAULT', selectedCategory);
         return <div>Coming soon</div>;
     }
   };
@@ -97,7 +98,16 @@ const ConsultantRegister = () => {
           REGISTRATION_CATEGORIES[
             item as keyof typeof REGISTRATION_CATEGORIES
           ] && <div className="consultant-register-category-selected" />}
-        <div>
+        <div
+          className={
+            selectedCategory ===
+            REGISTRATION_CATEGORIES[
+              item as keyof typeof REGISTRATION_CATEGORIES
+            ]
+              ? 'font-bold'
+              : ''
+          }
+        >
           {
             REGISTRATION_CATEGORIES[
               item as keyof typeof REGISTRATION_CATEGORIES
@@ -107,8 +117,8 @@ const ConsultantRegister = () => {
       </button>
     );
   };
-  const handleGetProfile = (profile: any) => {
-    setProfile(profile);
+  const handleSetProfile = (profileInfo: any) => {
+    setProfile(profileInfo);
   };
   return (
     <PageContainer className="remove-margin-padding">
@@ -120,7 +130,7 @@ const ConsultantRegister = () => {
           })}
         </div>
         <div className="consultant-register-form-container font-medium">
-          {consultantRegistrationForm(handleGetProfile)}
+          {consultantRegistrationForm(handleSetProfile)}
         </div>
       </div>
     </PageContainer>

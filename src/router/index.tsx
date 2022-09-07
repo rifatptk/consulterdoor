@@ -18,7 +18,6 @@ import { saveUser } from '../store/actions';
 
 const ProtectedRoute = ({ children }: any) => {
   const user = AuthService.getCurrentAuthenticatedUser();
-  console.log('---------user------>', user);
   if (!user) {
     return <Navigate to="/landing" replace={true} />;
   }

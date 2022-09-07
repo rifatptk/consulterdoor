@@ -8,20 +8,57 @@ import {
   AuthLoginPersonSvg,
 } from '../../../assets/images';
 import { AuthService } from '../../../services';
+import { googleSignIn, resendOtp } from '../../../services/auth/authProvider';
+import { OTPModal } from './verificationModal';
+
+import { ITextInputValidation } from '../../../shared/interfaces';
+import { memberEmailValidation } from '../../../shared/validations';
 import { Button, BUTTON_TYPES, TextInput } from '../../shared';
 
 function LoginForm() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [noUser, setNoUser] = useState<boolean>(false);
+  const [emailValidation, setEmailValidation] = useState<ITextInputValidation>({
+    valid: true,
+  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const handleToggle = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSubmit = async (event: any) => {
     try {
       event.preventDefault();
-      await AuthService.UserSignIn(userName, password);
+      setEmailValidation({ valid: true });
+      setNoUser(false);
+      const emailValidationResponse = memberEmailValidation(userName);
+      if (!emailValidationResponse.valid) {
+        setEmailValidation(emailValidationResponse);
+        return;
+      }
+      await AuthService.userSignIn(userName, password);
       navigate('/');
+    } catch (error: any) {
+      if (error.code === 'UserNotConfirmedException') {
+        await resendOtp(userName);
+        setIsModalOpen(true);
+      } else if (
+        error.code === 'UserNotFoundException' ||
+        error.code === 'NotAuthorizedException'
+      ) {
+        setNoUser(true);
+      }
+    }
+  };
+
+  const federatedSignin = async () => {
+    try {
+      await googleSignIn();
     } catch (error) {
-      // console.log('errrror', error);
+      return;
     }
   };
   return (
@@ -44,17 +81,28 @@ function LoginForm() {
                 onChange={(event) => setUserName(event.target.value)}
                 className="auth-text-container"
                 containerClassName="auth-text-input-container"
-                icon={<IoMdPerson className="text-dark-color" size={20} />}
+                errorLabelClassName="font-size-small"
+                validation={{
+                  isInValid: !emailValidation?.valid || false,
+                  validationMsg: emailValidation?.code,
+                }}
+                icon={<IoMdPerson className="icon-dark-color" size={20} />}
               />
               <TextInput
                 name="password"
                 type="password"
                 rows={1}
                 placeholder="Password"
-                icon={<IoMdKey className="text-dark-color" size={20} />}
+                icon={<IoMdKey className="icon-dark-color" size={20} />}
                 maxLength={100}
                 onChange={(event) => setPassword(event.target.value)}
                 containerClassName="auth-text-input-container"
+                errorLabelClassName="font-size-small"
+                validation={{
+                  isInValid: noUser,
+                  validationMsg:
+                    'The username or password you entered is incorrect.',
+                }}
                 className="auth-text-container"
               />
             </div>
@@ -72,7 +120,7 @@ function LoginForm() {
                   <Input type="checkbox" /> Remember me{' '}
                 </Label>
               </FormGroup>
-              <button className="font-regular font-size-extra-small text-blue-color">
+              <button className="font-regular font-size-extra-small auth-primary-text">
                 Forgot your password?
               </button>
             </div>
@@ -115,6 +163,7 @@ function LoginForm() {
                 type={BUTTON_TYPES.ELEVATED}
                 title="Google"
                 className="pt-2 pb-2"
+                onClick={federatedSignin}
                 customIcon={<FcGoogle size={20} className="mr-3" />}
               />
             </div>
@@ -130,7 +179,7 @@ function LoginForm() {
               <Link
                 to="/auth/signup"
                 style={{ textDecoration: 'none' }}
-                className="mt-1 font-regular font-size-small text-blue-color"
+                className="mt-1 font-regular font-size-small auth-primary-text"
               >
                 Register
               </Link>
@@ -148,6 +197,12 @@ function LoginForm() {
           />
         </Col>
       </Row>
+      <OTPModal
+        isModalOpen={isModalOpen}
+        email={userName}
+        password={password}
+        handleToggle={handleToggle}
+      />
     </Container>
   );
 }
