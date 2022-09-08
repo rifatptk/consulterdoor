@@ -108,4 +108,29 @@ const getTimeSlots = (selectedDate: Date, duration: number) => {
   return timeSlots;
 };
 
-export { formatString, getMonthName, getTimeSlots };
+const convertTime12to24 = (timeString: string) => {
+  const [time, modifier] = timeString.split(' ');
+
+  let [hours, minutes] = time.split(':');
+
+  if (hours === '12') {
+    hours = '00';
+  }
+
+  if (modifier === 'PM') {
+    hours = (parseInt(hours, 10) + 12).toString();
+  }
+  hours = parseInt(hours, 10).toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+
+  minutes = parseInt(minutes, 10).toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+
+  return `${hours}:${minutes}:00`;
+};
+
+export { formatString, getMonthName, getTimeSlots, convertTime12to24 };

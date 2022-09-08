@@ -2,7 +2,7 @@ import { messages as texts } from '../../../../shared/localize';
 import { Button, BUTTON_TYPES, TextLabel } from '../../../shared/atoms';
 
 interface IProps {
-  handleAcceptance: (response: 'ACCEPT' | 'REJECT') => void;
+  handleAcceptance: (response: 'ACCEPTED' | 'REJECTED') => void;
 }
 
 const RequestAppointmentAcceptanceCard = (props: IProps) => {
@@ -18,13 +18,13 @@ const RequestAppointmentAcceptanceCard = (props: IProps) => {
             type={BUTTON_TYPES.ELEVATED}
             title="Reject"
             className="decline-btn response-btn secondary-font font-bold font-size-medium"
-            onClick={() => props.handleAcceptance('REJECT')}
+            onClick={() => props.handleAcceptance('REJECTED')}
           />
           <Button
             type={BUTTON_TYPES.ELEVATED}
             title="Accept"
             className="accept-btn response-btn secondary-font font-bold font-size-medium"
-            onClick={() => props.handleAcceptance('ACCEPT')}
+            onClick={() => props.handleAcceptance('ACCEPTED')}
           />
         </div>
       </div>

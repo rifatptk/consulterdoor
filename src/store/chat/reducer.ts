@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { chatService } from '../../services';
+import { AppointmentService, chatService } from '../../services';
 import {
   IAppointmentResponseProps,
   IConversation,
@@ -40,7 +40,7 @@ const sendMessage = createAsyncThunk(
 const sendAppointmentAcceptance = createAsyncThunk(
   'chatSlice/sendAppointmentRequestAcceptance',
   async (params: IAppointmentResponseProps) => {
-    return chatService.sendAppointmentAcceptance(params);
+    return AppointmentService.sendAppointmentAcceptance(params);
   }
 );
 
@@ -62,6 +62,7 @@ const chatSlice = createSlice({
       const modifiedChatArray = currentChats.map((chat: any) => {
         if (chat.chatKey === payload.conversationKey) {
           chat.messages.push(payload.message);
+          chat.lastAppointment = payload.lastAppointment;
         }
         return chat;
       });
@@ -80,7 +81,14 @@ const chatSlice = createSlice({
     builder.addCase(
       sendAppointmentAcceptance.fulfilled,
       (state, { payload }) => {
-        // console.log('updated');
+        const currentChats = JSON.parse(JSON.stringify(state.chats));
+        const modifiedChat = currentChats.map((chat: any) => {
+          if (chat.chatKey === state.activeChat) {
+            chat.lastAppointment.appointmentStatus = payload.status;
+          }
+          return chat;
+        });
+        state.chats = modifiedChat;
       }
     );
   },

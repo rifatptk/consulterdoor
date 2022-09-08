@@ -15,6 +15,8 @@ import {
   ISendMessageProps,
 } from '../../../../services/chat/chatInterface';
 import { RootState } from '../../../../shared/hooks';
+import { messages as texts } from '../../../../shared/localize';
+import { convertTime12to24 } from '../../../../shared/utils';
 import {
   loadChat,
   sendAppointmentAcceptance,
@@ -37,37 +39,19 @@ interface ITimeslot {
   date: Date;
 }
 
-const TIMESLOT = true; // TODO remove this
-
-const timeslotsTemp: ITimeslot[] = [
-  {
-    time: '1:30 AM - 2:00 AM',
-    date: new Date('2022-08-26T20:00:00.000Z'),
-  },
-  {
-    time: '1:00 AM - 1:30 AM',
-    date: new Date('2022-08-26T19:30:00.000Z'),
-  },
-  {
-    time: '12:30 AM - 1:00 AM',
-    date: new Date('2022-08-26T19:00:00.000Z'),
-  },
-]; // TODO remove this
-
 function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
   const [messages, setMessages] = useState<MessageModel[] | []>([]);
   const [chatDetail, setChatDetail] = useState<IConversation>();
+  const [timeSlotsforSelect, setTimeSlotsforSelect] = useState<ITimeslot[]>([]);
   const [isCalenderOpen, setIsCalenderOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
   const chatState = useSelector((state: RootState) => state.chatReducer);
-  const userState = useSelector((state: RootState) => state.userReducer);
 
   const handleSend = (message: string) => {
     const params: ISendMessageProps = {
       conversationKey: chatState.activeChat,
       message,
-      messageType: 'Text',
-      senderKey: userState.user.username,
+      messageType: 'TEXT',
     };
     dispatch(sendMessage(params));
     setMessages([
@@ -84,25 +68,73 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
     setIsCalenderOpen((prev) => !prev);
   };
 
-  const handleAcceptance = (response: 'ACCEPT' | 'REJECT') => {
+  const handleAcceptance = (response: 'ACCEPTED' | 'REJECTED') => {
+    const releventAppointmentKey = chatState.chats.filter(
+      (value) => value.chatKey === chatState.activeChat
+    )[0].lastAppointment.appointmentkey;
     const params: IAppointmentResponseProps = {
-      conversationKey: chatState.activeChat,
-      response,
+      appointmentKey: releventAppointmentKey,
+      status: response,
     };
-    if (response === 'ACCEPT') {
+    dispatch(sendAppointmentAcceptance(params));
+
+    if (response === 'ACCEPTED') {
       setIsCalenderOpen(true);
-    } else {
-      dispatch(sendAppointmentAcceptance(params));
     }
   };
 
+  const formatTimeSlotTime = (timeSlot: ITimeslot) => {
+    const date = timeSlot.date.toISOString().split('T')[0];
+    const startTime = convertTime12to24(timeSlot.time.split('-')[0].trim());
+    const endTime = convertTime12to24(timeSlot.time.split('-')[1].trim());
+    const offset = new Date().getTimezoneOffset();
+    const offSetValue = Math.abs(offset);
+    const offsetSign = offset > 0 ? '-' : '+';
+    const offsetString = `${offsetSign}${Math.floor(
+      offSetValue / 60
+    ).toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    })}:${offSetValue % 60}`;
+    const formattedTime = `${date}T${startTime}${offsetString}|${date}T${endTime}${offsetString}`;
+
+    return formattedTime;
+  };
+
+  // TODO:Need to change time slots to handle inter date timeslots
   const handleScheduleSubmit = (timeslots: ITimeslot[]) => {
-    const params: IAppointmentResponseProps = {
-      conversationKey: chatState.activeChat,
-      response: 'ACCEPT',
-    };
     handleCalenderToggle();
-    dispatch(sendAppointmentAcceptance(params));
+    const formattedTimes = timeslots.map((timeSlot) =>
+      formatTimeSlotTime(timeSlot)
+    );
+
+    const params: ISendMessageProps = {
+      conversationKey: chatState.activeChat,
+      message: 'Please select your preferred time slot',
+      messageType: 'TIME_SLOT_SUGGEST',
+      appointmentKey: chatDetail?.lastAppointment.appointmentkey,
+      data: {
+        options: formattedTimes,
+      },
+    };
+    dispatch(sendMessage(params));
+  };
+
+  const convertTimeToTimeSlot = (time: string) => {
+    const [startTimeStr, endTimeStr] = time.split('|');
+    const startTime = new Date(startTimeStr);
+    const endTime = new Date(endTimeStr);
+    const timeSlot: ITimeslot = {
+      date: startTime,
+      time: `${startTime.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      })} -  ${endTime.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      })}`,
+    };
+    return timeSlot;
   };
 
   useEffect(() => {
@@ -128,34 +160,74 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
           };
         });
       setMessages(activeMessages ? activeMessages : []);
+      if (
+        activeChat?.lastAppointment.appointmentStatus === 'SCHEDULING' &&
+        activeChat.role === 'client' &&
+        activeChat.messages
+      ) {
+        // set time slots
+        const lastMessage =
+          activeChat.messages[activeChat.messages?.length - 1];
+        const times = lastMessage?.data?.options;
+
+        const timeSlots = times?.map((time) => convertTimeToTimeSlot(time));
+        if (timeSlots) {
+          setTimeSlotsforSelect(timeSlots);
+        }
+      }
     }
   }, [chatState.chats]);
 
-  const handleTimeslotSubmit = (date: Date) => {
-    return;
+  const handleTimeslotSubmit = (selectedTimeSlot: ITimeslot) => {
+    const params: ISendMessageProps = {
+      conversationKey: chatState.activeChat,
+      message: `Appointment has been scheduled to ${selectedTimeSlot.date}`,
+      messageType: 'TIME_SLOT_FINALIZED',
+      appointmentKey: chatDetail?.lastAppointment.appointmentkey,
+      data: {
+        options: [formatTimeSlotTime(selectedTimeSlot)],
+      },
+    };
+    dispatch(sendMessage(params));
   };
 
   const RenderAnswer = () => {
-    if (chatDetail?.status === 'INITIATED') {
-      if (chatDetail?.role === 'consultant') {
-        return <WaitForResponseCard />;
-      } else {
+    if (chatDetail?.role === 'client') {
+      if (chatDetail?.lastAppointment.appointmentStatus === 'REQUESTED') {
+        return (
+          <WaitForResponseCard text={texts.appointmentPage.waitForResponse} />
+        );
+      } else if (chatDetail?.lastAppointment.appointmentStatus === 'ACCEPTED') {
+        return (
+          <WaitForResponseCard text={texts.appointmentPage.waitForTimeSlots} />
+        );
+      } else if (
+        chatDetail?.lastAppointment.appointmentStatus === 'SCHEDULING'
+      ) {
+        return (
+          <SelectableTimeslots
+            timeslots={timeSlotsforSelect}
+            handleSubmit={handleTimeslotSubmit}
+          />
+        );
+      }
+    } else {
+      if (chatDetail?.lastAppointment.appointmentStatus === 'REQUESTED') {
         return (
           <RequestAppointmentAcceptanceCard
             handleAcceptance={handleAcceptance}
           />
         );
+      } else if (chatDetail?.lastAppointment.appointmentStatus === 'ACCEPTED') {
+        return (
+          <WaitForResponseCard
+            text={'Please suggest a time slots for the appointment'}
+            action={setIsCalenderOpen}
+          />
+        );
       }
     }
-    if (TIMESLOT) {
-      // TODO remove this logic
-      return (
-        <SelectableTimeslots
-          timeslots={timeslotsTemp}
-          handleSubmit={handleTimeslotSubmit}
-        />
-      );
-    }
+
     return (
       <MessageInput
         className="chat-input"

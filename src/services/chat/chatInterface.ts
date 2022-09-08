@@ -1,3 +1,5 @@
+import { IAppointment } from '../appointment/appointmentInterfaces';
+
 export interface IConversation {
   chatKey: string;
   participantImage: string;
@@ -7,6 +9,7 @@ export interface IConversation {
   isActive: boolean;
   status: string;
   role: string;
+  lastAppointment: IAppointment;
   messages?: IMessage[];
 }
 
@@ -21,16 +24,22 @@ export interface IMessage {
   direction: 'incoming' | 'outgoing';
   senderKey: string;
   senderName: string;
+  data?: IMetaData;
 }
 
 export interface ISendMessageProps {
   conversationKey: string;
   message: string;
-  messageType: string;
-  senderKey: string;
+  messageType: 'TEXT' | 'TIME_SLOT_SUGGEST' | 'TIME_SLOT_FINALIZED';
+  data?: IMetaData;
+  appointmentKey?: string;
+}
+
+export interface IMetaData {
+  options: string[];
 }
 
 export interface IAppointmentResponseProps {
-  conversationKey: string;
-  response: 'ACCEPT' | 'REJECT';
+  appointmentKey: string;
+  status: 'ACCEPTED' | 'REJECTED';
 }
