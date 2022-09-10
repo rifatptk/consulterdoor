@@ -225,7 +225,7 @@ const CalenderModal = ({
             <Button
               type={BUTTON_TYPES.PRIMARY}
               title="Send"
-              onClick={handleSubmit}
+              onClick={() => handleSubmit(selectedTimeslots)}
               className="calender-modal-button"
             />
           </ModalFooter>

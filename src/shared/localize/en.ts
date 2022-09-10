@@ -35,5 +35,7 @@ export const en: IMessageProperties = {
     title: 'Your Appointments',
     waitForResponse: 'Please wait for the response',
     requestAcceptance: 'Do you Accept this request ?',
+    waitForTimeSlots: 'Please wait for suggested time slots.',
+    selectTimeSlot: 'Select TimeSlot',
   },
 };
