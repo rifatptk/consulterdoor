@@ -6,7 +6,17 @@ import { consultServicesService } from './consultService';
 import { http } from './httpService';
 import { IPagination } from './interfaces';
 import { Logger } from './loggerService';
+import { PaymentService } from './payment';
 
-export { Logger, http, AuthService, consultServicesService, consultantService, chatService, AppointmentService };
+export {
+  Logger,
+  http,
+  AuthService,
+  consultServicesService,
+  consultantService,
+  chatService,
+  AppointmentService,
+  PaymentService,
+};
 
 export type { IPagination };

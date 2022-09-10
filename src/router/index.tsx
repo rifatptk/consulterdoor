@@ -8,6 +8,7 @@ import {
   ConsultantProfile,
   ConsultantRegister,
   Home,
+  Payment,
   SearchPage,
   Service,
   VideoChat,
@@ -42,6 +43,7 @@ const Routes = () => {
     { path: '/auth/:authForm', element: <Auth /> },
     { path: 'video', element: <VideoChat /> },
     { path: '/chat', element: <Chat /> },
+    { path: '/payment', element: <Payment /> },
   ]);
 };
 

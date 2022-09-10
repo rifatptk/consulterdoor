@@ -1,9 +1,10 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { PhotoUploadIcon } from '../../../../assets/images';
-
+import { consultServicesService } from '../../../../services';
 interface UploadedFile {
   name: string;
   size?: number;
@@ -32,9 +33,20 @@ const DropZone: React.FunctionComponent<IProps> = ({
   selectedFileClassName,
 }): JSX.Element => {
   const [errors, setErrors] = useState('');
+  const submitService = async (file: File) => {
+    const { data } =
+      await consultServicesService.getAddServiceAttachmentSignedUrl(file.name);
+    await axios.put(data.url, file, {
+      headers: {
+        'Content-Type': file.type,
+      },
+    });
+  };
+
   const onDrop = useCallback(
     (acceptedFiles, fileRejections) => {
       const files = acceptedFiles.map((file: File) => {
+        submitService(file);
         return {
           type: file.type,
           name: file.name,
