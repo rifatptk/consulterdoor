@@ -14,6 +14,7 @@ import {
   IMessage,
   ISendMessageProps,
 } from '../../../../services/chat/chatInterface';
+import { APPOINTMENT_STATUS, MESSAGE_TYPES } from '../../../../shared/constant';
 import { RootState } from '../../../../shared/hooks';
 import { messages as texts } from '../../../../shared/localize';
 import { convertTime12to24 } from '../../../../shared/utils';
@@ -28,6 +29,10 @@ import {
   WaitForResponseCard,
 } from '../../../molecules';
 import { CalenderModal } from '../../calenderModal';
+import {
+  ConfirmationModal,
+  IConfirmationModalProps,
+} from '../../confirmationModal';
 import { IConversation } from '../chatList';
 
 interface IChatWrapperProps {
@@ -44,6 +49,14 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
   const [chatDetail, setChatDetail] = useState<IConversation>();
   const [timeSlotsforSelect, setTimeSlotsforSelect] = useState<ITimeslot[]>([]);
   const [isCalenderOpen, setIsCalenderOpen] = useState<boolean>(false);
+  const [confirmationModalText, setConfirmationModalText] =
+    useState<string>('');
+  const [isHaveTextInput, setIsHaveTextInput] = useState<boolean>(false);
+  const [modalConfirmFn, setModalConfirmFn] = useState<(props: any) => any>();
+  const [modalDeclineFn, setModalDeclineFn] = useState<(props: any) => any>();
+
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] =
+    useState<boolean>(false);
   const dispatch = useDispatch();
   const chatState = useSelector((state: RootState) => state.chatReducer);
 
@@ -51,7 +64,7 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
     const params: ISendMessageProps = {
       conversationKey: chatState.activeChat,
       message,
-      messageType: 'TEXT',
+      messageType: MESSAGE_TYPES.TEXT,
     };
     dispatch(sendMessage(params));
     setMessages([
@@ -111,7 +124,7 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
     const params: ISendMessageProps = {
       conversationKey: chatState.activeChat,
       message: 'Please select your preferred time slot',
-      messageType: 'TIME_SLOT_SUGGEST',
+      messageType: MESSAGE_TYPES.TIME_SLOT_SUGGEST,
       appointmentKey: chatDetail?.lastAppointment.appointmentkey,
       data: {
         options: formattedTimes,
@@ -161,7 +174,7 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
         });
       setMessages(activeMessages ? activeMessages : []);
       if (
-        activeChat?.lastAppointment.appointmentStatus === 'SCHEDULING' &&
+        activeChat?.lastAppointment?.appointmentStatus === 'SCHEDULING' &&
         activeChat.role === 'client' &&
         activeChat.messages
       ) {
@@ -170,7 +183,9 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
           activeChat.messages[activeChat.messages?.length - 1];
         const times = lastMessage?.data?.options;
 
-        const timeSlots = times?.map((time) => convertTimeToTimeSlot(time));
+        const timeSlots = times?.map((time: string) =>
+          convertTimeToTimeSlot(time)
+        );
         if (timeSlots) {
           setTimeSlotsforSelect(timeSlots);
         }
@@ -182,47 +197,102 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
     const params: ISendMessageProps = {
       conversationKey: chatState.activeChat,
       message: `Appointment has been scheduled to ${selectedTimeSlot.date}`,
-      messageType: 'TIME_SLOT_FINALIZED',
+      messageType: MESSAGE_TYPES.TIME_SLOT_FINALIZED,
       appointmentKey: chatDetail?.lastAppointment.appointmentkey,
       data: {
         options: [formatTimeSlotTime(selectedTimeSlot)],
       },
     };
+    // handleConfirmationModal();
     dispatch(sendMessage(params));
+    setIsConfirmationModalOpen(false);
   };
 
+  const handleRequestAnotherTimeslot = (inputText: any) => {
+    const params: ISendMessageProps = {
+      conversationKey: chatState.activeChat,
+      message: inputText.inputText
+        ? inputText.inputText
+        : 'Can you please suggest another ',
+      messageType: MESSAGE_TYPES.TIME_SLOT_SUGGESTION_CHANGE_REQUEST,
+      appointmentKey: chatDetail?.lastAppointment.appointmentkey,
+    };
+    dispatch(sendMessage(params));
+    setIsConfirmationModalOpen(false);
+  };
+
+  const handleConfirmationModal = (props: IConfirmationModalProps) => {
+    setIsConfirmationModalOpen(props.modalIsOpen ? props.modalIsOpen : true);
+    setIsHaveTextInput(props.haveTextInput);
+    setConfirmationModalText(props.text);
+    setModalConfirmFn(props.confirmFn);
+    setModalDeclineFn(props.declineFn);
+  };
+
+  // Render input area according to role and state of appointment
   const RenderAnswer = () => {
     if (chatDetail?.role === 'client') {
-      if (chatDetail?.lastAppointment.appointmentStatus === 'REQUESTED') {
+      if (
+        chatDetail?.lastAppointment.appointmentStatus ===
+        APPOINTMENT_STATUS.REQUESTED
+      ) {
         return (
           <WaitForResponseCard text={texts.appointmentPage.waitForResponse} />
         );
-      } else if (chatDetail?.lastAppointment.appointmentStatus === 'ACCEPTED') {
+      } else if (
+        chatDetail?.lastAppointment.appointmentStatus ===
+          APPOINTMENT_STATUS.ACCEPTED ||
+        chatDetail?.lastAppointment.appointmentStatus ===
+          APPOINTMENT_STATUS.TIME_SLOT_SUGGESTION_REJECTED
+      ) {
         return (
           <WaitForResponseCard text={texts.appointmentPage.waitForTimeSlots} />
         );
       } else if (
-        chatDetail?.lastAppointment.appointmentStatus === 'SCHEDULING'
+        chatDetail?.lastAppointment.appointmentStatus ===
+        APPOINTMENT_STATUS.SCHEDULING
       ) {
         return (
           <SelectableTimeslots
             timeslots={timeSlotsforSelect}
-            handleSubmit={handleTimeslotSubmit}
+            handleSubmit={handleConfirmationModal}
+            timeSlotConfirmFn={handleTimeslotSubmit}
+            requestAnotherSlotConfirmFn={(inputText: string) =>
+              handleRequestAnotherTimeslot(inputText)
+            }
+            declineFn={() => setIsConfirmationModalOpen(false)}
           />
         );
       }
     } else {
-      if (chatDetail?.lastAppointment.appointmentStatus === 'REQUESTED') {
+      if (
+        chatDetail?.lastAppointment.appointmentStatus ===
+        APPOINTMENT_STATUS.REQUESTED
+      ) {
         return (
           <RequestAppointmentAcceptanceCard
             handleAcceptance={handleAcceptance}
           />
         );
-      } else if (chatDetail?.lastAppointment.appointmentStatus === 'ACCEPTED') {
+      } else if (
+        chatDetail?.lastAppointment.appointmentStatus ===
+          APPOINTMENT_STATUS.ACCEPTED ||
+        chatDetail?.lastAppointment.appointmentStatus ===
+          APPOINTMENT_STATUS.TIME_SLOT_SUGGESTION_REJECTED
+      ) {
         return (
           <WaitForResponseCard
-            text={'Please suggest a time slots for the appointment'}
+            text={texts.appointmentPage.suggestTimeSlot}
             action={setIsCalenderOpen}
+          />
+        );
+      } else if (
+        chatDetail?.lastAppointment.appointmentStatus ===
+        APPOINTMENT_STATUS.SCHEDULING
+      ) {
+        return (
+          <WaitForResponseCard
+            text={texts.appointmentPage.waitForTimeSlotConfirmation}
           />
         );
       }
@@ -268,8 +338,24 @@ function ChatWrapper({ handleBackClick, style }: IChatWrapperProps) {
         handleSubmit={handleScheduleSubmit}
         handleToggle={handleCalenderToggle}
       />
+      <ConfirmationModal
+        modalIsOpen={isConfirmationModalOpen}
+        setModalIsOpen={setIsConfirmationModalOpen}
+        text={confirmationModalText}
+        haveTextInput={isHaveTextInput}
+        confirmFn={
+          modalConfirmFn
+            ? modalConfirmFn
+            : () => setIsConfirmationModalOpen(true)
+        }
+        declineFn={
+          modalDeclineFn
+            ? modalDeclineFn
+            : () => setIsConfirmationModalOpen(true)
+        }
+      />
     </>
   );
 }
 
-export { ChatWrapper };
+export default ChatWrapper;

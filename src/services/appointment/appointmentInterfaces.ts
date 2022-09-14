@@ -1,3 +1,5 @@
+import { APPOINTMENT_STATUS } from '../../shared/constant';
+
 interface IAppointmentRequestProps {
   clientUserKey: string;
   consultantServiceKey: string;
@@ -11,14 +13,7 @@ interface IQuestionAnswer {
 
 interface IAppointment {
   appointmentkey: string;
-  appointmentStatus:
-    | 'REQUESTED'
-    | 'ACCEPTED'
-    | 'REJECTED'
-    | 'SCHEDULING'
-    | 'SCHEDULED'
-    | 'COMPLETED'
-    | 'CANCELLED';
+  appointmentStatus: APPOINTMENT_STATUS;
 }
 
 export type { IAppointmentRequestProps, IAppointment, IQuestionAnswer };

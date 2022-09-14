@@ -1,3 +1,4 @@
+import { MESSAGE_TYPES } from '../../shared/constant';
 import { IAppointment } from '../appointment/appointmentInterfaces';
 
 export interface IConversation {
@@ -30,7 +31,7 @@ export interface IMessage {
 export interface ISendMessageProps {
   conversationKey: string;
   message: string;
-  messageType: 'TEXT' | 'TIME_SLOT_SUGGEST' | 'TIME_SLOT_FINALIZED';
+  messageType: MESSAGE_TYPES;
   data?: IMetaData;
   appointmentKey?: string;
 }
