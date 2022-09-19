@@ -8,18 +8,22 @@ interface IProps {
   value?: string;
   placeholder?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: any) => void;
   validation?: {
     isInValid: boolean;
     validationMsg?: string;
   };
-  innerRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+  innerRef?:
+    | ((instance: HTMLInputElement | null) => void)
+    | React.RefObject<HTMLInputElement>
+    | null
+    | undefined;
   onSearch: (searchText: string) => void;
 }
 
 const SearchInput: React.FunctionComponent<IProps> = React.memo(
   // eslint-disable-next-line no-empty-pattern
-  ({ onSearch }: IProps) => {
+  ({ onSearch, innerRef, onFocus }: IProps) => {
     const [searchSuggestionsDropdown, setSearchSuggestionsDropdown] =
       useState(false);
     const [suggestions, setSuggestions] = useState([]);
@@ -117,6 +121,8 @@ const SearchInput: React.FunctionComponent<IProps> = React.memo(
             aria-describedby="basic-addon2"
             onChange={handleSearchInput}
             value={searchText}
+            ref={innerRef}
+            onFocus={onFocus}
           />
           <Dropdown
             show={searchSuggestionsDropdown}

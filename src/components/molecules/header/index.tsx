@@ -19,6 +19,7 @@ const Header: React.FunctionComponent = React.memo((): JSX.Element => {
             Consulterdoor
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
           <Navbar.Collapse
             id="responsive-navbar-nav"
             className="justify-content-end"

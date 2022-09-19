@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { Col, Container } from 'reactstrap';
 import { HomeOnboardingSvg } from '../../../assets/images';
 import { SearchInput } from '../../molecules';
 const HomeOnboarding = () => {
-  const handleSearch = async (searchText: string) => {
-    return;
+  const navigate = useNavigate();
+
+  const handleFocus = async (event: any) => {
+    navigate('/search');
   };
   return (
     <Container fluid={true} className="onboarding-container">
@@ -19,7 +22,13 @@ const HomeOnboarding = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim platea
           risus tincidunt eu. Ut pretium nec
         </div>
-        <SearchInput onSearch={handleSearch} />
+        <SearchInput
+          onSearch={() => {
+            //TODO SHOULD add search function
+            return;
+          }}
+          onFocus={handleFocus}
+        />
       </Col>
       <Col md={6} />
     </Container>
