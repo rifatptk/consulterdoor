@@ -35,7 +35,7 @@ const AddServicePublish: React.FunctionComponent<IProps> = ({
           />
           <Button
             type={BUTTON_TYPES.PRIMARY}
-            title={'Save & Next'}
+            title={'Publish'}
             className="stepper-next-button"
             onClick={onClickNext}
           />

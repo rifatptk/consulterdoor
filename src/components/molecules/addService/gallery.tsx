@@ -54,7 +54,7 @@ const AddServiceGallery: React.FunctionComponent<IProps> = ({
         {uploadedFiles.map((uploadedFile, index) => {
           return (
             <Col className="col-md-4 mb-4" key={index}>
-              <div className="add-service-category-dropdown-container">
+              <div className="w-100">
                 <DropZone
                   setUploadedFile={(file: UploadedFile[] | null) => {
                     const selectedFile = file?.length ? file[0] : null;

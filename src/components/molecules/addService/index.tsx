@@ -1,10 +1,10 @@
 import axios from 'axios';
-import * as React from 'react';
+import { useEffect, FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { consultServicesService } from '../../../services';
 import { IAddService } from '../../../services/interfaces';
 import { RootState } from '../../../shared/hooks';
-import { setAddService } from '../../../store/actions';
+import { setAddService, setAddServiceMetaData } from '../../../store/actions';
 import { Stepper, TextLabel } from '../../shared';
 import { UploadedFile } from '../../shared/atoms/dropZone';
 import { AddServiceDescription } from './description';
@@ -12,8 +12,8 @@ import { AddServiceGallery } from './gallery';
 import { AddServiceOverview } from './overview';
 import { AddServicePublish } from './publish';
 
-const AddServiceContainer: React.FunctionComponent = (): JSX.Element => {
-  const { addService } = useSelector(
+const AddServiceContainer: FunctionComponent = (): JSX.Element => {
+  const { addService, addServiceMetaData } = useSelector(
     (state: RootState) => state.consultServiceReducer
   );
   const dispatch = useDispatch();
@@ -49,8 +49,22 @@ const AddServiceContainer: React.FunctionComponent = (): JSX.Element => {
     });
   };
 
+  useEffect(() => {
+    consultServicesService.getServiceCategories().then((response) => {
+      const mainCategories =
+        response.data &&
+        response.data.map((categories: any) => {
+          return {
+            id: categories.serviceCategoryId,
+            displayText: categories.name,
+          };
+        });
+      dispatch(setAddServiceMetaData({ mainCategories }));
+    });
+  }, []);
+
   return (
-    <div className="mt-4">
+    <div className="mt-5">
       <TextLabel
         text="Add Service"
         className="add-service-main-text mt-2 mb-3"
@@ -64,6 +78,7 @@ const AddServiceContainer: React.FunctionComponent = (): JSX.Element => {
                 onClickNext={() => onClickNext('gallery')}
                 addServiceInfo={addService.data}
                 setAddServiceInfo={setAddServiceInfo}
+                addServiceMetaData={addServiceMetaData}
               />
             ),
             title: 'Overview',

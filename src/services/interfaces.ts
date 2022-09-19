@@ -58,7 +58,7 @@ interface IAddService {
 }
 
 interface IAddServiceMetaData {
-  name?: string;
+  mainCategories: { id: string; displayText: string }[];
 }
 
 export type {

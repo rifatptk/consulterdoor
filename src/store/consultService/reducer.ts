@@ -23,12 +23,11 @@ const initialState: IConsultServiceState = {
   consultCategories: [],
   addService: {
     stage: 'overview',
-    data: {
-    }
+    data: {},
   },
   addServiceMetaData: {
-
-  }
+    mainCategories: [],
+  },
 };
 
 const loadConsultServices = createAsyncThunk(

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { IAddService } from '../../../services/interfaces';
+import { IAddService, IAddServiceMetaData } from '../../../services/interfaces';
 import {
   Button,
   BUTTON_TYPES,
@@ -13,12 +13,14 @@ interface IProps {
   onClickNext: () => void;
   addServiceInfo?: IAddService;
   setAddServiceInfo: (data: IAddService) => void;
+  addServiceMetaData: IAddServiceMetaData;
 }
 
 const AddServiceOverview: React.FunctionComponent<IProps> = ({
   onClickNext,
   addServiceInfo,
   setAddServiceInfo,
+  addServiceMetaData,
 }: IProps): JSX.Element => {
   return (
     <Container className="m-0 p-0">
@@ -29,34 +31,12 @@ const AddServiceOverview: React.FunctionComponent<IProps> = ({
         <Col>
           <div className="add-service-category-dropdown-container">
             <Dropdown
-              selections={[
-                { id: '1', displayText: 'item 1' },
-                { id: '2', displayText: 'item 2' },
-                { id: '3', displayText: 'item 3' },
-              ]}
+              selections={addServiceMetaData.mainCategories}
               onItemClick={(item) => {
                 setAddServiceInfo({ mainCategory: item });
               }}
               selectedItem={addServiceInfo?.mainCategory}
               placeholder={'Main Category'}
-              className="add-service-category-dropdown"
-              dropdownMenuClassName="add-service-category-dropdown-menu"
-            />
-          </div>
-        </Col>
-        <Col>
-          <div className="add-service-category-dropdown-container">
-            <Dropdown
-              selections={[
-                { id: '1', displayText: 'item 1' },
-                { id: '2', displayText: 'item 2' },
-                { id: '3', displayText: 'item 3' },
-              ]}
-              onItemClick={(item) => {
-                setAddServiceInfo({ subCategory: item });
-              }}
-              selectedItem={addServiceInfo?.subCategory}
-              placeholder={'Sub Category'}
               className="add-service-category-dropdown"
               dropdownMenuClassName="add-service-category-dropdown-menu"
             />
