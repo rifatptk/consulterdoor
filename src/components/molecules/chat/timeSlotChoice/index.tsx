@@ -6,7 +6,7 @@ interface ITimeslot {
 }
 interface IProps {
   timeslots: ITimeslot[];
-  handleSubmit: (date: Date) => void;
+  handleSubmit: (timeSlot: ITimeslot) => void;
 }
 
 const SelectableTimeslots = ({ timeslots, handleSubmit }: IProps) => {
@@ -15,7 +15,7 @@ const SelectableTimeslots = ({ timeslots, handleSubmit }: IProps) => {
       <Row className="justify-content-center">
         {timeslots.map((timeslot, index) => (
           <Col key={index} sm="auto" className="mb-3">
-            <button onClick={() => handleSubmit(timeslot.date)}>
+            <button onClick={() => handleSubmit(timeslot)}>
               <div className="selectable-timeslot-wrapper">
                 <div className="font-size-extra-small font-regular secondary-font">
                   {timeslot.date.toLocaleDateString()}

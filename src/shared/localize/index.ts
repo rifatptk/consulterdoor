@@ -36,6 +36,8 @@ export interface IMessageProperties {
     title: string;
     waitForResponse: string;
     requestAcceptance: string;
+    waitForTimeSlots: string;
+    selectTimeSlot: string;
   };
 }
 
