@@ -1,3 +1,4 @@
+import { AddServiceContainer } from './addService';
 import {
   CategoryCard,
   ConsultantCard,
@@ -21,6 +22,7 @@ export {
   CategoryCard,
   ConsultantProfileImage,
   ChatCardInfo,
+  AddServiceContainer,
   RequestAppointmentAcceptanceCard,
   WaitForResponseCard,
   SelectableTimeslots,

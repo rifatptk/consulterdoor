@@ -3,6 +3,7 @@ import { Auth } from './auth';
 import { Chat } from './chat';
 import { ConsultantProfile } from './ConsultantProfile';
 import { Home } from './home';
+import { Payment } from './payment';
 import { ConsultantRegister } from './register';
 import { SearchPage } from './search';
 import { Service } from './Service';
@@ -18,4 +19,5 @@ export {
   Chat,
   ConsultantRegister,
   VideoChat,
+  Payment,
 };
