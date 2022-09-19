@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, FunctionComponent } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { consultServicesService } from '../../../services';
 import { IAddService } from '../../../services/interfaces';
