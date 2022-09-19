@@ -1,12 +1,33 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { consultServicesService } from '../../services';
+import { IAddService, IAddServiceMetaData } from '../../services/interfaces';
 
-const initialState: any = {
+export interface IConsultServiceState {
+  consultServices: {
+    data: any[];
+    pagination: object;
+  };
+  consultCategories: any[];
+  addService: {
+    stage?: string;
+    data?: IAddService
+  };
+  addServiceMetaData: IAddServiceMetaData;
+}
+
+const initialState: IConsultServiceState = {
   consultServices: {
     data: [],
     pagination: {},
   },
   consultCategories: [],
+  addService: {
+    stage: 'overview',
+    data: {},
+  },
+  addServiceMetaData: {
+    mainCategories: [],
+  },
 };
 
 const loadConsultServices = createAsyncThunk(
@@ -26,7 +47,24 @@ const loadConsultCategories = createAsyncThunk(
 export const consultServiceSlice = createSlice({
   name: 'consultServiceSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    setAddService: (state, action: PayloadAction<IConsultServiceState['addService']>) => {
+      state.addService = {
+        ...state.addService,
+        ...action.payload,
+        data: {
+          ...state.addService.data,
+          ...action.payload.data
+        }
+      };
+    },
+    setAddServiceMetaData: (state, action: PayloadAction<IConsultServiceState['addServiceMetaData']>) => {
+      state.addServiceMetaData = {
+        ...state.addServiceMetaData,
+        ...action.payload
+      };
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loadConsultServices.fulfilled, (state, { payload }) => {
@@ -40,4 +78,6 @@ export const consultServiceSlice = createSlice({
 
 const consultServiceReducer = consultServiceSlice.reducer;
 
-export { consultServiceReducer, loadConsultServices, loadConsultCategories };
+const { setAddService, setAddServiceMetaData } = consultServiceSlice.actions;
+
+export { consultServiceReducer, loadConsultServices, loadConsultCategories, setAddService, setAddServiceMetaData };

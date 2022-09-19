@@ -19,6 +19,7 @@ interface IProps {
   onItemClick: (item: IDropdownItem) => void;
   selections: IDropdownItem[];
   className?: string;
+  dropdownMenuClassName?: string;
   disabled?: boolean;
   validation?: {
     isInValid: boolean;
@@ -34,6 +35,7 @@ const CommonDropdown: React.FunctionComponent<IProps> = React.memo(
     onItemClick,
     selections,
     className,
+    dropdownMenuClassName,
     disabled,
     validation,
     dropdownDirection,
@@ -48,12 +50,15 @@ const CommonDropdown: React.FunctionComponent<IProps> = React.memo(
             toggle={() => setCount(!isOpen)}
             direction={dropdownDirection}
             disabled={disabled}
-            className={`drop-down ${className}`}
+            className={`drop-down`}
           >
-            <DropdownToggle caret={true} className="drop-down-toggle">
-              {placeholder || selectedItem?.displayText}
+            <DropdownToggle
+              caret={true}
+              className={`drop-down-toggle ${className}`}
+            >
+              {selectedItem?.displayText || placeholder}
             </DropdownToggle>
-            <DropdownMenu>
+            <DropdownMenu className={`${dropdownMenuClassName}`}>
               {selections.map((item) => (
                 <DropdownItem
                   key={item.id}

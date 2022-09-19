@@ -43,6 +43,7 @@ const Header: React.FunctionComponent = React.memo((): JSX.Element => {
                 Sign Up
               </Button>
             </Nav>
+
           </Navbar.Collapse>
         </Container>
       </Navbar>
