@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
-import { FaRegHeart, FaStar } from 'react-icons/fa';
+import { Card } from 'react-bootstrap';
 import { IConsultService } from '../../../services/interfaces';
 import { messages } from '../../../shared/localize';
 import { formatString } from '../../../shared/utils';
@@ -23,10 +22,20 @@ const ServiceCard: React.FunctionComponent<IProps> = ({
         className="service-card-service-image"
         src={data.serviceImage}
       />
+      <div className="service-card-consultant-name-container font-medium font-size-small">
+        {formatString(data.consultantName, {
+          titleCase: true,
+        })}
+      </div>
       <Card.Body>
         <Card
           className="service-card-profile-image-container"
-          style={{ width: '6rem', height: '6rem', marginTop: '-4rem' }}
+          style={{
+            width: '5rem',
+            height: '5rem',
+            marginTop: '-6rem',
+            marginBottom: '1rem',
+          }}
         >
           <div
             className="service-card-availability-container"
@@ -38,18 +47,13 @@ const ServiceCard: React.FunctionComponent<IProps> = ({
             src={data.consultantImage}
           />
         </Card>
-        <Card.Title className="service-card-title-text primary-font font-medium">
-          {formatString(data.consultantName, {
-            titleCase: true,
-          })}
-        </Card.Title>
-        <Card.Text className="service-card-body-text primary-font font-regular">
+        <Card.Text className="font-primary-color primary-font font-medium font-size-small">
           {formatString(data.serviceName, {
             capitalCase: true,
             maxWords: 18,
           })}
         </Card.Text>
-        <Row style={{ display: 'flex', alignItems: 'center' }}>
+        {/* <Row style={{ display: 'flex', alignItems: 'center' }}>
           <Col
             md={6}
             style={{
@@ -77,11 +81,11 @@ const ServiceCard: React.FunctionComponent<IProps> = ({
 
             <small className="ml-1">({data.numberOfReviews})</small>
           </Col>
-        </Row>
+        </Row> */}
       </Card.Body>
       <Card.Footer className="service-card-footer-container">
         <div className="service-card-column-divider pt-1 pb-1">
-          <FaRegHeart className="mr-3" />
+          {`Rs ${data.costPerHour}`}
         </div>
         <div
           className="service-card-start-button primary-font font-medium"
