@@ -1,4 +1,4 @@
-interface IAppointment {
+interface IAppointmentRequestProps {
   clientUserKey: string;
   consultantServiceKey: string;
   initialAnswers: IQuestionAnswer[];
@@ -9,4 +9,16 @@ interface IQuestionAnswer {
   answer: string;
 }
 
-export type { IAppointment, IQuestionAnswer };
+interface IAppointment {
+  appointmentkey: string;
+  appointmentStatus:
+    | 'REQUESTED'
+    | 'ACCEPTED'
+    | 'REJECTED'
+    | 'SCHEDULING'
+    | 'SCHEDULED'
+    | 'COMPLETED'
+    | 'CANCELLED';
+}
+
+export type { IAppointmentRequestProps, IAppointment, IQuestionAnswer };

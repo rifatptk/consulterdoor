@@ -5,7 +5,7 @@ import { PaymentService } from '../../services/';
 function Payment() {
   const [htmlContent, setHtmlContent] = useState('');
   useEffect(() => {
-    PaymentService.initiatePayment('7aec8dcc-2872-11ed-9b74-06c5d7e2e3f6').then(
+    PaymentService.initiatePayment('34386526-3453-11ed-b058-06c5d7e2e3f6').then(
       (result) => {
         setHtmlContent(result.html);
       }
