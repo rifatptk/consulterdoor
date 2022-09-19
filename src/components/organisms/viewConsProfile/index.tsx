@@ -137,7 +137,7 @@ function ViewConsultantProfile() {
                 'Serverless',
               ]}
               removeTag={() => {
-                //TODO should add remove function
+                // TODO should add remove function
                 return;
               }}
               isEdit={false}

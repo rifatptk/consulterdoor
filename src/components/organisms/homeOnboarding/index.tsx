@@ -24,7 +24,7 @@ const HomeOnboarding = () => {
         </div>
         <SearchInput
           onSearch={() => {
-            //TODO SHOULD add search function
+            // TODO SHOULD add search function
             return;
           }}
           onFocus={handleFocus}
