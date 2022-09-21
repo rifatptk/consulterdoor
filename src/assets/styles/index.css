@@ -1001,7 +1001,15 @@ input[type='number'] {
 
 .onboarding-title {
   color: #ffffff;
-  line-height: 1; }
+  line-height: 1;
+  font-size: 10vw;
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */ }
+  @media (min-width: 500px) {
+    .onboarding-title {
+      font-size: 60px; } }
+  @media (max-width: 600px) {
+    .onboarding-title {
+      font-size: 10vw; } }
 
 .onboarding-description {
   margin-top: 2rem;

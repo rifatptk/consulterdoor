@@ -15,7 +15,7 @@ const HomeOnboarding = () => {
         className="onboarding-container-background-image d-none d-md-block"
       />
       <Col md={6}>
-        <div className="onboarding-title font-bold font-size-extra-large ">
+        <div className="onboarding-title font-bold ">
           Find & Hire Expert Consultants
         </div>
         <div className="onboarding-description font-regular font-size-regular mb-5">
