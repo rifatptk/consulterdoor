@@ -52,19 +52,15 @@ const Routes = () => {
 const Router = () => {
   const dispatch = useAppDispatch();
   const reduxDispatch = useDispatch();
-  const chatState = useSelector((state: RootState) => state.chatReducer);
 
   const chatUpdateOnMessageReceive = (data: any) => {
     const message = JSON.parse(data.value.data.onMessageReceived.message);
-    console.log(message);
-    console.log(chatState);
     reduxDispatch(setReceivedMessageInChat(message));
   };
 
   const subscribeAppsync = async () => {
     const user = await AuthService.getCurrentAuthenticatedUser();
     if (user) {
-      console.log(user);
       onMessageReceivedSubscriptionApi(
         user.username,
         chatUpdateOnMessageReceive
