@@ -5,7 +5,7 @@ import { RootState } from '../../../../shared/hooks';
 import { messages } from '../../../../shared/localize';
 import { loadChatList } from '../../../../store/actions';
 import { TextLabel } from '../../../shared';
-import { ChatWrapper } from '../chatContainerWrapper';
+import ChatWrapper from '../chatContainerWrapper';
 import { ChatList } from '../chatList';
 
 function ChatScreen() {

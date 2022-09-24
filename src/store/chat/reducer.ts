@@ -62,7 +62,9 @@ const chatSlice = createSlice({
       const modifiedChatArray = currentChats.map((chat: any) => {
         if (chat.chatKey === payload.conversationKey) {
           chat.messages.push(payload.message);
-          chat.lastAppointment = payload.lastAppointment;
+          if (payload.lastAppointment) {
+            chat.lastAppointment = payload.lastAppointment;
+          }
         }
         return chat;
       });

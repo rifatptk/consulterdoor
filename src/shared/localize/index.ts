@@ -38,6 +38,14 @@ export interface IMessageProperties {
     requestAcceptance: string;
     waitForTimeSlots: string;
     selectTimeSlot: string;
+    waitForTimeSlotConfirmation: string;
+    suggestTimeSlot: string;
+  };
+  common: {
+    confirmationModal: {
+      confirm: string;
+      cancel: string;
+    };
   };
 }
 

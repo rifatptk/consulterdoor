@@ -37,5 +37,13 @@ export const en: IMessageProperties = {
     requestAcceptance: 'Do you Accept this request ?',
     waitForTimeSlots: 'Please wait for suggested time slots.',
     selectTimeSlot: 'Select TimeSlot',
+    suggestTimeSlot: 'Please suggest a time slots for the appointment',
+    waitForTimeSlotConfirmation: 'Please wait for time slot confirmation',
+  },
+  common: {
+    confirmationModal: {
+      confirm: 'Confirm',
+      cancel: 'Cancel',
+    },
   },
 };
