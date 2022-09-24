@@ -1,6 +1,6 @@
 import { Auth as ProviderAuth, Hub } from 'aws-amplify';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom';
 import {
   AddService,
@@ -16,7 +16,7 @@ import {
 } from '../pages';
 import { AuthService } from '../services';
 import { onMessageReceivedSubscriptionApi } from '../services/graphql';
-import { RootState, useAppDispatch } from '../shared/hooks';
+import { useAppDispatch } from '../shared/hooks';
 import { saveUser, setReceivedMessageInChat } from '../store/actions';
 
 const ProtectedRoute = ({ children }: any) => {
