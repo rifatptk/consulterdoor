@@ -8,7 +8,7 @@ function PageContainer({ children, className }: IProps) {
   return (
     <div style={{ zIndex: 10 }}>
       <Header />
-      <div className={`container page-container ${className}`}>{children}</div>
+      <div className={`page-container ${className}`}>{children}</div>
     </div>
   );
 }

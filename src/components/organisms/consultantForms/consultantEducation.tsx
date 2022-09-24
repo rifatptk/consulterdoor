@@ -32,10 +32,12 @@ interface IModalProps {
 interface ITagsProp {
   defaultTags: string[];
   removeTag: (index: number) => void;
+  isEdit?: boolean;
 }
 
 interface IQualificationProps {
   qualification: IConsultantQualification;
+  isEditable?: boolean;
 }
 
 const getYearList = () => {
@@ -72,7 +74,10 @@ const getMonths = () => {
   return options;
 };
 
-const ConsultantQualification = ({ qualification }: IQualificationProps) => {
+const ConsultantQualification = ({
+  qualification,
+  isEditable = true,
+}: IQualificationProps) => {
   const [isEditQualification, setIsEditQualification] =
     useState<boolean>(false);
   const handleEditQualification = (event: any) => {
@@ -90,7 +95,10 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
     <div className="consultant-register-education-container">
       <div className="consultant-register-qualification-container">
         <div className="consultant-register-education-icon-container">
-          <FaGraduationCap size={30} />
+          <FaGraduationCap
+            size={30}
+            className="consultant-register-education-icon"
+          />
         </div>
         <div className="consultant-register-qualification-text-container">
           <div className="font-size-regular font-bold mb-1">
@@ -114,26 +122,30 @@ const ConsultantQualification = ({ qualification }: IQualificationProps) => {
           </div>
         </div>
       </div>
-      <div>
-        <button
-          className="icon-wrapper"
-          type="button"
-          onClick={handleEditQualification}
-        >
-          <MdModeEdit size={25} />
-        </button>
-      </div>
-      <EducationFormModal
-        isModalOpen={isEditQualification}
-        handleToggle={handleToggle}
-        qualification={qualification}
-        type="EDIT"
-      />
+      {isEditable && (
+        <>
+          <div>
+            <button
+              className="icon-wrapper"
+              type="button"
+              onClick={handleEditQualification}
+            >
+              <MdModeEdit size={25} />
+            </button>
+          </div>
+          <EducationFormModal
+            isModalOpen={isEditQualification}
+            handleToggle={handleToggle}
+            qualification={qualification}
+            type="EDIT"
+          />
+        </>
+      )}
     </div>
   );
 };
 
-const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
+const SelectedTags = ({ defaultTags, removeTag, isEdit = true }: ITagsProp) => {
   return (
     <Row className="consultant-register-selected-tags-container">
       {defaultTags.map((tag, index) => (
@@ -141,16 +153,18 @@ const SelectedTags = ({ defaultTags, removeTag }: ITagsProp) => {
           key={index}
           className="consultant-register-tag-outline font-size-extra-small"
         >
-          <button
-            onClick={(event) => {
-              event.preventDefault();
-              removeTag(index);
-            }}
-            type="button"
-            className="consultant-register-remove-button consultant-register-bg-danger"
-          >
-            <MdRemove size={15} className="consultant-education-icons" />
-          </button>
+          {isEdit && (
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                removeTag(index);
+              }}
+              type="button"
+              className="consultant-register-remove-button consultant-register-bg-danger"
+            >
+              <MdRemove size={15} className="consultant-education-icons" />
+            </button>
+          )}
           {tag}
         </Col>
       ))}
@@ -555,4 +569,8 @@ const ConsultantEducationRegistration = () => {
   );
 };
 
-export { ConsultantEducationRegistration };
+export {
+  ConsultantEducationRegistration,
+  ConsultantQualification,
+  SelectedTags,
+};

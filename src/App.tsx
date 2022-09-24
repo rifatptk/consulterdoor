@@ -1,5 +1,6 @@
 import { Amplify } from 'aws-amplify';
 import { Provider } from 'react-redux';
+import 'react-tabs/style/react-tabs.css';
 import { PersistGate } from 'redux-persist/integration/react';
 import config from './env.json';
 import { Router } from './router';

@@ -104,7 +104,7 @@
 
 .consultant-register-selected-tags-container{
     margin-top: 2rem;
-    background-color: $tag-bg-primary-color;
+    background-color: $bg-primary-color;
 }
 
 .consultant-register-remove-button {
@@ -121,13 +121,16 @@
 }
 
 .consultant-register-education-icon-container {
-    background-color: $bg-secondary-color;
+    background-color: $tertiary-border-color;
     height:5rem;
     width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 2rem;
+}
+.consultant-register-education-icon{
+    color: $btn-primary-bg-color;
 }
 .consultant-register-qualification-container{
     display: flex;
@@ -148,7 +151,7 @@
 }
 
 .consult-register-text-secondry{
-    color: $text-fourth-color;
+    color: $text-secondary-color;
 }
 
 .consultant-register-bg-danger{

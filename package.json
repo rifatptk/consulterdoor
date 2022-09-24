@@ -41,12 +41,14 @@
     "react-localization": "^1.0.17",
     "react-logger-lib": "^1.0.5",
     "react-multi-carousel": "^2.8.2",
+    "react-rating": "^2.0.5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^5.0.0",
     "react-select": "^5.4.0",
     "react-slick": "^0.29.0",
     "react-star-ratings": "^2.3.0",
+    "react-tabs": "^4.2.1",
     "react-transition-group": "^4.4.2",
     "reactstrap": "^9.0.1",
     "redux-devtools-extension": "^2.13.9",
@@ -109,6 +111,7 @@
     "@types/react-draft-wysiwyg": "^1.13.4",
     "@types/react-image-gallery": "^1.0.5",
     "@types/react-slick": "^0.23.10",
+    "@types/react-tabs": "^2.3.4",
     "husky": "^8.0.0",
     "pre-commit": "^1.2.2"
   }

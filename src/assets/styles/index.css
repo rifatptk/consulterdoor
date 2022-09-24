@@ -70,6 +70,18 @@ button {
 .font-size-extra-large {
   font-size: 4rem; }
 
+.font-primary-color {
+  color: #333333; }
+
+.font-secondry-color {
+  color: #828282; }
+
+.font-tertiary-color {
+  color: #ffffff; }
+
+.font-fourth-color {
+  color: #dadada; }
+
 .button-cursor {
   cursor: default; }
 
@@ -349,12 +361,6 @@ input[type='number'] {
   justify-content: flex-start;
   align-items: center; }
 
-.profile-pic {
-  position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: fit-content; }
-
 .topic {
   text-align: center; }
 
@@ -404,16 +410,15 @@ input[type='number'] {
   position: absolute;
   border: 6px solid #ffffff;
   bottom: -4px;
-  left: 14px;
+  left: 10px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background: #33935C; }
 
 .profile-main-image {
-  width: '6rem';
-  height: 100%;
-  object-fit: cover; }
+  object-fit: cover;
+  border-radius: 10px; }
 
 .profile-main-image-container {
   display: flex;
@@ -443,6 +448,46 @@ input[type='number'] {
   justify-content: center;
   width: 60%;
   min-width: 300px; }
+
+.content-container {
+  margin-top: 5rem; }
+
+.profile-content-container {
+  padding: 2rem;
+  background-color: #022C42; }
+
+.rating-icon {
+  color: #FEC80A; }
+
+.rating-text-container {
+  display: flex;
+  align-items: center;
+  margin-top: 3px; }
+
+.profile-image-container {
+  display: flex;
+  justify-content: center; }
+
+.consultant-profile-tabs {
+  background-color: #ffffff;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); }
+
+.consultant-profile-seemore-container {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem; }
+
+.consultant-profile-seemore-container:hover {
+  background-color: #f2f2f2;
+  cursor: pointer; }
 
 .contact-btn {
   width: inherit;
@@ -775,7 +820,7 @@ input[type='number'] {
 
 .consultant-register-selected-tags-container {
   margin-top: 2rem;
-  background-color: #828282; }
+  background-color: #ffffff; }
 
 .consultant-register-remove-button {
   padding: 0;
@@ -790,13 +835,16 @@ input[type='number'] {
   border-radius: 8px; }
 
 .consultant-register-education-icon-container {
-  background-color: #f2f2f2;
+  background-color: #C0E1FF;
   height: 5rem;
   width: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 2rem; }
+
+.consultant-register-education-icon {
+  color: #1174A8; }
 
 .consultant-register-qualification-container {
   display: flex; }
@@ -813,7 +861,7 @@ input[type='number'] {
   color: #4f4f4f; }
 
 .consult-register-text-secondry {
-  color: #dadada; }
+  color: #828282; }
 
 .consultant-register-bg-danger {
   background-color: #B93434; }
@@ -953,7 +1001,15 @@ input[type='number'] {
 
 .onboarding-title {
   color: #ffffff;
-  line-height: 1; }
+  line-height: 1;
+  font-size: 10vw;
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */ }
+  @media (min-width: 500px) {
+    .onboarding-title {
+      font-size: 60px; } }
+  @media (max-width: 600px) {
+    .onboarding-title {
+      font-size: 10vw; } }
 
 .onboarding-description {
   margin-top: 2rem;
@@ -1062,15 +1118,8 @@ input[type='number'] {
   width: '6rem';
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
-  border: 5px solid white; }
-
-.service-card-profile-image {
-  width: '6rem';
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  border: 5px solid white; }
+  border-radius: 15px;
+  border: 3px solid white; }
 
 .service-card-service-image {
   height: 8rem;
@@ -1081,9 +1130,9 @@ input[type='number'] {
   object-fit: cover; }
 
 .service-card-profile-image-container {
-  width: '6rem';
-  height: '6rem';
-  border-radius: 20px;
+  width: '5rem';
+  height: '5rem';
+  border-radius: 15px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
 
 .consultant-card-profile-image-container {
@@ -1109,11 +1158,6 @@ input[type='number'] {
   margin-bottom: 1rem;
   font-size: 16px; }
 
-.service-card-body-text {
-  font-size: 13px;
-  line-height: 20px;
-  color: #828282; }
-
 .consultant-card-title-text {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1126,10 +1170,11 @@ input[type='number'] {
 
 .service-card-column-divider {
   height: 100%;
-  width: 25%;
   border-right: 1px solid rgba(0, 0, 0, 0.8);
+  padding-right: 1rem;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  white-space: nowrap; }
 
 .service-card-availability-container {
   position: absolute;
@@ -1171,7 +1216,8 @@ small {
 
 .service-card-start-button {
   display: flex;
-  width: 75%;
+  width: 100%;
+  align-items: center;
   justify-content: center; }
 
 .service-card-start-button:hover {
@@ -1246,6 +1292,18 @@ small {
 
 .consultant-image-icons {
   color: #ffffff; }
+
+.service-card-consultant-name-container {
+  background-color: #f2f2f2;
+  padding: 5px;
+  padding-left: 6.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical; }
 
 .search-text-button {
   border-radius: 2px; }

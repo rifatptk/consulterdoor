@@ -4,9 +4,7 @@ import { PageContainer } from '../../components/shared';
 const ConsultantProfile = () => {
   return (
     <PageContainer>
-      <div>
-        <ViewConsultantProfile />
-      </div>
+      <ViewConsultantProfile />
     </PageContainer>
   );
 };

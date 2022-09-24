@@ -16,12 +16,6 @@
   align-items: center;
 }
 
-.profile-pic {
-  position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: fit-content;
-}
 
 .topic {
   text-align: center;
@@ -82,7 +76,7 @@
   position: absolute;
   border: 6px solid $btn-secondary-bg-color;
   bottom: -4px;
-  left: 14px;
+  left: 10px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -90,9 +84,9 @@
 }
 
 .profile-main-image {
-  width: '6rem';
-  height: 100%;
+
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .profile-main-image-container{
@@ -127,4 +121,52 @@
   justify-content: center;
   width: 60%;
   min-width: 300px;
+}
+
+.content-container{
+  margin-top: 5rem;
+}
+
+.profile-content-container{
+
+  padding: 2rem;
+  background-color: $bg-tertiary-color;
+
+}
+
+.rating-icon{
+  color: $softYellow;
+}
+.rating-text-container{
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.profile-image-container{
+  display: flex;
+  justify-content: center;
+}
+
+.consultant-profile-tabs{
+  background-color: $bg-primary-color;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+}
+
+.consultant-profile-seemore-container{
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right:-1rem;
+  padding-left: 1rem;
+}
+.consultant-profile-seemore-container:hover{
+  background-color: $bg-secondary-color;
+  cursor: pointer;
 }
