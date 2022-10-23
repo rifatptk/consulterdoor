@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import { getService } from '../../../services/consultService/consultService';
 import { messages } from '../../../shared/localize';
@@ -19,6 +19,9 @@ const ServicePage = () => {
       });
     }
   }, [params]);
+
+  const navigate = useNavigate();
+
   if (!consultService) {
     return <></>;
   }
@@ -100,6 +103,12 @@ const ServicePage = () => {
                 className="appointment-btn"
                 title={messages.service.makeAppointment}
                 onClick={() => setQuestionModalIsOpen(true)}
+              />
+              <Button
+                type={BUTTON_TYPES.PRIMARY}
+                className="appointment-btn"
+                title={messages.service.editService}
+                onClick={() => navigate(`/edit-service/${params.serviceId}`)}
               />
             </Row>
           </Col>

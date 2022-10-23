@@ -1,5 +1,6 @@
 import { http } from '../';
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '../../shared/constant';
+import { IAddServiceProps } from '../interfaces';
 
 async function getConsultServices({
   type,
@@ -42,6 +43,27 @@ async function getService(serviceKey: string) {
   }
 }
 
+async function addConsultantService(service: IAddServiceProps) {
+  try {
+    const res = await http.post(`services`, service);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updateConsultantService(
+  service: IAddServiceProps,
+  serviceKey: string
+) {
+  try {
+    const res = await http.put(`services/editService/${serviceKey}`, service);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getSearchSuggestion(searchText: string) {
   try {
     const res = await http.get(`services/search/suggestions`, {
@@ -69,7 +91,9 @@ async function getSearchResults(searchText: string) {
 
 async function getAddServiceAttachmentSignedUrl(fileName: string) {
   try {
-    const res = await http.get(`services/attachment/pre-signed-url/`, { params: { fileName } });
+    const res = await http.get(`services/attachment/pre-signed-url/`, {
+      params: { fileName },
+    });
     return res.data;
   } catch (err) {
     throw err;
@@ -81,6 +105,8 @@ export {
   getServiceCategories,
   getService,
   getSearchSuggestion,
+  addConsultantService,
+  updateConsultantService,
   getSearchResults,
-  getAddServiceAttachmentSignedUrl
+  getAddServiceAttachmentSignedUrl,
 };

@@ -33,9 +33,9 @@ const AddServiceOverview: React.FunctionComponent<IProps> = ({
             <Dropdown
               selections={addServiceMetaData.mainCategories}
               onItemClick={(item) => {
-                setAddServiceInfo({ mainCategory: item });
+                setAddServiceInfo({ category: item });
               }}
-              selectedItem={addServiceInfo?.mainCategory}
+              selectedItem={addServiceInfo?.category}
               placeholder={'Main Category'}
               className="add-service-category-dropdown"
               dropdownMenuClassName="add-service-category-dropdown-menu"
@@ -50,8 +50,49 @@ const AddServiceOverview: React.FunctionComponent<IProps> = ({
           placeholder="It will appier for your clients. Make it attractively"
           labelText="Add Title"
           labelClassName="add-service-input-label"
-          value={addServiceInfo?.title}
-          onChange={(event) => setAddServiceInfo({ title: event.target.value })}
+          value={addServiceInfo?.serviceName}
+          onChange={(event) =>
+            setAddServiceInfo({ serviceName: event.target.value })
+          }
+        />
+      </Row>
+      <Row className="mt-4">
+        <TextInput
+          type="number"
+          rows={1}
+          placeholder="Add minimum duration of a consultation"
+          labelText="Add Minimum Duration(minutes)"
+          labelClassName="add-service-input-label"
+          value={addServiceInfo?.minDuration?.toString()}
+          onChange={(event) =>
+            setAddServiceInfo({ minDuration: parseInt(event.target.value, 10) })
+          }
+        />
+      </Row>
+      <Row className="mt-4">
+        <TextInput
+          type="number"
+          rows={1}
+          placeholder="Add maximum duration of a consultation"
+          labelText="Add Maximum Duration(minutes)"
+          labelClassName="add-service-input-label"
+          value={addServiceInfo?.maxDuration?.toString()}
+          onChange={(event) =>
+            setAddServiceInfo({ maxDuration: parseInt(event.target.value, 10) })
+          }
+        />
+      </Row>
+      <Row className="mt-4">
+        <TextInput
+          type="number"
+          rows={1}
+          placeholder="Add consultation fee per hour"
+          labelText="Add Consultation Fee (Rs.Per hour)"
+          labelClassName="add-service-input-label"
+          value={addServiceInfo?.costPerHour?.toString()}
+          onChange={(event) =>
+            setAddServiceInfo({ costPerHour: parseInt(event.target.value, 10) })
+          }
         />
       </Row>
       <Row className="mt-4">
@@ -60,6 +101,10 @@ const AddServiceOverview: React.FunctionComponent<IProps> = ({
           rows={5}
           labelText="Add Keywords"
           labelClassName="add-service-input-label"
+          value={addServiceInfo?.keywords?.join(',')}
+          onChange={(event) =>
+            setAddServiceInfo({ keywords: event.target.value.split(',') })
+          }
         />
       </Row>
       <Row className="mt-4">

@@ -17,7 +17,7 @@ const AddServiceGallery: React.FunctionComponent<IProps> = ({
   addServiceInfo,
   setAddServiceInfo,
 }: IProps): JSX.Element => {
-  const attachments: any[] = addServiceInfo?.attachments || [];
+  const attachments: any[] = addServiceInfo?.serviceAttachmentFiles || [];
   const emptyArray = Array(3).fill(null);
   const formattedAttachments = emptyArray.map((_, index) => {
     if (attachments[index]) {
@@ -39,7 +39,7 @@ const AddServiceGallery: React.FunctionComponent<IProps> = ({
       setError('You need to add at least 3 images');
       return false;
     }
-    setAddServiceInfo({ attachments: filteredFills });
+    setAddServiceInfo({ serviceAttachmentFiles: filteredFills });
     return true;
   };
   return (

@@ -15,6 +15,7 @@ export const en: IMessageProperties = {
   service: {
     contact: 'Contact',
     makeAppointment: 'Make Appointment',
+    editService: 'Edit Service',
     aboutService: 'About Service',
     serviceDescription: 'Description About Service',
     toolsTechniques: 'Tools and Techniques',

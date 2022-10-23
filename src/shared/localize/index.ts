@@ -16,6 +16,7 @@ export interface IMessageProperties {
   service: {
     contact: string;
     makeAppointment: string;
+    editService: string;
     aboutService: string;
     serviceDescription: string;
     toolsTechniques: string;
