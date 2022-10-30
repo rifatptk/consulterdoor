@@ -1,4 +1,4 @@
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import { CategoryCard } from '../../';
 import { DEFAULT_MOBILE_SCREEN_WIDTH } from '../../../shared/constant';
 import { CommonCarousel } from '../../shared';
@@ -13,22 +13,20 @@ function CategoryList({ data }: IProps) {
     return data.map((item, index) => <CategoryCard key={index} />);
   };
   return (
-    <Container>
-      <Row>
-        {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
-          <CommonCarousel
-            template="ONE_SLIDE_PER_PAGE"
-            partialVisbile={true}
-            showDots={false}
-            removeArrowOnDeviceType={['mobile']}
-          >
-            {cardList()}
-          </CommonCarousel>
-        ) : (
-          <Row className="m-0 p-0 card-list">{cardList()}</Row>
-        )}
-      </Row>
-    </Container>
+    <>
+      {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
+        <CommonCarousel
+          template="ONE_SLIDE_PER_PAGE"
+          partialVisbile={true}
+          showDots={false}
+          removeArrowOnDeviceType={['mobile']}
+        >
+          {cardList()}
+        </CommonCarousel>
+      ) : (
+        <Row className="m-0 p-0 card-list">{cardList()}</Row>
+      )}
+    </>
   );
 }
 

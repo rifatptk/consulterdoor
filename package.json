@@ -2,6 +2,10 @@
   "name": "react-quick-start",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  },
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^1.9.7",
     "@chatscope/chat-ui-kit-styles": "^1.2.3",
@@ -15,8 +19,8 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
-    "@types/react-datepicker": "^4.4.2",
     "@types/react-dom": "^17.0.0",
+    "@types/react-datepicker": "^4.4.2",
     "@types/react-star-ratings": "^2.3.0",
     "@types/styled-components": "^5.1.25",
     "amazon-chime-sdk-component-library-react": "^3.0.0",

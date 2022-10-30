@@ -27,7 +27,7 @@ function HomeScreen() {
       <div className="mt-5">
         <div>
           <TextLabel
-            className="primary-font font-size-large font-bold category-header"
+            className="primary-font font-size-large font-bold category-header my-5"
             text={messages.home.categoryListTitle}
           />
         </div>
@@ -86,7 +86,7 @@ function HomeScreen() {
   };
 
   return (
-    <div>
+    <div className="container">
       <div>{renderCategory()}</div>
       <div>{renderServices()}</div>
       <div>{renderConsulterList()}</div>
