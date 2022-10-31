@@ -9,6 +9,7 @@ import { SearchPage } from './search';
 import { Service } from './Service';
 import { VideoChat } from './VideoChat';
 import { UserProfile } from './userProfile';
+import { ProfileView } from './profileView';
 
 export {
   AddService,
@@ -22,4 +23,5 @@ export {
   VideoChat,
   Payment,
   UserProfile,
+  ProfileView,
 };

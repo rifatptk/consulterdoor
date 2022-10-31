@@ -9,6 +9,7 @@ import {
   ConsultantRegister,
   Home,
   Payment,
+  ProfileView,
   SearchPage,
   Service,
   UserProfile,
@@ -46,6 +47,7 @@ const Routes = () => {
     { path: '/chat', element: <Chat /> },
     { path: '/payment', element: <Payment /> },
     { path: '/userprofile', element: <UserProfile /> },
+    { path: '/userprofile/:userId', element: <ProfileView /> },
   ]);
 };
 

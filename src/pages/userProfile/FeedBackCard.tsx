@@ -1,6 +1,7 @@
 import star from '../../assets/images/homepage/star.svg';
 
 type Props = {
+  col: number;
   user: {
     avatar: string;
     name: string;
@@ -11,9 +12,9 @@ type Props = {
   };
 };
 
-function FeedBackCard({ user }: Props) {
+function FeedBackCard({ col, user }: Props) {
   return (
-    <div className="col-md-6 mb-2 gx-2">
+    <div className={`col-md-${col} mb-2 gx-2`}>
       <div className="hero-feedbacks-card d-flex">
         <div className="col-3">
           <img src={user.avatar} alt="" width={68} />
