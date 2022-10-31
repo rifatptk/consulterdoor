@@ -10,7 +10,7 @@ export interface IConsultServiceState {
   consultCategories: any[];
   addService: {
     stage?: string;
-    data?: IAddService
+    data?: IAddService;
   };
   addServiceMetaData: IAddServiceMetaData;
 }
@@ -23,7 +23,6 @@ const initialState: IConsultServiceState = {
   consultCategories: [],
   addService: {
     stage: 'overview',
-    data: {},
   },
   addServiceMetaData: {
     mainCategories: [],
@@ -48,22 +47,28 @@ export const consultServiceSlice = createSlice({
   name: 'consultServiceSlice',
   initialState,
   reducers: {
-    setAddService: (state, action: PayloadAction<IConsultServiceState['addService']>) => {
+    setAddService: (
+      state,
+      action: PayloadAction<IConsultServiceState['addService']>
+    ) => {
       state.addService = {
         ...state.addService,
         ...action.payload,
         data: {
           ...state.addService.data,
-          ...action.payload.data
-        }
+          ...action.payload.data,
+        },
       };
     },
-    setAddServiceMetaData: (state, action: PayloadAction<IConsultServiceState['addServiceMetaData']>) => {
+    setAddServiceMetaData: (
+      state,
+      action: PayloadAction<IConsultServiceState['addServiceMetaData']>
+    ) => {
       state.addServiceMetaData = {
         ...state.addServiceMetaData,
-        ...action.payload
+        ...action.payload,
       };
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -80,4 +85,10 @@ const consultServiceReducer = consultServiceSlice.reducer;
 
 const { setAddService, setAddServiceMetaData } = consultServiceSlice.actions;
 
-export { consultServiceReducer, loadConsultServices, loadConsultCategories, setAddService, setAddServiceMetaData };
+export {
+  consultServiceReducer,
+  loadConsultServices,
+  loadConsultCategories,
+  setAddService,
+  setAddServiceMetaData,
+};

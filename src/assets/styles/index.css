@@ -1398,6 +1398,9 @@ small {
   font-weight: 400;
   color: #B93434; }
 
+.add-more-btn :hover {
+  cursor: pointer; }
+
 .accept-btn {
   background-color: #33935C !important; }
 

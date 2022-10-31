@@ -35,6 +35,14 @@ const Routes = () => {
         </ProtectedRoute>
       ),
     },
+    {
+      path: '/edit-service/:serviceKey',
+      element: (
+        <ProtectedRoute>
+          <AddService />
+        </ProtectedRoute>
+      ),
+    },
     { path: '/', element: <Home /> },
     { path: '/consultant/:consultantId', element: <ConsultantProfile /> },
     { path: '/consultant/register', element: <ConsultantRegister /> },
