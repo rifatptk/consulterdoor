@@ -11,6 +11,8 @@ import {
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
 import StartCareer from './StartCareer';
+import TopRatedConsultants from './TopRatedConsultants';
+import Footer from '../footer/Footer';
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -101,6 +103,15 @@ function HomeScreen() {
     return <StartCareer />;
   };
 
+  const renderTopRatedConsultants = () => {
+    return (
+      <div className="my-5">
+        <h2 className="text-333 my-4">Top Rated Consultants</h2>
+        <TopRatedConsultants />
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="container">
@@ -110,7 +121,11 @@ function HomeScreen() {
         <div className="mb-5" />
       </div>
       <div>{renderWhyChooseConsultingApp()}</div>
-      <div className="container">{renderStartYourCareer()}</div>
+      <div className="container">
+        <div>{renderStartYourCareer()}</div>
+        <div>{renderTopRatedConsultants()}</div>
+      </div>
+      <Footer />
     </>
   );
 }
