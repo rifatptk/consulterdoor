@@ -19,6 +19,13 @@
         text-align: justify;
       }
     }
+    #hero-feedbacks {
+      .hero-feedbacks-card {
+        border: 0.680152px solid rgba(26, 131, 228, 0.22);
+        box-shadow: 0px 1.3603px 10.8824px rgba(0, 0, 0, 0.1);
+        padding: 16px;
+      }
+    }
   }
   #hero-card {
     border: 1px solid $borderColor;

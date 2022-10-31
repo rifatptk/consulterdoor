@@ -3,6 +3,7 @@ import star from '../../assets/images/homepage/star.svg';
 import HeroContent from './HeroContent';
 import HeroCard from './HeroCard';
 import HeroGallery from './HeroGallery';
+import HeroFeedbacks from './HeroFeedbacks';
 
 const Hero = () => {
   return (
@@ -15,6 +16,7 @@ const Hero = () => {
           <div className="hero-left">
             <HeroGallery />
             <HeroContent />
+            <HeroFeedbacks />
           </div>
         </div>
 
