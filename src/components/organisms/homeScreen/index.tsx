@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import WhyChooseConsultingApp from '../../../pages/home/WhyChooseConsultingApp';
+import WhyChooseConsultingApp from './WhyChooseConsultingApp';
 import { RootState } from '../../../shared/hooks';
 import { messages } from '../../../shared/localize';
 import {
@@ -10,6 +10,7 @@ import {
 } from '../../../store/actions';
 import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
+import StartCareer from './StartCareer';
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -96,6 +97,10 @@ function HomeScreen() {
     );
   };
 
+  const renderStartYourCareer = () => {
+    return <StartCareer />;
+  };
+
   return (
     <>
       <div className="container">
@@ -104,7 +109,8 @@ function HomeScreen() {
         <div>{renderConsulterList()}</div>
         <div className="mb-5" />
       </div>
-      <>{renderWhyChooseConsultingApp()}</>
+      <div>{renderWhyChooseConsultingApp()}</div>
+      <div className="container">{renderStartYourCareer()}</div>
     </>
   );
 }
