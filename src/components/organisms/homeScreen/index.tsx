@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import WhyChooseConsultingApp from '../../../pages/home/WhyChooseConsultingApp';
 import { RootState } from '../../../shared/hooks';
 import { messages } from '../../../shared/localize';
 import {
@@ -48,7 +49,7 @@ function HomeScreen() {
       <div className="mt-5">
         <div>
           <TextLabel
-            className="primary-font font-size-large font-bold category-header"
+            className="primary-font font-size-large font-bold category-header my-5"
             text={messages.home.serviceListTitle}
           />
         </div>
@@ -85,13 +86,26 @@ function HomeScreen() {
     );
   };
 
+  const renderWhyChooseConsultingApp = () => {
+    return (
+      <div className="why-choose">
+        <div className="container">
+          <WhyChooseConsultingApp />
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="container">
-      <div>{renderCategory()}</div>
-      <div>{renderServices()}</div>
-      <div>{renderConsulterList()}</div>
-      <div className="mb-5" />
-    </div>
+    <>
+      <div className="container">
+        <div>{renderCategory()}</div>
+        <div>{renderServices()}</div>
+        <div>{renderConsulterList()}</div>
+        <div className="mb-5" />
+      </div>
+      <>{renderWhyChooseConsultingApp()}</>
+    </>
   );
 }
 

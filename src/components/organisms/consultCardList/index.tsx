@@ -18,20 +18,20 @@ function ConsultCardList({ data }: IProps) {
   };
   return (
     <Container>
-      <Row>
-        {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
-          <CommonCarousel
-            template="ONE_SLIDE_PER_PAGE"
-            partialVisbile={true}
-            showDots={false}
-            removeArrowOnDeviceType={[]}
-          >
-            {cardList()}
-          </CommonCarousel>
-        ) : (
-          <Row className="m-0 p-0 card-list ">{cardList()}</Row>
-        )}
-      </Row>
+      {width < DEFAULT_MOBILE_SCREEN_WIDTH ? (
+        <CommonCarousel
+          template="ONE_SLIDE_PER_PAGE"
+          partialVisbile={true}
+          showDots={false}
+          removeArrowOnDeviceType={[]}
+        >
+          {cardList()}
+        </CommonCarousel>
+      ) : (
+        <Row className="m-0 p-0 card-list justify-space-between ">
+          {cardList()}
+        </Row>
+      )}
     </Container>
   );
 }
