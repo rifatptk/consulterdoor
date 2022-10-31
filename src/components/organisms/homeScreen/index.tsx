@@ -12,7 +12,6 @@ import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
 import StartCareer from './StartCareer';
 import TopRatedConsultants from './TopRatedConsultants';
-import Footer from '../footer/Footer';
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -125,7 +124,6 @@ function HomeScreen() {
         <div>{renderStartYourCareer()}</div>
         <div>{renderTopRatedConsultants()}</div>
       </div>
-      <Footer />
     </>
   );
 }

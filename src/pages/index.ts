@@ -8,6 +8,7 @@ import { ConsultantRegister } from './register';
 import { SearchPage } from './search';
 import { Service } from './Service';
 import { VideoChat } from './VideoChat';
+import { UserProfile } from './userProfile';
 
 export {
   AddService,
@@ -20,4 +21,5 @@ export {
   ConsultantRegister,
   VideoChat,
   Payment,
+  UserProfile,
 };

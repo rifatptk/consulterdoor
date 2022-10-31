@@ -11,6 +11,7 @@ import {
   Payment,
   SearchPage,
   Service,
+  UserProfile,
   VideoChat,
 } from '../pages';
 import { AuthService } from '../services';
@@ -44,6 +45,7 @@ const Routes = () => {
     { path: 'video', element: <VideoChat /> },
     { path: '/chat', element: <Chat /> },
     { path: '/payment', element: <Payment /> },
+    { path: '/userprofile', element: <UserProfile /> },
   ]);
 };
 

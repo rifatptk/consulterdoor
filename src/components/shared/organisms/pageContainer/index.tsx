@@ -1,4 +1,5 @@
 import { Header } from '../../../';
+import Footer from '../../../organisms/footer/Footer';
 
 interface IProps {
   children: React.ReactElement;
@@ -9,6 +10,7 @@ function PageContainer({ children, className }: IProps) {
     <div style={{ zIndex: 10 }}>
       <Header />
       <div className={`page-container ${className}`}>{children}</div>
+      <Footer />
     </div>
   );
 }
