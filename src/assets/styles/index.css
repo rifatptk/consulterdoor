@@ -1007,6 +1007,16 @@ input[type='number'] {
   margin-top: 2rem;
   color: #dadada; }
 
+.search-result {
+  color: #f2f2f2;
+  border-color: #a4a4a4;
+  border-radius: 5px;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 6px 20px;
+  border: 1px solid;
+  margin-bottom: 8px; }
+
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: transparent; }
 
