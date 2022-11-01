@@ -1,5 +1,6 @@
 import { Auth as ProviderAuth, Hub } from 'aws-amplify';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom';
 import {
   AddService,
@@ -14,8 +15,9 @@ import {
   VideoChat,
 } from '../pages';
 import { AuthService } from '../services';
+import { onMessageReceivedSubscriptionApi } from '../services/graphql';
 import { useAppDispatch } from '../shared/hooks';
-import { saveUser } from '../store/actions';
+import { saveUser, setReceivedMessageInChat } from '../store/actions';
 
 const ProtectedRoute = ({ children }: any) => {
   const user = AuthService.getCurrentAuthenticatedUser();
@@ -57,6 +59,22 @@ const Routes = () => {
 
 const Router = () => {
   const dispatch = useAppDispatch();
+  const reduxDispatch = useDispatch();
+
+  const chatUpdateOnMessageReceive = (data: any) => {
+    const message = JSON.parse(data.value.data.onMessageReceived.message);
+    reduxDispatch(setReceivedMessageInChat(message));
+  };
+
+  const subscribeAppsync = async () => {
+    const user = await AuthService.getCurrentAuthenticatedUser();
+    if (user) {
+      onMessageReceivedSubscriptionApi(
+        user.username,
+        chatUpdateOnMessageReceive
+      );
+    }
+  };
 
   const saveCurrentUser = () => {
     ProviderAuth.currentAuthenticatedUser({
@@ -98,6 +116,7 @@ const Router = () => {
   useEffect(() => {
     Hub.listen('auth', AuthListener);
     saveCurrentUser();
+    subscribeAppsync();
   }, []);
 
   return (
