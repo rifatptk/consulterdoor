@@ -1,0 +1,67 @@
+@import '../../assets/colors/index';
+
+#tabs {
+  margin: 52px 0;
+  padding: 30px 0;
+  #tabs-container {
+    display: flex;
+
+    #tablist {
+      flex-shrink: 0;
+      width: 200px;
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 14px;
+      border-right: 1px solid gray;
+      .tab-title {
+        padding: 4px 30px;
+        border-left: 4px solid transparent;
+        font-weight: 500;
+        color: $softBlack;
+        cursor: pointer;
+        &.active {
+          border-color: $darkBlue;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+      }
+    }
+    #tab-content {
+      text-align: justify;
+      padding: 0 40px;
+      color: $darkGray;
+      font-weight: 300;
+    }
+  }
+  @media (max-width: 1024px) {
+    #tabs-container {
+      display: block;
+      #tablist {
+        flex-direction: row;
+        width: 100%;
+        border: none;
+        margin-bottom: 20px;
+        padding-right: 0;
+        border-bottom: 1px solid $darkBlue;
+        .tab-title {
+          border-left: 0;
+          border-bottom: 0;
+          border-bottom: 2px solid transparent;
+
+          &.active {
+            border-color: $darkBlue;
+            border-radius: 5px;
+            font-weight: bold;
+            border-radius: 0;
+          }
+        }
+      }
+      #tab-content {
+        padding: 0;
+        font-size: 12px;
+      }
+    }
+  }
+}
