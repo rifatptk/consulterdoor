@@ -17,6 +17,7 @@
       top: 25px;
       right: 36px;
       cursor: pointer;
+
       .profile-view-banner-menu-circle {
         width: 5px;
         height: 5px;
@@ -105,6 +106,38 @@
       border: 0.680152px solid rgba(26, 131, 228, 0.22);
       box-shadow: 0px 1.3603px 10.8824px rgba(0, 0, 0, 0.1);
       padding: 16px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #profile-view {
+    .profile-view-banner {
+      .profile-view-banner-menu {
+        width: 24px;
+        height: 24px;
+        gap: 2px;
+        top: 16px;
+        right: 20px;
+        .profile-view-banner-menu-circle {
+          width: 4px;
+          height: 4px;
+        }
+      }
+      #avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+      h5 {
+        font-size: 12px;
+      }
+      h6 {
+        font-size: 12px;
+      }
     }
   }
 }

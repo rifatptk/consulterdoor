@@ -39,6 +39,7 @@
     #tabs-container {
       display: block;
       #tablist {
+        font-size: 12px;
         flex-direction: row;
         width: 100%;
         border: none;
@@ -46,6 +47,8 @@
         padding-right: 0;
         border-bottom: 1px solid $darkBlue;
         .tab-title {
+          padding: 4px 8px;
+
           border-left: 0;
           border-bottom: 0;
           border-bottom: 2px solid transparent;

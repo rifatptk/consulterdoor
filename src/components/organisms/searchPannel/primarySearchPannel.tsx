@@ -23,7 +23,7 @@ function SearchPannel() {
   }, []);
   return (
     <div>
-      <Container>
+      <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col xs={true} lg="8">
             <Row className="justify-content-md-start mb-2 mt-4">
@@ -48,7 +48,7 @@ function SearchPannel() {
           </Col>
         </Row>
         <Row className="mb-5">
-          {Array.from({ length: 8 }).map((_, idx) => (
+          {Array.from({ length: 6 }).map((_, idx) => (
             <Col key={idx}>
               <SearchTag tagName="Web Design" />
             </Col>
