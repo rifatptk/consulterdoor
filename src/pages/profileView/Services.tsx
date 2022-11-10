@@ -1,37 +1,40 @@
-//dfad
-import { Button, BUTTON_TYPES, TextLabel } from '../../components/shared';
-import { ServiceCardList } from '../../components/organisms/serviceCardList';
-import { messages } from '../../shared/localize';
-import { RootState } from '../../shared/hooks';
-import { useSelector } from 'react-redux';
+import developer from '../../assets/images/userProfilePage/developer.svg';
 
+const data = [
+  {
+    title:
+      'Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi.',
+    description:
+      'Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi  Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi. . ',
+  },
+  {
+    title: 'Best UI/UX Design for  Web And Mobile.',
+    description:
+      'Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi  Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi. . ',
+  },
+  {
+    title: 'Best UI/UX Design for  Web And Mobile.',
+    description:
+      'Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi  Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi. . ',
+  },
+];
 type Props = {};
 
 const Services = (props: Props) => {
-  const consultService = useSelector(
-    (state: RootState) => state.consultServiceReducer
-  );
-  const renderServices = () => {
-    return (
-      <div className="mt-5">
-        <div>
-          <TextLabel
-            className="primary-font font-size-large font-bold category-header my-5"
-            text={messages.home.serviceListTitle}
-          />
-        </div>
-        <ServiceCardList data={consultService.consultServices.data} />
-        <div className="d-flex flex-row justify-content-center mt-4">
-          <Button
-            title={messages.home.allServices}
-            type={BUTTON_TYPES.PRIMARY}
-            className="category-view-btn font-bold"
-          />
-        </div>
+  return (
+    <div className="my-5" id="services">
+      <div id="header">
+        <h1>Services</h1>
+        <img src={developer} alt="" width={250} />
       </div>
-    );
-  };
-  return <div className="my-5">{renderServices()}</div>;
+      {data.map((el, i) => (
+        <div key={i} className={`service service-${i + 1} shadow `}>
+          <h3>{el.title}</h3>
+          <p>{el.description}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Services;

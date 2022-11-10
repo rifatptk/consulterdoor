@@ -1,53 +1,149 @@
 @import '../../assets//colors/index';
 
 #profile-view {
+  font-family: Inter;
   margin-top: 160px;
-  .profile-view-banner {
+  #profile-view-banner {
     color: white;
-    .profile-view-banner-menu {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: white;
+    @media (min-width: 992px) {
       display: flex;
-      gap: 4px;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 25px;
-      right: 36px;
-      cursor: pointer;
-
-      .profile-view-banner-menu-circle {
-        width: 5px;
-        height: 5px;
+    }
+    #banner-content-left {
+      flex: 3;
+      @media (max-width: 992px) {
+        border-radius: 1rem;
+      }
+      #avatar {
+        width: 150px;
+      }
+      #header {
+        & > h1 {
+          font-size: 30px;
+          font-weight: 600;
+          @media (max-width: 765px) {
+            font-size: 20px;
+          }
+        }
+        #profile-link {
+          font-size: 12px;
+          color: $lightGray;
+          padding: 10px 20px;
+          border-radius: 6px;
+          background-color: $homeBackgroundColor;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+          @media (max-width: 420px) {
+            font-size: 10px;
+            padding: 4px 8px;
+          }
+        }
+      }
+      #items {
+        .item-text {
+          color: $softGray;
+        }
+      }
+      #active-indicator {
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
-        background-color: $darkBlue;
+        background-color: $brightGreen;
+        border: 4px solid white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
       }
     }
-    #active-indicator {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background-color: $brightGreen;
-      border: 4px solid white;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    #banner-content-right {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px 1rem;
+      @media (max-width: 992px) {
+        border-radius: 1rem;
+      }
+      & > h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        line-height: 28px;
+        @media (max-width: 992px) {
+          font-size: 16px;
+        }
+      }
+      #appointment-btn {
+        font-size: 18px;
+        font-weight: 500;
+        padding: 1rem 50px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 3px 3px 2px #dadada88;
+        background-color: white;
+        color: $darkBlue;
+        @media (max-width: 992px) {
+          font-size: 16px;
+        }
+        &:hover {
+          scale: 1.01;
+        }
+      }
     }
-    h3 {
+  }
+  #description {
+    h1 {
+      font-weight: bold;
       font-size: 24px;
-      font-weight: 600;
+      color: $softBlack;
+      margin-bottom: 40px;
+      margin-top: 80px;
     }
-    h5 {
-      font-size: 16px;
-      font-weight: 400;
-      color: $lightGray;
+    p {
+      color: $darkGray;
+      text-align: justify;
     }
-    h6 {
-      font-size: 14px;
-      font-weight: 300;
-      color: $softGray;
+  }
+  #services {
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      margin-top: 80px;
+
+      h1 {
+        font-weight: bold;
+        font-size: 24px;
+        color: $softBlack;
+      }
+    }
+
+    .service {
+      border-left: 10px solid;
+      padding: 20px 30px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      &.service-1 {
+        border-left-color: $softYellow;
+      }
+      &.service-2 {
+        border-left-color: $brightGreen;
+      }
+      &.service-3 {
+        border-left-color: $softBlue;
+      }
+      h3 {
+        color: $darkGray;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p {
+        margin-top: 10px;
+        font-weight: 300;
+        color: $gray;
+      }
     }
   }
   #reviews {

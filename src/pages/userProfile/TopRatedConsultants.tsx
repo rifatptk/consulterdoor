@@ -8,7 +8,9 @@ import ConsultantCard from './ConsultantCard';
 const data = [
   {
     name: 'Dilshan Athukorala',
-    title: 'Service Name & Simple Description Lorem ipsum dolor sit amet,',
+    title: 'UI/UX Designer',
+    description:
+      'Service Name & Simple Description Lorem ipsum dolor sit amet,',
     rating: ['5.0', 49],
     bg,
     avatar,
@@ -16,7 +18,9 @@ const data = [
   },
   {
     name: 'Dilshan Athukorala',
-    title: 'Service Name & Simple Description Lorem ipsum dolor sit amet,',
+    title: 'UI/UX Designer',
+    description:
+      'Service Name & Simple Description Lorem ipsum dolor sit amet,',
     rating: ['5.0', 49],
     bg,
     avatar: avatar1,
@@ -24,7 +28,9 @@ const data = [
   },
   {
     name: 'Dilshan Athukorala',
-    title: 'Service Name & Simple Description Lorem ipsum dolor sit amet,',
+    title: 'UI/UX Designer',
+    description:
+      'Service Name & Simple Description Lorem ipsum dolor sit amet,',
     rating: ['5.0', 49],
     bg,
     avatar: avatar2,
@@ -32,7 +38,9 @@ const data = [
   },
   {
     name: 'Dilshan Athukorala',
-    title: 'Service Name & Simple Description Lorem ipsum dolor sit amet,',
+    title: 'UI/UX Designer',
+    description:
+      'Service Name & Simple Description Lorem ipsum dolor sit amet,',
     rating: ['5.0', 49],
     bg,
     avatar: avatar3,
@@ -44,7 +52,7 @@ const TopRatedConsultants = () => {
   return (
     <div className="container mb-5">
       <h4 className="text-333 fw-bolder my-5 pt-5">Top Rated Consultants</h4>
-      <div className="row my-2">
+      <div className="row my-2 pb-5">
         {data.map((user, i) => (
           <ConsultantCard user={user} key={i} />
         ))}

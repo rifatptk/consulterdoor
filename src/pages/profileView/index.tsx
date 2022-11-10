@@ -1,7 +1,9 @@
 import { PageContainer } from '../../components/shared';
-import TopRatedConsultants from '../userProfile/TopRatedConsultants';
 import Banner from './Banner';
-import Reviews from './Reviews';
+import Description from './Description';
+// import Reviews from './Reviews';
+import Services from './Services';
+import SimilarConsultants from './SimilarConsultants';
 // import Services from './Services';
 import Tabs from './Tabs';
 import './_index.scss';
@@ -13,10 +15,11 @@ const ProfileView = (props: Props) => {
     <PageContainer>
       <div id="profile-view" className="container">
         <Banner />
+        <Description />
+        <Services />
         <Tabs />
-        <Reviews />
-        <TopRatedConsultants />
-        {/* <Services /> */}
+        {/* <Reviews /> */}
+        <SimilarConsultants />
       </div>
     </PageContainer>
   );

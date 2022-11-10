@@ -1,106 +1,66 @@
 import { useState } from 'react';
 import './tabs.scss';
+import handshake from '../../assets/images/userProfilePage/handshake.svg';
+import graduate from '../../assets/images/userProfilePage/graduate.svg';
 
 const data = [
   {
-    tab: 'Description',
-    content: (
-      <>
-        <p>
-          consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend
-          id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra
-          adipiscing curabitur enim maecenas facilisi facilisis lacus euismod
-          enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
-          elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget.
-          Viverra id hac malesuada purus, nunc, ultricies ac integer. Tempus
-          urna, Viverra adipiscing curabitur. lacus euismod enim. Lacus quis nec
-        </p>
-        <p>
-          pellentesque dictum feugiat vulputate. Iaculis elit, nullam in ve
-          nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac
-          malesuada purus, nunc, ultricies ac integer. Tempus urna, Viverra
-          adipiscing curabitur. lacus euismod enim. Lacus quis nec pellentesque
-          dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-          ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
-          nunc, ultricies ac integer. Tempus urna, Viverra adipiscing curabitur.
-        </p>
-      </>
-    ),
+    tab: 'Experience',
+    content: [
+      {
+        img: handshake,
+        title: 'UI/UX Design',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: handshake,
+        title: 'Associate UI/UX Design',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: handshake,
+        title: 'Trainee UI/UX Design',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: handshake,
+        title: 'Associate UI/UX Design',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+    ],
   },
   {
     tab: 'Education',
-    content: (
-      <>
-        <p>
-          Education adipiscing elit. Viverra magna nunc risus iaculis eleifend
-          id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra
-          adipiscing curabitur enim maecenas facilisi facilisis lacus euismod
-          enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
-          elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget.
-          Viverra id hac malesuada purus, nunc, ultricies ac integer. Tempus
-          urna, Viverra adipiscing curabitur. lacus euismod enim. Lacus quis nec
-        </p>
-        <p>
-          pellentesque dictum feugiat vulputate. Iaculis elit, nullam in ve
-          nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac
-          malesuada purus, nunc, ultricies ac integer. Tempus urna, Viverra
-          adipiscing curabitur. lacus euismod enim. Lacus quis nec pellentesque
-          dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-          ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
-          nunc, ultricies ac integer. Tempus urna, Viverra adipiscing curabitur.
-        </p>
-      </>
-    ),
-  },
-  {
-    tab: 'Skills',
-    content: (
-      <>
-        <p>
-          Skills adipiscing elit. Viverra magna nunc risus iaculis eleifend id
-          facilisi. Consectetur ut at sapien lacinia libero eu. Viverra
-          adipiscing curabitur enim maecenas facilisi facilisis lacus euismod
-          enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
-          elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget.
-          Viverra id hac malesuada purus, nunc, ultricies ac integer. Tempus
-          urna, Viverra adipiscing curabitur. lacus euismod enim. Lacus quis nec
-        </p>
-        <p>
-          pellentesque dictum feugiat vulputate. Iaculis elit, nullam in ve
-          nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac
-          malesuada purus, nunc, ultricies ac integer. Tempus urna, Viverra
-          adipiscing curabitur. lacus euismod enim. Lacus quis nec pellentesque
-          dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-          ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
-          nunc, ultricies ac integer. Tempus urna, Viverra adipiscing curabitur.
-        </p>
-      </>
-    ),
-  },
-  {
-    tab: 'Experience',
-    content: (
-      <>
-        <p>
-          experience adipiscing elit. Viverra magna nunc risus iaculis eleifend
-          id facilisi. Consectetur ut at sapien lacinia libero eu. Viverra
-          adipiscing curabitur enim maecenas facilisi facilisis lacus euismod
-          enim. Lacus quis nec pellentesque dictum feugiat vulputate. Iaculis
-          elit, nullam in ve nenatis consequat ultrices hendrerit pulvinar eget.
-          Viverra id hac malesuada purus, nunc, ultricies ac integer. Tempus
-          urna, Viverra adipiscing curabitur. lacus euismod enim. Lacus quis nec
-        </p>
-        <p>
-          pellentesque dictum feugiat vulputate. Iaculis elit, nullam in ve
-          nenatis consequat ultrices hendrerit pulvinar eget. Viverra id hac
-          malesuada purus, nunc, ultricies ac integer. Tempus urna, Viverra
-          adipiscing curabitur. lacus euismod enim. Lacus quis nec pellentesque
-          dictum feugiat vulputate. Iaculis elit, nullam in ve nenatis consequat
-          ultrices hendrerit pulvinar eget. Viverra id hac malesuada purus,
-          nunc, ultricies ac integer. Tempus urna, Viverra adipiscing curabitur.
-        </p>
-      </>
-    ),
+    content: [
+      {
+        img: graduate,
+        title: 'Bachelor of Technology - BICT ',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: graduate,
+        title: 'Bachelor of Technology - BICT ',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: graduate,
+        title: 'Bachelor of Technology - BICT ',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+      {
+        img: graduate,
+        title: 'Bachelor of Technology - BICT ',
+        institute: 'Company Name Here',
+        during: '2017 - 2022',
+      },
+    ],
   },
 ];
 
@@ -108,7 +68,7 @@ const Tabs = () => {
   const [selected, setselected] = useState(0);
 
   return (
-    <div id="tabs">
+    <div id="tabs" className="shadow">
       <div id="tabs-container">
         <div id="tablist">
           {data.map((tab, i) => (
@@ -117,12 +77,24 @@ const Tabs = () => {
               className={`tab-title ${i === selected ? 'active' : ''}`}
               onClick={() => setselected(i)}
             >
-              {tab.tab}
+              <div>{tab.tab}</div>
+              <div className="bottom-bar"></div>
             </div>
           ))}
         </div>
 
-        <div id="tab-content">{data[selected].content}</div>
+        <div id="tab-content">
+          {data[selected].content.map((el, i) => (
+            <div key={i} className="content-element">
+              <img className="element-image" src={el.img} alt="" />
+              <div>
+                <h4>{el.title}</h4>
+                <p className="institute">{el.institute}</p>
+                <p className="during">{el.during}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

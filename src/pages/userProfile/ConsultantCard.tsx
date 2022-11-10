@@ -4,6 +4,7 @@ type Props = {
   user: {
     bg: string;
     avatar: string;
+    description: string;
     title: string;
     name: string;
     active: boolean;
@@ -57,8 +58,9 @@ const ConsultantCard = ({ user }: Props) => {
 
         <div className="text-center mt-5 mb-3 px-3">
           <h5 className="fw-bolder text-333">{user.name}</h5>
+          <p className="text-828282">{user.title}</p>
           <p className="text-828282" style={{ fontSize: 12 }}>
-            {user.title}
+            {user.description}
           </p>
         </div>
 

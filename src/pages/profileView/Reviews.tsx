@@ -4,7 +4,6 @@ import FeedBackCard from '../userProfile/FeedBackCard';
 import star9 from '../../assets/images/userProfilePage/star-9.svg';
 import star from '../../assets/images/homepage/star.svg';
 
-type Props = {};
 const data = [
   {
     name: 'Abdouhharounake',
@@ -52,7 +51,7 @@ const data = [
       'consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id facilisi. Consectetur ut at sapien lacinia libero eu.',
   },
 ];
-const Reviews = (props: Props) => {
+const Reviews = () => {
   return (
     <div id="reviews">
       <div className="header">
