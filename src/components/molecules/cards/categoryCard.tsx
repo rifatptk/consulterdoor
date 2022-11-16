@@ -4,8 +4,8 @@ import { videoCategorySvg } from '../../../assets/images/';
 
 const CategoryCard: React.FunctionComponent = React.memo((): JSX.Element => {
   return (
-    <Card className="category-card-container">
-      <Card.Body>
+    <Card className="category-card-container col-md-4 p-4 ">
+      <Card.Body className="border rounded-3">
         <Card.Title className="text-center category-card-title font-bold">
           Grapic Design
         </Card.Title>

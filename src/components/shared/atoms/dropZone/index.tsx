@@ -1,5 +1,5 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTrash } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { PhotoUploadIcon } from '../../../../assets/images';
@@ -121,7 +121,7 @@ const DropZone: React.FunctionComponent<IProps> = ({
           {renderSelectedFileContainer(uploadedFile)}
           <div className="dropzone-overlay">
             <div className="dropzone-text">
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 className="pointer"
                 icon={faTrash}
                 size="4x"
@@ -130,7 +130,7 @@ const DropZone: React.FunctionComponent<IProps> = ({
                     setUploadedFile(null);
                   }
                 }}
-              />
+              /> */}
             </div>
           </div>
         </div>

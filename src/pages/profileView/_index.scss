@@ -1,0 +1,239 @@
+@import '../../assets//colors/index';
+
+#profile-view {
+  font-family: Inter;
+  margin-top: 160px;
+  #profile-view-banner {
+    color: white;
+    @media (min-width: 992px) {
+      display: flex;
+    }
+    #banner-content-left {
+      flex: 3;
+      @media (max-width: 992px) {
+        border-radius: 1rem;
+      }
+      #avatar {
+        width: 150px;
+      }
+      #header {
+        & > h1 {
+          font-size: 30px;
+          font-weight: 600;
+          @media (max-width: 765px) {
+            font-size: 20px;
+          }
+        }
+        #profile-link {
+          font-size: 12px;
+          color: $lightGray;
+          padding: 10px 20px;
+          border-radius: 6px;
+          background-color: $homeBackgroundColor;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+          @media (max-width: 420px) {
+            font-size: 10px;
+            padding: 4px 8px;
+          }
+        }
+      }
+      #items {
+        .item-text {
+          color: $softGray;
+        }
+      }
+      #active-indicator {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: $brightGreen;
+        border: 4px solid white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    #banner-content-right {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px 1rem;
+      @media (max-width: 992px) {
+        border-radius: 1rem;
+      }
+      & > h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        line-height: 28px;
+        @media (max-width: 992px) {
+          font-size: 16px;
+        }
+      }
+      #appointment-btn {
+        font-size: 18px;
+        font-weight: 500;
+        padding: 1rem 50px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 3px 3px 2px #dadada88;
+        background-color: white;
+        color: $darkBlue;
+        @media (max-width: 992px) {
+          font-size: 16px;
+        }
+        &:hover {
+          scale: 1.01;
+        }
+      }
+    }
+  }
+  #description {
+    h1 {
+      font-weight: bold;
+      font-size: 24px;
+      color: $softBlack;
+      margin-bottom: 40px;
+      margin-top: 80px;
+    }
+    p {
+      color: $darkGray;
+      text-align: justify;
+    }
+  }
+  #services {
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      margin-top: 80px;
+
+      h1 {
+        font-weight: bold;
+        font-size: 24px;
+        color: $softBlack;
+      }
+    }
+
+    .service {
+      border-left: 10px solid;
+      padding: 20px 30px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      &.service-1 {
+        border-left-color: $softYellow;
+      }
+      &.service-2 {
+        border-left-color: $brightGreen;
+      }
+      &.service-3 {
+        border-left-color: $softBlue;
+      }
+      h3 {
+        color: $darkGray;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p {
+        margin-top: 10px;
+        font-weight: 300;
+        color: $gray;
+      }
+    }
+  }
+  #reviews {
+    margin-top: 56px;
+    margin-bottom: 56px;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: $softBlack;
+      }
+
+      div {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        span {
+          font-weight: 500;
+        }
+        img {
+          width: 20px;
+        }
+        small {
+          font-size: 14px;
+          color: $gray;
+        }
+      }
+    }
+    .criterias {
+      margin-bottom: 50px;
+      & > div > div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        span {
+          &:first-child {
+            color: $gray;
+            font-size: 14px;
+          }
+          &:last-child {
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+        img {
+          width: 24px;
+        }
+      }
+    }
+    .hero-feedbacks-card {
+      border: 0.680152px solid rgba(26, 131, 228, 0.22);
+      box-shadow: 0px 1.3603px 10.8824px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #profile-view {
+    .profile-view-banner {
+      .profile-view-banner-menu {
+        width: 24px;
+        height: 24px;
+        gap: 2px;
+        top: 16px;
+        right: 20px;
+        .profile-view-banner-menu-circle {
+          width: 4px;
+          height: 4px;
+        }
+      }
+      #avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+      h5 {
+        font-size: 12px;
+      }
+      h6 {
+        font-size: 12px;
+      }
+    }
+  }
+}

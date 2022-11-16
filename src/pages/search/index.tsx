@@ -2,11 +2,13 @@ import { SearchPannel } from '../../components/organisms/searchPannel';
 import { PageContainer } from '../../components/shared';
 
 function SearchPage() {
-    return (
-        <PageContainer>
-            <SearchPannel />
-        </PageContainer>
-    );
+  return (
+    <PageContainer>
+      <div className="vh-100">
+        <SearchPannel />
+      </div>
+    </PageContainer>
+  );
 }
 
 export { SearchPage };

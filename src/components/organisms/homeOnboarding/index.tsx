@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Col, Container } from 'reactstrap';
 import { HomeOnboardingSvg } from '../../../assets/images';
 import { SearchInput } from '../../molecules';
+import close from '../../../assets/images/homepage/close.svg';
+
 const HomeOnboarding = () => {
   const navigate = useNavigate();
 
@@ -29,6 +31,24 @@ const HomeOnboarding = () => {
           }}
           onFocus={handleFocus}
         />
+        <div className="d-flex justify-content-between flex-wrap">
+          <div className="d-flex align-items-center gap-4 search-result">
+            <span>Result</span>
+            <img src={close} alt="" width={18} />
+          </div>
+          <div className="d-flex align-items-center gap-4 search-result">
+            <span>Result</span>
+            <img src={close} alt="" width={18} />
+          </div>
+          <div className="d-flex align-items-center gap-4 search-result">
+            <span>Result</span>
+            <img src={close} alt="" width={18} />
+          </div>
+          <div className="d-flex align-items-center gap-4 search-result">
+            <span>Result</span>
+            <img src={close} alt="" width={18} />
+          </div>
+        </div>
       </Col>
       <Col md={6} />
     </Container>
