@@ -4,13 +4,14 @@ import Footer from '../../../organisms/footer/Footer';
 interface IProps {
   children: React.ReactElement;
   className?: string;
+  noFooter?: boolean;
 }
-function PageContainer({ children, className }: IProps) {
+function PageContainer({ children, className, noFooter }: IProps) {
   return (
     <div style={{ zIndex: 10 }}>
       <Header />
       <div className={`page-container ${className}`}>{children}</div>
-      <Footer />
+      {!noFooter && <Footer />}
     </div>
   );
 }

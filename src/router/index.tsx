@@ -15,6 +15,7 @@ import {
   UserProfile,
   VideoChat,
 } from '../pages';
+import Chats from '../pages/chats';
 import { AuthService } from '../services';
 import { useAppDispatch } from '../shared/hooks';
 import { saveUser } from '../store/actions';
@@ -48,6 +49,7 @@ const Routes = () => {
     { path: '/payment', element: <Payment /> },
     { path: '/userprofile', element: <UserProfile /> },
     { path: '/userprofile/:userId', element: <ProfileView /> },
+    { path: '/chats', element: <Chats /> },
   ]);
 };
 

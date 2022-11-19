@@ -1,0 +1,92 @@
+@import '../../assets/colors/index';
+.chat-card {
+  background-color: white;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border: none !important;
+  margin-bottom: 8px;
+  &:hover {
+    background-color: $darkBlue;
+    .card-cont {
+      .content {
+        .top {
+          h5 {
+            color: white;
+          }
+          span {
+            color: white;
+          }
+        }
+        .last-message {
+          color: white;
+        }
+      }
+    }
+  }
+  &.selected {
+    background-color: $darkBlue;
+    .card-cont {
+      .content {
+        .top {
+          h5 {
+            color: white;
+          }
+          span {
+            color: white;
+          }
+        }
+        .last-message {
+          color: white;
+        }
+      }
+    }
+  }
+  .card-cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .avatar-container {
+      position: relative;
+      .avatar {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .active-indicator {
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: $brightGreen;
+        border: 2px solid white;
+      }
+    }
+    .content {
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h5 {
+          font-size: 18px;
+          font-weight: 600;
+          color: $darkGray;
+        }
+        span {
+          font-size: 12px;
+          font-weight: 500;
+          color: $darkGray;
+        }
+      }
+      .last-message {
+        color: $gray;
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }
+}
