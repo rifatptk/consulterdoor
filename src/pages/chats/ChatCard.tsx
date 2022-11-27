@@ -5,13 +5,23 @@ type Props = {
   selectedChat: number;
   setSelectedChat: (i: number) => void;
   index: number;
+  setselectedScreen: (param: string) => void;
 };
 
-const ChatCard = ({ data, selectedChat, setSelectedChat, index }: Props) => {
+const ChatCard = ({
+  data,
+  selectedChat,
+  setSelectedChat,
+  index,
+  setselectedScreen,
+}: Props) => {
   return (
     <div
       className={`chat-card ${selectedChat === index ? 'selected' : ''}`}
-      onClick={() => setSelectedChat(index)}
+      onClick={() => {
+        setSelectedChat(index);
+        setselectedScreen('chat-main');
+      }}
     >
       <div className="card-cont">
         <div className="avatar-container">

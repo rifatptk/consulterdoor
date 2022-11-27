@@ -4,11 +4,17 @@ import Switch from './Switch';
 
 type Props = {
   profile: any;
+  selectedScreen: string;
 };
-const ChatProfile = ({ profile }: Props) => {
+const ChatProfile = ({ profile, selectedScreen }: Props) => {
   const [isOn, setisOn] = useState(false);
   return (
-    <div id="chatProfile">
+    <div
+      id="chatProfile"
+      className={`${
+        selectedScreen === 'user-profile' ? 'selected-screen' : ''
+      }`}
+    >
       {/* top */}
       <div>
         <img src={profile.avatar} alt="" id="avatar" width={120} />

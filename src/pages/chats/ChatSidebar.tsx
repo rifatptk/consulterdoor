@@ -3,12 +3,23 @@ import ChatCard from './ChatCard';
 type Props = {
   data: any;
   selectedChat: number;
+  selectedScreen: string;
   setSelectedChat: (i: number) => void;
+  setselectedScreen: (param: string) => void;
 };
 
-const ChatSidebar = ({ data, selectedChat, setSelectedChat }: Props) => {
+const ChatSidebar = ({
+  data,
+  selectedChat,
+  setSelectedChat,
+  selectedScreen,
+  setselectedScreen,
+}: Props) => {
   return (
-    <div id="chatSidebar">
+    <div
+      id="chatSidebar"
+      className={`${selectedScreen === 'chat-list' ? 'selected-screen' : ''}`}
+    >
       <div id="sidebar-content">
         {data.map((el: any, i: number) => (
           <ChatCard
@@ -16,6 +27,7 @@ const ChatSidebar = ({ data, selectedChat, setSelectedChat }: Props) => {
             key={i}
             selectedChat={selectedChat}
             setSelectedChat={setSelectedChat}
+            setselectedScreen={setselectedScreen}
             index={i}
           />
         ))}

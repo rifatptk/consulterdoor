@@ -99,6 +99,7 @@ const chatsData = [
 
 const Chats = () => {
   const [selectedChat, setSelectedChat] = useState(0);
+  const [selectedScreen, setselectedScreen] = useState('chat-list'); //chat-list|chat-main|user-profile
   return (
     <div id="chats">
       <PageContainer noFooter>
@@ -106,12 +107,21 @@ const Chats = () => {
           <ChatHeader />
           <div id="chatContentsContainer">
             <ChatSidebar
+              selectedScreen={selectedScreen}
+              setselectedScreen={setselectedScreen}
               data={chatsData}
               selectedChat={selectedChat}
               setSelectedChat={setSelectedChat}
             />
-            <ChatMain profile={chatsData[selectedChat]} />
-            <ChatProfile profile={chatsData[selectedChat]} />
+            <ChatMain
+              profile={chatsData[selectedChat]}
+              selectedScreen={selectedScreen}
+              setselectedScreen={setselectedScreen}
+            />
+            <ChatProfile
+              selectedScreen={selectedScreen}
+              profile={chatsData[selectedChat]}
+            />
           </div>
         </>
       </PageContainer>

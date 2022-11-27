@@ -4,6 +4,10 @@
   padding-top: 56px;
   height: 100vh;
   overflow: hidden;
+  //-----small screen-----
+  @media (max-width: 1024px) {
+    position: relative;
+  }
   #chatHeader {
     padding: 16px;
     background-color: white;
@@ -27,6 +31,22 @@
   #chatContentsContainer {
     display: flex;
     height: 100%;
+    //--------small screen-----
+    @media (max-width: 1024px) {
+      & > div.selected-screen {
+        position: absolute !important;
+        width: 100vw !important;
+        // top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99999;
+        background-color: white;
+        #inputs-container {
+          left: 0 !important;
+          right: 0 !important;
+        }
+      }
+    }
 
     #chatSidebar {
       width: 360px;
@@ -50,7 +70,7 @@
       flex: 1;
       z-index: 1;
       background-color: $chatBg;
-      padding: 20px;
+      padding: 32px 20px;
       position: relative;
       height: calc(100vh - 135px);
       overflow-y: auto;
@@ -64,6 +84,37 @@
       &::-webkit-scrollbar-thumb {
         background-color: $darkBlue;
         border-radius: 5px;
+      }
+      //-----small screen-------
+      #screen-selectors {
+        @media (min-width: 1024px) {
+          display: none;
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        // right: 0;
+        display: flex;
+        // justify-content: space-between;
+        & > div {
+          background-color: $darkBlue;
+          color: white;
+          font-weight: 600;
+          font-size: 12px;
+          border-radius: 5px;
+          padding: 8px 16px;
+          margin: 8px;
+          box-shadow: 0 0 5px #0003;
+          cursor: pointer;
+          transition: box-shadow 0.2s ease-out;
+          &:hover {
+            box-shadow: none;
+          }
+        }
+        #chat-list {
+        }
+        #user-profile {
+        }
       }
 
       .init-button {
