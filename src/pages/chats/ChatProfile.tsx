@@ -1,12 +1,14 @@
 import zoom from '../../assets/images/chatspage/zoom.png';
 import { useState } from 'react';
 import Switch from './Switch';
+import arrow from '../../assets/images/chatspage/darr.png';
 
 type Props = {
   profile: any;
   selectedScreen: string;
+  setselectedScreen: (param: string) => void;
 };
-const ChatProfile = ({ profile, selectedScreen }: Props) => {
+const ChatProfile = ({ profile, selectedScreen, setselectedScreen }: Props) => {
   const [isOn, setisOn] = useState(false);
   return (
     <div
@@ -17,6 +19,9 @@ const ChatProfile = ({ profile, selectedScreen }: Props) => {
     >
       {/* top */}
       <div>
+        <div id="back-btn" onClick={() => setselectedScreen('chat-main')}>
+          <img src={arrow} alt="" style={{ rotate: '90deg' }} />
+        </div>
         <img src={profile.avatar} alt="" id="avatar" width={120} />
         <div className="active-indicor">
           <div className={`${profile.active ? 'active' : ''}`}></div>

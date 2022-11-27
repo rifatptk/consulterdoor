@@ -104,7 +104,10 @@ const Chats = () => {
     <div id="chats">
       <PageContainer noFooter>
         <>
-          <ChatHeader />
+          <ChatHeader
+            setselectedScreen={setselectedScreen}
+            profile={chatsData[selectedChat]}
+          />
           <div id="chatContentsContainer">
             <ChatSidebar
               selectedScreen={selectedScreen}
@@ -119,6 +122,7 @@ const Chats = () => {
               setselectedScreen={setselectedScreen}
             />
             <ChatProfile
+              setselectedScreen={setselectedScreen}
               selectedScreen={selectedScreen}
               profile={chatsData[selectedChat]}
             />

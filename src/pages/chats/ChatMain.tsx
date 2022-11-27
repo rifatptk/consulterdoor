@@ -14,22 +14,6 @@ const ChatMain = ({ profile, selectedScreen, setselectedScreen }: Props) => {
       id="chatMain"
       className={`${selectedScreen === 'chat-main' ? 'selected-screen' : ''}`}
     >
-      <div id="screen-selectors">
-        <div
-          id="chat-list"
-          title="Chat List"
-          onClick={() => setselectedScreen('chat-list')}
-        >
-          Chats
-        </div>
-        <div
-          id="user-profile"
-          title="User Profile"
-          onClick={() => setselectedScreen('user-profile')}
-        >
-          Profile
-        </div>
-      </div>
       <ChatInitButton />
       <ChatProgress profile={profile} />
       <ChatInputs />
