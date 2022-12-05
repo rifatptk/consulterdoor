@@ -185,6 +185,13 @@
             margin-bottom: 30px;
           }
         }
+        #appointment-form {
+          color: $darkBlue;
+          .dark-blue-bg {
+            background-color: $darkBlue;
+            color: white;
+          }
+        }
       }
 
       #inputs-container {
