@@ -5,6 +5,9 @@ import Questions from './Questions';
 import OfferPrompt from './OfferPrompt';
 import OrderAccepted from './OrderAccepted';
 import SentOffer from './SentOffer';
+import OfferAccepted from './OfferAccepted';
+import PaymentProcess from './PaymentProcess';
+import OfferRejected from './OfferRejected';
 
 type Props = any;
 
@@ -68,6 +71,9 @@ const ChatProgress = ({ profile }: Props) => {
           {offerPromptShown && <OfferPrompt />}
 
           <OrderAccepted profile={profile} />
+          <OfferAccepted profile={profile} />
+          <PaymentProcess />
+          <OfferRejected profile={profile} />
           <div className="chat-top mb-5">
             <div className="d-flex justify-content-between">
               <div className="d-flex gap-2" id="me">

@@ -6,7 +6,7 @@ type Props = {
 
 const OrderAccepted = ({ profile }: Props) => {
   return (
-    <div className="chat-top mb-5 border-right py-5">
+    <div className="chat-top mb-5 py-5">
       <div className="d-flex gap-2" id="me">
         <img src={profile.avatar} alt="" width={36} height={36} id="avatar" />
         <strong className="pe-2">{profile.username}</strong>
