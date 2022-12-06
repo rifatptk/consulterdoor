@@ -30,7 +30,7 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
     >
       <form
         id="appointment-form"
-        className="shadow p-2 p-md-5"
+        className="shadow border p-3 p-md-5"
         style={{
           width: '80%',
           background: 'white',
@@ -53,11 +53,11 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
         </header>
 
         <main className="mt-2">
-          <h6 className="mt-5 mb-3" style={{ fontSize: 22, fontWeight: 600 }}>
+          <h6 className="mt-5 mb-3" style={{ fontSize: 20, fontWeight: 600 }}>
             1. Add Your Price plan
           </h6>
-          <div className="border rounded p-3" style={{ fontSize: 18 }}>
-            <div className="d-flex gap-2 gap-md-5">
+          <div className="border rounded p-3">
+            <div id="price-plan-box" className="d-flex gap-2 gap-md-5">
               <label htmlFor="ammount">Enter Ammount</label>
               <div style={{ flex: 1 }}>
                 <span className="fw-bold me-3">LKR</span>
@@ -80,14 +80,15 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
             ></textarea>
           </div>
 
-          <h6 className="mt-5 mb-3" style={{ fontSize: 22, fontWeight: 600 }}>
+          <h6 className="mt-5 mb-3" style={{ fontSize: 20, fontWeight: 600 }}>
             2. Send Available Time slots
           </h6>
           <div style={{ height: 300, background: '#dadada' }}></div>
 
-          <div className="d-flex justify-content-center align-items-center gap-5">
+          <div className="d-flex justify-content-center align-items-center gap-1 gap-md-5">
             <img src={larr} alt="" />
             <div
+              id="slots"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr 1fr',
@@ -98,7 +99,7 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
               {timeSlots.map((slot, i) => (
                 <button
                   style={{ fontSize: 20 }}
-                  className={`btn ${
+                  className={`btn slot-button ${
                     i === 1 || i === 3 || i === 4 ? 'btn-outline-primary' : ''
                   }`}
                   key={i}
@@ -112,6 +113,7 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
 
           <hr />
           <div
+            id="dark-slots"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr 1fr',
@@ -126,7 +128,7 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
                 key={i}
               >
                 <p style={{ fontSize: 10, margin: 0 }}>22/06/2022</p>
-                <span>{slot}</span>
+                <span className="slot-button">{slot}</span>
               </button>
             ))}
           </div>
@@ -136,13 +138,13 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
             style={{ paddingBlock: 35 }}
           >
             <button
-              style={{ width: 170, fontSize: 20, paddingBlock: 16 }}
+              style={{ width: 170, paddingBlock: 16 }}
               className="btn btn-outline-danger"
             >
               Reset
             </button>
             <button
-              style={{ width: 170, fontSize: 20, paddingBlock: 16 }}
+              style={{ width: 170, paddingBlock: 16 }}
               className="btn btn-success"
               onClick={() => setshowAppointmentForm(true)}
             >

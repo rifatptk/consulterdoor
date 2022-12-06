@@ -190,6 +190,33 @@
           .bg-dark-blue {
             background-color: $darkBlue;
           }
+          @media (max-width: 768px) {
+            scale: 0.999;
+            width: 95% !important;
+            #price-plan-box {
+              flex-direction: column;
+            }
+            .slot-button {
+              font-size: 10px !important;
+            }
+
+            #dark-slots {
+              grid-template-columns: 1fr 1fr 1fr !important;
+              font-size: 8px !important;
+              grid-gap: 4px !important;
+              button {
+                padding: 8px !important;
+              }
+            }
+            #slots {
+              grid-template-columns: 1fr 1fr !important;
+              font-size: 8px !important;
+              grid-gap: 4px !important;
+              button {
+                padding: 8px !important;
+              }
+            }
+          }
         }
       }
 
