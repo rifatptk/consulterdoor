@@ -148,6 +148,13 @@
 
       #chat-progress {
         font-size: 14px;
+
+        .bg-dark-blue {
+          background-color: $darkBlue;
+        }
+        .text-dark-blue {
+          color: $darkBlue;
+        }
         .chat-top {
           #me {
             #avatar {
@@ -187,9 +194,7 @@
         }
         #appointment-form {
           color: $darkBlue;
-          .bg-dark-blue {
-            background-color: $darkBlue;
-          }
+
           @media (max-width: 768px) {
             scale: 0.999;
             width: 95% !important;

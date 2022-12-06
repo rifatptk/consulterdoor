@@ -3,6 +3,8 @@ import arrow from '../../assets/images/chatspage/darr.png';
 import { useState } from 'react';
 import Questions from './Questions';
 import OfferPrompt from './OfferPrompt';
+import OrderAccepted from './OrderAccepted';
+import SentOffer from './SentOffer';
 
 type Props = any;
 
@@ -16,6 +18,7 @@ const questions = [
 const ChatProgress = ({ profile }: Props) => {
   const [isExpanded, setisExpanded] = useState(false);
   const [offerPromptShown, setofferPromptShown] = useState(false);
+  const [sentOfferShown, setsentOfferShown] = useState(false);
   return (
     <div id="chat-progress" className="p-5">
       <div className="chat-top">
@@ -43,7 +46,7 @@ const ChatProgress = ({ profile }: Props) => {
       {isExpanded && (
         <>
           <Questions questions={questions} />
-          <div className="chat-top my-5">
+          <div className="chat-top mb-5">
             <div className="d-flex justify-content-between">
               <div className="d-flex gap-2" id="me">
                 <img src={avatar} alt="" width={36} height={36} id="avatar" />
@@ -63,6 +66,28 @@ const ChatProgress = ({ profile }: Props) => {
             </div>
           </div>
           {offerPromptShown && <OfferPrompt />}
+
+          <OrderAccepted profile={profile} />
+          <div className="chat-top mb-5">
+            <div className="d-flex justify-content-between">
+              <div className="d-flex gap-2" id="me">
+                <img src={avatar} alt="" width={36} height={36} id="avatar" />
+                <strong className="pe-2">{profile.username}</strong>
+                <span>Nov 10, 2022, 11:12 PM</span>
+              </div>
+              <div
+                id="expand-arrow"
+                onClick={() => setsentOfferShown(!sentOfferShown)}
+              >
+                <img
+                  src={arrow}
+                  alt=""
+                  style={{ rotate: sentOfferShown ? '180deg' : '0deg' }}
+                />
+              </div>
+            </div>
+          </div>
+          {sentOfferShown && <SentOffer />}
         </>
       )}
     </div>
