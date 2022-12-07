@@ -33,9 +33,7 @@ const ChatCard = ({
             <h5>{data.username}</h5>
             <span>{data.lastMessage.time}</span>
           </div>
-          <p className="last-message">
-            {data.lastMessage.message.substr(0, 25)}...
-          </p>
+          <p className="last-message">{data.lastMessage.message}...</p>
         </div>
       </div>
     </div>

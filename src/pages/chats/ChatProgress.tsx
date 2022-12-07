@@ -8,6 +8,7 @@ import SentOffer from './SentOffer';
 import OfferAccepted from './OfferAccepted';
 import PaymentProcess from './PaymentProcess';
 import OfferRejected from './OfferRejected';
+import PaymentReceived from './PaymentReceived';
 
 type Props = any;
 
@@ -23,7 +24,7 @@ const ChatProgress = ({ profile }: Props) => {
   const [offerPromptShown, setofferPromptShown] = useState(false);
   const [sentOfferShown, setsentOfferShown] = useState(false);
   return (
-    <div id="chat-progress" className="p-5">
+    <div id="chat-progress" className="p-4 p-lg-5">
       <div className="chat-top">
         <div className="d-flex justify-content-between">
           <div className="d-flex gap-2" id="me">
@@ -73,6 +74,7 @@ const ChatProgress = ({ profile }: Props) => {
           <OrderAccepted profile={profile} />
           <OfferAccepted profile={profile} />
           <PaymentProcess />
+          <PaymentReceived />
           <OfferRejected profile={profile} />
           <div className="chat-top mb-5">
             <div className="d-flex justify-content-between">
