@@ -21,8 +21,8 @@ const questions = [
 ];
 const ChatProgress = ({ profile }: Props) => {
   const [isExpanded, setisExpanded] = useState(false);
-  const [offerPromptShown, setofferPromptShown] = useState(false);
-  const [sentOfferShown, setsentOfferShown] = useState(false);
+  const [offerPromptShown, setofferPromptShown] = useState(true);
+  const [sentOfferShown, setsentOfferShown] = useState(true);
   return (
     <div id="chat-progress" className="p-4 p-lg-5">
       <div className="chat-top">
@@ -70,12 +70,7 @@ const ChatProgress = ({ profile }: Props) => {
             </div>
           </div>
           {offerPromptShown && <OfferPrompt />}
-
           <OrderAccepted profile={profile} />
-          <OfferAccepted profile={profile} />
-          <PaymentProcess />
-          <PaymentReceived />
-          <OfferRejected profile={profile} />
           <div className="chat-top mb-5">
             <div className="d-flex justify-content-between">
               <div className="d-flex gap-2" id="me">
@@ -96,6 +91,10 @@ const ChatProgress = ({ profile }: Props) => {
             </div>
           </div>
           {sentOfferShown && <SentOffer />}
+          <OfferAccepted profile={profile} />
+          <PaymentProcess />
+          <PaymentReceived />
+          <OfferRejected profile={profile} />
         </>
       )}
     </div>
