@@ -31,12 +31,15 @@ const OfferPrompt = (props: Props) => {
         </div>
       </div>
 
-      <div className="d-flex my-5 justify-content-between align-items-center">
+      <div className="d-md-flex my-5 justify-content-between align-items-center">
         <img src={cloud} alt="" height={23} className="flex-sh" />
-        <p className="m-0 font-italic">If you need to ask more question,</p>
-        <a href="#" className="text-success">
-          Click Here
-        </a>
+        <p className="m-0 font-italic">
+          If you need to ask more question,{' '}
+          <a href="#" className="text-success">
+            Click Here
+          </a>
+        </p>
+
         <img src={cloud2} alt="" height={60} className="flex-sh" />
       </div>
 
