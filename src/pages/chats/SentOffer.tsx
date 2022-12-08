@@ -1,6 +1,4 @@
-type Props = {};
-
-const SentOffer = (props: Props) => {
+const SentOffer = () => {
   return (
     <>
       <div

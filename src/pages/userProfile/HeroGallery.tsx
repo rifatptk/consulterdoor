@@ -1,7 +1,7 @@
-import designing from '../../assets/images/userProfilePage/designing.png';
 import design1 from '../../assets/images/userProfilePage/design1.png';
 import design2 from '../../assets/images/userProfilePage/design2.png';
 import design3 from '../../assets/images/userProfilePage/design3.png';
+import designing from '../../assets/images/userProfilePage/designing.png';
 
 const HeroGallery = () => {
   return (

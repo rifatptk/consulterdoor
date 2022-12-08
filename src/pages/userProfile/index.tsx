@@ -4,9 +4,7 @@ import './_index.scss';
 import Hero from './Hero';
 import TopRatedConsultants from './TopRatedConsultants';
 
-type Props = {};
-
-function UserProfile({}: Props) {
+function UserProfile() {
   return (
     <PageContainer>
       <>

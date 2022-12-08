@@ -1,8 +1,8 @@
 import cardTick from '../../assets/images/chatspage/card-tick.png';
 
-type Props = {
+interface Props {
   profile: any;
-};
+}
 
 const OfferAccepted = ({ profile }: Props) => {
   return (

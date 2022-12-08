@@ -1,6 +1,6 @@
 import star from '../../assets/images/homepage/star.svg';
 
-type Props = {
+interface Props {
   col: number;
   user: {
     avatar: string;
@@ -10,7 +10,7 @@ type Props = {
     rating: string;
     flag: string;
   };
-};
+}
 
 function FeedBackCard({ col, user }: Props) {
   return (

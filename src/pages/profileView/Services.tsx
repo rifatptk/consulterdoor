@@ -18,9 +18,8 @@ const data = [
       'Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi  Consectetur adipiscing elit. Viverra magna nunc risus iaculis eleifend id magna nunc risus iaculis eleifend id facilisi. facilisi. . ',
   },
 ];
-type Props = {};
 
-const Services = (props: Props) => {
+const Services = () => {
   return (
     <div className="my-5" id="services">
       <div id="header">

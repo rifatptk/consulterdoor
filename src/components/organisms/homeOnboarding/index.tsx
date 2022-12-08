@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Col, Container } from 'reactstrap';
 import { HomeOnboardingSvg } from '../../../assets/images';
-import { SearchInput } from '../../molecules';
 import close from '../../../assets/images/homepage/close.svg';
+import { SearchInput } from '../../molecules';
 
 const HomeOnboarding = () => {
   const navigate = useNavigate();

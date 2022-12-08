@@ -2,11 +2,11 @@ import ChatInitButton from './ChatInitButton';
 import ChatInputs from './ChatInputs';
 import ChatProgress from './ChatProgress';
 
-type Props = {
+interface Props {
   profile: any;
   selectedScreen: string;
   setselectedScreen: (arg: string) => void;
-};
+}
 
 const ChatMain = ({ profile, selectedScreen, setselectedScreen }: Props) => {
   return (

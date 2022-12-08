@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './tabs.scss';
-import handshake from '../../assets/images/userProfilePage/handshake.svg';
 import graduate from '../../assets/images/userProfilePage/graduate.svg';
+import handshake from '../../assets/images/userProfilePage/handshake.svg';
+import './tabs.scss';
 
 const data = [
   {
@@ -78,7 +78,7 @@ const Tabs = () => {
               onClick={() => setselected(i)}
             >
               <div>{tab.tab}</div>
-              <div className="bottom-bar"></div>
+              <div className="bottom-bar"/>
             </div>
           ))}
         </div>

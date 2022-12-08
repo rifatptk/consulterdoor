@@ -3,9 +3,7 @@ import cloud from '../../assets/images/chatspage/cloud.png';
 import cloud2 from '../../assets/images/chatspage/cloud2.png';
 import AppointmentForm from './AppointmentForm';
 
-type Props = {};
-
-const OfferPrompt = (props: Props) => {
+const OfferPrompt = () => {
   const [showAppointmentForm, setshowAppointmentForm] = useState(false);
   return (
     <>

@@ -1,10 +1,8 @@
-import send from '../../assets/images/chatspage/send.png';
-import emoji from '../../assets/images/chatspage/emoji.png';
 import attach from '../../assets/images/chatspage/attach.png';
+import emoji from '../../assets/images/chatspage/emoji.png';
+import send from '../../assets/images/chatspage/send.png';
 
-type Props = {};
-
-const ChatInputs = (props: Props) => {
+const ChatInputs = () => {
   return (
     <div id="chat-inputs">
       <div id="inputs-container" className="border-top">

@@ -1,8 +1,6 @@
 import img from '../../../assets/images/homepage/start-your-career.svg';
 
-type Props = {};
-
-function StartCareer({}: Props) {
+function StartCareer() {
   return (
     <div className="row align-items-center py-5 my-5">
       <div className="col-md-6">

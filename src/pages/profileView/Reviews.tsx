@@ -1,14 +1,14 @@
+import star from '../../assets/images/homepage/star.svg';
 import avatar from '../../assets/images/userProfilePage/circle-avatar.png';
+import star9 from '../../assets/images/userProfilePage/star-9.svg';
 import usa from '../../assets/images/userProfilePage/usa.png';
 import FeedBackCard from '../userProfile/FeedBackCard';
-import star9 from '../../assets/images/userProfilePage/star-9.svg';
-import star from '../../assets/images/homepage/star.svg';
 
 const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -17,7 +17,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -26,7 +26,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -35,7 +35,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -44,7 +44,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:

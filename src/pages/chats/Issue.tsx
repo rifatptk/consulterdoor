@@ -1,8 +1,6 @@
 import alt from '../../assets/images/chatspage/alt.png';
 
-type Props = {};
-
-const Issue = (props: Props) => {
+const Issue = () => {
   return (
     <div className="bg-white shadow mt-2 rounded">
       <div className="border-bottom pt-3">

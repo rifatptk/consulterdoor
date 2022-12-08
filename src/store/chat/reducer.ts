@@ -51,6 +51,19 @@ const chatSlice = createSlice({
     setActiveChat: (state, action: PayloadAction<string>) => {
       state.activeChat = action.payload;
     },
+    setReceivedMessageInChat: (state, action: PayloadAction<any>) => {
+      const currentChats = JSON.parse(JSON.stringify(state.chats));
+      const modifiedChatArray = currentChats.map((chat: any) => {
+        if (chat.chatKey === action.payload.chatKey) {
+          chat.messages.push(action.payload.messages[0]);
+          if (action.payload.lastAppointment) {
+            chat.lastAppointment = action.payload.lastAppointment;
+          }
+        }
+        return chat;
+      });
+      state.chats = modifiedChatArray;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loadChatList.fulfilled, (state, { payload }) => {
@@ -97,7 +110,7 @@ const chatSlice = createSlice({
 });
 
 const chatReducer = chatSlice.reducer;
-const { setActiveChat } = chatSlice.actions;
+const { setActiveChat, setReceivedMessageInChat } = chatSlice.actions;
 
 export {
   chatReducer,
@@ -106,4 +119,5 @@ export {
   loadChat,
   sendAppointmentAcceptance,
   setActiveChat,
+  setReceivedMessageInChat,
 };

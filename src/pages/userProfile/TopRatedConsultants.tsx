@@ -1,5 +1,5 @@
-import bg from '../../assets/images/homepage/codebg.svg';
 import avatar from '../../assets/images/homepage/avatar.svg';
+import bg from '../../assets/images/homepage/codebg.svg';
 import avatar1 from '../../assets/images/userProfilePage/avatar1.png';
 import avatar2 from '../../assets/images/userProfilePage/avatar2.png';
 import avatar3 from '../../assets/images/userProfilePage/avatar3.png';

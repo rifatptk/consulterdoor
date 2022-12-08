@@ -1,9 +1,9 @@
 import close from '../../assets/images/chatspage/close-red.png';
 import larr from '../../assets/images/chatspage/larr.png';
 
-type Props = {
+interface Props {
   setshowAppointmentForm: (param: boolean) => void;
-};
+}
 
 const timeSlots = [
   '10.00am - 10.30am',
@@ -77,13 +77,13 @@ const AppointmentForm = ({ setshowAppointmentForm }: Props) => {
               placeholder="Add Note"
               className="border-0 w-100 font-italic"
               rows={5}
-            ></textarea>
+            />
           </div>
 
           <h6 className="mt-5 mb-3" style={{ fontSize: 20, fontWeight: 600 }}>
             2. Send Available Time slots
           </h6>
-          <div style={{ height: 300, background: '#dadada' }}></div>
+          <div style={{ height: 300, background: '#dadada' }}/>
 
           <div className="d-flex justify-content-center align-items-center gap-1 gap-md-5">
             <img src={larr} alt="" />

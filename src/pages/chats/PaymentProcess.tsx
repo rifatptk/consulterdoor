@@ -1,6 +1,4 @@
-type Props = {};
-
-const PaymentProcess = (props: Props) => {
+const PaymentProcess = () => {
   return (
     <div className="chat-top mb-5 py-5 ">
       <div className="d-flex gap-2" id="me">

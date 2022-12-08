@@ -1,8 +1,6 @@
-import bg from '../../../assets/images/homepage/codebg.svg';
 import avatar from '../../../assets/images/homepage/avatar.svg';
+import bg from '../../../assets/images/homepage/codebg.svg';
 import star from '../../../assets/images/homepage/star.svg';
-
-type Props = {};
 
 const data = [
   {
@@ -39,7 +37,7 @@ const data = [
   },
 ];
 
-function TopRatedConsultants({}: Props) {
+function TopRatedConsultants() {
   return (
     <div className="row my-2">
       {data.map((user, i) => (
@@ -82,7 +80,7 @@ function TopRatedConsultants({}: Props) {
                   right: 0,
                   margin: '0 auto',
                 }}
-              ></div>
+              />
             </div>
 
             <div className="text-center mt-5 mb-3 px-3">

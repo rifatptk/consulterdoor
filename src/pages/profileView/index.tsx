@@ -8,9 +8,7 @@ import SimilarConsultants from './SimilarConsultants';
 import Tabs from './Tabs';
 import './_index.scss';
 
-type Props = {};
-
-const ProfileView = (props: Props) => {
+const ProfileView = () => {
   return (
     <PageContainer>
       <div id="profile-view" className="container">

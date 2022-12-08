@@ -3,6 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { PhotoUploadIcon } from '../../../../assets/images';
+import { IServiceAttachment } from '../../../../services/interfaces';
 interface UploadedFile {
   name: string;
   size?: number;
@@ -13,7 +14,7 @@ interface UploadedFile {
 
 interface IProps {
   setUploadedFile: (file: UploadedFile[] | null) => void;
-  uploadedFile?: UploadedFile | null;
+  uploadedFile?: UploadedFile | null | IServiceAttachment;
   disabled?: boolean;
   allowMultiple?: boolean;
   dropzoneClassName?: string;
@@ -138,18 +139,28 @@ const DropZone: React.FunctionComponent<IProps> = ({
     return null;
   };
 
-  const renderSelectedFileContainer = (selectedFile: any) => {
-    switch (selectedFile.type) {
-      case 'image/jpeg':
-        return (
-          <img src={selectedFile.preview} className="dropzone-image-fit" />
-        );
-      default:
-        return (
-          <p className={`font-size-small m-0 font-weight-light`}>
-            {selectedFile.name}
-          </p>
-        );
+  function isServiceAttachment(obj: any): obj is IServiceAttachment {
+    return 'url' in obj && 'type' in obj;
+  }
+
+  const renderSelectedFileContainer = (
+    selectedFile: UploadedFile | IServiceAttachment
+  ) => {
+    if (isServiceAttachment(selectedFile)) {
+      return <img src={selectedFile.url} className="dropzone-image-fit" />;
+    } else {
+      switch (selectedFile.type) {
+        case 'image/jpeg':
+          return (
+            <img src={selectedFile.preview} className="dropzone-image-fit" />
+          );
+        default:
+          return (
+            <p className={`font-size-small m-0 font-weight-light`}>
+              {selectedFile.name}
+            </p>
+          );
+      }
     }
   };
 

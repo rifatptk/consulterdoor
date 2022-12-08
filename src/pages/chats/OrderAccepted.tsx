@@ -1,8 +1,8 @@
 import like from '../../assets/images/chatspage/like-shapes.png';
 
-type Props = {
+interface Props {
   profile: any;
-};
+}
 
 const OrderAccepted = ({ profile }: Props) => {
   return (

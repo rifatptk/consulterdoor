@@ -1,13 +1,13 @@
-import zoom from '../../assets/images/chatspage/zoom.png';
 import { useState } from 'react';
-import Switch from './Switch';
 import arrow from '../../assets/images/chatspage/darr.png';
+import zoom from '../../assets/images/chatspage/zoom.png';
+import Switch from './Switch';
 
-type Props = {
+interface Props {
   profile: any;
   selectedScreen: string;
   setselectedScreen: (param: string) => void;
-};
+}
 const ChatProfile = ({ profile, selectedScreen, setselectedScreen }: Props) => {
   const [isOn, setisOn] = useState(false);
   return (
@@ -24,7 +24,7 @@ const ChatProfile = ({ profile, selectedScreen, setselectedScreen }: Props) => {
         </div>
         <img src={profile.avatar} alt="" id="avatar" width={120} />
         <div className="active-indicor">
-          <div className={`${profile.active ? 'active' : ''}`}></div>
+          <div className={`${profile.active ? 'active' : ''}`}/>
           <span>{profile.active ? 'Online' : 'Offline'}</span>
         </div>
 

@@ -1,9 +1,9 @@
 import cardTickRed from '../../assets/images/chatspage/card-tick-red.png';
 import Issue from './Issue';
 
-type Props = {
+interface Props {
   profile: any;
-};
+}
 
 const OfferRejected = ({ profile }: Props) => {
   return (

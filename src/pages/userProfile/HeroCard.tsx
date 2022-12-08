@@ -1,12 +1,12 @@
-import avatar from '../../assets/images/userProfilePage/avatar.png';
 import star from '../../assets/images/homepage/star.svg';
+import avatar from '../../assets/images/userProfilePage/avatar.png';
 
 function HeroCard() {
   return (
     <div className="d-flex flex-column align-items-center py-5" id="hero-card">
       <div className="position-relative">
         <img src={avatar} alt="" width={170} />
-        <div id="active-indicator"></div>
+        <div id="active-indicator"/>
       </div>
       <h3 className="hero-card-name text-333 my-2">Dilshan Athukorala</h3>
       <p className="hero-card-title text-828282">I am UI/UX Designer</p>

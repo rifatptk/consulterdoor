@@ -1,8 +1,6 @@
 import initialize from '../../assets/images/chatspage/initialize.png';
 
-type Props = {};
-
-const ChatInitButton = (props: Props) => {
+const ChatInitButton = () => {
   return (
     <div className="init-button">
       <div className="icon">

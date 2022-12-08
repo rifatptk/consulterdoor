@@ -1,6 +1,6 @@
 import star from '../../assets/images/homepage/star.svg';
 
-type Props = {
+interface Props {
   user: {
     bg: string;
     avatar: string;
@@ -10,7 +10,7 @@ type Props = {
     active: boolean;
     rating: any[];
   };
-};
+}
 
 const ConsultantCard = ({ user }: Props) => {
   return (
@@ -53,7 +53,7 @@ const ConsultantCard = ({ user }: Props) => {
               right: 0,
               margin: '0 auto',
             }}
-          ></div>
+          />
         </div>
 
         <div className="text-center mt-5 mb-3 px-3">

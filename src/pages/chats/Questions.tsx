@@ -1,4 +1,4 @@
-type Props = { questions: string[] };
+interface Props { questions: string[]; }
 
 const Questions = ({ questions }: Props) => {
   return (

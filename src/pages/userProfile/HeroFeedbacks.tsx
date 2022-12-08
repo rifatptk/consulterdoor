@@ -6,7 +6,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -15,7 +15,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -24,7 +24,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -33,7 +33,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:
@@ -42,7 +42,7 @@ const data = [
   {
     name: 'Abdouhharounake',
     country: 'United States',
-    avatar: avatar,
+    avatar,
     flag: usa,
     rating: '5.0',
     description:

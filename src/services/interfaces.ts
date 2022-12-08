@@ -44,17 +44,29 @@ interface IConsultantQualification {
 }
 
 interface IAddService {
-  title?: string;
-  mainCategory?: {
+  serviceName?: string;
+  categoryId?: string;
+  category?: {
     id: string;
-    displayText: string
+    displayText: string;
   };
-  subCategory?: {
-    id: string;
-    displayText: string
-  };
-  attachments?: (UploadedFile | null)[];
+  serviceAttachmentFiles?: (UploadedFile | string | null)[];
   description?: string;
+  serviceQuestions?: (string | null)[];
+  maxDuration?: number;
+  minDuration?: number;
+  keywords?: string[];
+  costPerHour?: number;
+}
+
+interface IServiceAttachment {
+  url: string;
+  type: 'THUMBNAIL_IMG' | 'IMAGE';
+  caption?: string;
+}
+
+interface IAddServiceProps extends IAddService {
+  serviceAttachments: IServiceAttachment[];
 }
 
 interface IAddServiceMetaData {
@@ -67,5 +79,7 @@ export type {
   IConsultant,
   IConsultantQualification,
   IAddService,
-  IAddServiceMetaData
+  IServiceAttachment,
+  IAddServiceProps,
+  IAddServiceMetaData,
 };

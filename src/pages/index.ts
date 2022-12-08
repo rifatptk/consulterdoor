@@ -4,12 +4,12 @@ import { Chat } from './chat';
 import { ConsultantProfile } from './ConsultantProfile';
 import { Home } from './home';
 import { Payment } from './payment';
+import { ProfileView } from './profileView';
 import { ConsultantRegister } from './register';
 import { SearchPage } from './search';
 import { Service } from './Service';
-import { VideoChat } from './VideoChat';
 import { UserProfile } from './userProfile';
-import { ProfileView } from './profileView';
+import { VideoChat } from './VideoChat';
 
 export {
   AddService,

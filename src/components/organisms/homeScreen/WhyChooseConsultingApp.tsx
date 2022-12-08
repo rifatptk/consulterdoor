@@ -1,9 +1,9 @@
-import handshake from '../../../assets/images/homepage/handshake.svg';
-import lock from '../../../assets/images/homepage/lock.svg';
-import school from '../../../assets/images/homepage/School.svg';
 import Chat from '../../../assets/images/homepage/Chat.svg';
 import Edit from '../../../assets/images/homepage/Edit.svg';
 import Favourite from '../../../assets/images/homepage/Favorite.svg';
+import handshake from '../../../assets/images/homepage/handshake.svg';
+import lock from '../../../assets/images/homepage/lock.svg';
+import school from '../../../assets/images/homepage/School.svg';
 
 const data = [
   {
@@ -44,9 +44,7 @@ const data = [
   },
 ];
 
-type Props = {};
-
-function WhyChooseConsultingApp({}: Props) {
+function WhyChooseConsultingApp() {
   return (
     <div>
       <h2 className="font-bold py-5 text-333">Why Choose Consulting App</h2>

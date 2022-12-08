@@ -1,14 +1,14 @@
-import avatar from '../../assets/images/userProfilePage/avatar.png';
-import arrow from '../../assets/images/chatspage/darr.png';
 import { useState } from 'react';
-import Questions from './Questions';
-import OfferPrompt from './OfferPrompt';
-import OrderAccepted from './OrderAccepted';
-import SentOffer from './SentOffer';
+import arrow from '../../assets/images/chatspage/darr.png';
+import avatar from '../../assets/images/userProfilePage/avatar.png';
 import OfferAccepted from './OfferAccepted';
-import PaymentProcess from './PaymentProcess';
+import OfferPrompt from './OfferPrompt';
 import OfferRejected from './OfferRejected';
+import OrderAccepted from './OrderAccepted';
+import PaymentProcess from './PaymentProcess';
 import PaymentReceived from './PaymentReceived';
+import Questions from './Questions';
+import SentOffer from './SentOffer';
 
 type Props = any;
 

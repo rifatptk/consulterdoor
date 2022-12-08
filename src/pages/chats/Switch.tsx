@@ -1,7 +1,7 @@
-type Props = {
+interface Props {
   isOn: boolean;
   onClick?: () => void;
-};
+}
 
 const Switch = ({ isOn, onClick }: Props) => {
   return (
@@ -23,7 +23,7 @@ const Switch = ({ isOn, onClick }: Props) => {
           backgroundColor: isOn ? '#4856df' : 'gray',
           marginLeft: isOn ? 'auto' : 0,
         }}
-      ></div>
+      />
     </div>
   );
 };

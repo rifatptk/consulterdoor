@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import WhyChooseConsultingApp from './WhyChooseConsultingApp';
 import { RootState } from '../../../shared/hooks';
 import { messages } from '../../../shared/localize';
 import {
@@ -12,6 +11,7 @@ import { Button, BUTTON_TYPES, TextLabel } from '../../shared';
 import { CategoryList, ConsultCardList, ServiceCardList } from '../index';
 import StartCareer from './StartCareer';
 import TopRatedConsultants from './TopRatedConsultants';
+import WhyChooseConsultingApp from './WhyChooseConsultingApp';
 
 function HomeScreen() {
   const dispatch = useDispatch();

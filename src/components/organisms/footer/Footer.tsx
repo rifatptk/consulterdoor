@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import './footer.scss';
-import twitter from '../../../assets/images/footer/twitter.svg';
 import facebook from '../../../assets/images/footer/facebook.svg';
 import linkedin from '../../../assets/images/footer/linkedin.svg';
+import twitter from '../../../assets/images/footer/twitter.svg';
+import './footer.scss';
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <div className="bg-darkblue text-white py-5">
       <div className="container py-3">

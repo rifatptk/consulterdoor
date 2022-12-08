@@ -1,12 +1,12 @@
 import './chatCard.scss';
 
-type Props = {
+interface Props {
   data: any;
   selectedChat: number;
   setSelectedChat: (i: number) => void;
   index: number;
   setselectedScreen: (param: string) => void;
-};
+}
 
 const ChatCard = ({
   data,

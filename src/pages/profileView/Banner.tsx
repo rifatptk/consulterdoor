@@ -1,11 +1,11 @@
 import avatar from '../../assets/images/userProfilePage/avatar.png';
 import Fire from '../../assets/images/userProfilePage/Fire.svg';
-import userOctagone from '../../assets/images/userProfilePage/user-octagon.svg';
-import medal from '../../assets/images/userProfilePage/Medal-Star.svg';
 import global from '../../assets/images/userProfilePage/global.svg';
 import map from '../../assets/images/userProfilePage/Map-Arrow-Up.svg';
-import translate from '../../assets/images/userProfilePage/translate.svg';
+import medal from '../../assets/images/userProfilePage/Medal-Star.svg';
 import profileLink from '../../assets/images/userProfilePage/profile-link.svg';
+import translate from '../../assets/images/userProfilePage/translate.svg';
+import userOctagone from '../../assets/images/userProfilePage/user-octagon.svg';
 
 function Banner() {
   return (
@@ -19,7 +19,7 @@ function Banner() {
         >
           <div className="position-relative mb-3 mb-md-0">
             <img src={avatar} id="avatar" alt="" />
-            <div id="active-indicator"></div>
+            <div id="active-indicator"/>
           </div>
           {/* dilshan athukorala */}
           <div className="w-100">

@@ -1,9 +1,9 @@
 import search from '../../assets/images/chatspage/search.png';
 
-type Props = {
+interface Props {
   setselectedScreen: (arg: string) => void;
   profile: any;
-};
+}
 
 const ChatHeader = ({ setselectedScreen, profile }: Props) => {
   return (
