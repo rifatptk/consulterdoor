@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import arrow from '../../assets/images/chatspage/darr.png';
 import avatar from '../../assets/images/userProfilePage/avatar.png';
+import ConsultantsOfferAccept from './ConsultantsOfferAccept';
+import ConsultantsOfferReject from './ConsultantsOfferReject';
 import OfferAccepted from './OfferAccepted';
 import OfferPrompt from './OfferPrompt';
 import OfferRejected from './OfferRejected';
@@ -90,7 +92,13 @@ const ChatProgress = ({ profile }: Props) => {
               </div>
             </div>
           </div>
-          {sentOfferShown && <SentOffer />}
+          {sentOfferShown && (
+            <>
+              <SentOffer />
+              <ConsultantsOfferAccept />
+              <ConsultantsOfferReject />
+            </>
+          )}
           <OfferAccepted profile={profile} />
           <PaymentProcess />
           <PaymentReceived />
