@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import arrow from '../../assets/images/chatspage/darr.png';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import zoom from '../../assets/images/chatspage/zoom.png';
 import Switch from './Switch';
 
@@ -20,11 +20,11 @@ const ChatProfile = ({ profile, selectedScreen, setselectedScreen }: Props) => {
       {/* top */}
       <div>
         <div id="back-btn" onClick={() => setselectedScreen('chat-main')}>
-          <img src={arrow} alt="" style={{ rotate: '90deg' }} />
+          <MdOutlineArrowBackIosNew className="text-white" />
         </div>
         <img src={profile.avatar} alt="" id="avatar" width={120} />
         <div className="active-indicor">
-          <div className={`${profile.active ? 'active' : ''}`}/>
+          <div className={`${profile.active ? 'active' : ''}`} />
           <span>{profile.active ? 'Online' : 'Offline'}</span>
         </div>
 
