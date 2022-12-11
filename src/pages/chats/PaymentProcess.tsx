@@ -13,10 +13,10 @@ const PaymentProcess = () => {
       </div>
 
       <div className="bg-white shadow mt-2 rounded ">
-        <h5 className="border-bottom px-5 py-3">Payment Process</h5>
+        <h5 className="border-bottom px-4 px-md-5 py-3">Payment Process</h5>
         <div
           style={{ background: '#F2F8FB' }}
-          className="border-bottom px-5 py-3"
+          className="border-bottom px-4 px-md-5 py-3"
         >
           <div className="d-flex justify-content-between border-bottom">
             <div>
@@ -35,7 +35,7 @@ const PaymentProcess = () => {
             </button>
           </div>
         </div>
-        <div className="d-flex justify-content-end py-4 px-5 rounded-bottom">
+        <div className="d-flex justify-content-end py-4 px-4 px-md-5 rounded-bottom">
           <button>Invoice</button>
           <button
             style={{

@@ -8,20 +8,20 @@ const OfferPrompt = () => {
   return (
     <>
       <div className="shadow bg-white" style={{ borderRadius: '8px' }}>
-        <div className="py-5 border-bottom text-center">
+        <div className="py-5 px-4 px-md-5 border-bottom text-center">
           <h4>Do you Accept this request ?</h4>
           <small>Offer expires on Novemver 11, 2022 at 06:17 PM</small>
         </div>
-        <div className="px-1 py-3 d-flex align-items-center justify-content-center gap-2">
+        <div className="px-4 py-3 d-flex align-items-center justify-content-center gap-2">
           <button
             style={{ width: 180, fontSize: 14, paddingBlock: 10 }}
-            className="btn btn-outline-danger"
+            className="btn btn-outline-danger my-1"
           >
             Reject
           </button>
           <button
             style={{ width: 180, fontSize: 14, paddingBlock: 10 }}
-            className="btn btn-success"
+            className="btn btn-success my-1"
             onClick={() => setshowAppointmentForm(true)}
           >
             Accept & send Offer

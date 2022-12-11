@@ -1,4 +1,5 @@
 import search from '../../assets/images/chatspage/search.png';
+import { IoMdChatbubbles } from 'react-icons/io';
 
 interface Props {
   setselectedScreen: (arg: string) => void;
@@ -18,7 +19,7 @@ const ChatHeader = ({ setselectedScreen, profile }: Props) => {
           title="Chat List"
           onClick={() => setselectedScreen('chat-list')}
         >
-          Chats
+          <IoMdChatbubbles size={16} />
         </div>
         <div
           id="user-profile"
